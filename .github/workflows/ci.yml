@@ -26,7 +26,7 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - run: npm ci --prefix web
-      - name: Viewer unit tests (sun ephemeris, terrain decoding, UTM)
+      - name: Viewer unit tests (sun ephemeris, terrain, UTM, building tiles and extrusion)
         run: npm --prefix web run test:web
       - name: Static build
         run: npm --prefix web run build

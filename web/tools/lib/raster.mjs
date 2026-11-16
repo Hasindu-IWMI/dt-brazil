@@ -76,7 +76,7 @@ export async function retry(fn, label, tries = 4) {
     } catch (e) {
       if (k >= tries) throw e;
       console.log('retry', k, label, e?.message ?? e);
-      await new Promise((r) => setTimeout(r, 5000 * k));
+      await new Promise((r) => setTimeout(r, Math.min(5000 * k, 30000)));
     }
   }
 }

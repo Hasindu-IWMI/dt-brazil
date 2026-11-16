@@ -9,6 +9,7 @@
     "preview": "vite preview --port 4173 --strictPort",
     "test": "cd .. && python -I -m unittest discover -s tests",
     "basemap": "node tools/build_display_terrain.mjs && node tools/build_imagery.mjs && node tools/build_landcover.mjs",
+    "buildings": "node --max-old-space-size=4096 tools/build_buildings.mjs",
     "test:web": "node --test tests/scene.test.mjs"
   },
   "keywords": [],

@@ -1,0 +1,126 @@
+{
+  "title": "Building footprints and heights for 3D display",
+  "meaning": "Context for the 3D view only. No number on screen depends on the buildings.",
+  "footprints": [
+    {
+      "source": "OpenStreetMap contributors via the Overpass API",
+      "licence": "ODbL 1.0",
+      "attribution": "© OpenStreetMap contributors",
+      "count": 33471
+    },
+    {
+      "source": "Microsoft Global ML Building Footprints",
+      "licence": "ODbL 1.0",
+      "url": "https://minedbuildings.z5.web.core.windows.net/global-buildings/dataset-links.csv",
+      "files": [
+        {
+          "quadkey": "210311103",
+          "url": "https://minedbuildings.z5.web.core.windows.net/global-buildings/2026-02-03/global-buildings.geojsonl/RegionName=Brazil/quadkey=210311103/part-00108-4feead82-d499-422b-94cb-c036c212127a.c000.csv.gz",
+          "size": "75.0MB"
+        },
+        {
+          "quadkey": "210311112",
+          "url": "https://minedbuildings.z5.web.core.windows.net/global-buildings/2026-02-03/global-buildings.geojsonl/RegionName=Brazil/quadkey=210311112/part-00164-4feead82-d499-422b-94cb-c036c212127a.c000.csv.gz",
+          "size": "27.3MB"
+        },
+        {
+          "quadkey": "210311121",
+          "url": "https://minedbuildings.z5.web.core.windows.net/global-buildings/2026-02-03/global-buildings.geojsonl/RegionName=Brazil/quadkey=210311121/part-00111-4feead82-d499-422b-94cb-c036c212127a.c000.csv.gz",
+          "size": "146.8MB"
+        },
+        {
+          "quadkey": "210311130",
+          "url": "https://minedbuildings.z5.web.core.windows.net/global-buildings/2026-02-03/global-buildings.geojsonl/RegionName=Brazil/quadkey=210311130/part-00069-4feead82-d499-422b-94cb-c036c212127a.c000.csv.gz",
+          "size": "53.6MB"
+        }
+      ],
+      "count": 502573,
+      "rule": "kept only where no OSM building overlaps (its centroid in an OSM building, or an OSM building centroid in it)"
+    }
+  ],
+  "heights": {
+    "order": [
+      "OSM height tag",
+      "OSM building:levels × 3 m",
+      "Google Open Buildings 2.5D Temporal 2023: median of the 2 m pixels in the footprint eroded by 1 m",
+      "Microsoft footprint height estimate",
+      "placeholder 4 m"
+    ],
+    "counts": {
+      "osm_height_tag": 2543,
+      "osm_levels_x_storey": 1027,
+      "google_25d_2023": 467699,
+      "microsoft_estimate": 0,
+      "placeholder": 64775
+    },
+    "google": {
+      "source": "Google Open Buildings 2.5D Temporal v1, 2023 epoch (imagery centred on 30 Jun 2023)",
+      "licence": "CC BY 4.0",
+      "attribution": "Google Open Buildings 2.5D Temporal (CC BY 4.0)",
+      "manifests": [
+        "https://storage.googleapis.com/open-buildings-temporal-data/v1/manifests/01_EPSG_32723_2023_06_30.json",
+        "https://storage.googleapis.com/open-buildings-temporal-data/v1/manifests/07_EPSG_32723_2023_06_30.json",
+        "https://storage.googleapis.com/open-buildings-temporal-data/v1/manifests/93_EPSG_32723_2023_06_30.json",
+        "https://storage.googleapis.com/open-buildings-temporal-data/v1/manifests/95_EPSG_32723_2023_06_30.json"
+      ],
+      "tiles": 75,
+      "cogBlocksRead": 8478,
+      "band": "building_height (sample 2 of 3)",
+      "readAt": "2 m overview of the 0.5 m delivery; effective resolution 4 m"
+    },
+    "checkAgainstOsm": {
+      "against_height_tag": {
+        "n": 2348,
+        "biasM": 0.98,
+        "maeM": 2.43,
+        "rmseM": 4.18,
+        "r": 0.61,
+        "medianOsmM": 6
+      },
+      "against_storeys_x_3m": {
+        "n": 1009,
+        "biasM": 6.3,
+        "maeM": 7.61,
+        "rmseM": 11.24,
+        "r": 0.95,
+        "medianOsmM": 9
+      },
+      "osmWithoutGoogle": 213
+    },
+    "histogramM": {
+      "<4": 107821,
+      "4-8": 384234,
+      "8-15": 41828,
+      "15-30": 1714,
+      "30-60": 320,
+      ">=60": 127
+    }
+  },
+  "classCounts": {
+    "0": 517294,
+    "1": 13302,
+    "2": 818,
+    "3": 1576,
+    "4": 1246,
+    "5": 316,
+    "6": 383,
+    "7": 990,
+    "8": 66,
+    "9": 53
+  },
+  "reliabilityNotes": [
+    "12.1 % of buildings have no height information; they are drawn 4 m tall, a display placeholder.",
+    "87.3 % use Google 2.5D, a model estimate from Sentinel-2 (provider MAE 1.5 m was reported for North America, Europe and Japan only; in Sri Lanka the Kelani WebTwin found bias +2.3 m, MAE 5.1 m against OSM storeys). Here, against OSM: height tags (n 2348): bias +0.98 m, MAE 2.43 m, RMSE 4.18 m, r 0.61; storeys × 3 m (n 1009): bias +6.3 m, MAE 7.61 m, RMSE 11.24 m, r 0.95.",
+    "Storey height 3 m is an assumption.",
+    "Microsoft footprints are machine-detected from imagery of varying date; some are missing, merged or false. OSM completeness varies by town.",
+    "Base elevation comes from the terrain the viewer draws (Copernicus GLO-30, a surface model at 30 m), so bases are approximate; walls extend below it.",
+    "Roof form, facade, paint and roof material are drawn procedurally and are not data."
+  ],
+  "osmSkipped": false,
+  "tiles": 5286,
+  "tileSizeM": 1000,
+  "bytesGzip": 14663699,
+  "bytesRaw": 21700350,
+  "droppedOutOfTileRange": 0,
+  "built": "2026-11-16T14:07:50.388Z"
+}
