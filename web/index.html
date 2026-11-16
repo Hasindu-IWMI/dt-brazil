@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upper Atibaia · observed water record</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div id="scene"></div>
+
+  <header id="top">
+    <div>
+      <h1>Upper Atibaia &amp; Cantareira reservoirs</h1>
+      <p class="sub">Replay of observed daily records · not a simulation · not a live feed</p>
+    </div>
+    <div id="date-box">
+      <div id="date">–</div>
+      <div id="band" class="pill">–</div>
+    </div>
+  </header>
+
+  <aside id="panel">
+    <section>
+      <h2>Cantareira system storage</h2>
+      <div class="hero"><span id="sys-pct">–</span><small>% of useful volume</small></div>
+      <div class="kv"><span>Stored</span><b id="sys-hm3">–</b></div>
+      <div class="kv"><span>Withdrawal limit in this band (2017 rules)</span><b id="sys-limit">–</b></div>
+      <div class="kv derived"><span>Implied net export, 30-day mean <i>derived</i></span><b id="sys-export">–</b></div>
+    </section>
+    <section>
+      <h2>Reservoirs</h2>
+      <table id="res-table">
+        <thead><tr><th>Reservoir</th><th>Level m</th><th>Stored %</th><th>Inflow</th><th>Release</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="note">Inflow and release in m³/s. Release excludes tunnel transfers (ANA).</p>
+    </section>
+    <section>
+      <h2>River flow</h2>
+      <table id="gauge-table">
+        <thead><tr><th>Gauge</th><th>Area km²</th><th>Flow m³/s</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="kv derived"><span>Local inflow between dams and Atibaia gauge <i>derived</i></span><b id="inc">–</b></div>
+    </section>
+    <section>
+      <h2>Inflow model <span class="tag">modelled</span></h2>
+      <table id="model-table">
+        <thead><tr><th>Reservoir</th><th>Observed</th><th>Modelled</th><th>Range</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="note" id="model-note"></p>
+    </section>
+    <section class="notes">
+      <h2>What you are looking at</h2>
+      <ul>
+        <li><b>Observed:</b> reservoir level, storage, inflow, release (ANA SAR); river flow (ANA gauges).</li>
+        <li><b>Modelled:</b> reservoir inflow from rain and temperature (GR4J). Shown only where the model passed its validation test; see the validation report.</li>
+        <li><b>Derived:</b> system storage, operating band, implied export, local inflow. Formulas are in the data-quality report.</li>
+        <li><b>Not shown, because not known:</b> lake outline on each date (no bathymetry), tunnel flows, sub-daily data.</li>
+        <li>White lines are catchment boundaries delineated from the terrain. Lake outlines are fixed map outlines (OpenStreetMap). Terrain is Copernicus GLO-30, a surface model, for display only. Vertical scale ×<span id="exag"></span>.</li>
+      </ul>
+      <p class="note" id="stamp"></p>
+    </section>
+  </aside>
+
+  <footer id="bottom">
+    <div id="chart-wrap">
+      <div class="chart-title">
+        <select id="chart-pick" aria-label="Chart"></select>
+        <span class="muted" id="chart-sub"></span>
+        <span id="legend"></span>
+      </div>
+      <canvas id="chart"></canvas>
+      <div id="tip" hidden></div>
+    </div>
+    <div id="controls">
+      <button id="play" aria-label="Play">Play</button>
+      <select id="speed" aria-label="Playback speed">
+        <option value="1">1 day per step</option>
+        <option value="7" selected>7 days per step</option>
+        <option value="30">30 days per step</option>
+      </select>
+      <input id="slider" type="range" min="0" max="0" value="0" aria-label="Date">
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

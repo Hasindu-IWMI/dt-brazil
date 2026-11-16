@@ -1,0 +1,19 @@
+{
+  "source": "Copernicus DEM GLO-30 (ESA), public AWS bucket copernicus-dem-30m",
+  "kind": "digital SURFACE model",
+  "crs": "EPSG:4326",
+  "verticalDatum": "EGM2008",
+  "units": "m",
+  "bbox": {
+    "west": -46.7,
+    "south": -23.4,
+    "east": -45.9,
+    "north": -22.75
+  },
+  "width": 960,
+  "height": 780,
+  "sampleStepArcsec": 3,
+  "rowOrder": "north to south",
+  "dtype": "float32 little-endian",
+  "retrieved": "2026-11-14T11:48:19.143Z"
+}

@@ -1,0 +1,5379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataTable xmlns="http://MRCS/">
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="SerieHistorica" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="SerieHistorica">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EstacaoCodigo" type="xs:int" minOccurs="0" />
+                <xs:element name="NivelConsistencia" type="xs:unsignedByte" minOccurs="0" />
+                <xs:element name="DataHora" type="xs:string" minOccurs="0" />
+                <xs:element name="MediaDiaria" type="xs:string" minOccurs="0" />
+                <xs:element name="MetodoObtencaoVazoes" type="xs:string" minOccurs="0" />
+                <xs:element name="Maxima" type="xs:string" minOccurs="0" />
+                <xs:element name="Minima" type="xs:string" minOccurs="0" />
+                <xs:element name="Media" type="xs:string" minOccurs="0" />
+                <xs:element name="DiaMaxima" type="xs:string" minOccurs="0" />
+                <xs:element name="DiaMinima" type="xs:string" minOccurs="0" />
+                <xs:element name="MaximaStatus" type="xs:string" minOccurs="0" />
+                <xs:element name="MinimaStatus" type="xs:string" minOccurs="0" />
+                <xs:element name="MediaStatus" type="xs:string" minOccurs="0" />
+                <xs:element name="MediaAnual" type="xs:string" minOccurs="0" />
+                <xs:element name="MediaAnualStatus" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao01" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao02" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao03" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao04" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao05" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao06" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao07" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao08" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao09" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao10" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao11" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao12" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao13" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao14" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao15" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao16" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao17" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao18" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao19" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao20" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao21" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao22" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao23" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao24" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao25" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao26" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao27" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao28" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao29" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao30" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao31" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao01Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao02Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao03Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao04Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao05Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao06Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao07Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao08Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao09Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao10Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao11Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao12Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao13Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao14Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao15Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao16Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao17Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao18Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao19Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao20Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao21Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao22Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao23Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao24Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao25Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao26Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao27Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao28Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao29Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao30Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao31Status" type="xs:string" minOccurs="0" />
+                <xs:element name="DataIns" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+    <DocumentElement xmlns="">
+      <SerieHistorica diffgr:id="SerieHistorica1" msdata:rowOrder="0">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2014-06-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima />
+        <Minima />
+        <Media />
+        <DiaMaxima />
+        <DiaMinima />
+        <MaximaStatus>0</MaximaStatus>
+        <MinimaStatus>0</MinimaStatus>
+        <MediaStatus>0</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>4.6</Vazao01>
+        <Vazao02>4.86</Vazao02>
+        <Vazao03>5.07</Vazao03>
+        <Vazao04>5.03</Vazao04>
+        <Vazao05>4.77</Vazao05>
+        <Vazao06 />
+        <Vazao07 />
+        <Vazao08 />
+        <Vazao09 />
+        <Vazao10 />
+        <Vazao11 />
+        <Vazao12 />
+        <Vazao13 />
+        <Vazao14 />
+        <Vazao15 />
+        <Vazao16 />
+        <Vazao17 />
+        <Vazao18 />
+        <Vazao19 />
+        <Vazao20 />
+        <Vazao21 />
+        <Vazao22 />
+        <Vazao23 />
+        <Vazao24 />
+        <Vazao25 />
+        <Vazao26 />
+        <Vazao27 />
+        <Vazao28 />
+        <Vazao29 />
+        <Vazao30 />
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica2" msdata:rowOrder="1">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2014-05-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>5.6</Maxima>
+        <Minima>4.06</Minima>
+        <Media>4.4955</Media>
+        <DiaMaxima>26</DiaMaxima>
+        <DiaMinima>16</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>4.41</Vazao01>
+        <Vazao02>4.33</Vazao02>
+        <Vazao03>4.3</Vazao03>
+        <Vazao04>4.24</Vazao04>
+        <Vazao05>4.21</Vazao05>
+        <Vazao06>4.19</Vazao06>
+        <Vazao07>4.13</Vazao07>
+        <Vazao08>4.16</Vazao08>
+        <Vazao09>4.16</Vazao09>
+        <Vazao10>4.17</Vazao10>
+        <Vazao11>4.19</Vazao11>
+        <Vazao12>4.16</Vazao12>
+        <Vazao13>4.07</Vazao13>
+        <Vazao14>4.07</Vazao14>
+        <Vazao15>4.14</Vazao15>
+        <Vazao16>4.06</Vazao16>
+        <Vazao17>4.1</Vazao17>
+        <Vazao18>4.06</Vazao18>
+        <Vazao19>4.19</Vazao19>
+        <Vazao20>4.42</Vazao20>
+        <Vazao21>4.45</Vazao21>
+        <Vazao22>4.48</Vazao22>
+        <Vazao23>5</Vazao23>
+        <Vazao24>5.28</Vazao24>
+        <Vazao25>5.57</Vazao25>
+        <Vazao26>5.6</Vazao26>
+        <Vazao27>5.33</Vazao27>
+        <Vazao28>5.25</Vazao28>
+        <Vazao29>5.1</Vazao29>
+        <Vazao30>4.85</Vazao30>
+        <Vazao31>4.69</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica3" msdata:rowOrder="2">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2014-04-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>10.96</Maxima>
+        <Minima>4.28</Minima>
+        <Media>6.03</Media>
+        <DiaMaxima>16</DiaMaxima>
+        <DiaMinima>11</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>7.13</Vazao01>
+        <Vazao02>6.6</Vazao02>
+        <Vazao03>7.58</Vazao03>
+        <Vazao04>6.49</Vazao04>
+        <Vazao05>5.48</Vazao05>
+        <Vazao06>5.1</Vazao06>
+        <Vazao07>4.74</Vazao07>
+        <Vazao08>4.46</Vazao08>
+        <Vazao09>4.36</Vazao09>
+        <Vazao10>4.33</Vazao10>
+        <Vazao11>4.28</Vazao11>
+        <Vazao12>4.39</Vazao12>
+        <Vazao13>10.42</Vazao13>
+        <Vazao14>7.52</Vazao14>
+        <Vazao15>8.8</Vazao15>
+        <Vazao16>10.96</Vazao16>
+        <Vazao17>9.74</Vazao17>
+        <Vazao18>8.15</Vazao18>
+        <Vazao19>6.64</Vazao19>
+        <Vazao20>6</Vazao20>
+        <Vazao21>5.36</Vazao21>
+        <Vazao22>4.99</Vazao22>
+        <Vazao23>4.8</Vazao23>
+        <Vazao24>4.75</Vazao24>
+        <Vazao25>4.72</Vazao25>
+        <Vazao26>4.76</Vazao26>
+        <Vazao27>4.71</Vazao27>
+        <Vazao28>4.67</Vazao28>
+        <Vazao29>4.57</Vazao29>
+        <Vazao30>4.4</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica4" msdata:rowOrder="3">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2014-03-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>9.63</Maxima>
+        <Minima>4.45</Minima>
+        <Media>6.57</Media>
+        <DiaMaxima>2</DiaMaxima>
+        <DiaMinima>29</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.64</Vazao01>
+        <Vazao02>9.63</Vazao02>
+        <Vazao03>8.95</Vazao03>
+        <Vazao04>7.69</Vazao04>
+        <Vazao05>7.15</Vazao05>
+        <Vazao06>6.65</Vazao06>
+        <Vazao07>6.35</Vazao07>
+        <Vazao08>7.12</Vazao08>
+        <Vazao09>6.63</Vazao09>
+        <Vazao10>6.06</Vazao10>
+        <Vazao11>8.4</Vazao11>
+        <Vazao12>8.45</Vazao12>
+        <Vazao13>7.35</Vazao13>
+        <Vazao14>7.65</Vazao14>
+        <Vazao15>6.88</Vazao15>
+        <Vazao16>6.15</Vazao16>
+        <Vazao17>5.88</Vazao17>
+        <Vazao18>5.57</Vazao18>
+        <Vazao19>5.83</Vazao19>
+        <Vazao20>6</Vazao20>
+        <Vazao21>5.93</Vazao21>
+        <Vazao22>6.26</Vazao22>
+        <Vazao23>6.19</Vazao23>
+        <Vazao24>5.89</Vazao24>
+        <Vazao25>5.49</Vazao25>
+        <Vazao26>5.16</Vazao26>
+        <Vazao27>4.9</Vazao27>
+        <Vazao28>4.63</Vazao28>
+        <Vazao29>4.45</Vazao29>
+        <Vazao30>4.65</Vazao30>
+        <Vazao31>7.09</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica5" msdata:rowOrder="4">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2014-02-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>6.74</Maxima>
+        <Minima>2.87</Minima>
+        <Media>4.4493</Media>
+        <DiaMaxima>25</DiaMaxima>
+        <DiaMinima>13</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>3.39</Vazao01>
+        <Vazao02>3.35</Vazao02>
+        <Vazao03>3.29</Vazao03>
+        <Vazao04>3.19</Vazao04>
+        <Vazao05>3.19</Vazao05>
+        <Vazao06>3.05</Vazao06>
+        <Vazao07>3</Vazao07>
+        <Vazao08>2.96</Vazao08>
+        <Vazao09>3.1</Vazao09>
+        <Vazao10>3</Vazao10>
+        <Vazao11>3.03</Vazao11>
+        <Vazao12>2.92</Vazao12>
+        <Vazao13>2.87</Vazao13>
+        <Vazao14>3.89</Vazao14>
+        <Vazao15>6.73</Vazao15>
+        <Vazao16>5.56</Vazao16>
+        <Vazao17>5.72</Vazao17>
+        <Vazao18>6.38</Vazao18>
+        <Vazao19>6.31</Vazao19>
+        <Vazao20>5.69</Vazao20>
+        <Vazao21>5.22</Vazao21>
+        <Vazao22>4.99</Vazao22>
+        <Vazao23>5.16</Vazao23>
+        <Vazao24>4.8</Vazao24>
+        <Vazao25>6.74</Vazao25>
+        <Vazao26>6.13</Vazao26>
+        <Vazao27>5.05</Vazao27>
+        <Vazao28>5.87</Vazao28>
+        <Vazao29 />
+        <Vazao30 />
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica6" msdata:rowOrder="5">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2014-01-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>6.76</Maxima>
+        <Minima>3.54</Minima>
+        <Media>4.6255</Media>
+        <DiaMaxima>1</DiaMaxima>
+        <DiaMinima>30</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.76</Vazao01>
+        <Vazao02>6.11</Vazao02>
+        <Vazao03>5.18</Vazao03>
+        <Vazao04>4.91</Vazao04>
+        <Vazao05>4.88</Vazao05>
+        <Vazao06>4.7</Vazao06>
+        <Vazao07>4.28</Vazao07>
+        <Vazao08>4.03</Vazao08>
+        <Vazao09>4.33</Vazao09>
+        <Vazao10>4.12</Vazao10>
+        <Vazao11>3.93</Vazao11>
+        <Vazao12>4.9</Vazao12>
+        <Vazao13>4.84</Vazao13>
+        <Vazao14>4.71</Vazao14>
+        <Vazao15>5.16</Vazao15>
+        <Vazao16>5.8</Vazao16>
+        <Vazao17>5.08</Vazao17>
+        <Vazao18>4.83</Vazao18>
+        <Vazao19>4.57</Vazao19>
+        <Vazao20>4.5</Vazao20>
+        <Vazao21>4.85</Vazao21>
+        <Vazao22>5.57</Vazao22>
+        <Vazao23>4.59</Vazao23>
+        <Vazao24>4.34</Vazao24>
+        <Vazao25>4.11</Vazao25>
+        <Vazao26>4.02</Vazao26>
+        <Vazao27>3.89</Vazao27>
+        <Vazao28>3.71</Vazao28>
+        <Vazao29>3.56</Vazao29>
+        <Vazao30>3.54</Vazao30>
+        <Vazao31>3.59</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica7" msdata:rowOrder="6">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-12-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>10.2</Maxima>
+        <Minima>4.79</Minima>
+        <Media>7.1865</Media>
+        <DiaMaxima>29</DiaMaxima>
+        <DiaMinima>18</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>7.07</Vazao01>
+        <Vazao02>6.22</Vazao02>
+        <Vazao03>6.15</Vazao03>
+        <Vazao04>5.8</Vazao04>
+        <Vazao05>5.23</Vazao05>
+        <Vazao06>5.23</Vazao06>
+        <Vazao07>5.54</Vazao07>
+        <Vazao08>6.8</Vazao08>
+        <Vazao09>8.34</Vazao09>
+        <Vazao10>8.37</Vazao10>
+        <Vazao11>9.8</Vazao11>
+        <Vazao12>9.17</Vazao12>
+        <Vazao13>8.6</Vazao13>
+        <Vazao14>7.16</Vazao14>
+        <Vazao15>6.16</Vazao15>
+        <Vazao16>5.44</Vazao16>
+        <Vazao17>4.94</Vazao17>
+        <Vazao18>4.79</Vazao18>
+        <Vazao19>5.12</Vazao19>
+        <Vazao20>5.54</Vazao20>
+        <Vazao21>6.25</Vazao21>
+        <Vazao22>6.61</Vazao22>
+        <Vazao23>6.79</Vazao23>
+        <Vazao24>7.39</Vazao24>
+        <Vazao25>10.16</Vazao25>
+        <Vazao26>9.74</Vazao26>
+        <Vazao27>8.85</Vazao27>
+        <Vazao28>8.58</Vazao28>
+        <Vazao29>10.2</Vazao29>
+        <Vazao30>8.77</Vazao30>
+        <Vazao31>7.97</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica8" msdata:rowOrder="7">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-11-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>14.96</Maxima>
+        <Minima>6.09</Minima>
+        <Media>8.8953</Media>
+        <DiaMaxima>25</DiaMaxima>
+        <DiaMinima>1</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.09</Vazao01>
+        <Vazao02>6.32</Vazao02>
+        <Vazao03>6.43</Vazao03>
+        <Vazao04>6.9</Vazao04>
+        <Vazao05>7.87</Vazao05>
+        <Vazao06>7.98</Vazao06>
+        <Vazao07>8.3</Vazao07>
+        <Vazao08>8.28</Vazao08>
+        <Vazao09>8.05</Vazao09>
+        <Vazao10>7.78</Vazao10>
+        <Vazao11>7.53</Vazao11>
+        <Vazao12>7.29</Vazao12>
+        <Vazao13>7.08</Vazao13>
+        <Vazao14>6.87</Vazao14>
+        <Vazao15>6.77</Vazao15>
+        <Vazao16>7.06</Vazao16>
+        <Vazao17>8.17</Vazao17>
+        <Vazao18>9.41</Vazao18>
+        <Vazao19>9.78</Vazao19>
+        <Vazao20>9.88</Vazao20>
+        <Vazao21>10.18</Vazao21>
+        <Vazao22>10.05</Vazao22>
+        <Vazao23>10.43</Vazao23>
+        <Vazao24>11.4</Vazao24>
+        <Vazao25>14.96</Vazao25>
+        <Vazao26>14.11</Vazao26>
+        <Vazao27>12.9</Vazao27>
+        <Vazao28>11.31</Vazao28>
+        <Vazao29>9.51</Vazao29>
+        <Vazao30>8.17</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica9" msdata:rowOrder="8">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-10-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>15.21</Maxima>
+        <Minima>5.38</Minima>
+        <Media>8.6629</Media>
+        <DiaMaxima>5</DiaMaxima>
+        <DiaMinima>11</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>9.36</Vazao01>
+        <Vazao02>10.97</Vazao02>
+        <Vazao03>11.62</Vazao03>
+        <Vazao04>14.73</Vazao04>
+        <Vazao05>15.21</Vazao05>
+        <Vazao06>13.47</Vazao06>
+        <Vazao07>10.63</Vazao07>
+        <Vazao08>8.14</Vazao08>
+        <Vazao09>6.41</Vazao09>
+        <Vazao10>5.45</Vazao10>
+        <Vazao11>5.38</Vazao11>
+        <Vazao12>5.53</Vazao12>
+        <Vazao13>5.71</Vazao13>
+        <Vazao14>6.09</Vazao14>
+        <Vazao15>6.44</Vazao15>
+        <Vazao16>7.45</Vazao16>
+        <Vazao17>9.59</Vazao17>
+        <Vazao18>10.59</Vazao18>
+        <Vazao19>11.34</Vazao19>
+        <Vazao20>10.85</Vazao20>
+        <Vazao21>10.23</Vazao21>
+        <Vazao22>10.85</Vazao22>
+        <Vazao23>9.54</Vazao23>
+        <Vazao24>8.77</Vazao24>
+        <Vazao25>7.7</Vazao25>
+        <Vazao26>6.93</Vazao26>
+        <Vazao27>6.42</Vazao27>
+        <Vazao28>6.08</Vazao28>
+        <Vazao29>5.76</Vazao29>
+        <Vazao30>5.62</Vazao30>
+        <Vazao31>5.69</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica10" msdata:rowOrder="9">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-09-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>10.23</Maxima>
+        <Minima>6.47</Minima>
+        <Media>7.996</Media>
+        <DiaMaxima>24</DiaMaxima>
+        <DiaMinima>2</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.51</Vazao01>
+        <Vazao02>6.47</Vazao02>
+        <Vazao03>6.52</Vazao03>
+        <Vazao04>6.94</Vazao04>
+        <Vazao05>7.04</Vazao05>
+        <Vazao06>6.97</Vazao06>
+        <Vazao07>6.84</Vazao07>
+        <Vazao08>6.74</Vazao08>
+        <Vazao09>6.63</Vazao09>
+        <Vazao10>6.58</Vazao10>
+        <Vazao11>6.58</Vazao11>
+        <Vazao12>6.91</Vazao12>
+        <Vazao13>7.14</Vazao13>
+        <Vazao14>7.22</Vazao14>
+        <Vazao15>7.29</Vazao15>
+        <Vazao16>7.47</Vazao16>
+        <Vazao17>8</Vazao17>
+        <Vazao18>8.74</Vazao18>
+        <Vazao19>9.28</Vazao19>
+        <Vazao20>9.71</Vazao20>
+        <Vazao21>9.94</Vazao21>
+        <Vazao22>9.78</Vazao22>
+        <Vazao23>10.21</Vazao23>
+        <Vazao24>10.23</Vazao24>
+        <Vazao25>9.99</Vazao25>
+        <Vazao26>9.51</Vazao26>
+        <Vazao27>9.02</Vazao27>
+        <Vazao28>8.66</Vazao28>
+        <Vazao29>8.55</Vazao29>
+        <Vazao30>8.41</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica11" msdata:rowOrder="10">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-08-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>7.26</Maxima>
+        <Minima>5.27</Minima>
+        <Media>6.3261</Media>
+        <DiaMaxima>20</DiaMaxima>
+        <DiaMinima>3</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>5.61</Vazao01>
+        <Vazao02>5.4</Vazao02>
+        <Vazao03>5.27</Vazao03>
+        <Vazao04>5.28</Vazao04>
+        <Vazao05>5.32</Vazao05>
+        <Vazao06>5.29</Vazao06>
+        <Vazao07>5.34</Vazao07>
+        <Vazao08>5.46</Vazao08>
+        <Vazao09>5.73</Vazao09>
+        <Vazao10>5.86</Vazao10>
+        <Vazao11>5.88</Vazao11>
+        <Vazao12>6.14</Vazao12>
+        <Vazao13>6.37</Vazao13>
+        <Vazao14>6.59</Vazao14>
+        <Vazao15>6.76</Vazao15>
+        <Vazao16>6.93</Vazao16>
+        <Vazao17>7</Vazao17>
+        <Vazao18>7.04</Vazao18>
+        <Vazao19>7.24</Vazao19>
+        <Vazao20>7.26</Vazao20>
+        <Vazao21>7.11</Vazao21>
+        <Vazao22>6.98</Vazao22>
+        <Vazao23>6.88</Vazao23>
+        <Vazao24>6.85</Vazao24>
+        <Vazao25>6.67</Vazao25>
+        <Vazao26>6.68</Vazao26>
+        <Vazao27>6.66</Vazao27>
+        <Vazao28>6.67</Vazao28>
+        <Vazao29>6.73</Vazao29>
+        <Vazao30>6.61</Vazao30>
+        <Vazao31>6.5</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica12" msdata:rowOrder="11">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-07-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>10.61</Maxima>
+        <Minima>4.99</Minima>
+        <Media>6.7974</Media>
+        <DiaMaxima>26</DiaMaxima>
+        <DiaMinima>12</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.84</Vazao01>
+        <Vazao02>9.63</Vazao02>
+        <Vazao03>8.77</Vazao03>
+        <Vazao04>7.75</Vazao04>
+        <Vazao05>6.93</Vazao05>
+        <Vazao06>6.28</Vazao06>
+        <Vazao07>5.76</Vazao07>
+        <Vazao08>5.54</Vazao08>
+        <Vazao09>5.38</Vazao09>
+        <Vazao10>5.26</Vazao10>
+        <Vazao11>5.13</Vazao11>
+        <Vazao12>4.99</Vazao12>
+        <Vazao13>5.09</Vazao13>
+        <Vazao14>5.35</Vazao14>
+        <Vazao15>5.52</Vazao15>
+        <Vazao16>5.58</Vazao16>
+        <Vazao17>5.54</Vazao17>
+        <Vazao18>5.69</Vazao18>
+        <Vazao19>5.75</Vazao19>
+        <Vazao20>6.04</Vazao20>
+        <Vazao21>6.43</Vazao21>
+        <Vazao22>6.48</Vazao22>
+        <Vazao23>7.21</Vazao23>
+        <Vazao24>7.33</Vazao24>
+        <Vazao25>9.31</Vazao25>
+        <Vazao26>10.61</Vazao26>
+        <Vazao27>10.1</Vazao27>
+        <Vazao28>8.55</Vazao28>
+        <Vazao29>7.4</Vazao29>
+        <Vazao30>6.52</Vazao30>
+        <Vazao31>5.96</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica13" msdata:rowOrder="12">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-06-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>9.02</Maxima>
+        <Minima>5.46</Minima>
+        <Media>6.7603</Media>
+        <DiaMaxima>1</DiaMaxima>
+        <DiaMinima>10</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>9.02</Vazao01>
+        <Vazao02>8.95</Vazao02>
+        <Vazao03>9</Vazao03>
+        <Vazao04>7.98</Vazao04>
+        <Vazao05>7.11</Vazao05>
+        <Vazao06>6.49</Vazao06>
+        <Vazao07>6.02</Vazao07>
+        <Vazao08>5.75</Vazao08>
+        <Vazao09>5.59</Vazao09>
+        <Vazao10>5.46</Vazao10>
+        <Vazao11>5.49</Vazao11>
+        <Vazao12>5.56</Vazao12>
+        <Vazao13>5.84</Vazao13>
+        <Vazao14>6.04</Vazao14>
+        <Vazao15>5.95</Vazao15>
+        <Vazao16>5.92</Vazao16>
+        <Vazao17>6.86</Vazao17>
+        <Vazao18>7.18</Vazao18>
+        <Vazao19>6.66</Vazao19>
+        <Vazao20>6.39</Vazao20>
+        <Vazao21>6.25</Vazao21>
+        <Vazao22>6.09</Vazao22>
+        <Vazao23>5.9</Vazao23>
+        <Vazao24>5.88</Vazao24>
+        <Vazao25>6.64</Vazao25>
+        <Vazao26>8.35</Vazao26>
+        <Vazao27>8.04</Vazao27>
+        <Vazao28>7.58</Vazao28>
+        <Vazao29>7.21</Vazao29>
+        <Vazao30>7.61</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica14" msdata:rowOrder="13">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-05-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>10.87</Maxima>
+        <Minima>6.35</Minima>
+        <Media>7.3335</Media>
+        <DiaMaxima>30</DiaMaxima>
+        <DiaMinima>1</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.35</Vazao01>
+        <Vazao02>6.61</Vazao02>
+        <Vazao03>6.74</Vazao03>
+        <Vazao04>6.8</Vazao04>
+        <Vazao05>6.89</Vazao05>
+        <Vazao06>7.14</Vazao06>
+        <Vazao07>7.03</Vazao07>
+        <Vazao08>6.91</Vazao08>
+        <Vazao09>6.89</Vazao09>
+        <Vazao10>6.87</Vazao10>
+        <Vazao11>6.85</Vazao11>
+        <Vazao12>6.84</Vazao12>
+        <Vazao13>6.78</Vazao13>
+        <Vazao14>6.75</Vazao14>
+        <Vazao15>6.73</Vazao15>
+        <Vazao16>6.71</Vazao16>
+        <Vazao17>6.71</Vazao17>
+        <Vazao18>6.78</Vazao18>
+        <Vazao19>6.79</Vazao19>
+        <Vazao20>6.78</Vazao20>
+        <Vazao21>6.71</Vazao21>
+        <Vazao22>6.77</Vazao22>
+        <Vazao23>8.13</Vazao23>
+        <Vazao24>8.04</Vazao24>
+        <Vazao25>7.66</Vazao25>
+        <Vazao26>7.34</Vazao26>
+        <Vazao27>7.37</Vazao27>
+        <Vazao28>8.43</Vazao28>
+        <Vazao29>9.96</Vazao29>
+        <Vazao30>10.87</Vazao30>
+        <Vazao31>10.11</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica15" msdata:rowOrder="14">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-04-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>14.53</Maxima>
+        <Minima>5.87</Minima>
+        <Media>7.939</Media>
+        <DiaMaxima>14</DiaMaxima>
+        <DiaMinima>2</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>5.96</Vazao01>
+        <Vazao02>5.87</Vazao02>
+        <Vazao03>6</Vazao03>
+        <Vazao04>6.79</Vazao04>
+        <Vazao05>9.11</Vazao05>
+        <Vazao06>10.92</Vazao06>
+        <Vazao07>10</Vazao07>
+        <Vazao08>8.91</Vazao08>
+        <Vazao09>8.01</Vazao09>
+        <Vazao10>7.28</Vazao10>
+        <Vazao11>6.71</Vazao11>
+        <Vazao12>6.22</Vazao12>
+        <Vazao13>9.98</Vazao13>
+        <Vazao14>14.53</Vazao14>
+        <Vazao15>12.89</Vazao15>
+        <Vazao16>10.93</Vazao16>
+        <Vazao17>9.96</Vazao17>
+        <Vazao18>9.03</Vazao18>
+        <Vazao19>8.17</Vazao19>
+        <Vazao20>7.53</Vazao20>
+        <Vazao21>7.1</Vazao21>
+        <Vazao22>6.84</Vazao22>
+        <Vazao23>6.59</Vazao23>
+        <Vazao24>6.4</Vazao24>
+        <Vazao25>6.27</Vazao25>
+        <Vazao26>6.09</Vazao26>
+        <Vazao27>5.97</Vazao27>
+        <Vazao28>5.9</Vazao28>
+        <Vazao29>6.02</Vazao29>
+        <Vazao30>6.19</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica16" msdata:rowOrder="15">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-03-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>16.11</Maxima>
+        <Minima>5.93</Minima>
+        <Media>9.8226</Media>
+        <DiaMaxima>13</DiaMaxima>
+        <DiaMinima>5</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>7.95</Vazao01>
+        <Vazao02>7.05</Vazao02>
+        <Vazao03>6.63</Vazao03>
+        <Vazao04>6.23</Vazao04>
+        <Vazao05>5.93</Vazao05>
+        <Vazao06>6.44</Vazao06>
+        <Vazao07>6.64</Vazao07>
+        <Vazao08>7.56</Vazao08>
+        <Vazao09>8.94</Vazao09>
+        <Vazao10>8.58</Vazao10>
+        <Vazao11>14.26</Vazao11>
+        <Vazao12>14.46</Vazao12>
+        <Vazao13>16.11</Vazao13>
+        <Vazao14>15.56</Vazao14>
+        <Vazao15>13.26</Vazao15>
+        <Vazao16>11.46</Vazao16>
+        <Vazao17>12.88</Vazao17>
+        <Vazao18>12.25</Vazao18>
+        <Vazao19>12.71</Vazao19>
+        <Vazao20>12.17</Vazao20>
+        <Vazao21>12.6</Vazao21>
+        <Vazao22>12.03</Vazao22>
+        <Vazao23>10.5</Vazao23>
+        <Vazao24>9.17</Vazao24>
+        <Vazao25>9.69</Vazao25>
+        <Vazao26>8.42</Vazao26>
+        <Vazao27>7.94</Vazao27>
+        <Vazao28>7.39</Vazao28>
+        <Vazao29>6.94</Vazao29>
+        <Vazao30>6.54</Vazao30>
+        <Vazao31>6.21</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica17" msdata:rowOrder="16">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-02-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>23.05</Maxima>
+        <Minima>6.49</Minima>
+        <Media>13.6096</Media>
+        <DiaMaxima>12</DiaMaxima>
+        <DiaMinima>1</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.49</Vazao01>
+        <Vazao02>11.75</Vazao02>
+        <Vazao03>9.87</Vazao03>
+        <Vazao04>9.44</Vazao04>
+        <Vazao05>9.1</Vazao05>
+        <Vazao06>8.85</Vazao06>
+        <Vazao07>10.79</Vazao07>
+        <Vazao08>13.31</Vazao08>
+        <Vazao09>18.2</Vazao09>
+        <Vazao10>21.07</Vazao10>
+        <Vazao11>22.22</Vazao11>
+        <Vazao12>23.05</Vazao12>
+        <Vazao13>21.56</Vazao13>
+        <Vazao14>19.91</Vazao14>
+        <Vazao15>19.57</Vazao15>
+        <Vazao16>16.15</Vazao16>
+        <Vazao17>13.04</Vazao17>
+        <Vazao18>10.55</Vazao18>
+        <Vazao19>10.72</Vazao19>
+        <Vazao20>13.58</Vazao20>
+        <Vazao21>13.94</Vazao21>
+        <Vazao22>11.01</Vazao22>
+        <Vazao23>11.65</Vazao23>
+        <Vazao24>14.96</Vazao24>
+        <Vazao25>13.41</Vazao25>
+        <Vazao26>9.32</Vazao26>
+        <Vazao27>8.99</Vazao27>
+        <Vazao28>8.57</Vazao28>
+        <Vazao29 />
+        <Vazao30 />
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica18" msdata:rowOrder="17">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2013-01-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>25.19</Maxima>
+        <Minima>6.35</Minima>
+        <Media>11.44</Media>
+        <DiaMaxima>1</DiaMaxima>
+        <DiaMinima>31</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>25.19</Vazao01>
+        <Vazao02>23.1</Vazao02>
+        <Vazao03>17.99</Vazao03>
+        <Vazao04>13.04</Vazao04>
+        <Vazao05>10.24</Vazao05>
+        <Vazao06>8.2</Vazao06>
+        <Vazao07>7.39</Vazao07>
+        <Vazao08>6.48</Vazao08>
+        <Vazao09>6.4</Vazao09>
+        <Vazao10>9.61</Vazao10>
+        <Vazao11>10.51</Vazao11>
+        <Vazao12>9.9</Vazao12>
+        <Vazao13>13.58</Vazao13>
+        <Vazao14>16</Vazao14>
+        <Vazao15>15.54</Vazao15>
+        <Vazao16>16.16</Vazao16>
+        <Vazao17>16.56</Vazao17>
+        <Vazao18>15.68</Vazao18>
+        <Vazao19>12.98</Vazao19>
+        <Vazao20>10.5</Vazao20>
+        <Vazao21>8.66</Vazao21>
+        <Vazao22>7.62</Vazao22>
+        <Vazao23>8.19</Vazao23>
+        <Vazao24>9.97</Vazao24>
+        <Vazao25>8.6</Vazao25>
+        <Vazao26>8.71</Vazao26>
+        <Vazao27>9.15</Vazao27>
+        <Vazao28>8.13</Vazao28>
+        <Vazao29>7.39</Vazao29>
+        <Vazao30>6.82</Vazao30>
+        <Vazao31>6.35</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica19" msdata:rowOrder="18">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-12-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>22.99</Maxima>
+        <Minima>5.14</Minima>
+        <Media>10.6955</Media>
+        <DiaMaxima>31</DiaMaxima>
+        <DiaMinima>1</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>5.14</Vazao01>
+        <Vazao02>5.79</Vazao02>
+        <Vazao03>8.05</Vazao03>
+        <Vazao04>7.15</Vazao04>
+        <Vazao05>6.91</Vazao05>
+        <Vazao06>10.06</Vazao06>
+        <Vazao07>10.76</Vazao07>
+        <Vazao08>7.98</Vazao08>
+        <Vazao09>6.97</Vazao09>
+        <Vazao10>6.49</Vazao10>
+        <Vazao11>6.17</Vazao11>
+        <Vazao12>6.17</Vazao12>
+        <Vazao13>6.49</Vazao13>
+        <Vazao14>10.42</Vazao14>
+        <Vazao15>12.45</Vazao15>
+        <Vazao16>15.51</Vazao16>
+        <Vazao17>16.12</Vazao17>
+        <Vazao18>15.1</Vazao18>
+        <Vazao19>13.16</Vazao19>
+        <Vazao20>14.26</Vazao20>
+        <Vazao21>16.96</Vazao21>
+        <Vazao22>15.05</Vazao22>
+        <Vazao23>12.94</Vazao23>
+        <Vazao24>11.13</Vazao24>
+        <Vazao25>10.94</Vazao25>
+        <Vazao26>8.86</Vazao26>
+        <Vazao27>9.46</Vazao27>
+        <Vazao28>10.8</Vazao28>
+        <Vazao29>8.48</Vazao29>
+        <Vazao30>12.8</Vazao30>
+        <Vazao31>22.99</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica20" msdata:rowOrder="19">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-11-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima />
+        <Minima />
+        <Media />
+        <DiaMaxima />
+        <DiaMinima />
+        <MaximaStatus>0</MaximaStatus>
+        <MinimaStatus>0</MinimaStatus>
+        <MediaStatus>0</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.88</Vazao01>
+        <Vazao02>7.66</Vazao02>
+        <Vazao03>6.89</Vazao03>
+        <Vazao04>6.66</Vazao04>
+        <Vazao05>6.17</Vazao05>
+        <Vazao06>5.74</Vazao06>
+        <Vazao07>5.39</Vazao07>
+        <Vazao08>5.81</Vazao08>
+        <Vazao09>6.55</Vazao09>
+        <Vazao10>7.87</Vazao10>
+        <Vazao11>8.21</Vazao11>
+        <Vazao12 />
+        <Vazao13>12.28</Vazao13>
+        <Vazao14>10.75</Vazao14>
+        <Vazao15>9.02</Vazao15>
+        <Vazao16>8.14</Vazao16>
+        <Vazao17>7.54</Vazao17>
+        <Vazao18>7.08</Vazao18>
+        <Vazao19>7.27</Vazao19>
+        <Vazao20>11.77</Vazao20>
+        <Vazao21>13.02</Vazao21>
+        <Vazao22>12.85</Vazao22>
+        <Vazao23>9.4</Vazao23>
+        <Vazao24>7.97</Vazao24>
+        <Vazao25>7.33</Vazao25>
+        <Vazao26>6.59</Vazao26>
+        <Vazao27>6.35</Vazao27>
+        <Vazao28>6.01</Vazao28>
+        <Vazao29>5.57</Vazao29>
+        <Vazao30>5.24</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica21" msdata:rowOrder="20">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-10-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>13.66</Maxima>
+        <Minima>6.75</Minima>
+        <Media>9.1923</Media>
+        <DiaMaxima>24</DiaMaxima>
+        <DiaMinima>2</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.86</Vazao01>
+        <Vazao02>6.75</Vazao02>
+        <Vazao03>6.92</Vazao03>
+        <Vazao04>7.36</Vazao04>
+        <Vazao05>7.56</Vazao05>
+        <Vazao06>8.56</Vazao06>
+        <Vazao07>8.79</Vazao07>
+        <Vazao08>8.37</Vazao08>
+        <Vazao09>8.02</Vazao09>
+        <Vazao10>7.74</Vazao10>
+        <Vazao11>7.68</Vazao11>
+        <Vazao12>8.16</Vazao12>
+        <Vazao13>8.64</Vazao13>
+        <Vazao14>8.75</Vazao14>
+        <Vazao15>8.69</Vazao15>
+        <Vazao16>8.25</Vazao16>
+        <Vazao17>8.84</Vazao17>
+        <Vazao18>8.93</Vazao18>
+        <Vazao19>8.71</Vazao19>
+        <Vazao20>8.93</Vazao20>
+        <Vazao21>9.46</Vazao21>
+        <Vazao22>10.65</Vazao22>
+        <Vazao23>9.84</Vazao23>
+        <Vazao24>13.66</Vazao24>
+        <Vazao25>12.6</Vazao25>
+        <Vazao26>12.1</Vazao26>
+        <Vazao27>12.33</Vazao27>
+        <Vazao28>10.26</Vazao28>
+        <Vazao29>12.26</Vazao29>
+        <Vazao30>10.48</Vazao30>
+        <Vazao31>8.81</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica22" msdata:rowOrder="21">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-09-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>7.31</Maxima>
+        <Minima>5.21</Minima>
+        <Media>6.678</Media>
+        <DiaMaxima>23</DiaMaxima>
+        <DiaMinima>3</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.16</Vazao01>
+        <Vazao02>5.89</Vazao02>
+        <Vazao03>5.21</Vazao03>
+        <Vazao04>5.69</Vazao04>
+        <Vazao05>6.28</Vazao05>
+        <Vazao06>6.47</Vazao06>
+        <Vazao07>6.55</Vazao07>
+        <Vazao08>6.67</Vazao08>
+        <Vazao09>6.69</Vazao09>
+        <Vazao10>6.76</Vazao10>
+        <Vazao11>6.71</Vazao11>
+        <Vazao12>6.85</Vazao12>
+        <Vazao13>6.81</Vazao13>
+        <Vazao14>6.91</Vazao14>
+        <Vazao15>6.87</Vazao15>
+        <Vazao16>6.79</Vazao16>
+        <Vazao17>6.71</Vazao17>
+        <Vazao18>6.62</Vazao18>
+        <Vazao19>6.53</Vazao19>
+        <Vazao20>6.46</Vazao20>
+        <Vazao21>6.71</Vazao21>
+        <Vazao22>7.18</Vazao22>
+        <Vazao23>7.31</Vazao23>
+        <Vazao24>7.17</Vazao24>
+        <Vazao25>7.07</Vazao25>
+        <Vazao26>7.09</Vazao26>
+        <Vazao27>7.1</Vazao27>
+        <Vazao28>7.12</Vazao28>
+        <Vazao29>7.03</Vazao29>
+        <Vazao30>6.93</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica23" msdata:rowOrder="22">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-08-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>7.02</Maxima>
+        <Minima>6.08</Minima>
+        <Media>6.5119</Media>
+        <DiaMaxima>2</DiaMaxima>
+        <DiaMinima>17</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>7</Vazao01>
+        <Vazao02>7.02</Vazao02>
+        <Vazao03>7.01</Vazao03>
+        <Vazao04>6.95</Vazao04>
+        <Vazao05>6.88</Vazao05>
+        <Vazao06>6.96</Vazao06>
+        <Vazao07>6.88</Vazao07>
+        <Vazao08>6.8</Vazao08>
+        <Vazao09>6.75</Vazao09>
+        <Vazao10>6.61</Vazao10>
+        <Vazao11>6.53</Vazao11>
+        <Vazao12>6.48</Vazao12>
+        <Vazao13>6.43</Vazao13>
+        <Vazao14>6.4</Vazao14>
+        <Vazao15>6.38</Vazao15>
+        <Vazao16>6.3</Vazao16>
+        <Vazao17>6.08</Vazao17>
+        <Vazao18>6.1</Vazao18>
+        <Vazao19>6.19</Vazao19>
+        <Vazao20>6.42</Vazao20>
+        <Vazao21>6.41</Vazao21>
+        <Vazao22>6.42</Vazao22>
+        <Vazao23>6.37</Vazao23>
+        <Vazao24>6.31</Vazao24>
+        <Vazao25>6.24</Vazao25>
+        <Vazao26>6.28</Vazao26>
+        <Vazao27>6.36</Vazao27>
+        <Vazao28>6.34</Vazao28>
+        <Vazao29>6.37</Vazao29>
+        <Vazao30>6.32</Vazao30>
+        <Vazao31>6.28</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica24" msdata:rowOrder="23">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-07-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>15.12</Maxima>
+        <Minima>6.05</Minima>
+        <Media>7.9406</Media>
+        <DiaMaxima>19</DiaMaxima>
+        <DiaMinima>29</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.46</Vazao01>
+        <Vazao02>8.12</Vazao02>
+        <Vazao03>7.81</Vazao03>
+        <Vazao04>7.47</Vazao04>
+        <Vazao05>7.28</Vazao05>
+        <Vazao06>7</Vazao06>
+        <Vazao07>6.84</Vazao07>
+        <Vazao08>7.25</Vazao08>
+        <Vazao09>7.59</Vazao09>
+        <Vazao10>7.38</Vazao10>
+        <Vazao11>7.11</Vazao11>
+        <Vazao12>7.1</Vazao12>
+        <Vazao13>7.39</Vazao13>
+        <Vazao14>7.05</Vazao14>
+        <Vazao15>6.85</Vazao15>
+        <Vazao16>6.66</Vazao16>
+        <Vazao17>8.03</Vazao17>
+        <Vazao18>14.4</Vazao18>
+        <Vazao19>15.12</Vazao19>
+        <Vazao20>12.46</Vazao20>
+        <Vazao21>9.98</Vazao21>
+        <Vazao22>8.63</Vazao22>
+        <Vazao23>7.82</Vazao23>
+        <Vazao24>7.18</Vazao24>
+        <Vazao25>6.86</Vazao25>
+        <Vazao26>6.59</Vazao26>
+        <Vazao27>6.37</Vazao27>
+        <Vazao28>6.17</Vazao28>
+        <Vazao29>6.05</Vazao29>
+        <Vazao30>6.39</Vazao30>
+        <Vazao31>6.75</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica25" msdata:rowOrder="24">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-06-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>27.68</Maxima>
+        <Minima>6.33</Minima>
+        <Media>15.1403</Media>
+        <DiaMaxima>23</DiaMaxima>
+        <DiaMinima>1</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.33</Vazao01>
+        <Vazao02>11.8</Vazao02>
+        <Vazao03>8.71</Vazao03>
+        <Vazao04>7.82</Vazao04>
+        <Vazao05>11.49</Vazao05>
+        <Vazao06>17.37</Vazao06>
+        <Vazao07>20.2</Vazao07>
+        <Vazao08>19.49</Vazao08>
+        <Vazao09>19.02</Vazao09>
+        <Vazao10>17.6</Vazao10>
+        <Vazao11>15.49</Vazao11>
+        <Vazao12>16.26</Vazao12>
+        <Vazao13>17.8</Vazao13>
+        <Vazao14>17.56</Vazao14>
+        <Vazao15>14.3</Vazao15>
+        <Vazao16>11.5</Vazao16>
+        <Vazao17>9.75</Vazao17>
+        <Vazao18>8.66</Vazao18>
+        <Vazao19>8.03</Vazao19>
+        <Vazao20>13.23</Vazao20>
+        <Vazao21>19.84</Vazao21>
+        <Vazao22>26.08</Vazao22>
+        <Vazao23>27.68</Vazao23>
+        <Vazao24>26.3</Vazao24>
+        <Vazao25>21.86</Vazao25>
+        <Vazao26>17.11</Vazao26>
+        <Vazao27>13.17</Vazao27>
+        <Vazao28>10.99</Vazao28>
+        <Vazao29>9.75</Vazao29>
+        <Vazao30>9.02</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica26" msdata:rowOrder="25">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-05-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>22.52</Maxima>
+        <Minima>5.77</Minima>
+        <Media>8.6932</Media>
+        <DiaMaxima>2</DiaMaxima>
+        <DiaMinima>31</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>21.86</Vazao01>
+        <Vazao02>22.52</Vazao02>
+        <Vazao03>19.61</Vazao03>
+        <Vazao04>15.75</Vazao04>
+        <Vazao05>12.18</Vazao05>
+        <Vazao06>9.87</Vazao06>
+        <Vazao07>8.32</Vazao07>
+        <Vazao08>7.47</Vazao08>
+        <Vazao09>6.83</Vazao09>
+        <Vazao10>6.51</Vazao10>
+        <Vazao11>6.19</Vazao11>
+        <Vazao12>6.1</Vazao12>
+        <Vazao13>6.35</Vazao13>
+        <Vazao14>6.85</Vazao14>
+        <Vazao15>7.61</Vazao15>
+        <Vazao16>7.6</Vazao16>
+        <Vazao17>7.52</Vazao17>
+        <Vazao18>7.02</Vazao18>
+        <Vazao19>6.62</Vazao19>
+        <Vazao20>6.34</Vazao20>
+        <Vazao21>6.2</Vazao21>
+        <Vazao22>6.06</Vazao22>
+        <Vazao23>5.99</Vazao23>
+        <Vazao24>5.89</Vazao24>
+        <Vazao25>6.59</Vazao25>
+        <Vazao26>7.73</Vazao26>
+        <Vazao27>7.43</Vazao27>
+        <Vazao28>6.66</Vazao28>
+        <Vazao29>6.15</Vazao29>
+        <Vazao30>5.9</Vazao30>
+        <Vazao31>5.77</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica27" msdata:rowOrder="26">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-04-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>14.92</Maxima>
+        <Minima>5.37</Minima>
+        <Media>7.7387</Media>
+        <DiaMaxima>30</DiaMaxima>
+        <DiaMinima>20</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>7.7</Vazao01>
+        <Vazao02>7.01</Vazao02>
+        <Vazao03>6.54</Vazao03>
+        <Vazao04>7.72</Vazao04>
+        <Vazao05>6.65</Vazao05>
+        <Vazao06>6.17</Vazao06>
+        <Vazao07>5.81</Vazao07>
+        <Vazao08>5.51</Vazao08>
+        <Vazao09>5.43</Vazao09>
+        <Vazao10>5.41</Vazao10>
+        <Vazao11>5.55</Vazao11>
+        <Vazao12>6.09</Vazao12>
+        <Vazao13>9.22</Vazao13>
+        <Vazao14>7.79</Vazao14>
+        <Vazao15>7.06</Vazao15>
+        <Vazao16>6.96</Vazao16>
+        <Vazao17>6.83</Vazao17>
+        <Vazao18>6.12</Vazao18>
+        <Vazao19>5.66</Vazao19>
+        <Vazao20>5.37</Vazao20>
+        <Vazao21>8.55</Vazao21>
+        <Vazao22>13.54</Vazao22>
+        <Vazao23>13.25</Vazao23>
+        <Vazao24>9.59</Vazao24>
+        <Vazao25>7.45</Vazao25>
+        <Vazao26>6.63</Vazao26>
+        <Vazao27>9.19</Vazao27>
+        <Vazao28>8.94</Vazao28>
+        <Vazao29>9.5</Vazao29>
+        <Vazao30>14.92</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica28" msdata:rowOrder="27">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-03-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>10.14</Maxima>
+        <Minima>5.64</Minima>
+        <Media>7.1484</Media>
+        <DiaMaxima>29</DiaMaxima>
+        <DiaMinima>8</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.08</Vazao01>
+        <Vazao02>7</Vazao02>
+        <Vazao03>6.31</Vazao03>
+        <Vazao04>6.44</Vazao04>
+        <Vazao05>6.19</Vazao05>
+        <Vazao06>5.83</Vazao06>
+        <Vazao07>5.66</Vazao07>
+        <Vazao08>5.64</Vazao08>
+        <Vazao09>5.75</Vazao09>
+        <Vazao10>6.35</Vazao10>
+        <Vazao11>8.62</Vazao11>
+        <Vazao12>8.78</Vazao12>
+        <Vazao13>7.88</Vazao13>
+        <Vazao14>7.49</Vazao14>
+        <Vazao15>7.09</Vazao15>
+        <Vazao16>6.93</Vazao16>
+        <Vazao17>7.12</Vazao17>
+        <Vazao18>6.83</Vazao18>
+        <Vazao19>6.47</Vazao19>
+        <Vazao20>6.15</Vazao20>
+        <Vazao21>5.96</Vazao21>
+        <Vazao22>5.84</Vazao22>
+        <Vazao23>7.42</Vazao23>
+        <Vazao24>8.12</Vazao24>
+        <Vazao25>7.39</Vazao25>
+        <Vazao26>7.05</Vazao26>
+        <Vazao27>6.75</Vazao27>
+        <Vazao28>9.14</Vazao28>
+        <Vazao29>10.14</Vazao29>
+        <Vazao30>9.01</Vazao30>
+        <Vazao31>8.17</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica29" msdata:rowOrder="28">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-02-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>13.5</Maxima>
+        <Minima>6.29</Minima>
+        <Media>9.2069</Media>
+        <DiaMaxima>13</DiaMaxima>
+        <DiaMinima>10</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>12.61</Vazao01>
+        <Vazao02>11.59</Vazao02>
+        <Vazao03>9.77</Vazao03>
+        <Vazao04>8.68</Vazao04>
+        <Vazao05>8.2</Vazao05>
+        <Vazao06>7.67</Vazao06>
+        <Vazao07>7.12</Vazao07>
+        <Vazao08>6.91</Vazao08>
+        <Vazao09>6.54</Vazao09>
+        <Vazao10>6.29</Vazao10>
+        <Vazao11>7.35</Vazao11>
+        <Vazao12>10.94</Vazao12>
+        <Vazao13>13.5</Vazao13>
+        <Vazao14>12.33</Vazao14>
+        <Vazao15>9.49</Vazao15>
+        <Vazao16>7.96</Vazao16>
+        <Vazao17>7.04</Vazao17>
+        <Vazao18>6.71</Vazao18>
+        <Vazao19>6.48</Vazao19>
+        <Vazao20>6.33</Vazao20>
+        <Vazao21>8.89</Vazao21>
+        <Vazao22>10.14</Vazao22>
+        <Vazao23>8.72</Vazao23>
+        <Vazao24>9.53</Vazao24>
+        <Vazao25>10.58</Vazao25>
+        <Vazao26>10.61</Vazao26>
+        <Vazao27>13.5</Vazao27>
+        <Vazao28>12</Vazao28>
+        <Vazao29>9.52</Vazao29>
+        <Vazao30 />
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica30" msdata:rowOrder="29">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2012-01-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>35.15</Maxima>
+        <Minima>8.18</Minima>
+        <Media>18.3571</Media>
+        <DiaMaxima>19</DiaMaxima>
+        <DiaMinima>9</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>12.62</Vazao01>
+        <Vazao02>20.7</Vazao02>
+        <Vazao03>18.77</Vazao03>
+        <Vazao04>15.21</Vazao04>
+        <Vazao05>12.69</Vazao05>
+        <Vazao06>13.77</Vazao06>
+        <Vazao07>12.46</Vazao07>
+        <Vazao08>9.47</Vazao08>
+        <Vazao09>8.18</Vazao09>
+        <Vazao10>12.28</Vazao10>
+        <Vazao11>14.85</Vazao11>
+        <Vazao12>14.34</Vazao12>
+        <Vazao13>12.82</Vazao13>
+        <Vazao14>13.06</Vazao14>
+        <Vazao15>11.49</Vazao15>
+        <Vazao16>15.91</Vazao16>
+        <Vazao17>18.54</Vazao17>
+        <Vazao18>29.32</Vazao18>
+        <Vazao19>35.15</Vazao19>
+        <Vazao20>35.11</Vazao20>
+        <Vazao21>34.03</Vazao21>
+        <Vazao22>33.28</Vazao22>
+        <Vazao23>28.75</Vazao23>
+        <Vazao24>22.37</Vazao24>
+        <Vazao25>16.61</Vazao25>
+        <Vazao26>14.67</Vazao26>
+        <Vazao27>15.67</Vazao27>
+        <Vazao28>17.24</Vazao28>
+        <Vazao29>17.69</Vazao29>
+        <Vazao30>17.12</Vazao30>
+        <Vazao31>14.9</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica31" msdata:rowOrder="30">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-12-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>20.08</Maxima>
+        <Minima>5.31</Minima>
+        <Media>8.9545</Media>
+        <DiaMaxima>11</DiaMaxima>
+        <DiaMinima>22</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>10.31</Vazao01>
+        <Vazao02>13.41</Vazao02>
+        <Vazao03>9.93</Vazao03>
+        <Vazao04>8.35</Vazao04>
+        <Vazao05>8.95</Vazao05>
+        <Vazao06>9.54</Vazao06>
+        <Vazao07>8.76</Vazao07>
+        <Vazao08>8.21</Vazao08>
+        <Vazao09>8.91</Vazao09>
+        <Vazao10>17.74</Vazao10>
+        <Vazao11>20.08</Vazao11>
+        <Vazao12>18.5</Vazao12>
+        <Vazao13>14.99</Vazao13>
+        <Vazao14>11.58</Vazao14>
+        <Vazao15>8.96</Vazao15>
+        <Vazao16>7.51</Vazao16>
+        <Vazao17>6.56</Vazao17>
+        <Vazao18>6.33</Vazao18>
+        <Vazao19>6.21</Vazao19>
+        <Vazao20>5.9</Vazao20>
+        <Vazao21>5.47</Vazao21>
+        <Vazao22>5.31</Vazao22>
+        <Vazao23>6.06</Vazao23>
+        <Vazao24>5.46</Vazao24>
+        <Vazao25>5.96</Vazao25>
+        <Vazao26>6.28</Vazao26>
+        <Vazao27>6.08</Vazao27>
+        <Vazao28>5.95</Vazao28>
+        <Vazao29>6.25</Vazao29>
+        <Vazao30>6.4</Vazao30>
+        <Vazao31>7.64</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica32" msdata:rowOrder="31">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-11-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>28.35</Maxima>
+        <Minima>7.01</Minima>
+        <Media>11.5487</Media>
+        <DiaMaxima>17</DiaMaxima>
+        <DiaMinima>21</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>11.5</Vazao01>
+        <Vazao02>10.69</Vazao02>
+        <Vazao03>10</Vazao03>
+        <Vazao04>9.14</Vazao04>
+        <Vazao05>8.53</Vazao05>
+        <Vazao06>8.07</Vazao06>
+        <Vazao07>7.81</Vazao07>
+        <Vazao08>7.61</Vazao08>
+        <Vazao09>7.43</Vazao09>
+        <Vazao10>7.34</Vazao10>
+        <Vazao11>7.27</Vazao11>
+        <Vazao12>7.51</Vazao12>
+        <Vazao13>8.6</Vazao13>
+        <Vazao14>13.97</Vazao14>
+        <Vazao15>19.05</Vazao15>
+        <Vazao16>27.12</Vazao16>
+        <Vazao17>28.35</Vazao17>
+        <Vazao18>24.66</Vazao18>
+        <Vazao19>17.37</Vazao19>
+        <Vazao20>10.15</Vazao20>
+        <Vazao21>7.01</Vazao21>
+        <Vazao22>7.14</Vazao22>
+        <Vazao23>9.36</Vazao23>
+        <Vazao24>8.94</Vazao24>
+        <Vazao25>8.27</Vazao25>
+        <Vazao26>7.81</Vazao26>
+        <Vazao27>9.99</Vazao27>
+        <Vazao28>12.69</Vazao28>
+        <Vazao29>11.85</Vazao29>
+        <Vazao30>11.23</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica33" msdata:rowOrder="32">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-10-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>19.31</Maxima>
+        <Minima>6.74</Minima>
+        <Media>10.3548</Media>
+        <DiaMaxima>17</DiaMaxima>
+        <DiaMinima>22</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>7.9</Vazao01>
+        <Vazao02>7.91</Vazao02>
+        <Vazao03>9.24</Vazao03>
+        <Vazao04>9.26</Vazao04>
+        <Vazao05>8.9</Vazao05>
+        <Vazao06>8.76</Vazao06>
+        <Vazao07>8.63</Vazao07>
+        <Vazao08>8.4</Vazao08>
+        <Vazao09>8.65</Vazao09>
+        <Vazao10>9.16</Vazao10>
+        <Vazao11>9.48</Vazao11>
+        <Vazao12>9.36</Vazao12>
+        <Vazao13>9.44</Vazao13>
+        <Vazao14>10.54</Vazao14>
+        <Vazao15>13.05</Vazao15>
+        <Vazao16>18.12</Vazao16>
+        <Vazao17>19.31</Vazao17>
+        <Vazao18>18.12</Vazao18>
+        <Vazao19>14.63</Vazao19>
+        <Vazao20>10.54</Vazao20>
+        <Vazao21>7.69</Vazao21>
+        <Vazao22>6.74</Vazao22>
+        <Vazao23>7.19</Vazao23>
+        <Vazao24>8.71</Vazao24>
+        <Vazao25>9.68</Vazao25>
+        <Vazao26>10.13</Vazao26>
+        <Vazao27>9.83</Vazao27>
+        <Vazao28>9.66</Vazao28>
+        <Vazao29>9.48</Vazao29>
+        <Vazao30>10.83</Vazao30>
+        <Vazao31>11.66</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica34" msdata:rowOrder="33">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-09-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>11.18</Maxima>
+        <Minima>7.69</Minima>
+        <Media>8.561</Media>
+        <DiaMaxima>1</DiaMaxima>
+        <DiaMinima>10</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>11.18</Vazao01>
+        <Vazao02>10.88</Vazao02>
+        <Vazao03>9.61</Vazao03>
+        <Vazao04>8.9</Vazao04>
+        <Vazao05>8.56</Vazao05>
+        <Vazao06>8.22</Vazao06>
+        <Vazao07>8.09</Vazao07>
+        <Vazao08>7.92</Vazao08>
+        <Vazao09>7.72</Vazao09>
+        <Vazao10>7.69</Vazao10>
+        <Vazao11>7.96</Vazao11>
+        <Vazao12>8.36</Vazao12>
+        <Vazao13>8.45</Vazao13>
+        <Vazao14>8.51</Vazao14>
+        <Vazao15>8.63</Vazao15>
+        <Vazao16>8.71</Vazao16>
+        <Vazao17>8.71</Vazao17>
+        <Vazao18>8.69</Vazao18>
+        <Vazao19>8.57</Vazao19>
+        <Vazao20>8.48</Vazao20>
+        <Vazao21>8.37</Vazao21>
+        <Vazao22>8.47</Vazao22>
+        <Vazao23>8.44</Vazao23>
+        <Vazao24>8.41</Vazao24>
+        <Vazao25>8.38</Vazao25>
+        <Vazao26>8.35</Vazao26>
+        <Vazao27>8.3</Vazao27>
+        <Vazao28>8.14</Vazao28>
+        <Vazao29>8.12</Vazao29>
+        <Vazao30>8.01</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica35" msdata:rowOrder="34">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-08-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>10.88</Maxima>
+        <Minima>7.6</Minima>
+        <Media>8.6394</Media>
+        <DiaMaxima>21</DiaMaxima>
+        <DiaMinima>19</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.79</Vazao01>
+        <Vazao02>8.81</Vazao02>
+        <Vazao03>8.74</Vazao03>
+        <Vazao04>8.58</Vazao04>
+        <Vazao05>8.48</Vazao05>
+        <Vazao06>8.41</Vazao06>
+        <Vazao07>8.31</Vazao07>
+        <Vazao08>8.24</Vazao08>
+        <Vazao09>8.15</Vazao09>
+        <Vazao10>8.21</Vazao10>
+        <Vazao11>8.33</Vazao11>
+        <Vazao12>8.26</Vazao12>
+        <Vazao13>8.09</Vazao13>
+        <Vazao14>8</Vazao14>
+        <Vazao15>8.04</Vazao15>
+        <Vazao16>7.9</Vazao16>
+        <Vazao17>7.74</Vazao17>
+        <Vazao18>7.7</Vazao18>
+        <Vazao19>7.6</Vazao19>
+        <Vazao20>8.68</Vazao20>
+        <Vazao21>10.88</Vazao21>
+        <Vazao22>10.82</Vazao22>
+        <Vazao23>9.94</Vazao23>
+        <Vazao24>9.64</Vazao24>
+        <Vazao25>9.36</Vazao25>
+        <Vazao26>8.99</Vazao26>
+        <Vazao27>8.77</Vazao27>
+        <Vazao28>8.45</Vazao28>
+        <Vazao29>8.19</Vazao29>
+        <Vazao30>7.99</Vazao30>
+        <Vazao31>9.73</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica36" msdata:rowOrder="35">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-07-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>9.05</Maxima>
+        <Minima>7.35</Minima>
+        <Media>8.1468</Media>
+        <DiaMaxima>25</DiaMaxima>
+        <DiaMinima>17</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.35</Vazao01>
+        <Vazao02>8.25</Vazao02>
+        <Vazao03>8.23</Vazao03>
+        <Vazao04>8.17</Vazao04>
+        <Vazao05>8.09</Vazao05>
+        <Vazao06>8.02</Vazao06>
+        <Vazao07>7.99</Vazao07>
+        <Vazao08>7.97</Vazao08>
+        <Vazao09>7.77</Vazao09>
+        <Vazao10>7.77</Vazao10>
+        <Vazao11>7.74</Vazao11>
+        <Vazao12>7.63</Vazao12>
+        <Vazao13>7.54</Vazao13>
+        <Vazao14>7.51</Vazao14>
+        <Vazao15>7.43</Vazao15>
+        <Vazao16>7.49</Vazao16>
+        <Vazao17>7.35</Vazao17>
+        <Vazao18>7.46</Vazao18>
+        <Vazao19>7.66</Vazao19>
+        <Vazao20>8.34</Vazao20>
+        <Vazao21>8.65</Vazao21>
+        <Vazao22>8.74</Vazao22>
+        <Vazao23>8.91</Vazao23>
+        <Vazao24>9.01</Vazao24>
+        <Vazao25>9.05</Vazao25>
+        <Vazao26>8.81</Vazao26>
+        <Vazao27>8.62</Vazao27>
+        <Vazao28>8.55</Vazao28>
+        <Vazao29>8.44</Vazao29>
+        <Vazao30>8.41</Vazao30>
+        <Vazao31>8.6</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica37" msdata:rowOrder="36">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-06-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>17.18</Maxima>
+        <Minima>7.46</Minima>
+        <Media>9.3237</Media>
+        <DiaMaxima>10</DiaMaxima>
+        <DiaMinima>17</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.32</Vazao01>
+        <Vazao02>8.31</Vazao02>
+        <Vazao03>8.36</Vazao03>
+        <Vazao04>8.38</Vazao04>
+        <Vazao05>8.31</Vazao05>
+        <Vazao06>8.28</Vazao06>
+        <Vazao07>8.54</Vazao07>
+        <Vazao08>12.59</Vazao08>
+        <Vazao09>14.02</Vazao09>
+        <Vazao10>17.18</Vazao10>
+        <Vazao11>15.94</Vazao11>
+        <Vazao12>12.43</Vazao12>
+        <Vazao13>9.95</Vazao13>
+        <Vazao14>8.43</Vazao14>
+        <Vazao15>7.84</Vazao15>
+        <Vazao16>7.52</Vazao16>
+        <Vazao17>7.46</Vazao17>
+        <Vazao18>7.7</Vazao18>
+        <Vazao19>7.93</Vazao19>
+        <Vazao20>8.1</Vazao20>
+        <Vazao21>8.26</Vazao21>
+        <Vazao22>8.26</Vazao22>
+        <Vazao23>8.32</Vazao23>
+        <Vazao24>8.22</Vazao24>
+        <Vazao25>8.33</Vazao25>
+        <Vazao26>8.21</Vazao26>
+        <Vazao27>8.55</Vazao27>
+        <Vazao28>8.7</Vazao28>
+        <Vazao29>8.67</Vazao29>
+        <Vazao30>8.6</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica38" msdata:rowOrder="37">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-05-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima />
+        <Minima />
+        <Media />
+        <DiaMaxima />
+        <DiaMinima />
+        <MaximaStatus>0</MaximaStatus>
+        <MinimaStatus>0</MinimaStatus>
+        <MediaStatus>0</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>17.73</Vazao01>
+        <Vazao02>112.25</Vazao02>
+        <Vazao03>78.98</Vazao03>
+        <Vazao04>14.45</Vazao04>
+        <Vazao05>13.42</Vazao05>
+        <Vazao06>11.09</Vazao06>
+        <Vazao07>11.25</Vazao07>
+        <Vazao08>12.06</Vazao08>
+        <Vazao09>12.98</Vazao09>
+        <Vazao10>14.56</Vazao10>
+        <Vazao11 />
+        <Vazao12 />
+        <Vazao13 />
+        <Vazao14 />
+        <Vazao15 />
+        <Vazao16 />
+        <Vazao17 />
+        <Vazao18 />
+        <Vazao19 />
+        <Vazao20 />
+        <Vazao21 />
+        <Vazao22 />
+        <Vazao23 />
+        <Vazao24 />
+        <Vazao25 />
+        <Vazao26 />
+        <Vazao27>8.59</Vazao27>
+        <Vazao28>8.62</Vazao28>
+        <Vazao29>8.57</Vazao29>
+        <Vazao30>8.54</Vazao30>
+        <Vazao31>8.38</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica39" msdata:rowOrder="38">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-04-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>79.42</Maxima>
+        <Minima>8.97</Minima>
+        <Media>15.8797</Media>
+        <DiaMaxima>29</DiaMaxima>
+        <DiaMinima>22</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>14.72</Vazao01>
+        <Vazao02>12.55</Vazao02>
+        <Vazao03>14.34</Vazao03>
+        <Vazao04>16.91</Vazao04>
+        <Vazao05>19.47</Vazao05>
+        <Vazao06>17.16</Vazao06>
+        <Vazao07>14.59</Vazao07>
+        <Vazao08>12.81</Vazao08>
+        <Vazao09>11.42</Vazao09>
+        <Vazao10>12.31</Vazao10>
+        <Vazao11>18.96</Vazao11>
+        <Vazao12>18.51</Vazao12>
+        <Vazao13>18.66</Vazao13>
+        <Vazao14>19.22</Vazao14>
+        <Vazao15>16.78</Vazao15>
+        <Vazao16>13.58</Vazao16>
+        <Vazao17>11.52</Vazao17>
+        <Vazao18>10.42</Vazao18>
+        <Vazao19>9.93</Vazao19>
+        <Vazao20>9.57</Vazao20>
+        <Vazao21>9.08</Vazao21>
+        <Vazao22>8.97</Vazao22>
+        <Vazao23>9.81</Vazao23>
+        <Vazao24>10.17</Vazao24>
+        <Vazao25>10.33</Vazao25>
+        <Vazao26>10.35</Vazao26>
+        <Vazao27>15.89</Vazao27>
+        <Vazao28>12.69</Vazao28>
+        <Vazao29>79.42</Vazao29>
+        <Vazao30>16.25</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica40" msdata:rowOrder="39">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-03-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>98.98</Maxima>
+        <Minima>8.91</Minima>
+        <Media>19.3794</Media>
+        <DiaMaxima>30</DiaMaxima>
+        <DiaMinima>28</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>24.7</Vazao01>
+        <Vazao02>32.3</Vazao02>
+        <Vazao03>38.05</Vazao03>
+        <Vazao04>35.67</Vazao04>
+        <Vazao05>30.83</Vazao05>
+        <Vazao06>26.71</Vazao06>
+        <Vazao07>23.82</Vazao07>
+        <Vazao08>21.59</Vazao08>
+        <Vazao09>18.79</Vazao09>
+        <Vazao10>16.15</Vazao10>
+        <Vazao11>13.96</Vazao11>
+        <Vazao12>12.6</Vazao12>
+        <Vazao13>12</Vazao13>
+        <Vazao14>11.37</Vazao14>
+        <Vazao15>10.92</Vazao15>
+        <Vazao16>10.54</Vazao16>
+        <Vazao17>10.33</Vazao17>
+        <Vazao18>9.91</Vazao18>
+        <Vazao19>12.22</Vazao19>
+        <Vazao20>12.15</Vazao20>
+        <Vazao21>11.26</Vazao21>
+        <Vazao22>11.11</Vazao22>
+        <Vazao23>10.59</Vazao23>
+        <Vazao24>10.16</Vazao24>
+        <Vazao25>9.86</Vazao25>
+        <Vazao26>9.58</Vazao26>
+        <Vazao27>9.19</Vazao27>
+        <Vazao28>8.91</Vazao28>
+        <Vazao29>17.79</Vazao29>
+        <Vazao30>98.98</Vazao30>
+        <Vazao31>18.72</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica41" msdata:rowOrder="40">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-02-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>23.84</Maxima>
+        <Minima>8.39</Minima>
+        <Media>13.3657</Media>
+        <DiaMaxima>17</DiaMaxima>
+        <DiaMinima>27</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>9.88</Vazao01>
+        <Vazao02>9.75</Vazao02>
+        <Vazao03>9.66</Vazao03>
+        <Vazao04>11.01</Vazao04>
+        <Vazao05>10.78</Vazao05>
+        <Vazao06>9.51</Vazao06>
+        <Vazao07>8.7</Vazao07>
+        <Vazao08>8.83</Vazao08>
+        <Vazao09>9.85</Vazao09>
+        <Vazao10>10.24</Vazao10>
+        <Vazao11>10.6</Vazao11>
+        <Vazao12>15.38</Vazao12>
+        <Vazao13>16.34</Vazao13>
+        <Vazao14>14.01</Vazao14>
+        <Vazao15>15.53</Vazao15>
+        <Vazao16>21.16</Vazao16>
+        <Vazao17>23.84</Vazao17>
+        <Vazao18>23.28</Vazao18>
+        <Vazao19>22.49</Vazao19>
+        <Vazao20>18.37</Vazao20>
+        <Vazao21>13.96</Vazao21>
+        <Vazao22>11.65</Vazao22>
+        <Vazao23>13.48</Vazao23>
+        <Vazao24>13.62</Vazao24>
+        <Vazao25>12.59</Vazao25>
+        <Vazao26>9.68</Vazao26>
+        <Vazao27>8.39</Vazao27>
+        <Vazao28>11.66</Vazao28>
+        <Vazao29 />
+        <Vazao30 />
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica42" msdata:rowOrder="41">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2011-01-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>67.11</Maxima>
+        <Minima>5.7</Minima>
+        <Media>35.4219</Media>
+        <DiaMaxima>14</DiaMaxima>
+        <DiaMinima>1</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>5.7</Vazao01>
+        <Vazao02>11.16</Vazao02>
+        <Vazao03>31.43</Vazao03>
+        <Vazao04>51.71</Vazao04>
+        <Vazao05>58.91</Vazao05>
+        <Vazao06>53.12</Vazao06>
+        <Vazao07>42.07</Vazao07>
+        <Vazao08>32.93</Vazao08>
+        <Vazao09>28.44</Vazao09>
+        <Vazao10>25.59</Vazao10>
+        <Vazao11>47.87</Vazao11>
+        <Vazao12>55.43</Vazao12>
+        <Vazao13>60.02</Vazao13>
+        <Vazao14>67.11</Vazao14>
+        <Vazao15>66.81</Vazao15>
+        <Vazao16>56.95</Vazao16>
+        <Vazao17>50.52</Vazao17>
+        <Vazao18>48.96</Vazao18>
+        <Vazao19>46.46</Vazao19>
+        <Vazao20>41.86</Vazao20>
+        <Vazao21>36.22</Vazao21>
+        <Vazao22>30.57</Vazao22>
+        <Vazao23>25.29</Vazao23>
+        <Vazao24>22.83</Vazao24>
+        <Vazao25>19.73</Vazao25>
+        <Vazao26>16.78</Vazao26>
+        <Vazao27>15.09</Vazao27>
+        <Vazao28>13.66</Vazao28>
+        <Vazao29>12.67</Vazao29>
+        <Vazao30>11.79</Vazao30>
+        <Vazao31>10.4</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica43" msdata:rowOrder="42">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-12-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>19.15</Maxima>
+        <Minima>6.64</Minima>
+        <Media>12.8365</Media>
+        <DiaMaxima>18</DiaMaxima>
+        <DiaMinima>12</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>12.02</Vazao01>
+        <Vazao02>12.16</Vazao02>
+        <Vazao03>12.38</Vazao03>
+        <Vazao04>12.01</Vazao04>
+        <Vazao05>12.14</Vazao05>
+        <Vazao06>15.75</Vazao06>
+        <Vazao07>15.92</Vazao07>
+        <Vazao08>14.22</Vazao08>
+        <Vazao09>10.71</Vazao09>
+        <Vazao10>7.94</Vazao10>
+        <Vazao11>10</Vazao11>
+        <Vazao12>6.64</Vazao12>
+        <Vazao13>10.08</Vazao13>
+        <Vazao14>16.04</Vazao14>
+        <Vazao15>15.49</Vazao15>
+        <Vazao16>14.06</Vazao16>
+        <Vazao17>18.24</Vazao17>
+        <Vazao18>19.15</Vazao18>
+        <Vazao19>17.13</Vazao19>
+        <Vazao20>13.69</Vazao20>
+        <Vazao21>13.34</Vazao21>
+        <Vazao22>8.89</Vazao22>
+        <Vazao23>12.7</Vazao23>
+        <Vazao24>14.24</Vazao24>
+        <Vazao25>13.18</Vazao25>
+        <Vazao26>10.09</Vazao26>
+        <Vazao27>10.28</Vazao27>
+        <Vazao28>15.14</Vazao28>
+        <Vazao29>16.8</Vazao29>
+        <Vazao30>10.72</Vazao30>
+        <Vazao31>6.78</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica44" msdata:rowOrder="43">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-11-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>14.53</Maxima>
+        <Minima>8.06</Minima>
+        <Media>10.676</Media>
+        <DiaMaxima>18</DiaMaxima>
+        <DiaMinima>5</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>10.63</Vazao01>
+        <Vazao02>9.74</Vazao02>
+        <Vazao03>8.93</Vazao03>
+        <Vazao04>8.7</Vazao04>
+        <Vazao05>8.06</Vazao05>
+        <Vazao06>8.52</Vazao06>
+        <Vazao07>9.19</Vazao07>
+        <Vazao08>9.06</Vazao08>
+        <Vazao09>8.39</Vazao09>
+        <Vazao10>11.3</Vazao10>
+        <Vazao11>12.97</Vazao11>
+        <Vazao12>12.48</Vazao12>
+        <Vazao13>10.91</Vazao13>
+        <Vazao14>9.86</Vazao14>
+        <Vazao15>9.42</Vazao15>
+        <Vazao16>9.88</Vazao16>
+        <Vazao17>12.68</Vazao17>
+        <Vazao18>14.53</Vazao18>
+        <Vazao19>13.99</Vazao19>
+        <Vazao20>12.29</Vazao20>
+        <Vazao21>10.67</Vazao21>
+        <Vazao22>9.71</Vazao22>
+        <Vazao23>10.59</Vazao23>
+        <Vazao24>10.63</Vazao24>
+        <Vazao25>10.26</Vazao25>
+        <Vazao26>11.88</Vazao26>
+        <Vazao27>12.31</Vazao27>
+        <Vazao28>10.97</Vazao28>
+        <Vazao29>9.89</Vazao29>
+        <Vazao30>11.84</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica45" msdata:rowOrder="44">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-10-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>12.22</Maxima>
+        <Minima>8.21</Minima>
+        <Media>9.5681</Media>
+        <DiaMaxima>3</DiaMaxima>
+        <DiaMinima>22</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>10.79</Vazao01>
+        <Vazao02>12.12</Vazao02>
+        <Vazao03>12.22</Vazao03>
+        <Vazao04>11.7</Vazao04>
+        <Vazao05>10.93</Vazao05>
+        <Vazao06>10.3</Vazao06>
+        <Vazao07>9.91</Vazao07>
+        <Vazao08>11.12</Vazao08>
+        <Vazao09>10.38</Vazao09>
+        <Vazao10>9.79</Vazao10>
+        <Vazao11>9.45</Vazao11>
+        <Vazao12>9.23</Vazao12>
+        <Vazao13>9.01</Vazao13>
+        <Vazao14>8.76</Vazao14>
+        <Vazao15>8.51</Vazao15>
+        <Vazao16>8.66</Vazao16>
+        <Vazao17>8.41</Vazao17>
+        <Vazao18>8.61</Vazao18>
+        <Vazao19>9.23</Vazao19>
+        <Vazao20>9.01</Vazao20>
+        <Vazao21>8.6</Vazao21>
+        <Vazao22>8.21</Vazao22>
+        <Vazao23>8.42</Vazao23>
+        <Vazao24>8.9</Vazao24>
+        <Vazao25>9.88</Vazao25>
+        <Vazao26>8.97</Vazao26>
+        <Vazao27>9.5</Vazao27>
+        <Vazao28>9.05</Vazao28>
+        <Vazao29>8.28</Vazao29>
+        <Vazao30>8.62</Vazao30>
+        <Vazao31>10.04</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica46" msdata:rowOrder="45">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-09-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>12.18</Maxima>
+        <Minima>5.84</Minima>
+        <Media>8.7443</Media>
+        <DiaMaxima>28</DiaMaxima>
+        <DiaMinima>2</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>5.95</Vazao01>
+        <Vazao02>5.84</Vazao02>
+        <Vazao03>6.34</Vazao03>
+        <Vazao04>6.94</Vazao04>
+        <Vazao05>7.09</Vazao05>
+        <Vazao06>7.47</Vazao06>
+        <Vazao07>9.02</Vazao07>
+        <Vazao08>8.86</Vazao08>
+        <Vazao09>8.73</Vazao09>
+        <Vazao10>8.43</Vazao10>
+        <Vazao11>8.05</Vazao11>
+        <Vazao12>7.73</Vazao12>
+        <Vazao13>7.59</Vazao13>
+        <Vazao14>7.44</Vazao14>
+        <Vazao15>7.39</Vazao15>
+        <Vazao16>7.53</Vazao16>
+        <Vazao17>7.51</Vazao17>
+        <Vazao18>8.57</Vazao18>
+        <Vazao19>10.35</Vazao19>
+        <Vazao20>9.34</Vazao20>
+        <Vazao21>9.82</Vazao21>
+        <Vazao22>11.41</Vazao22>
+        <Vazao23>9.29</Vazao23>
+        <Vazao24>9.36</Vazao24>
+        <Vazao25>9.74</Vazao25>
+        <Vazao26>10.15</Vazao26>
+        <Vazao27>11.65</Vazao27>
+        <Vazao28>12.18</Vazao28>
+        <Vazao29>11.65</Vazao29>
+        <Vazao30>10.91</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica47" msdata:rowOrder="46">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-08-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>7.72</Maxima>
+        <Minima>5.77</Minima>
+        <Media>6.3216</Media>
+        <DiaMaxima>21</DiaMaxima>
+        <DiaMinima>1</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>5.77</Vazao01>
+        <Vazao02>5.99</Vazao02>
+        <Vazao03>6.06</Vazao03>
+        <Vazao04>6.17</Vazao04>
+        <Vazao05>7.68</Vazao05>
+        <Vazao06>6.03</Vazao06>
+        <Vazao07>5.96</Vazao07>
+        <Vazao08>5.78</Vazao08>
+        <Vazao09>5.81</Vazao09>
+        <Vazao10>5.78</Vazao10>
+        <Vazao11>6.81</Vazao11>
+        <Vazao12>6.03</Vazao12>
+        <Vazao13>5.91</Vazao13>
+        <Vazao14>5.84</Vazao14>
+        <Vazao15>6.1</Vazao15>
+        <Vazao16>6.62</Vazao16>
+        <Vazao17>6.82</Vazao17>
+        <Vazao18>6.8</Vazao18>
+        <Vazao19>6.66</Vazao19>
+        <Vazao20>6.6</Vazao20>
+        <Vazao21>7.72</Vazao21>
+        <Vazao22>6.54</Vazao22>
+        <Vazao23>6.55</Vazao23>
+        <Vazao24>6.41</Vazao24>
+        <Vazao25>6.45</Vazao25>
+        <Vazao26>6.26</Vazao26>
+        <Vazao27>6.21</Vazao27>
+        <Vazao28>6.19</Vazao28>
+        <Vazao29>6.17</Vazao29>
+        <Vazao30>6.08</Vazao30>
+        <Vazao31>6.17</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica48" msdata:rowOrder="47">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-07-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>20.94</Maxima>
+        <Minima>5.69</Minima>
+        <Media>9.271</Media>
+        <DiaMaxima>16</DiaMaxima>
+        <DiaMinima>31</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.7</Vazao01>
+        <Vazao02>6.61</Vazao02>
+        <Vazao03>7.71</Vazao03>
+        <Vazao04>7.84</Vazao04>
+        <Vazao05>6.63</Vazao05>
+        <Vazao06>6.5</Vazao06>
+        <Vazao07>6.45</Vazao07>
+        <Vazao08>6.37</Vazao08>
+        <Vazao09>7.54</Vazao09>
+        <Vazao10>10.39</Vazao10>
+        <Vazao11>7.05</Vazao11>
+        <Vazao12>7.2</Vazao12>
+        <Vazao13>16.13</Vazao13>
+        <Vazao14>19.03</Vazao14>
+        <Vazao15>17.35</Vazao15>
+        <Vazao16>20.94</Vazao16>
+        <Vazao17>20.7</Vazao17>
+        <Vazao18>15.54</Vazao18>
+        <Vazao19>10.04</Vazao19>
+        <Vazao20>7.92</Vazao20>
+        <Vazao21>7.1</Vazao21>
+        <Vazao22>6.55</Vazao22>
+        <Vazao23>6.4</Vazao23>
+        <Vazao24>8.11</Vazao24>
+        <Vazao25>6.26</Vazao25>
+        <Vazao26>6.24</Vazao26>
+        <Vazao27>6.11</Vazao27>
+        <Vazao28>8.53</Vazao28>
+        <Vazao29>5.93</Vazao29>
+        <Vazao30>5.84</Vazao30>
+        <Vazao31>5.69</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica49" msdata:rowOrder="48">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-06-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>31.43</Maxima>
+        <Minima>6.72</Minima>
+        <Media>15.3267</Media>
+        <DiaMaxima>12</DiaMaxima>
+        <DiaMinima>30</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>15.72</Vazao01>
+        <Vazao02>29.22</Vazao02>
+        <Vazao03>11.75</Vazao03>
+        <Vazao04>22.01</Vazao04>
+        <Vazao05>12.83</Vazao05>
+        <Vazao06>9.26</Vazao06>
+        <Vazao07>13.24</Vazao07>
+        <Vazao08>27.5</Vazao08>
+        <Vazao09>20.82</Vazao09>
+        <Vazao10>16.31</Vazao10>
+        <Vazao11>20.2</Vazao11>
+        <Vazao12>31.43</Vazao12>
+        <Vazao13>14.97</Vazao13>
+        <Vazao14>20.88</Vazao14>
+        <Vazao15>10.65</Vazao15>
+        <Vazao16>7.45</Vazao16>
+        <Vazao17>15.91</Vazao17>
+        <Vazao18>22.13</Vazao18>
+        <Vazao19>18.36</Vazao19>
+        <Vazao20>7.06</Vazao20>
+        <Vazao21>8.23</Vazao21>
+        <Vazao22>24.13</Vazao22>
+        <Vazao23>18.99</Vazao23>
+        <Vazao24>9.27</Vazao24>
+        <Vazao25>7.81</Vazao25>
+        <Vazao26>10.95</Vazao26>
+        <Vazao27>11.32</Vazao27>
+        <Vazao28>7.93</Vazao28>
+        <Vazao29>6.75</Vazao29>
+        <Vazao30>6.72</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica50" msdata:rowOrder="49">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-05-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>30.01</Maxima>
+        <Minima>8.28</Minima>
+        <Media>12.7797</Media>
+        <DiaMaxima>21</DiaMaxima>
+        <DiaMinima>30</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>11.56</Vazao01>
+        <Vazao02>10.24</Vazao02>
+        <Vazao03>9.79</Vazao03>
+        <Vazao04>9.29</Vazao04>
+        <Vazao05>9.05</Vazao05>
+        <Vazao06>9</Vazao06>
+        <Vazao07>8.86</Vazao07>
+        <Vazao08>10.1</Vazao08>
+        <Vazao09>10.77</Vazao09>
+        <Vazao10>11.82</Vazao10>
+        <Vazao11>11</Vazao11>
+        <Vazao12>10.05</Vazao12>
+        <Vazao13>9.46</Vazao13>
+        <Vazao14>9.18</Vazao14>
+        <Vazao15>10.68</Vazao15>
+        <Vazao16>9.48</Vazao16>
+        <Vazao17>8.98</Vazao17>
+        <Vazao18>12.34</Vazao18>
+        <Vazao19>22.39</Vazao19>
+        <Vazao20>13.95</Vazao20>
+        <Vazao21>30.01</Vazao21>
+        <Vazao22>22.23</Vazao22>
+        <Vazao23>21.16</Vazao23>
+        <Vazao24>17.95</Vazao24>
+        <Vazao25>8.39</Vazao25>
+        <Vazao26>14.06</Vazao26>
+        <Vazao27>14.67</Vazao27>
+        <Vazao28>18.23</Vazao28>
+        <Vazao29>13.79</Vazao29>
+        <Vazao30>8.28</Vazao30>
+        <Vazao31>9.41</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica51" msdata:rowOrder="50">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-04-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>22.7</Maxima>
+        <Minima>10.68</Minima>
+        <Media>15.071</Media>
+        <DiaMaxima>8</DiaMaxima>
+        <DiaMinima>20</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>21.72</Vazao01>
+        <Vazao02>18.3</Vazao02>
+        <Vazao03>15.56</Vazao03>
+        <Vazao04>18.35</Vazao04>
+        <Vazao05>20.69</Vazao05>
+        <Vazao06>20.91</Vazao06>
+        <Vazao07>22.34</Vazao07>
+        <Vazao08>22.7</Vazao08>
+        <Vazao09>20.96</Vazao09>
+        <Vazao10>18.92</Vazao10>
+        <Vazao11>17.03</Vazao11>
+        <Vazao12>15.51</Vazao12>
+        <Vazao13>15.04</Vazao13>
+        <Vazao14>13.65</Vazao14>
+        <Vazao15>13.22</Vazao15>
+        <Vazao16>12.76</Vazao16>
+        <Vazao17>13.56</Vazao17>
+        <Vazao18>12.21</Vazao18>
+        <Vazao19>14.02</Vazao19>
+        <Vazao20>10.68</Vazao20>
+        <Vazao21>11.64</Vazao21>
+        <Vazao22>11.1</Vazao22>
+        <Vazao23>10.98</Vazao23>
+        <Vazao24>11.03</Vazao24>
+        <Vazao25>14.26</Vazao25>
+        <Vazao26>11.42</Vazao26>
+        <Vazao27>11.06</Vazao27>
+        <Vazao28>10.97</Vazao28>
+        <Vazao29>10.84</Vazao29>
+        <Vazao30>10.7</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica52" msdata:rowOrder="51">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-03-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>33.03</Maxima>
+        <Minima>16.03</Minima>
+        <Media>24.6729</Media>
+        <DiaMaxima>3</DiaMaxima>
+        <DiaMinima>26</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>30.27</Vazao01>
+        <Vazao02>32.76</Vazao02>
+        <Vazao03>33.03</Vazao03>
+        <Vazao04>31.63</Vazao04>
+        <Vazao05>30.55</Vazao05>
+        <Vazao06>28.84</Vazao06>
+        <Vazao07>28.36</Vazao07>
+        <Vazao08>27.95</Vazao08>
+        <Vazao09>28.31</Vazao09>
+        <Vazao10>27.61</Vazao10>
+        <Vazao11>26.16</Vazao11>
+        <Vazao12>25.13</Vazao12>
+        <Vazao13>24.43</Vazao13>
+        <Vazao14>23.88</Vazao14>
+        <Vazao15>28.73</Vazao15>
+        <Vazao16>29.4</Vazao16>
+        <Vazao17>29.27</Vazao17>
+        <Vazao18>27.43</Vazao18>
+        <Vazao19>24.01</Vazao19>
+        <Vazao20>20.04</Vazao20>
+        <Vazao21>16.82</Vazao21>
+        <Vazao22>16.67</Vazao22>
+        <Vazao23>19.72</Vazao23>
+        <Vazao24>20.28</Vazao24>
+        <Vazao25>18.65</Vazao25>
+        <Vazao26>16.03</Vazao26>
+        <Vazao27>16.58</Vazao27>
+        <Vazao28>19.79</Vazao28>
+        <Vazao29>18.53</Vazao29>
+        <Vazao30>20.29</Vazao30>
+        <Vazao31>23.71</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica53" msdata:rowOrder="52">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-02-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima />
+        <Minima />
+        <Media />
+        <DiaMaxima />
+        <DiaMinima />
+        <MaximaStatus>0</MaximaStatus>
+        <MinimaStatus>0</MinimaStatus>
+        <MediaStatus>0</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>50.48</Vazao01>
+        <Vazao02>44.35</Vazao02>
+        <Vazao03>39.87</Vazao03>
+        <Vazao04>36.85</Vazao04>
+        <Vazao05>34.63</Vazao05>
+        <Vazao06>33.83</Vazao06>
+        <Vazao07>33.48</Vazao07>
+        <Vazao08>31.54</Vazao08>
+        <Vazao09>29.4</Vazao09>
+        <Vazao10>28.56</Vazao10>
+        <Vazao11>29.67</Vazao11>
+        <Vazao12>31.49</Vazao12>
+        <Vazao13>31.03</Vazao13>
+        <Vazao14>29.04</Vazao14>
+        <Vazao15>26.79</Vazao15>
+        <Vazao16>25.21</Vazao16>
+        <Vazao17>24.9</Vazao17>
+        <Vazao18>26.65</Vazao18>
+        <Vazao19>27.89</Vazao19>
+        <Vazao20>28.95</Vazao20>
+        <Vazao21 />
+        <Vazao22 />
+        <Vazao23>29.23</Vazao23>
+        <Vazao24>28.25</Vazao24>
+        <Vazao25>30.5</Vazao25>
+        <Vazao26>32.14</Vazao26>
+        <Vazao27>30.17</Vazao27>
+        <Vazao28>28.73</Vazao28>
+        <Vazao29 />
+        <Vazao30 />
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica54" msdata:rowOrder="53">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2010-01-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>63.97</Maxima>
+        <Minima>30.33</Minima>
+        <Media>44.6926</Media>
+        <DiaMaxima>27</DiaMaxima>
+        <DiaMinima>16</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>33.49</Vazao01>
+        <Vazao02>40.5</Vazao02>
+        <Vazao03>45.04</Vazao03>
+        <Vazao04>49.09</Vazao04>
+        <Vazao05>46.76</Vazao05>
+        <Vazao06>45.82</Vazao06>
+        <Vazao07>45.36</Vazao07>
+        <Vazao08>44.25</Vazao08>
+        <Vazao09>42.27</Vazao09>
+        <Vazao10>37.61</Vazao10>
+        <Vazao11>34.17</Vazao11>
+        <Vazao12>33.11</Vazao12>
+        <Vazao13>32.83</Vazao13>
+        <Vazao14>33.14</Vazao14>
+        <Vazao15>31.9</Vazao15>
+        <Vazao16>30.33</Vazao16>
+        <Vazao17>35.01</Vazao17>
+        <Vazao18>40.79</Vazao18>
+        <Vazao19>45.89</Vazao19>
+        <Vazao20>43.09</Vazao20>
+        <Vazao21>41.45</Vazao21>
+        <Vazao22>42.92</Vazao22>
+        <Vazao23>44.15</Vazao23>
+        <Vazao24>49.52</Vazao24>
+        <Vazao25>57.87</Vazao25>
+        <Vazao26>61.63</Vazao26>
+        <Vazao27>63.97</Vazao27>
+        <Vazao28>59.91</Vazao28>
+        <Vazao29>55.35</Vazao29>
+        <Vazao30>59.56</Vazao30>
+        <Vazao31>58.69</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica55" msdata:rowOrder="54">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-12-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>44.52</Maxima>
+        <Minima>14.58</Minima>
+        <Media>29.6945</Media>
+        <DiaMaxima>14</DiaMaxima>
+        <DiaMinima>2</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>15.96</Vazao01>
+        <Vazao02>14.58</Vazao02>
+        <Vazao03>23.45</Vazao03>
+        <Vazao04>24.86</Vazao04>
+        <Vazao05>25.86</Vazao05>
+        <Vazao06>25.56</Vazao06>
+        <Vazao07>23.45</Vazao07>
+        <Vazao08>23.21</Vazao08>
+        <Vazao09>30.45</Vazao09>
+        <Vazao10>33.58</Vazao10>
+        <Vazao11>40.72</Vazao11>
+        <Vazao12>43.22</Vazao12>
+        <Vazao13>44.22</Vazao13>
+        <Vazao14>44.52</Vazao14>
+        <Vazao15>40.18</Vazao15>
+        <Vazao16>36.04</Vazao16>
+        <Vazao17>34.04</Vazao17>
+        <Vazao18>32.13</Vazao18>
+        <Vazao19>31.98</Vazao19>
+        <Vazao20>31.22</Vazao20>
+        <Vazao21>29.1</Vazao21>
+        <Vazao22>26.27</Vazao22>
+        <Vazao23>24.82</Vazao23>
+        <Vazao24>24.05</Vazao24>
+        <Vazao25>23.9</Vazao25>
+        <Vazao26>24.63</Vazao26>
+        <Vazao27>25.04</Vazao27>
+        <Vazao28>27.56</Vazao28>
+        <Vazao29>31.85</Vazao29>
+        <Vazao30>32.02</Vazao30>
+        <Vazao31>32.06</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica56" msdata:rowOrder="55">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-11-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>24.31</Maxima>
+        <Minima>6.73</Minima>
+        <Media>13.8917</Media>
+        <DiaMaxima>25</DiaMaxima>
+        <DiaMinima>4</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.31</Vazao01>
+        <Vazao02>7.57</Vazao02>
+        <Vazao03>7.15</Vazao03>
+        <Vazao04>6.73</Vazao04>
+        <Vazao05>6.75</Vazao05>
+        <Vazao06>7.47</Vazao06>
+        <Vazao07>7.71</Vazao07>
+        <Vazao08>7.98</Vazao08>
+        <Vazao09>10.78</Vazao09>
+        <Vazao10>11.22</Vazao10>
+        <Vazao11>10.75</Vazao11>
+        <Vazao12>13.03</Vazao12>
+        <Vazao13>15.59</Vazao13>
+        <Vazao14>15.72</Vazao14>
+        <Vazao15>13.6</Vazao15>
+        <Vazao16>13.23</Vazao16>
+        <Vazao17>13.37</Vazao17>
+        <Vazao18>12.4</Vazao18>
+        <Vazao19>11</Vazao19>
+        <Vazao20>10.67</Vazao20>
+        <Vazao21>19.02</Vazao21>
+        <Vazao22>22.03</Vazao22>
+        <Vazao23>22.63</Vazao23>
+        <Vazao24>22.55</Vazao24>
+        <Vazao25>24.31</Vazao25>
+        <Vazao26>23.17</Vazao26>
+        <Vazao27>19.76</Vazao27>
+        <Vazao28>17.86</Vazao28>
+        <Vazao29>16.96</Vazao29>
+        <Vazao30>17.43</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica57" msdata:rowOrder="56">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-10-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>20.46</Maxima>
+        <Minima>7.98</Minima>
+        <Media>11.3171</Media>
+        <DiaMaxima>22</DiaMaxima>
+        <DiaMinima>6</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>11.37</Vazao01>
+        <Vazao02>9.94</Vazao02>
+        <Vazao03>8.79</Vazao03>
+        <Vazao04>8.78</Vazao04>
+        <Vazao05>8.64</Vazao05>
+        <Vazao06>7.98</Vazao06>
+        <Vazao07>8.46</Vazao07>
+        <Vazao08>9.65</Vazao08>
+        <Vazao09>10</Vazao09>
+        <Vazao10>9.77</Vazao10>
+        <Vazao11>9.05</Vazao11>
+        <Vazao12>8.6</Vazao12>
+        <Vazao13>8.72</Vazao13>
+        <Vazao14>8.35</Vazao14>
+        <Vazao15>9.79</Vazao15>
+        <Vazao16>10.85</Vazao16>
+        <Vazao17>10.16</Vazao17>
+        <Vazao18>10.15</Vazao18>
+        <Vazao19>10.89</Vazao19>
+        <Vazao20>16.3</Vazao20>
+        <Vazao21>19.23</Vazao21>
+        <Vazao22>20.46</Vazao22>
+        <Vazao23>20.15</Vazao23>
+        <Vazao24>18.04</Vazao24>
+        <Vazao25>13.62</Vazao25>
+        <Vazao26>10.06</Vazao26>
+        <Vazao27>10.48</Vazao27>
+        <Vazao28>10.72</Vazao28>
+        <Vazao29>11.25</Vazao29>
+        <Vazao30>10.91</Vazao30>
+        <Vazao31>9.67</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica58" msdata:rowOrder="57">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-09-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>23.68</Maxima>
+        <Minima>6.49</Minima>
+        <Media>10.569</Media>
+        <DiaMaxima>10</DiaMaxima>
+        <DiaMinima>19</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.82</Vazao01>
+        <Vazao02>6.67</Vazao02>
+        <Vazao03>6.63</Vazao03>
+        <Vazao04>8.88</Vazao04>
+        <Vazao05>9.24</Vazao05>
+        <Vazao06>10.05</Vazao06>
+        <Vazao07>12.67</Vazao07>
+        <Vazao08>14.25</Vazao08>
+        <Vazao09>22.19</Vazao09>
+        <Vazao10>23.68</Vazao10>
+        <Vazao11>21.88</Vazao11>
+        <Vazao12>18.13</Vazao12>
+        <Vazao13>12.87</Vazao13>
+        <Vazao14>9.47</Vazao14>
+        <Vazao15>8.28</Vazao15>
+        <Vazao16>7.52</Vazao16>
+        <Vazao17>6.99</Vazao17>
+        <Vazao18>6.51</Vazao18>
+        <Vazao19>6.49</Vazao19>
+        <Vazao20>6.97</Vazao20>
+        <Vazao21>7.28</Vazao21>
+        <Vazao22>7.73</Vazao22>
+        <Vazao23>8.52</Vazao23>
+        <Vazao24>9.26</Vazao24>
+        <Vazao25>9.07</Vazao25>
+        <Vazao26>8.78</Vazao26>
+        <Vazao27>8.35</Vazao27>
+        <Vazao28>8.28</Vazao28>
+        <Vazao29>11.49</Vazao29>
+        <Vazao30>12.12</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica59" msdata:rowOrder="58">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-08-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>15.88</Maxima>
+        <Minima>6.68</Minima>
+        <Media>8.5106</Media>
+        <DiaMaxima>1</DiaMaxima>
+        <DiaMinima>17</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>15.88</Vazao01>
+        <Vazao02>13.2</Vazao02>
+        <Vazao03>10.83</Vazao03>
+        <Vazao04>8.71</Vazao04>
+        <Vazao05>7.9</Vazao05>
+        <Vazao06>7.39</Vazao06>
+        <Vazao07>6.94</Vazao07>
+        <Vazao08>7.14</Vazao08>
+        <Vazao09>7.25</Vazao09>
+        <Vazao10>7.37</Vazao10>
+        <Vazao11>7.6</Vazao11>
+        <Vazao12>7.36</Vazao12>
+        <Vazao13>7.1</Vazao13>
+        <Vazao14>6.94</Vazao14>
+        <Vazao15>6.82</Vazao15>
+        <Vazao16>6.7</Vazao16>
+        <Vazao17>6.68</Vazao17>
+        <Vazao18>6.93</Vazao18>
+        <Vazao19>8.16</Vazao19>
+        <Vazao20>8.77</Vazao20>
+        <Vazao21>9.95</Vazao21>
+        <Vazao22>10.68</Vazao22>
+        <Vazao23>10.36</Vazao23>
+        <Vazao24>10.09</Vazao24>
+        <Vazao25>9.64</Vazao25>
+        <Vazao26>9.17</Vazao26>
+        <Vazao27>8.49</Vazao27>
+        <Vazao28>7.95</Vazao28>
+        <Vazao29>7.58</Vazao29>
+        <Vazao30>7.27</Vazao30>
+        <Vazao31>6.98</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica60" msdata:rowOrder="59">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-07-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>19.62</Maxima>
+        <Minima>7.25</Minima>
+        <Media>10.4761</Media>
+        <DiaMaxima>30</DiaMaxima>
+        <DiaMinima>1</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>7.25</Vazao01>
+        <Vazao02>7.34</Vazao02>
+        <Vazao03>8.02</Vazao03>
+        <Vazao04>8.6</Vazao04>
+        <Vazao05>8.23</Vazao05>
+        <Vazao06>7.95</Vazao06>
+        <Vazao07>7.95</Vazao07>
+        <Vazao08>7.72</Vazao08>
+        <Vazao09>7.75</Vazao09>
+        <Vazao10>7.51</Vazao10>
+        <Vazao11>8.49</Vazao11>
+        <Vazao12>12.59</Vazao12>
+        <Vazao13>12.68</Vazao13>
+        <Vazao14>11.63</Vazao14>
+        <Vazao15>10.27</Vazao15>
+        <Vazao16>9</Vazao16>
+        <Vazao17>8.26</Vazao17>
+        <Vazao18>7.87</Vazao18>
+        <Vazao19>7.94</Vazao19>
+        <Vazao20>7.83</Vazao20>
+        <Vazao21>7.8</Vazao21>
+        <Vazao22>7.48</Vazao22>
+        <Vazao23>7.49</Vazao23>
+        <Vazao24>8.67</Vazao24>
+        <Vazao25>15.2</Vazao25>
+        <Vazao26>15.88</Vazao26>
+        <Vazao27>16.45</Vazao27>
+        <Vazao28>15.53</Vazao28>
+        <Vazao29>17.38</Vazao29>
+        <Vazao30>19.62</Vazao30>
+        <Vazao31>18.38</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica61" msdata:rowOrder="60">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-06-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>11.8</Maxima>
+        <Minima>6.07</Minima>
+        <Media>7.5147</Media>
+        <DiaMaxima>12</DiaMaxima>
+        <DiaMinima>6</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>6.66</Vazao01>
+        <Vazao02>6.72</Vazao02>
+        <Vazao03>6.65</Vazao03>
+        <Vazao04>6.46</Vazao04>
+        <Vazao05>6.87</Vazao05>
+        <Vazao06>6.07</Vazao06>
+        <Vazao07>6.16</Vazao07>
+        <Vazao08>6.56</Vazao08>
+        <Vazao09>6.79</Vazao09>
+        <Vazao10>7.13</Vazao10>
+        <Vazao11>11.08</Vazao11>
+        <Vazao12>11.8</Vazao12>
+        <Vazao13>10.9</Vazao13>
+        <Vazao14>8.91</Vazao14>
+        <Vazao15>7.57</Vazao15>
+        <Vazao16>7.15</Vazao16>
+        <Vazao17>6.85</Vazao17>
+        <Vazao18>6.58</Vazao18>
+        <Vazao19>6.57</Vazao19>
+        <Vazao20>6.55</Vazao20>
+        <Vazao21>6.35</Vazao21>
+        <Vazao22>6.33</Vazao22>
+        <Vazao23>6.31</Vazao23>
+        <Vazao24>6.27</Vazao24>
+        <Vazao25>8.31</Vazao25>
+        <Vazao26>8.54</Vazao26>
+        <Vazao27>8.48</Vazao27>
+        <Vazao28>8.91</Vazao28>
+        <Vazao29>8.13</Vazao29>
+        <Vazao30>7.78</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica62" msdata:rowOrder="61">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-05-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima />
+        <Minima />
+        <Media />
+        <DiaMaxima />
+        <DiaMinima />
+        <MaximaStatus>0</MaximaStatus>
+        <MinimaStatus>0</MinimaStatus>
+        <MediaStatus>0</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>8.05</Vazao01>
+        <Vazao02>7.9</Vazao02>
+        <Vazao03>8.01</Vazao03>
+        <Vazao04>8.28</Vazao04>
+        <Vazao05>10.09</Vazao05>
+        <Vazao06>10.78</Vazao06>
+        <Vazao07>10.74</Vazao07>
+        <Vazao08>9.91</Vazao08>
+        <Vazao09>8.87</Vazao09>
+        <Vazao10>10.58</Vazao10>
+        <Vazao11>11.84</Vazao11>
+        <Vazao12>10.58</Vazao12>
+        <Vazao13>9.47</Vazao13>
+        <Vazao14>9.52</Vazao14>
+        <Vazao15>10.26</Vazao15>
+        <Vazao16>11.06</Vazao16>
+        <Vazao17>10.42</Vazao17>
+        <Vazao18>8.99</Vazao18>
+        <Vazao19>7.74</Vazao19>
+        <Vazao20>7.29</Vazao20>
+        <Vazao21>7.35</Vazao21>
+        <Vazao22>7.26</Vazao22>
+        <Vazao23>6.73</Vazao23>
+        <Vazao24 />
+        <Vazao25>6.19</Vazao25>
+        <Vazao26>6.2</Vazao26>
+        <Vazao27>8.08</Vazao27>
+        <Vazao28>6.84</Vazao28>
+        <Vazao29>6.81</Vazao29>
+        <Vazao30>6.68</Vazao30>
+        <Vazao31>6.54</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica63" msdata:rowOrder="62">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-04-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>11.05</Maxima>
+        <Minima>6.06</Minima>
+        <Media>7.9003</Media>
+        <DiaMaxima>14</DiaMaxima>
+        <DiaMinima>5</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>7</Vazao01>
+        <Vazao02>6.56</Vazao02>
+        <Vazao03>6.58</Vazao03>
+        <Vazao04>6.39</Vazao04>
+        <Vazao05>6.06</Vazao05>
+        <Vazao06>8.8</Vazao06>
+        <Vazao07>9.07</Vazao07>
+        <Vazao08>8.67</Vazao08>
+        <Vazao09>8.17</Vazao09>
+        <Vazao10>7.59</Vazao10>
+        <Vazao11>7.18</Vazao11>
+        <Vazao12>6.8</Vazao12>
+        <Vazao13>7.04</Vazao13>
+        <Vazao14>11.05</Vazao14>
+        <Vazao15>10.88</Vazao15>
+        <Vazao16>9.41</Vazao16>
+        <Vazao17>8.28</Vazao17>
+        <Vazao18>7.75</Vazao18>
+        <Vazao19>7.35</Vazao19>
+        <Vazao20>7.23</Vazao20>
+        <Vazao21>7.54</Vazao21>
+        <Vazao22>7.38</Vazao22>
+        <Vazao23>7.27</Vazao23>
+        <Vazao24>8.05</Vazao24>
+        <Vazao25>7.62</Vazao25>
+        <Vazao26>7.48</Vazao26>
+        <Vazao27>8.4</Vazao27>
+        <Vazao28>8.89</Vazao28>
+        <Vazao29>8.38</Vazao29>
+        <Vazao30>8.14</Vazao30>
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica64" msdata:rowOrder="63">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-03-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>20.14</Maxima>
+        <Minima>6.36</Minima>
+        <Media>12.2406</Media>
+        <DiaMaxima>15</DiaMaxima>
+        <DiaMinima>8</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>17.2</Vazao01>
+        <Vazao02>14.83</Vazao02>
+        <Vazao03>11.61</Vazao03>
+        <Vazao04>9.72</Vazao04>
+        <Vazao05>8.52</Vazao05>
+        <Vazao06>7.48</Vazao06>
+        <Vazao07>6.96</Vazao07>
+        <Vazao08>6.36</Vazao08>
+        <Vazao09>8.21</Vazao09>
+        <Vazao10>13.03</Vazao10>
+        <Vazao11>16.81</Vazao11>
+        <Vazao12>16.47</Vazao12>
+        <Vazao13>17.18</Vazao13>
+        <Vazao14>19.12</Vazao14>
+        <Vazao15>20.14</Vazao15>
+        <Vazao16>18.78</Vazao16>
+        <Vazao17>16.7</Vazao17>
+        <Vazao18>17.94</Vazao18>
+        <Vazao19>16.45</Vazao19>
+        <Vazao20>15.31</Vazao20>
+        <Vazao21>14.98</Vazao21>
+        <Vazao22>13.15</Vazao22>
+        <Vazao23>10.95</Vazao23>
+        <Vazao24>9.05</Vazao24>
+        <Vazao25>8.35</Vazao25>
+        <Vazao26>7.78</Vazao26>
+        <Vazao27>6.89</Vazao27>
+        <Vazao28>6.92</Vazao28>
+        <Vazao29>6.82</Vazao29>
+        <Vazao30>8.05</Vazao30>
+        <Vazao31>7.7</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica65" msdata:rowOrder="64">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-02-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>32.94</Maxima>
+        <Minima>9.12</Minima>
+        <Media>18.4568</Media>
+        <DiaMaxima>17</DiaMaxima>
+        <DiaMinima>23</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>21.87</Vazao01>
+        <Vazao02>18.3</Vazao02>
+        <Vazao03>13.82</Vazao03>
+        <Vazao04>13.1</Vazao04>
+        <Vazao05>13.41</Vazao05>
+        <Vazao06>12.95</Vazao06>
+        <Vazao07>10.37</Vazao07>
+        <Vazao08>10.61</Vazao08>
+        <Vazao09>21.22</Vazao09>
+        <Vazao10>21.05</Vazao10>
+        <Vazao11>19.38</Vazao11>
+        <Vazao12>18.05</Vazao12>
+        <Vazao13>18.05</Vazao13>
+        <Vazao14>17.09</Vazao14>
+        <Vazao15>24.28</Vazao15>
+        <Vazao16>32.23</Vazao16>
+        <Vazao17>32.94</Vazao17>
+        <Vazao18>31.68</Vazao18>
+        <Vazao19>28.44</Vazao19>
+        <Vazao20>23.23</Vazao20>
+        <Vazao21>16.9</Vazao21>
+        <Vazao22>11.27</Vazao22>
+        <Vazao23>9.12</Vazao23>
+        <Vazao24>9.63</Vazao24>
+        <Vazao25>13.15</Vazao25>
+        <Vazao26>16.39</Vazao26>
+        <Vazao27>19.97</Vazao27>
+        <Vazao28>18.29</Vazao28>
+        <Vazao29 />
+        <Vazao30 />
+        <Vazao31 />
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica66" msdata:rowOrder="65">
+        <EstacaoCodigo>62669900</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>2009-01-01 00:00:00</DataHora>
+        <MediaDiaria>1</MediaDiaria>
+        <MetodoObtencaoVazoes>1</MetodoObtencaoVazoes>
+        <Maxima>22.5</Maxima>
+        <Minima>6.49</Minima>
+        <Media>12.1023</Media>
+        <DiaMaxima>31</DiaMaxima>
+        <DiaMinima>14</DiaMinima>
+        <MaximaStatus>1</MaximaStatus>
+        <MinimaStatus>1</MinimaStatus>
+        <MediaStatus>1</MediaStatus>
+        <MediaAnual>0</MediaAnual>
+        <MediaAnualStatus />
+        <Vazao01>10.59</Vazao01>
+        <Vazao02>14.87</Vazao02>
+        <Vazao03>19.12</Vazao03>
+        <Vazao04>19.19</Vazao04>
+        <Vazao05>17.1</Vazao05>
+        <Vazao06>12.61</Vazao06>
+        <Vazao07>8.8</Vazao07>
+        <Vazao08>6.97</Vazao08>
+        <Vazao09>6.82</Vazao09>
+        <Vazao10>10.57</Vazao10>
+        <Vazao11>11.04</Vazao11>
+        <Vazao12>9.84</Vazao12>
+        <Vazao13>7.58</Vazao13>
+        <Vazao14>6.49</Vazao14>
+        <Vazao15>10.71</Vazao15>
+        <Vazao16>11.72</Vazao16>
+        <Vazao17>10.99</Vazao17>
+        <Vazao18>10.07</Vazao18>
+        <Vazao19>10.09</Vazao19>
+        <Vazao20>9.69</Vazao20>
+        <Vazao21>10.02</Vazao21>
+        <Vazao22>8.37</Vazao22>
+        <Vazao23>7.04</Vazao23>
+        <Vazao24>6.53</Vazao24>
+        <Vazao25>6.61</Vazao25>
+        <Vazao26>12.09</Vazao26>
+        <Vazao27>17.46</Vazao27>
+        <Vazao28>19.96</Vazao28>
+        <Vazao29>19.33</Vazao29>
+        <Vazao30>20.4</Vazao30>
+        <Vazao31>22.5</Vazao31>
+        <Vazao01Status />
+        <Vazao02Status />
+        <Vazao03Status />
+        <Vazao04Status />
+        <Vazao05Status />
+        <Vazao06Status />
+        <Vazao07Status />
+        <Vazao08Status />
+        <Vazao09Status />
+        <Vazao10Status />
+        <Vazao11Status />
+        <Vazao12Status />
+        <Vazao13Status />
+        <Vazao14Status />
+        <Vazao15Status />
+        <Vazao16Status />
+        <Vazao17Status />
+        <Vazao18Status />
+        <Vazao19Status />
+        <Vazao20Status />
+        <Vazao21Status />
+        <Vazao22Status />
+        <Vazao23Status />
+        <Vazao24Status />
+        <Vazao25Status />
+        <Vazao26Status />
+        <Vazao27Status />
+        <Vazao28Status />
+        <Vazao29Status />
+        <Vazao30Status />
+        <Vazao31Status />
+        <DataIns>2014-11-17 00:00:00</DataIns>
+      </SerieHistorica>
+    </DocumentElement>
+  </diffgr:diffgram>
+</DataTable>

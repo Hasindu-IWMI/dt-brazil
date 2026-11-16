@@ -1,0 +1,2576 @@
+<!doctype html>
+<html class="app no-js" lang="pt-br" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>..SAR - Sistema de Acompanhamento de Reservatórios</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="description" content="Catalogo de interface utilizado nos sistemas da ANA.">
+    <meta name="keywords" content="catalogo de interface, protótipo da interface, interface do usuário">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/sar0/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="/sar0/Content/vendor.css">
+    <link rel="stylesheet" href="/sar0/Content/main.css">
+    <link href="/sar0/Content/dataPicker/bootstrap-datepicker.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZTfm8zekb0gmMchJkT8T9hSEmJs5aiZ4&sensor=false"></script>
+    
+    
+    
+    <script type="text/javascript" src="/sar0/Content/scripts/mapaReservatoriosHome.js"></script>
+    <script type="text/javascript" src="/sar0/Content/scripts/mapaReservatoriosNordeste.js"></script>
+    <script type="text/javascript" src="/sar0/Content/scripts/functions.js"></script>
+    <script src="/sar0/Content/scripts/vendor/modernizr.js"></script>
+
+    
+
+    
+
+    <script type="text/javascript" src="/sar0//www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1', { packages: ['corechart'] });
+    </script>
+
+    
+
+    
+
+</head>
+<body>
+
+      
+
+    <input id="auth" name="auth" type="hidden" value="False" />
+
+    
+
+
+    <!--[if lt IE 9]>
+      <p class="browsehappy">Você está usando um navegador <strong>desatualizado</strong>. Por favor, <a href="https://browsehappy.com/" target="_blank">atualize seu navegador</a> para melhorar a sua experiência.</p>
+    <![endif]-->
+            <p class="browsehappy">
+                Para uma melhor experiência de navegação, é recomendada a utilização do <strong>Google Chrome</strong>, versão 40 ou superior. Por favor, <a href="https://browsehappy.com/"> atualize seu navegador</a>.
+            </p>
+
+
+    <div id="barra-brasil" style="background: #7f7f7f; height: 20px; padding: 0 0 0 10px; display: block; min-height: 32px;">
+        <ul id="menu-barra-temp" style="list-style: none;">
+            <li style="display: inline; float: left; padding-right: 10px; margin-right: 10px; border-right: 1px solid #ededed;"><a href="https://brasil.gov.br" style="font-family: sans, sans-serif; text-decoration: none; color: white;">Portal do Governo Brasileiro</a></li>
+            <li><a href="https://epwg.governoeletronico.gov.br/barra/atualize.html" style="font-family: sans, sans-serif; text-decoration: none; color: white;">Atualize sua Barra de Governo</a></li>
+        </ul>
+    </div>
+
+    <section class="vbox">
+        <header class="bg-primary header header-md navbar navbar-fixed-top-xs box-shadow">
+            <div class="navbar-header aside-md bg-white">
+                <a class="btn btn-link visible-xs" data-toggle-class="nav-off-screen" data-target="#nav">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="/sar0/Home" class="navbar-brand text-center">
+                    <figure class="inline m-r-xs">
+                        <img src="/sar0/images/logo.png" alt="ANA">
+                    </figure>
+                </a>
+                <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <li>
+                    <a href="#"><i class="i i-book"></i> SAR - Sistema de Acompanhamento de Reservatórios</a>
+                </li>
+                <!--li class="dropdown" data-toggle="tooltip" title="Seleção de Perfil">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="i i-users3"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="active">
+                        <a href="painel.html">Perfil 1</a>
+                    </li>
+                    <li>
+                        <a href="painel.html">Perfil 2</a>
+                    </li>
+                    <li>
+                        <a href="painel.html">Perfil 2</a>
+                    </li>
+                </ul>
+                </li-->
+            </ul>
+            
+
+                <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
+
+                    <!--li class="hidden-sm">
+                    <a href="manual.html"><i class="i i-support"></i> <span class="hidden-sm hidden-md">Manual do Sistema</span></a>
+                    </li-->
+
+                    <li class="hidden-sm hidden-md">
+                        <a href="#">v2.2.5</a>
+                    </li>
+                    <li class="hidden-sm">
+                        <ul id="rvfs-controllers" class="list-unstyled list-inline list-accessibility padder-h"></ul>
+                    </li>
+                    <li>
+                        <a href="/sar0/Login/Login" id="loginLink">Logar no Sistema</a>
+                    </li>
+                </ul>
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-white aside-md hidden-print" id="nav">
+                    <section class="vbox">
+                        <section class="w-f scrollable">
+                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railopacity="0.2">
+                                <div class="clearfix wrapper dk nav-user hidden-xs">
+
+                                        <div class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <figure class="thumb avatar pull-left m-r">
+                                                    <img src="/sar0/images/profile/avatar.png" alt="Junqueira" class="dker">
+                                                    <i class="on md b-black"></i>
+                                                </figure>
+                                                <span class="hidden-nav-xs clear">
+                                                    <span class="block m-t-xs">
+                                                        <strong class="text-lt">
+                                                            Visitante
+                                                        </strong> <i class="fa fa-caret-down"></i>
+                                                    </span>
+                                                    <span class="text-muted text-xs block">     </span>
+                                                </span>
+                                            </a>
+                                            <ul class="dropdown-menu animated fadeIn m-t-xs">
+                                                <li>
+                                                    <a href="/sar0/Login/Login">Logar</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                </div>
+
+                                <nav class="nav-primary hidden-xs">
+                                    <div class="text-muted text-sm hidden-nav-xs padder-h m-t-sm m-b-sm">Navegação</div>
+                                    <ul class="nav nav-main" data-ride="collapse">
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+                                                    <i class="i i-circle-sm-o text-inactive"></i>
+                                                    <i class="i i-circle-sm text-active"></i>
+                                                </span>
+                                                <i class="i i-docs icon"></i>
+                                                <strong>Nordeste e Semiárido</strong>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li>
+                                                    <a href="/sar0/Nordeste" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Volume Por Estado</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/sar0/Medicao" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Dados Históricos</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/sar0/Nordeste/GraficoVolume" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Gráfico Volume</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+                                                    <i class="i i-circle-sm-o text-inactive"></i>
+                                                    <i class="i i-circle-sm text-active"></i>
+                                                </span>
+                                                <i class="i i-docs icon"></i>
+                                                <strong>SIN</strong>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li>
+                                                    <a href="/sar0/MedicaoSin" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Dados Históricos</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+                                                    <i class="i i-circle-sm-o text-inactive"></i>
+                                                    <i class="i i-circle-sm text-active"></i>
+                                                </span>
+                                                <i class="i i-docs icon"></i>
+                                                <strong>Sistema Cantareira</strong>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li class="active">
+                                                    <a href="/sar0/MedicaoCantareira" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Dados Históricos</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+
+                                    </ul>
+                                    <div class="line dk hidden-nav-xs"></div>
+                                    <div class="text-muted text-xs hidden-nav-xs padder-h m-t-sm m-b-sm">
+
+                                        <div class="pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Itens mais acessados"><i class="fa fa-question-circle-circle"></i></a>
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-main" data-ride="collapse">
+
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+                                                    <i class="i i-circle-sm-o text-inactive"></i>
+                                                    <i class="i i-circle-sm text-active"></i>
+                                                </span>
+                                                <i class="i i-world icon"></i>
+                                                <strong>Acesso Rápido</strong>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li>
+                                                    <a href="https://www.ana.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-info-dk"></i>
+                                                        <span>Portal ANA</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.ons.org.br/" target="alt">
+                                                        <i class="i i-circle-sm text-success-dk"></i>
+                                                        <span>ONS</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.dnocs.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-danger-dk"></i>
+                                                        <span>DNOCS</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://portal.cogerh.com.br/" target="alt">
+                                                        <i class="i i-circle-sm text-warning-dk"></i>
+                                                        <span>COGERH</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.aesa.pb.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-dark-dk"></i>
+                                                        <span>AESA</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.semarh.rn.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-primary-dk"></i>
+                                                        <span>SEMARH</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.apac.pe.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-info-dk"></i>
+                                                        <span>Apac</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.cerb.ba.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-success-dk"></i>
+                                                        <span>Cerb</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.inema.ba.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-danger-dk"></i>
+                                                        <span>Inema</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.codevasf.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-warning-dk"></i>
+                                                        <span>CODEVASF</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.compesa.com.br/" target="alt">
+                                                        <i class="i i-circle-sm text-dark-dk"></i>
+                                                        <span>COMPESA</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                    </ul>
+                                    </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </section>
+                        <footer class="footer hidden-xs no-padder text-center-nav-xs">
+                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs" data-toggle="tooltip" title="Sair">
+                                <i class="i i-logout"></i>
+                            </a>
+                            <a href="#nav" data-toggle-class="nav-xs" class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+                                <i class="i i-circleleft text-inactive"></i>
+                                <i class="i i-circleright text-active"></i>
+                            </a>
+                        </footer>
+                    </section>
+                </aside>
+
+                <section id="content">
+                    <section class="hbox stretch">
+                        <section>
+                            <section class="vbox">
+                                <section class="scrollable">
+                                    <div class="slim-scroll padder-h" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railopacity="0.2">
+                                        <div class="row m-b-md">
+                                            <div class="col-sm-12">
+
+                                                <h1 class="m-b-xs text-black">Dados de opera&#231;&#227;o dos reservat&#243;rios Cantareira</h1>
+
+                                                <ol class="breadcrumb">
+                                                    <li><a href="/sar0/">Início</a> /  Cantareira / Dados Históricos Cantareira</li>
+                                                </ol>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                
+                                                
+
+
+<div id="filtroMedicoesSIN">
+<div class="row">
+    <div class="col-md-12">
+<form action="/sar0/MedicaoCantareira" class="form-horizontal" method="get">            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <h2 class="panel-title h5">Filtros</h2>
+                </header>
+                <article class="panel-body">
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required">Reservatório</label>
+                        <div class="col-sm-10">
+                            <select class="form-control input-m-sm" id="dropDownListReservatorios" name="dropDownListReservatorios"><option value="">Selecione</option>
+<option value="29003">ATIBAINHA                                         </option>
+<option value="29002">CACHOEIRA                                         </option>
+<option selected="selected" value="29001">JAGUARI-JACARE&#205;                                   </option>
+<option value="29004">PAIVA CASTRO                                      </option>
+</select>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="dropDownListReservatorios" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    <div class="form-group m-b-n">
+                        <label class="col-sm-2 control-label required">Período</label>
+                        <div class="col-sm-10">
+                            <div class="input-s-md inline">
+                                <div class="input-group m-n">
+                                    <input class="form-control form-datepicker date text-box single-line" id="dataInicial" name="dataInicial" placeholder="Informe a Data Inicial" type="text" value="01/01/1987" />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="padder-h inline text-center form-valign v-top">
+                                a
+                            </div>
+                            <div class="input-s-md inline">
+                                <div class="input-group m-n">
+                                    <input class="form-control form-datepicker date text-box single-line" id="dataFinal" name="dataFinal" type="text" value="30/06/1987" />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+                <footer class="panel-footer b-t clearfix">
+                    <div class="form-group m-b-n">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-s-md btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+</form>    </div>
+</div>
+
+<script src="/sar0/Scripts/jquery-1.11.1.min.js"></script>
+<link href="/sar0/Content/dataPicker/bootstrap-datepicker.css" rel="stylesheet" />
+<script src="/sar0/Content/dataPicker/bootstrap-datepicker.js"></script>
+<script src="/sar0/Content/dataPicker/bootstrap-datepicker.pt-BR.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+
+
+        $('#dataInicial').datepicker({
+            todayBtn: "linked",
+            language: "pt-BR",
+            orientation: "bottom auto",
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+        $('#dataFinal').datepicker({
+            todayBtn: "linked",
+            language: "pt-BR",
+            orientation: "bottom auto",
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+    });
+
+</script>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form id="form-result" class="form" role="form">
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-download"></i> Exportar <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/sar0/MedicaoCantareira/ExportarExcel"><i class="fa fa-file-excel-o"></i> Salvar em Excel</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 class="panel-title h5">Registros</h2>
+                </header>
+                <div class="panel-body">
+                    <div id="results">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" data-sort="coluna_1">C&#243;digo do Reservat&#243;rio</th>
+                                        <th class="text-center" data-sort="coluna_2">Reservat&#243;rio</th>
+                                        <th class="text-center" data-sort="coluna_3">Cota (m)</th>
+                                        <th class="text-center" data-sort="coluna_4">Volume &#218;til (hm&#179;)</th>
+                                        <th class="text-center" data-sort="coluna_5">Volume &#218;til (%)</th>
+                                        <th class="text-center" data-sort="coluna_6">Aflu&#234;ncia (m&#179;/s)</th>
+                                        <th class="text-center" data-sort="coluna_7">Deflu&#234;ncia (m&#179;/s)</th>
+                                        <th class="text-center" data-sort="coluna_8">Data da Medi&#231;&#227;o</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">833,73</td>
+                                            <td class="text-center coluna_4">271,10</td>
+                                            <td class="text-center coluna_5">38,28</td>
+                                            <td class="text-center coluna_6">47,92</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">01/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">833,81</td>
+                                            <td class="text-center coluna_4">274,00</td>
+                                            <td class="text-center coluna_5">38,69</td>
+                                            <td class="text-center coluna_6">35,81</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">02/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">833,92</td>
+                                            <td class="text-center coluna_4">278,00</td>
+                                            <td class="text-center coluna_5">39,25</td>
+                                            <td class="text-center coluna_6">48,32</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">03/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,02</td>
+                                            <td class="text-center coluna_4">281,65</td>
+                                            <td class="text-center coluna_5">39,77</td>
+                                            <td class="text-center coluna_6">44,36</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">04/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,10</td>
+                                            <td class="text-center coluna_4">284,58</td>
+                                            <td class="text-center coluna_5">40,18</td>
+                                            <td class="text-center coluna_6">35,68</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">05/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,18</td>
+                                            <td class="text-center coluna_4">287,51</td>
+                                            <td class="text-center coluna_5">40,59</td>
+                                            <td class="text-center coluna_6">36,05</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">06/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,27</td>
+                                            <td class="text-center coluna_4">290,82</td>
+                                            <td class="text-center coluna_5">41,06</td>
+                                            <td class="text-center coluna_6">40,93</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">07/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,37</td>
+                                            <td class="text-center coluna_4">294,51</td>
+                                            <td class="text-center coluna_5">41,58</td>
+                                            <td class="text-center coluna_6">44,76</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">08/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,42</td>
+                                            <td class="text-center coluna_4">296,36</td>
+                                            <td class="text-center coluna_5">41,84</td>
+                                            <td class="text-center coluna_6">24,70</td>
+                                            <td class="text-center coluna_7">2,26</td>
+                                            <td class="text-center coluna_8">09/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,47</td>
+                                            <td class="text-center coluna_4">298,22</td>
+                                            <td class="text-center coluna_5">42,11</td>
+                                            <td class="text-center coluna_6">25,75</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">10/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,52</td>
+                                            <td class="text-center coluna_4">300,07</td>
+                                            <td class="text-center coluna_5">42,37</td>
+                                            <td class="text-center coluna_6">25,46</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">11/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,56</td>
+                                            <td class="text-center coluna_4">301,56</td>
+                                            <td class="text-center coluna_5">42,58</td>
+                                            <td class="text-center coluna_6">20,89</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">12/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,68</td>
+                                            <td class="text-center coluna_4">306,03</td>
+                                            <td class="text-center coluna_5">43,21</td>
+                                            <td class="text-center coluna_6">55,85</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">13/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,73</td>
+                                            <td class="text-center coluna_4">307,90</td>
+                                            <td class="text-center coluna_5">43,47</td>
+                                            <td class="text-center coluna_6">26,23</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">14/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,84</td>
+                                            <td class="text-center coluna_4">312,02</td>
+                                            <td class="text-center coluna_5">44,06</td>
+                                            <td class="text-center coluna_6">51,54</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">15/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,87</td>
+                                            <td class="text-center coluna_4">313,15</td>
+                                            <td class="text-center coluna_5">44,21</td>
+                                            <td class="text-center coluna_6">17,01</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">16/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">834,93</td>
+                                            <td class="text-center coluna_4">315,41</td>
+                                            <td class="text-center coluna_5">44,53</td>
+                                            <td class="text-center coluna_6">30,31</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">17/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,00</td>
+                                            <td class="text-center coluna_4">318,05</td>
+                                            <td class="text-center coluna_5">44,91</td>
+                                            <td class="text-center coluna_6">35,14</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">18/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,06</td>
+                                            <td class="text-center coluna_4">320,31</td>
+                                            <td class="text-center coluna_5">45,23</td>
+                                            <td class="text-center coluna_6">29,91</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">19/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,13</td>
+                                            <td class="text-center coluna_4">322,96</td>
+                                            <td class="text-center coluna_5">45,60</td>
+                                            <td class="text-center coluna_6">34,64</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">20/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,17</td>
+                                            <td class="text-center coluna_4">324,48</td>
+                                            <td class="text-center coluna_5">45,81</td>
+                                            <td class="text-center coluna_6">21,69</td>
+                                            <td class="text-center coluna_7">2,88</td>
+                                            <td class="text-center coluna_8">21/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,21</td>
+                                            <td class="text-center coluna_4">326,00</td>
+                                            <td class="text-center coluna_5">46,03</td>
+                                            <td class="text-center coluna_6">21,36</td>
+                                            <td class="text-center coluna_7">2,46</td>
+                                            <td class="text-center coluna_8">22/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,26</td>
+                                            <td class="text-center coluna_4">327,90</td>
+                                            <td class="text-center coluna_5">46,30</td>
+                                            <td class="text-center coluna_6">26,16</td>
+                                            <td class="text-center coluna_7">2,73</td>
+                                            <td class="text-center coluna_8">23/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,32</td>
+                                            <td class="text-center coluna_4">330,18</td>
+                                            <td class="text-center coluna_5">46,62</td>
+                                            <td class="text-center coluna_6">30,89</td>
+                                            <td class="text-center coluna_7">2,90</td>
+                                            <td class="text-center coluna_8">24/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,38</td>
+                                            <td class="text-center coluna_4">332,47</td>
+                                            <td class="text-center coluna_5">46,94</td>
+                                            <td class="text-center coluna_6">31,25</td>
+                                            <td class="text-center coluna_7">3,09</td>
+                                            <td class="text-center coluna_8">25/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,57</td>
+                                            <td class="text-center coluna_4">339,75</td>
+                                            <td class="text-center coluna_5">47,97</td>
+                                            <td class="text-center coluna_6">89,59</td>
+                                            <td class="text-center coluna_7">3,44</td>
+                                            <td class="text-center coluna_8">26/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,76</td>
+                                            <td class="text-center coluna_4">347,08</td>
+                                            <td class="text-center coluna_5">49,00</td>
+                                            <td class="text-center coluna_6">87,12</td>
+                                            <td class="text-center coluna_7">1,12</td>
+                                            <td class="text-center coluna_8">27/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">835,96</td>
+                                            <td class="text-center coluna_4">354,84</td>
+                                            <td class="text-center coluna_5">50,10</td>
+                                            <td class="text-center coluna_6">91,94</td>
+                                            <td class="text-center coluna_7">1,23</td>
+                                            <td class="text-center coluna_8">28/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">836,13</td>
+                                            <td class="text-center coluna_4">361,47</td>
+                                            <td class="text-center coluna_5">51,04</td>
+                                            <td class="text-center coluna_6">79,13</td>
+                                            <td class="text-center coluna_7">1,35</td>
+                                            <td class="text-center coluna_8">29/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">836,31</td>
+                                            <td class="text-center coluna_4">368,53</td>
+                                            <td class="text-center coluna_5">52,03</td>
+                                            <td class="text-center coluna_6">84,28</td>
+                                            <td class="text-center coluna_7">1,46</td>
+                                            <td class="text-center coluna_8">30/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">836,40</td>
+                                            <td class="text-center coluna_4">372,08</td>
+                                            <td class="text-center coluna_5">52,53</td>
+                                            <td class="text-center coluna_6">43,64</td>
+                                            <td class="text-center coluna_7">1,50</td>
+                                            <td class="text-center coluna_8">31/01/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">836,59</td>
+                                            <td class="text-center coluna_4">379,60</td>
+                                            <td class="text-center coluna_5">53,60</td>
+                                            <td class="text-center coluna_6">90,40</td>
+                                            <td class="text-center coluna_7">2,17</td>
+                                            <td class="text-center coluna_8">01/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">836,70</td>
+                                            <td class="text-center coluna_4">383,97</td>
+                                            <td class="text-center coluna_5">54,21</td>
+                                            <td class="text-center coluna_6">54,17</td>
+                                            <td class="text-center coluna_7">2,26</td>
+                                            <td class="text-center coluna_8">02/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">836,82</td>
+                                            <td class="text-center coluna_4">388,76</td>
+                                            <td class="text-center coluna_5">54,89</td>
+                                            <td class="text-center coluna_6">58,63</td>
+                                            <td class="text-center coluna_7">2,34</td>
+                                            <td class="text-center coluna_8">03/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">836,88</td>
+                                            <td class="text-center coluna_4">391,16</td>
+                                            <td class="text-center coluna_5">55,23</td>
+                                            <td class="text-center coluna_6">31,21</td>
+                                            <td class="text-center coluna_7">2,40</td>
+                                            <td class="text-center coluna_8">04/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,02</td>
+                                            <td class="text-center coluna_4">396,78</td>
+                                            <td class="text-center coluna_5">56,02</td>
+                                            <td class="text-center coluna_6">69,09</td>
+                                            <td class="text-center coluna_7">2,46</td>
+                                            <td class="text-center coluna_8">05/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,10</td>
+                                            <td class="text-center coluna_4">400,00</td>
+                                            <td class="text-center coluna_5">56,48</td>
+                                            <td class="text-center coluna_6">41,04</td>
+                                            <td class="text-center coluna_7">2,53</td>
+                                            <td class="text-center coluna_8">06/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,19</td>
+                                            <td class="text-center coluna_4">403,63</td>
+                                            <td class="text-center coluna_5">56,99</td>
+                                            <td class="text-center coluna_6">45,72</td>
+                                            <td class="text-center coluna_7">2,58</td>
+                                            <td class="text-center coluna_8">07/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,27</td>
+                                            <td class="text-center coluna_4">406,87</td>
+                                            <td class="text-center coluna_5">57,45</td>
+                                            <td class="text-center coluna_6">41,40</td>
+                                            <td class="text-center coluna_7">2,38</td>
+                                            <td class="text-center coluna_8">08/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,34</td>
+                                            <td class="text-center coluna_4">409,71</td>
+                                            <td class="text-center coluna_5">57,85</td>
+                                            <td class="text-center coluna_6">37,15</td>
+                                            <td class="text-center coluna_7">2,23</td>
+                                            <td class="text-center coluna_8">09/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,47</td>
+                                            <td class="text-center coluna_4">415,00</td>
+                                            <td class="text-center coluna_5">58,59</td>
+                                            <td class="text-center coluna_6">64,72</td>
+                                            <td class="text-center coluna_7">2,28</td>
+                                            <td class="text-center coluna_8">10/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,52</td>
+                                            <td class="text-center coluna_4">417,04</td>
+                                            <td class="text-center coluna_5">58,88</td>
+                                            <td class="text-center coluna_6">27,07</td>
+                                            <td class="text-center coluna_7">2,32</td>
+                                            <td class="text-center coluna_8">11/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,59</td>
+                                            <td class="text-center coluna_4">419,90</td>
+                                            <td class="text-center coluna_5">59,29</td>
+                                            <td class="text-center coluna_6">36,95</td>
+                                            <td class="text-center coluna_7">2,35</td>
+                                            <td class="text-center coluna_8">12/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,63</td>
+                                            <td class="text-center coluna_4">421,54</td>
+                                            <td class="text-center coluna_5">59,52</td>
+                                            <td class="text-center coluna_6">22,47</td>
+                                            <td class="text-center coluna_7">2,37</td>
+                                            <td class="text-center coluna_8">13/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,68</td>
+                                            <td class="text-center coluna_4">423,59</td>
+                                            <td class="text-center coluna_5">59,81</td>
+                                            <td class="text-center coluna_6">26,81</td>
+                                            <td class="text-center coluna_7">2,40</td>
+                                            <td class="text-center coluna_8">14/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,76</td>
+                                            <td class="text-center coluna_4">426,88</td>
+                                            <td class="text-center coluna_5">60,27</td>
+                                            <td class="text-center coluna_6">41,44</td>
+                                            <td class="text-center coluna_7">2,42</td>
+                                            <td class="text-center coluna_8">15/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">837,85</td>
+                                            <td class="text-center coluna_4">430,59</td>
+                                            <td class="text-center coluna_5">60,79</td>
+                                            <td class="text-center coluna_6">46,62</td>
+                                            <td class="text-center coluna_7">2,46</td>
+                                            <td class="text-center coluna_8">16/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,00</td>
+                                            <td class="text-center coluna_4">436,79</td>
+                                            <td class="text-center coluna_5">61,67</td>
+                                            <td class="text-center coluna_6">76,55</td>
+                                            <td class="text-center coluna_7">2,51</td>
+                                            <td class="text-center coluna_8">17/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,13</td>
+                                            <td class="text-center coluna_4">442,18</td>
+                                            <td class="text-center coluna_5">62,43</td>
+                                            <td class="text-center coluna_6">65,71</td>
+                                            <td class="text-center coluna_7">2,57</td>
+                                            <td class="text-center coluna_8">18/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,23</td>
+                                            <td class="text-center coluna_4">446,35</td>
+                                            <td class="text-center coluna_5">63,02</td>
+                                            <td class="text-center coluna_6">51,26</td>
+                                            <td class="text-center coluna_7">2,62</td>
+                                            <td class="text-center coluna_8">19/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,31</td>
+                                            <td class="text-center coluna_4">449,69</td>
+                                            <td class="text-center coluna_5">63,49</td>
+                                            <td class="text-center coluna_6">42,16</td>
+                                            <td class="text-center coluna_7">2,66</td>
+                                            <td class="text-center coluna_8">20/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,37</td>
+                                            <td class="text-center coluna_4">452,21</td>
+                                            <td class="text-center coluna_5">63,85</td>
+                                            <td class="text-center coluna_6">32,94</td>
+                                            <td class="text-center coluna_7">2,68</td>
+                                            <td class="text-center coluna_8">21/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,44</td>
+                                            <td class="text-center coluna_4">455,14</td>
+                                            <td class="text-center coluna_5">64,26</td>
+                                            <td class="text-center coluna_6">38,29</td>
+                                            <td class="text-center coluna_7">2,71</td>
+                                            <td class="text-center coluna_8">22/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,50</td>
+                                            <td class="text-center coluna_4">457,66</td>
+                                            <td class="text-center coluna_5">64,62</td>
+                                            <td class="text-center coluna_6">32,63</td>
+                                            <td class="text-center coluna_7">2,74</td>
+                                            <td class="text-center coluna_8">23/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,53</td>
+                                            <td class="text-center coluna_4">458,93</td>
+                                            <td class="text-center coluna_5">64,80</td>
+                                            <td class="text-center coluna_6">17,52</td>
+                                            <td class="text-center coluna_7">2,76</td>
+                                            <td class="text-center coluna_8">24/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,59</td>
+                                            <td class="text-center coluna_4">461,45</td>
+                                            <td class="text-center coluna_5">65,15</td>
+                                            <td class="text-center coluna_6">32,13</td>
+                                            <td class="text-center coluna_7">2,77</td>
+                                            <td class="text-center coluna_8">25/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,64</td>
+                                            <td class="text-center coluna_4">463,56</td>
+                                            <td class="text-center coluna_5">65,45</td>
+                                            <td class="text-center coluna_6">27,67</td>
+                                            <td class="text-center coluna_7">2,97</td>
+                                            <td class="text-center coluna_8">26/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,69</td>
+                                            <td class="text-center coluna_4">465,68</td>
+                                            <td class="text-center coluna_5">65,75</td>
+                                            <td class="text-center coluna_6">27,73</td>
+                                            <td class="text-center coluna_7">2,81</td>
+                                            <td class="text-center coluna_8">27/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,75</td>
+                                            <td class="text-center coluna_4">468,22</td>
+                                            <td class="text-center coluna_5">66,11</td>
+                                            <td class="text-center coluna_6">32,91</td>
+                                            <td class="text-center coluna_7">2,83</td>
+                                            <td class="text-center coluna_8">28/02/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,81</td>
+                                            <td class="text-center coluna_4">470,76</td>
+                                            <td class="text-center coluna_5">66,47</td>
+                                            <td class="text-center coluna_6">33,42</td>
+                                            <td class="text-center coluna_7">2,99</td>
+                                            <td class="text-center coluna_8">01/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,86</td>
+                                            <td class="text-center coluna_4">472,89</td>
+                                            <td class="text-center coluna_5">66,77</td>
+                                            <td class="text-center coluna_6">28,90</td>
+                                            <td class="text-center coluna_7">3,01</td>
+                                            <td class="text-center coluna_8">02/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,91</td>
+                                            <td class="text-center coluna_4">475,01</td>
+                                            <td class="text-center coluna_5">67,07</td>
+                                            <td class="text-center coluna_6">29,25</td>
+                                            <td class="text-center coluna_7">3,03</td>
+                                            <td class="text-center coluna_8">03/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">838,96</td>
+                                            <td class="text-center coluna_4">477,15</td>
+                                            <td class="text-center coluna_5">67,37</td>
+                                            <td class="text-center coluna_6">28,24</td>
+                                            <td class="text-center coluna_7">3,04</td>
+                                            <td class="text-center coluna_8">04/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">839,02</td>
+                                            <td class="text-center coluna_4">479,71</td>
+                                            <td class="text-center coluna_5">67,73</td>
+                                            <td class="text-center coluna_6">32,79</td>
+                                            <td class="text-center coluna_7">3,05</td>
+                                            <td class="text-center coluna_8">05/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">839,05</td>
+                                            <td class="text-center coluna_4">480,99</td>
+                                            <td class="text-center coluna_5">67,91</td>
+                                            <td class="text-center coluna_6">18,15</td>
+                                            <td class="text-center coluna_7">3,07</td>
+                                            <td class="text-center coluna_8">06/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">839,09</td>
+                                            <td class="text-center coluna_4">482,70</td>
+                                            <td class="text-center coluna_5">68,15</td>
+                                            <td class="text-center coluna_6">23,22</td>
+                                            <td class="text-center coluna_7">3,07</td>
+                                            <td class="text-center coluna_8">07/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">839,13</td>
+                                            <td class="text-center coluna_4">484,41</td>
+                                            <td class="text-center coluna_5">68,39</td>
+                                            <td class="text-center coluna_6">23,41</td>
+                                            <td class="text-center coluna_7">3,08</td>
+                                            <td class="text-center coluna_8">08/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">839,25</td>
+                                            <td class="text-center coluna_4">489,56</td>
+                                            <td class="text-center coluna_5">69,12</td>
+                                            <td class="text-center coluna_6">63,60</td>
+                                            <td class="text-center coluna_7">3,10</td>
+                                            <td class="text-center coluna_8">09/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">839,44</td>
+                                            <td class="text-center coluna_4">497,76</td>
+                                            <td class="text-center coluna_5">70,28</td>
+                                            <td class="text-center coluna_6">99,77</td>
+                                            <td class="text-center coluna_7">3,14</td>
+                                            <td class="text-center coluna_8">10/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">839,71</td>
+                                            <td class="text-center coluna_4">509,48</td>
+                                            <td class="text-center coluna_5">71,93</td>
+                                            <td class="text-center coluna_6">142,33</td>
+                                            <td class="text-center coluna_7">3,20</td>
+                                            <td class="text-center coluna_8">11/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">839,90</td>
+                                            <td class="text-center coluna_4">517,79</td>
+                                            <td class="text-center coluna_5">73,11</td>
+                                            <td class="text-center coluna_6">100,38</td>
+                                            <td class="text-center coluna_7">3,26</td>
+                                            <td class="text-center coluna_8">12/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,02</td>
+                                            <td class="text-center coluna_4">523,06</td>
+                                            <td class="text-center coluna_5">73,85</td>
+                                            <td class="text-center coluna_6">64,86</td>
+                                            <td class="text-center coluna_7">3,29</td>
+                                            <td class="text-center coluna_8">13/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,11</td>
+                                            <td class="text-center coluna_4">527,02</td>
+                                            <td class="text-center coluna_5">74,41</td>
+                                            <td class="text-center coluna_6">50,32</td>
+                                            <td class="text-center coluna_7">3,32</td>
+                                            <td class="text-center coluna_8">14/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,19</td>
+                                            <td class="text-center coluna_4">530,55</td>
+                                            <td class="text-center coluna_5">74,91</td>
+                                            <td class="text-center coluna_6">45,81</td>
+                                            <td class="text-center coluna_7">3,33</td>
+                                            <td class="text-center coluna_8">15/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,24</td>
+                                            <td class="text-center coluna_4">532,76</td>
+                                            <td class="text-center coluna_5">75,22</td>
+                                            <td class="text-center coluna_6">31,00</td>
+                                            <td class="text-center coluna_7">3,35</td>
+                                            <td class="text-center coluna_8">16/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,29</td>
+                                            <td class="text-center coluna_4">534,98</td>
+                                            <td class="text-center coluna_5">75,53</td>
+                                            <td class="text-center coluna_6">29,25</td>
+                                            <td class="text-center coluna_7">3,36</td>
+                                            <td class="text-center coluna_8">17/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,35</td>
+                                            <td class="text-center coluna_4">537,64</td>
+                                            <td class="text-center coluna_5">75,91</td>
+                                            <td class="text-center coluna_6">34,33</td>
+                                            <td class="text-center coluna_7">3,37</td>
+                                            <td class="text-center coluna_8">18/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,42</td>
+                                            <td class="text-center coluna_4">540,75</td>
+                                            <td class="text-center coluna_5">76,35</td>
+                                            <td class="text-center coluna_6">39,78</td>
+                                            <td class="text-center coluna_7">3,39</td>
+                                            <td class="text-center coluna_8">19/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,49</td>
+                                            <td class="text-center coluna_4">543,87</td>
+                                            <td class="text-center coluna_5">76,79</td>
+                                            <td class="text-center coluna_6">40,16</td>
+                                            <td class="text-center coluna_7">3,40</td>
+                                            <td class="text-center coluna_8">20/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,52</td>
+                                            <td class="text-center coluna_4">545,21</td>
+                                            <td class="text-center coluna_5">76,98</td>
+                                            <td class="text-center coluna_6">19,82</td>
+                                            <td class="text-center coluna_7">3,41</td>
+                                            <td class="text-center coluna_8">21/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,61</td>
+                                            <td class="text-center coluna_4">549,23</td>
+                                            <td class="text-center coluna_5">77,55</td>
+                                            <td class="text-center coluna_6">51,22</td>
+                                            <td class="text-center coluna_7">3,43</td>
+                                            <td class="text-center coluna_8">22/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,65</td>
+                                            <td class="text-center coluna_4">551,02</td>
+                                            <td class="text-center coluna_5">77,80</td>
+                                            <td class="text-center coluna_6">24,30</td>
+                                            <td class="text-center coluna_7">3,44</td>
+                                            <td class="text-center coluna_8">23/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,71</td>
+                                            <td class="text-center coluna_4">553,71</td>
+                                            <td class="text-center coluna_5">78,18</td>
+                                            <td class="text-center coluna_6">34,70</td>
+                                            <td class="text-center coluna_7">3,45</td>
+                                            <td class="text-center coluna_8">24/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,75</td>
+                                            <td class="text-center coluna_4">555,50</td>
+                                            <td class="text-center coluna_5">78,43</td>
+                                            <td class="text-center coluna_6">24,51</td>
+                                            <td class="text-center coluna_7">3,46</td>
+                                            <td class="text-center coluna_8">25/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,80</td>
+                                            <td class="text-center coluna_4">557,75</td>
+                                            <td class="text-center coluna_5">78,75</td>
+                                            <td class="text-center coluna_6">29,94</td>
+                                            <td class="text-center coluna_7">3,47</td>
+                                            <td class="text-center coluna_8">26/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,82</td>
+                                            <td class="text-center coluna_4">558,65</td>
+                                            <td class="text-center coluna_5">78,88</td>
+                                            <td class="text-center coluna_6">14,48</td>
+                                            <td class="text-center coluna_7">3,48</td>
+                                            <td class="text-center coluna_8">27/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,86</td>
+                                            <td class="text-center coluna_4">560,45</td>
+                                            <td class="text-center coluna_5">79,13</td>
+                                            <td class="text-center coluna_6">25,06</td>
+                                            <td class="text-center coluna_7">3,48</td>
+                                            <td class="text-center coluna_8">28/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,90</td>
+                                            <td class="text-center coluna_4">562,25</td>
+                                            <td class="text-center coluna_5">79,39</td>
+                                            <td class="text-center coluna_6">25,28</td>
+                                            <td class="text-center coluna_7">3,49</td>
+                                            <td class="text-center coluna_8">29/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,93</td>
+                                            <td class="text-center coluna_4">563,61</td>
+                                            <td class="text-center coluna_5">79,58</td>
+                                            <td class="text-center coluna_6">20,36</td>
+                                            <td class="text-center coluna_7">3,56</td>
+                                            <td class="text-center coluna_8">30/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">840,98</td>
+                                            <td class="text-center coluna_4">565,86</td>
+                                            <td class="text-center coluna_5">79,90</td>
+                                            <td class="text-center coluna_6">30,13</td>
+                                            <td class="text-center coluna_7">3,59</td>
+                                            <td class="text-center coluna_8">31/03/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,01</td>
+                                            <td class="text-center coluna_4">567,22</td>
+                                            <td class="text-center coluna_5">80,09</td>
+                                            <td class="text-center coluna_6">19,37</td>
+                                            <td class="text-center coluna_7">3,60</td>
+                                            <td class="text-center coluna_8">01/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,04</td>
+                                            <td class="text-center coluna_4">568,58</td>
+                                            <td class="text-center coluna_5">80,28</td>
+                                            <td class="text-center coluna_6">19,48</td>
+                                            <td class="text-center coluna_7">3,61</td>
+                                            <td class="text-center coluna_8">02/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,09</td>
+                                            <td class="text-center coluna_4">570,84</td>
+                                            <td class="text-center coluna_5">80,60</td>
+                                            <td class="text-center coluna_6">30,11</td>
+                                            <td class="text-center coluna_7">3,62</td>
+                                            <td class="text-center coluna_8">03/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,16</td>
+                                            <td class="text-center coluna_4">574,02</td>
+                                            <td class="text-center coluna_5">81,05</td>
+                                            <td class="text-center coluna_6">40,91</td>
+                                            <td class="text-center coluna_7">3,64</td>
+                                            <td class="text-center coluna_8">04/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,20</td>
+                                            <td class="text-center coluna_4">575,84</td>
+                                            <td class="text-center coluna_5">81,30</td>
+                                            <td class="text-center coluna_6">25,43</td>
+                                            <td class="text-center coluna_7">3,65</td>
+                                            <td class="text-center coluna_8">05/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,31</td>
+                                            <td class="text-center coluna_4">580,85</td>
+                                            <td class="text-center coluna_5">82,01</td>
+                                            <td class="text-center coluna_6">62,81</td>
+                                            <td class="text-center coluna_7">3,68</td>
+                                            <td class="text-center coluna_8">06/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,38</td>
+                                            <td class="text-center coluna_4">584,05</td>
+                                            <td class="text-center coluna_5">82,46</td>
+                                            <td class="text-center coluna_6">41,18</td>
+                                            <td class="text-center coluna_7">3,70</td>
+                                            <td class="text-center coluna_8">07/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,46</td>
+                                            <td class="text-center coluna_4">587,71</td>
+                                            <td class="text-center coluna_5">82,98</td>
+                                            <td class="text-center coluna_6">46,31</td>
+                                            <td class="text-center coluna_7">3,72</td>
+                                            <td class="text-center coluna_8">08/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,51</td>
+                                            <td class="text-center coluna_4">590,00</td>
+                                            <td class="text-center coluna_5">83,30</td>
+                                            <td class="text-center coluna_6">30,73</td>
+                                            <td class="text-center coluna_7">3,74</td>
+                                            <td class="text-center coluna_8">09/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,56</td>
+                                            <td class="text-center coluna_4">592,30</td>
+                                            <td class="text-center coluna_5">83,63</td>
+                                            <td class="text-center coluna_6">30,91</td>
+                                            <td class="text-center coluna_7">3,66</td>
+                                            <td class="text-center coluna_8">10/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,61</td>
+                                            <td class="text-center coluna_4">594,60</td>
+                                            <td class="text-center coluna_5">83,95</td>
+                                            <td class="text-center coluna_6">31,17</td>
+                                            <td class="text-center coluna_7">3,64</td>
+                                            <td class="text-center coluna_8">11/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,66</td>
+                                            <td class="text-center coluna_4">596,90</td>
+                                            <td class="text-center coluna_5">84,28</td>
+                                            <td class="text-center coluna_6">31,49</td>
+                                            <td class="text-center coluna_7">3,65</td>
+                                            <td class="text-center coluna_8">12/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,69</td>
+                                            <td class="text-center coluna_4">598,28</td>
+                                            <td class="text-center coluna_5">84,47</td>
+                                            <td class="text-center coluna_6">21,09</td>
+                                            <td class="text-center coluna_7">3,66</td>
+                                            <td class="text-center coluna_8">13/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,73</td>
+                                            <td class="text-center coluna_4">600,13</td>
+                                            <td class="text-center coluna_5">84,73</td>
+                                            <td class="text-center coluna_6">26,62</td>
+                                            <td class="text-center coluna_7">3,66</td>
+                                            <td class="text-center coluna_8">14/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,78</td>
+                                            <td class="text-center coluna_4">602,44</td>
+                                            <td class="text-center coluna_5">85,06</td>
+                                            <td class="text-center coluna_6">32,33</td>
+                                            <td class="text-center coluna_7">3,67</td>
+                                            <td class="text-center coluna_8">15/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,84</td>
+                                            <td class="text-center coluna_4">605,21</td>
+                                            <td class="text-center coluna_5">85,45</td>
+                                            <td class="text-center coluna_6">38,07</td>
+                                            <td class="text-center coluna_7">3,68</td>
+                                            <td class="text-center coluna_8">16/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,88</td>
+                                            <td class="text-center coluna_4">607,07</td>
+                                            <td class="text-center coluna_5">85,71</td>
+                                            <td class="text-center coluna_6">27,75</td>
+                                            <td class="text-center coluna_7">3,69</td>
+                                            <td class="text-center coluna_8">17/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,92</td>
+                                            <td class="text-center coluna_4">608,92</td>
+                                            <td class="text-center coluna_5">85,97</td>
+                                            <td class="text-center coluna_6">28,07</td>
+                                            <td class="text-center coluna_7">3,70</td>
+                                            <td class="text-center coluna_8">18/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,94</td>
+                                            <td class="text-center coluna_4">609,85</td>
+                                            <td class="text-center coluna_5">86,11</td>
+                                            <td class="text-center coluna_6">17,59</td>
+                                            <td class="text-center coluna_7">3,71</td>
+                                            <td class="text-center coluna_8">19/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">841,97</td>
+                                            <td class="text-center coluna_4">611,25</td>
+                                            <td class="text-center coluna_5">86,30</td>
+                                            <td class="text-center coluna_6">23,21</td>
+                                            <td class="text-center coluna_7">3,71</td>
+                                            <td class="text-center coluna_8">20/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,03</td>
+                                            <td class="text-center coluna_4">614,04</td>
+                                            <td class="text-center coluna_5">86,70</td>
+                                            <td class="text-center coluna_6">39,71</td>
+                                            <td class="text-center coluna_7">3,72</td>
+                                            <td class="text-center coluna_8">21/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,06</td>
+                                            <td class="text-center coluna_4">615,43</td>
+                                            <td class="text-center coluna_5">86,89</td>
+                                            <td class="text-center coluna_6">24,00</td>
+                                            <td class="text-center coluna_7">3,73</td>
+                                            <td class="text-center coluna_8">22/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,10</td>
+                                            <td class="text-center coluna_4">617,30</td>
+                                            <td class="text-center coluna_5">87,16</td>
+                                            <td class="text-center coluna_6">29,68</td>
+                                            <td class="text-center coluna_7">3,74</td>
+                                            <td class="text-center coluna_8">23/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,13</td>
+                                            <td class="text-center coluna_4">618,70</td>
+                                            <td class="text-center coluna_5">87,35</td>
+                                            <td class="text-center coluna_6">24,64</td>
+                                            <td class="text-center coluna_7">3,74</td>
+                                            <td class="text-center coluna_8">24/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,16</td>
+                                            <td class="text-center coluna_4">620,10</td>
+                                            <td class="text-center coluna_5">87,55</td>
+                                            <td class="text-center coluna_6">24,94</td>
+                                            <td class="text-center coluna_7">3,75</td>
+                                            <td class="text-center coluna_8">25/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,18</td>
+                                            <td class="text-center coluna_4">621,03</td>
+                                            <td class="text-center coluna_5">87,68</td>
+                                            <td class="text-center coluna_6">19,72</td>
+                                            <td class="text-center coluna_7">3,75</td>
+                                            <td class="text-center coluna_8">26/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,20</td>
+                                            <td class="text-center coluna_4">621,97</td>
+                                            <td class="text-center coluna_5">87,82</td>
+                                            <td class="text-center coluna_6">19,91</td>
+                                            <td class="text-center coluna_7">3,76</td>
+                                            <td class="text-center coluna_8">27/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,21</td>
+                                            <td class="text-center coluna_4">622,44</td>
+                                            <td class="text-center coluna_5">87,88</td>
+                                            <td class="text-center coluna_6">14,69</td>
+                                            <td class="text-center coluna_7">3,76</td>
+                                            <td class="text-center coluna_8">28/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,23</td>
+                                            <td class="text-center coluna_4">623,37</td>
+                                            <td class="text-center coluna_5">88,01</td>
+                                            <td class="text-center coluna_6">28,19</td>
+                                            <td class="text-center coluna_7">3,76</td>
+                                            <td class="text-center coluna_8">29/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,22</td>
+                                            <td class="text-center coluna_4">622,90</td>
+                                            <td class="text-center coluna_5">87,95</td>
+                                            <td class="text-center coluna_6">13,74</td>
+                                            <td class="text-center coluna_7">3,76</td>
+                                            <td class="text-center coluna_8">30/04/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,22</td>
+                                            <td class="text-center coluna_4">622,90</td>
+                                            <td class="text-center coluna_5">87,95</td>
+                                            <td class="text-center coluna_6">18,96</td>
+                                            <td class="text-center coluna_7">3,76</td>
+                                            <td class="text-center coluna_8">01/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,23</td>
+                                            <td class="text-center coluna_4">623,37</td>
+                                            <td class="text-center coluna_5">88,01</td>
+                                            <td class="text-center coluna_6">24,58</td>
+                                            <td class="text-center coluna_7">3,76</td>
+                                            <td class="text-center coluna_8">02/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,23</td>
+                                            <td class="text-center coluna_4">623,37</td>
+                                            <td class="text-center coluna_5">88,01</td>
+                                            <td class="text-center coluna_6">19,16</td>
+                                            <td class="text-center coluna_7">3,76</td>
+                                            <td class="text-center coluna_8">03/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,23</td>
+                                            <td class="text-center coluna_4">623,37</td>
+                                            <td class="text-center coluna_5">88,01</td>
+                                            <td class="text-center coluna_6">19,16</td>
+                                            <td class="text-center coluna_7">3,76</td>
+                                            <td class="text-center coluna_8">04/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,25</td>
+                                            <td class="text-center coluna_4">624,31</td>
+                                            <td class="text-center coluna_5">88,15</td>
+                                            <td class="text-center coluna_6">30,11</td>
+                                            <td class="text-center coluna_7">3,77</td>
+                                            <td class="text-center coluna_8">05/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,27</td>
+                                            <td class="text-center coluna_4">625,25</td>
+                                            <td class="text-center coluna_5">88,28</td>
+                                            <td class="text-center coluna_6">30,21</td>
+                                            <td class="text-center coluna_7">3,77</td>
+                                            <td class="text-center coluna_8">06/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,29</td>
+                                            <td class="text-center coluna_4">626,18</td>
+                                            <td class="text-center coluna_5">88,41</td>
+                                            <td class="text-center coluna_6">30,62</td>
+                                            <td class="text-center coluna_7">3,77</td>
+                                            <td class="text-center coluna_8">07/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,31</td>
+                                            <td class="text-center coluna_4">627,12</td>
+                                            <td class="text-center coluna_5">88,54</td>
+                                            <td class="text-center coluna_6">30,94</td>
+                                            <td class="text-center coluna_7">3,78</td>
+                                            <td class="text-center coluna_8">08/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,36</td>
+                                            <td class="text-center coluna_4">629,47</td>
+                                            <td class="text-center coluna_5">88,88</td>
+                                            <td class="text-center coluna_6">50,81</td>
+                                            <td class="text-center coluna_7">13,90</td>
+                                            <td class="text-center coluna_8">09/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,40</td>
+                                            <td class="text-center coluna_4">631,35</td>
+                                            <td class="text-center coluna_5">89,14</td>
+                                            <td class="text-center coluna_6">46,66</td>
+                                            <td class="text-center coluna_7">24,90</td>
+                                            <td class="text-center coluna_8">10/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,41</td>
+                                            <td class="text-center coluna_4">631,82</td>
+                                            <td class="text-center coluna_5">89,21</td>
+                                            <td class="text-center coluna_6">30,44</td>
+                                            <td class="text-center coluna_7">25,00</td>
+                                            <td class="text-center coluna_8">11/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,44</td>
+                                            <td class="text-center coluna_4">633,23</td>
+                                            <td class="text-center coluna_5">89,41</td>
+                                            <td class="text-center coluna_6">39,04</td>
+                                            <td class="text-center coluna_7">10,10</td>
+                                            <td class="text-center coluna_8">12/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,50</td>
+                                            <td class="text-center coluna_4">636,06</td>
+                                            <td class="text-center coluna_5">89,81</td>
+                                            <td class="text-center coluna_6">55,74</td>
+                                            <td class="text-center coluna_7">7,02</td>
+                                            <td class="text-center coluna_8">13/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,53</td>
+                                            <td class="text-center coluna_4">637,47</td>
+                                            <td class="text-center coluna_5">90,01</td>
+                                            <td class="text-center coluna_6">40,12</td>
+                                            <td class="text-center coluna_7">7,04</td>
+                                            <td class="text-center coluna_8">14/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,55</td>
+                                            <td class="text-center coluna_4">638,42</td>
+                                            <td class="text-center coluna_5">90,14</td>
+                                            <td class="text-center coluna_6">34,88</td>
+                                            <td class="text-center coluna_7">7,05</td>
+                                            <td class="text-center coluna_8">15/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,61</td>
+                                            <td class="text-center coluna_4">641,25</td>
+                                            <td class="text-center coluna_5">90,54</td>
+                                            <td class="text-center coluna_6">57,39</td>
+                                            <td class="text-center coluna_7">7,07</td>
+                                            <td class="text-center coluna_8">16/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,65</td>
+                                            <td class="text-center coluna_4">643,15</td>
+                                            <td class="text-center coluna_5">90,81</td>
+                                            <td class="text-center coluna_6">47,20</td>
+                                            <td class="text-center coluna_7">7,09</td>
+                                            <td class="text-center coluna_8">17/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,71</td>
+                                            <td class="text-center coluna_4">645,99</td>
+                                            <td class="text-center coluna_5">91,21</td>
+                                            <td class="text-center coluna_6">58,92</td>
+                                            <td class="text-center coluna_7">7,11</td>
+                                            <td class="text-center coluna_8">18/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,76</td>
+                                            <td class="text-center coluna_4">648,36</td>
+                                            <td class="text-center coluna_5">91,54</td>
+                                            <td class="text-center coluna_6">54,30</td>
+                                            <td class="text-center coluna_7">7,13</td>
+                                            <td class="text-center coluna_8">19/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,82</td>
+                                            <td class="text-center coluna_4">651,22</td>
+                                            <td class="text-center coluna_5">91,95</td>
+                                            <td class="text-center coluna_6">60,56</td>
+                                            <td class="text-center coluna_7">7,15</td>
+                                            <td class="text-center coluna_8">20/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">842,94</td>
+                                            <td class="text-center coluna_4">656,93</td>
+                                            <td class="text-center coluna_5">92,75</td>
+                                            <td class="text-center coluna_6">86,77</td>
+                                            <td class="text-center coluna_7">7,19</td>
+                                            <td class="text-center coluna_8">21/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,10</td>
+                                            <td class="text-center coluna_4">664,59</td>
+                                            <td class="text-center coluna_5">93,83</td>
+                                            <td class="text-center coluna_6">108,85</td>
+                                            <td class="text-center coluna_7">13,80</td>
+                                            <td class="text-center coluna_8">22/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,16</td>
+                                            <td class="text-center coluna_4">667,47</td>
+                                            <td class="text-center coluna_5">94,24</td>
+                                            <td class="text-center coluna_6">59,22</td>
+                                            <td class="text-center coluna_7">25,90</td>
+                                            <td class="text-center coluna_8">23/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,21</td>
+                                            <td class="text-center coluna_4">669,87</td>
+                                            <td class="text-center coluna_5">94,58</td>
+                                            <td class="text-center coluna_6">59,11</td>
+                                            <td class="text-center coluna_7">31,30</td>
+                                            <td class="text-center coluna_8">24/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,25</td>
+                                            <td class="text-center coluna_4">671,79</td>
+                                            <td class="text-center coluna_5">94,85</td>
+                                            <td class="text-center coluna_6">53,57</td>
+                                            <td class="text-center coluna_7">31,30</td>
+                                            <td class="text-center coluna_8">25/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,29</td>
+                                            <td class="text-center coluna_4">673,72</td>
+                                            <td class="text-center coluna_5">95,12</td>
+                                            <td class="text-center coluna_6">53,40</td>
+                                            <td class="text-center coluna_7">23,80</td>
+                                            <td class="text-center coluna_8">26/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,29</td>
+                                            <td class="text-center coluna_4">673,72</td>
+                                            <td class="text-center coluna_5">95,12</td>
+                                            <td class="text-center coluna_6">30,70</td>
+                                            <td class="text-center coluna_7">20,30</td>
+                                            <td class="text-center coluna_8">27/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,31</td>
+                                            <td class="text-center coluna_4">674,68</td>
+                                            <td class="text-center coluna_5">95,26</td>
+                                            <td class="text-center coluna_6">28,87</td>
+                                            <td class="text-center coluna_7">7,21</td>
+                                            <td class="text-center coluna_8">28/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,35</td>
+                                            <td class="text-center coluna_4">676,61</td>
+                                            <td class="text-center coluna_5">95,53</td>
+                                            <td class="text-center coluna_6">37,62</td>
+                                            <td class="text-center coluna_7">4,39</td>
+                                            <td class="text-center coluna_8">29/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,39</td>
+                                            <td class="text-center coluna_4">678,54</td>
+                                            <td class="text-center coluna_5">95,80</td>
+                                            <td class="text-center coluna_6">38,16</td>
+                                            <td class="text-center coluna_7">4,40</td>
+                                            <td class="text-center coluna_8">30/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,42</td>
+                                            <td class="text-center coluna_4">679,99</td>
+                                            <td class="text-center coluna_5">96,01</td>
+                                            <td class="text-center coluna_6">32,99</td>
+                                            <td class="text-center coluna_7">4,41</td>
+                                            <td class="text-center coluna_8">31/05/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,44</td>
+                                            <td class="text-center coluna_4">680,96</td>
+                                            <td class="text-center coluna_5">96,15</td>
+                                            <td class="text-center coluna_6">27,71</td>
+                                            <td class="text-center coluna_7">4,41</td>
+                                            <td class="text-center coluna_8">01/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,46</td>
+                                            <td class="text-center coluna_4">681,93</td>
+                                            <td class="text-center coluna_5">96,28</td>
+                                            <td class="text-center coluna_6">27,92</td>
+                                            <td class="text-center coluna_7">4,42</td>
+                                            <td class="text-center coluna_8">02/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,48</td>
+                                            <td class="text-center coluna_4">682,90</td>
+                                            <td class="text-center coluna_5">96,42</td>
+                                            <td class="text-center coluna_6">28,23</td>
+                                            <td class="text-center coluna_7">4,42</td>
+                                            <td class="text-center coluna_8">03/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,50</td>
+                                            <td class="text-center coluna_4">683,87</td>
+                                            <td class="text-center coluna_5">96,56</td>
+                                            <td class="text-center coluna_6">28,43</td>
+                                            <td class="text-center coluna_7">4,42</td>
+                                            <td class="text-center coluna_8">04/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,52</td>
+                                            <td class="text-center coluna_4">684,84</td>
+                                            <td class="text-center coluna_5">96,69</td>
+                                            <td class="text-center coluna_6">28,75</td>
+                                            <td class="text-center coluna_7">4,43</td>
+                                            <td class="text-center coluna_8">05/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,53</td>
+                                            <td class="text-center coluna_4">685,32</td>
+                                            <td class="text-center coluna_5">96,76</td>
+                                            <td class="text-center coluna_6">23,34</td>
+                                            <td class="text-center coluna_7">4,43</td>
+                                            <td class="text-center coluna_8">06/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,58</td>
+                                            <td class="text-center coluna_4">687,75</td>
+                                            <td class="text-center coluna_5">97,10</td>
+                                            <td class="text-center coluna_6">46,22</td>
+                                            <td class="text-center coluna_7">4,44</td>
+                                            <td class="text-center coluna_8">07/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,59</td>
+                                            <td class="text-center coluna_4">688,23</td>
+                                            <td class="text-center coluna_5">97,17</td>
+                                            <td class="text-center coluna_6">24,16</td>
+                                            <td class="text-center coluna_7">4,44</td>
+                                            <td class="text-center coluna_8">08/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,61</td>
+                                            <td class="text-center coluna_4">689,20</td>
+                                            <td class="text-center coluna_5">97,31</td>
+                                            <td class="text-center coluna_6">29,90</td>
+                                            <td class="text-center coluna_7">4,45</td>
+                                            <td class="text-center coluna_8">09/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,62</td>
+                                            <td class="text-center coluna_4">689,69</td>
+                                            <td class="text-center coluna_5">97,38</td>
+                                            <td class="text-center coluna_6">24,38</td>
+                                            <td class="text-center coluna_7">4,45</td>
+                                            <td class="text-center coluna_8">10/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,63</td>
+                                            <td class="text-center coluna_4">690,18</td>
+                                            <td class="text-center coluna_5">97,45</td>
+                                            <td class="text-center coluna_6">25,04</td>
+                                            <td class="text-center coluna_7">4,81</td>
+                                            <td class="text-center coluna_8">11/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,64</td>
+                                            <td class="text-center coluna_4">690,66</td>
+                                            <td class="text-center coluna_5">97,52</td>
+                                            <td class="text-center coluna_6">25,08</td>
+                                            <td class="text-center coluna_7">4,75</td>
+                                            <td class="text-center coluna_8">12/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,65</td>
+                                            <td class="text-center coluna_4">691,15</td>
+                                            <td class="text-center coluna_5">97,58</td>
+                                            <td class="text-center coluna_6">25,18</td>
+                                            <td class="text-center coluna_7">4,75</td>
+                                            <td class="text-center coluna_8">13/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,66</td>
+                                            <td class="text-center coluna_4">691,64</td>
+                                            <td class="text-center coluna_5">97,65</td>
+                                            <td class="text-center coluna_6">25,39</td>
+                                            <td class="text-center coluna_7">4,76</td>
+                                            <td class="text-center coluna_8">14/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,73</td>
+                                            <td class="text-center coluna_4">695,05</td>
+                                            <td class="text-center coluna_5">98,13</td>
+                                            <td class="text-center coluna_6">66,77</td>
+                                            <td class="text-center coluna_7">11,80</td>
+                                            <td class="text-center coluna_8">15/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,79</td>
+                                            <td class="text-center coluna_4">697,97</td>
+                                            <td class="text-center coluna_5">98,55</td>
+                                            <td class="text-center coluna_6">76,29</td>
+                                            <td class="text-center coluna_7">26,10</td>
+                                            <td class="text-center coluna_8">16/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,81</td>
+                                            <td class="text-center coluna_4">698,95</td>
+                                            <td class="text-center coluna_5">98,69</td>
+                                            <td class="text-center coluna_6">61,11</td>
+                                            <td class="text-center coluna_7">37,50</td>
+                                            <td class="text-center coluna_8">17/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,85</td>
+                                            <td class="text-center coluna_4">700,91</td>
+                                            <td class="text-center coluna_5">98,96</td>
+                                            <td class="text-center coluna_6">76,13</td>
+                                            <td class="text-center coluna_7">49,60</td>
+                                            <td class="text-center coluna_8">18/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,81</td>
+                                            <td class="text-center coluna_4">698,95</td>
+                                            <td class="text-center coluna_5">98,69</td>
+                                            <td class="text-center coluna_6">40,77</td>
+                                            <td class="text-center coluna_7">63,40</td>
+                                            <td class="text-center coluna_8">19/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,77</td>
+                                            <td class="text-center coluna_4">697,00</td>
+                                            <td class="text-center coluna_5">98,41</td>
+                                            <td class="text-center coluna_6">43,25</td>
+                                            <td class="text-center coluna_7">65,30</td>
+                                            <td class="text-center coluna_8">20/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,71</td>
+                                            <td class="text-center coluna_4">694,07</td>
+                                            <td class="text-center coluna_5">98,00</td>
+                                            <td class="text-center coluna_6">31,82</td>
+                                            <td class="text-center coluna_7">65,10</td>
+                                            <td class="text-center coluna_8">21/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,66</td>
+                                            <td class="text-center coluna_4">691,64</td>
+                                            <td class="text-center coluna_5">97,65</td>
+                                            <td class="text-center coluna_6">37,20</td>
+                                            <td class="text-center coluna_7">65,00</td>
+                                            <td class="text-center coluna_8">22/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,61</td>
+                                            <td class="text-center coluna_4">689,20</td>
+                                            <td class="text-center coluna_5">97,31</td>
+                                            <td class="text-center coluna_6">32,26</td>
+                                            <td class="text-center coluna_7">48,80</td>
+                                            <td class="text-center coluna_8">23/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,58</td>
+                                            <td class="text-center coluna_4">687,75</td>
+                                            <td class="text-center coluna_5">97,10</td>
+                                            <td class="text-center coluna_6">40,83</td>
+                                            <td class="text-center coluna_7">40,10</td>
+                                            <td class="text-center coluna_8">24/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,55</td>
+                                            <td class="text-center coluna_4">686,29</td>
+                                            <td class="text-center coluna_5">96,90</td>
+                                            <td class="text-center coluna_6">28,24</td>
+                                            <td class="text-center coluna_7">27,90</td>
+                                            <td class="text-center coluna_8">25/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,55</td>
+                                            <td class="text-center coluna_4">686,29</td>
+                                            <td class="text-center coluna_5">96,90</td>
+                                            <td class="text-center coluna_6">36,80</td>
+                                            <td class="text-center coluna_7">20,60</td>
+                                            <td class="text-center coluna_8">26/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,54</td>
+                                            <td class="text-center coluna_4">685,81</td>
+                                            <td class="text-center coluna_5">96,83</td>
+                                            <td class="text-center coluna_6">23,68</td>
+                                            <td class="text-center coluna_7">12,40</td>
+                                            <td class="text-center coluna_8">27/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,53</td>
+                                            <td class="text-center coluna_4">685,32</td>
+                                            <td class="text-center coluna_5">96,76</td>
+                                            <td class="text-center coluna_6">21,49</td>
+                                            <td class="text-center coluna_7">10,30</td>
+                                            <td class="text-center coluna_8">28/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,52</td>
+                                            <td class="text-center coluna_4">684,84</td>
+                                            <td class="text-center coluna_5">96,69</td>
+                                            <td class="text-center coluna_6">21,39</td>
+                                            <td class="text-center coluna_7">10,30</td>
+                                            <td class="text-center coluna_8">29/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,52</td>
+                                            <td class="text-center coluna_4">684,84</td>
+                                            <td class="text-center coluna_5">96,69</td>
+                                            <td class="text-center coluna_6">23,74</td>
+                                            <td class="text-center coluna_7">7,24</td>
+                                            <td class="text-center coluna_8">30/06/1987</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29001</td>
+                                            <td class="text-center coluna_2">JAGUARI-JACARE&#205;                                   </td>
+                                            <td class="text-center coluna_3">843,53</td>
+                                            <td class="text-center coluna_4">685,32</td>
+                                            <td class="text-center coluna_5">96,76</td>
+                                            <td class="text-center coluna_6">28,75</td>
+                                            <td class="text-center coluna_7">6,44</td>
+                                            <td class="text-center coluna_8">01/07/1987</td>
+
+                                        </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                        <footer class="panel-footer">
+                            <div class="row">
+                                <div class="col-sm-4">
+
+                                </div>
+                                <div class="col-sm-8 text-right">
+                                    <ul class="pagination pagination-sm m-t-xs m-b-none">
+                                        <li class="disabled"><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+            </section>
+        </form>
+    </div>
+    <p class="col-md-12">* Vazão liberada a jusante do reservatório. Não contempla as vazões transferidas pelos túneis.</p>
+</div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                    <a href="#" class="hide nav-off-screen-block" data-toggle-class="nav-off-screen" data-target="#nav"></a>
+                </section>
+
+            </section>
+        </section>
+    </section>
+
+
+    <div class="loading">
+        <div class="message">
+            <div class="text-center">
+                <div class="block m-b">
+                    <i class="fa fa-spinner fa-5x fa-spin"></i>
+                </div>
+                <h3>Carregando...</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="/sar0/Content/scripts/vendor.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        // (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        // function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        // e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        // e.src='//www.google-analytics.com/analytics.js';
+        // r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        // ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+    <script src="/sar0/Content/scripts/ie.js"></script>
+    <script src="/sar0/Content/scripts/main.js"></script>
+    <script src="/sar0/Content/scripts/demo.js"></script>
+    <script src="/sar0/Content/scripts/customs.js"></script>
+    <script src="/sar0/Content/dataPicker/bootstrap-datepicker.js"></script>
+    <script src="/sar0/Content/dataPicker/bootstrap-datepicker.pt-BR.min.js"></script>
+
+    <script defer="defer" async="async" src="https://barra.brasil.gov.br/barra.js"></script>
+
+    
+    
+
+    
+
+
+</body>
+</html>

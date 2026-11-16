@@ -1,0 +1,70 @@
+{
+ "catchment": "cachoeira_dam",
+ "accepted": false,
+ "folds": {
+  "fold1": {
+   "validation": {
+    "days": 4595,
+    "nonpositive_days_excluded": 0,
+    "kge": 0.659005996500243,
+    "benchmark_kge": 0.2190680596658764,
+    "bias_pct": 12.272775248679423,
+    "monthly_kge": 0.6643037944971153,
+    "months": 151,
+    "low_flow_bias_pct": 157.67169873237327,
+    "kge_sqrt": 0.7714270547559298
+   },
+   "low_flow_7day": {
+    "blocks": 656,
+    "blocks_skipped": 0,
+    "low_blocks": 131,
+    "observed_low_m3s": 0.8090185387131951,
+    "modelled_low_m3s": 1.4914836871650041,
+    "bias_pct": 84.3571705460942
+   },
+   "passed": false,
+   "fails": [
+    "low-flow bias"
+   ],
+   "early_low_flow_7day": {
+    "blocks": 834,
+    "blocks_skipped": 0,
+    "low_blocks": 166,
+    "observed_low_m3s": 2.1048967297762484,
+    "modelled_low_m3s": 2.6693841288567155,
+    "bias_pct": 26.817819187759984
+   }
+  },
+  "fold2": {
+   "validation": {
+    "days": 3653,
+    "nonpositive_days_excluded": 0,
+    "kge": 0.7473965179459643,
+    "benchmark_kge": 0.13192939243796065,
+    "bias_pct": -8.2232252316215,
+    "monthly_kge": 0.8489606615655585,
+    "months": 120,
+    "low_flow_bias_pct": 103.93515312507611,
+    "kge_sqrt": 0.7661640543079835
+   },
+   "low_flow_7day": {
+    "blocks": 521,
+    "blocks_skipped": 0,
+    "low_blocks": 104,
+    "observed_low_m3s": 1.5511675824175826,
+    "modelled_low_m3s": 2.104053224977633,
+    "bias_pct": 35.643192188064354
+   },
+   "passed": true,
+   "fails": [],
+   "early_low_flow_7day": {
+    "blocks": 834,
+    "blocks_skipped": 0,
+    "low_blocks": 166,
+    "observed_low_m3s": 2.1048967297762484,
+    "modelled_low_m3s": 2.3895241958371085,
+    "bias_pct": 13.522158214912338
+   }
+  }
+ }
+}

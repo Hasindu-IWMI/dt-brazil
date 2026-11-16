@@ -1,0 +1,2609 @@
+<!doctype html>
+<html class="app no-js" lang="pt-br" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>..SAR - Sistema de Acompanhamento de Reservatórios</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="description" content="Catalogo de interface utilizado nos sistemas da ANA.">
+    <meta name="keywords" content="catalogo de interface, protótipo da interface, interface do usuário">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/sar0/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="/sar0/Content/vendor.css">
+    <link rel="stylesheet" href="/sar0/Content/main.css">
+    <link href="/sar0/Content/dataPicker/bootstrap-datepicker.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZTfm8zekb0gmMchJkT8T9hSEmJs5aiZ4&sensor=false"></script>
+    
+    
+    
+    <script type="text/javascript" src="/sar0/Content/scripts/mapaReservatoriosHome.js"></script>
+    <script type="text/javascript" src="/sar0/Content/scripts/mapaReservatoriosNordeste.js"></script>
+    <script type="text/javascript" src="/sar0/Content/scripts/functions.js"></script>
+    <script src="/sar0/Content/scripts/vendor/modernizr.js"></script>
+
+    
+
+    
+
+    <script type="text/javascript" src="/sar0//www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1', { packages: ['corechart'] });
+    </script>
+
+    
+
+    
+
+</head>
+<body>
+
+      
+
+    <input id="auth" name="auth" type="hidden" value="False" />
+
+    
+
+
+    <!--[if lt IE 9]>
+      <p class="browsehappy">Você está usando um navegador <strong>desatualizado</strong>. Por favor, <a href="https://browsehappy.com/" target="_blank">atualize seu navegador</a> para melhorar a sua experiência.</p>
+    <![endif]-->
+            <p class="browsehappy">
+                Para uma melhor experiência de navegação, é recomendada a utilização do <strong>Google Chrome</strong>, versão 40 ou superior. Por favor, <a href="https://browsehappy.com/"> atualize seu navegador</a>.
+            </p>
+
+
+    <div id="barra-brasil" style="background: #7f7f7f; height: 20px; padding: 0 0 0 10px; display: block; min-height: 32px;">
+        <ul id="menu-barra-temp" style="list-style: none;">
+            <li style="display: inline; float: left; padding-right: 10px; margin-right: 10px; border-right: 1px solid #ededed;"><a href="https://brasil.gov.br" style="font-family: sans, sans-serif; text-decoration: none; color: white;">Portal do Governo Brasileiro</a></li>
+            <li><a href="https://epwg.governoeletronico.gov.br/barra/atualize.html" style="font-family: sans, sans-serif; text-decoration: none; color: white;">Atualize sua Barra de Governo</a></li>
+        </ul>
+    </div>
+
+    <section class="vbox">
+        <header class="bg-primary header header-md navbar navbar-fixed-top-xs box-shadow">
+            <div class="navbar-header aside-md bg-white">
+                <a class="btn btn-link visible-xs" data-toggle-class="nav-off-screen" data-target="#nav">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="/sar0/Home" class="navbar-brand text-center">
+                    <figure class="inline m-r-xs">
+                        <img src="/sar0/images/logo.png" alt="ANA">
+                    </figure>
+                </a>
+                <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <li>
+                    <a href="#"><i class="i i-book"></i> SAR - Sistema de Acompanhamento de Reservatórios</a>
+                </li>
+                <!--li class="dropdown" data-toggle="tooltip" title="Seleção de Perfil">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="i i-users3"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="active">
+                        <a href="painel.html">Perfil 1</a>
+                    </li>
+                    <li>
+                        <a href="painel.html">Perfil 2</a>
+                    </li>
+                    <li>
+                        <a href="painel.html">Perfil 2</a>
+                    </li>
+                </ul>
+                </li-->
+            </ul>
+            
+
+                <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
+
+                    <!--li class="hidden-sm">
+                    <a href="manual.html"><i class="i i-support"></i> <span class="hidden-sm hidden-md">Manual do Sistema</span></a>
+                    </li-->
+
+                    <li class="hidden-sm hidden-md">
+                        <a href="#">v2.2.5</a>
+                    </li>
+                    <li class="hidden-sm">
+                        <ul id="rvfs-controllers" class="list-unstyled list-inline list-accessibility padder-h"></ul>
+                    </li>
+                    <li>
+                        <a href="/sar0/Login/Login" id="loginLink">Logar no Sistema</a>
+                    </li>
+                </ul>
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-white aside-md hidden-print" id="nav">
+                    <section class="vbox">
+                        <section class="w-f scrollable">
+                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railopacity="0.2">
+                                <div class="clearfix wrapper dk nav-user hidden-xs">
+
+                                        <div class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <figure class="thumb avatar pull-left m-r">
+                                                    <img src="/sar0/images/profile/avatar.png" alt="Junqueira" class="dker">
+                                                    <i class="on md b-black"></i>
+                                                </figure>
+                                                <span class="hidden-nav-xs clear">
+                                                    <span class="block m-t-xs">
+                                                        <strong class="text-lt">
+                                                            Visitante
+                                                        </strong> <i class="fa fa-caret-down"></i>
+                                                    </span>
+                                                    <span class="text-muted text-xs block">     </span>
+                                                </span>
+                                            </a>
+                                            <ul class="dropdown-menu animated fadeIn m-t-xs">
+                                                <li>
+                                                    <a href="/sar0/Login/Login">Logar</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                </div>
+
+                                <nav class="nav-primary hidden-xs">
+                                    <div class="text-muted text-sm hidden-nav-xs padder-h m-t-sm m-b-sm">Navegação</div>
+                                    <ul class="nav nav-main" data-ride="collapse">
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+                                                    <i class="i i-circle-sm-o text-inactive"></i>
+                                                    <i class="i i-circle-sm text-active"></i>
+                                                </span>
+                                                <i class="i i-docs icon"></i>
+                                                <strong>Nordeste e Semiárido</strong>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li>
+                                                    <a href="/sar0/Nordeste" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Volume Por Estado</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/sar0/Medicao" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Dados Históricos</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/sar0/Nordeste/GraficoVolume" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Gráfico Volume</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+                                                    <i class="i i-circle-sm-o text-inactive"></i>
+                                                    <i class="i i-circle-sm text-active"></i>
+                                                </span>
+                                                <i class="i i-docs icon"></i>
+                                                <strong>SIN</strong>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li>
+                                                    <a href="/sar0/MedicaoSin" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Dados Históricos</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+                                                    <i class="i i-circle-sm-o text-inactive"></i>
+                                                    <i class="i i-circle-sm text-active"></i>
+                                                </span>
+                                                <i class="i i-docs icon"></i>
+                                                <strong>Sistema Cantareira</strong>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li class="active">
+                                                    <a href="/sar0/MedicaoCantareira" class="auto">
+                                                        <i class="i i-dot"></i>
+                                                        <span>Dados Históricos</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+
+                                    </ul>
+                                    <div class="line dk hidden-nav-xs"></div>
+                                    <div class="text-muted text-xs hidden-nav-xs padder-h m-t-sm m-b-sm">
+
+                                        <div class="pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Itens mais acessados"><i class="fa fa-question-circle-circle"></i></a>
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-main" data-ride="collapse">
+
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+                                                    <i class="i i-circle-sm-o text-inactive"></i>
+                                                    <i class="i i-circle-sm text-active"></i>
+                                                </span>
+                                                <i class="i i-world icon"></i>
+                                                <strong>Acesso Rápido</strong>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li>
+                                                    <a href="https://www.ana.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-info-dk"></i>
+                                                        <span>Portal ANA</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.ons.org.br/" target="alt">
+                                                        <i class="i i-circle-sm text-success-dk"></i>
+                                                        <span>ONS</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.dnocs.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-danger-dk"></i>
+                                                        <span>DNOCS</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://portal.cogerh.com.br/" target="alt">
+                                                        <i class="i i-circle-sm text-warning-dk"></i>
+                                                        <span>COGERH</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.aesa.pb.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-dark-dk"></i>
+                                                        <span>AESA</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.semarh.rn.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-primary-dk"></i>
+                                                        <span>SEMARH</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.apac.pe.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-info-dk"></i>
+                                                        <span>Apac</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.cerb.ba.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-success-dk"></i>
+                                                        <span>Cerb</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.inema.ba.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-danger-dk"></i>
+                                                        <span>Inema</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.codevasf.gov.br/" target="alt">
+                                                        <i class="i i-circle-sm text-warning-dk"></i>
+                                                        <span>CODEVASF</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.compesa.com.br/" target="alt">
+                                                        <i class="i i-circle-sm text-dark-dk"></i>
+                                                        <span>COMPESA</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                    </ul>
+                                    </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </section>
+                        <footer class="footer hidden-xs no-padder text-center-nav-xs">
+                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs" data-toggle="tooltip" title="Sair">
+                                <i class="i i-logout"></i>
+                            </a>
+                            <a href="#nav" data-toggle-class="nav-xs" class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+                                <i class="i i-circleleft text-inactive"></i>
+                                <i class="i i-circleright text-active"></i>
+                            </a>
+                        </footer>
+                    </section>
+                </aside>
+
+                <section id="content">
+                    <section class="hbox stretch">
+                        <section>
+                            <section class="vbox">
+                                <section class="scrollable">
+                                    <div class="slim-scroll padder-h" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railopacity="0.2">
+                                        <div class="row m-b-md">
+                                            <div class="col-sm-12">
+
+                                                <h1 class="m-b-xs text-black">Dados de opera&#231;&#227;o dos reservat&#243;rios Cantareira</h1>
+
+                                                <ol class="breadcrumb">
+                                                    <li><a href="/sar0/">Início</a> /  Cantareira / Dados Históricos Cantareira</li>
+                                                </ol>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                
+                                                
+
+
+<div id="filtroMedicoesSIN">
+<div class="row">
+    <div class="col-md-12">
+<form action="/sar0/MedicaoCantareira" class="form-horizontal" method="get">            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <h2 class="panel-title h5">Filtros</h2>
+                </header>
+                <article class="panel-body">
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required">Reservatório</label>
+                        <div class="col-sm-10">
+                            <select class="form-control input-m-sm" id="dropDownListReservatorios" name="dropDownListReservatorios"><option value="">Selecione</option>
+<option value="29003">ATIBAINHA                                         </option>
+<option selected="selected" value="29002">CACHOEIRA                                         </option>
+<option value="29001">JAGUARI-JACARE&#205;                                   </option>
+<option value="29004">PAIVA CASTRO                                      </option>
+</select>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="dropDownListReservatorios" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    <div class="form-group m-b-n">
+                        <label class="col-sm-2 control-label required">Período</label>
+                        <div class="col-sm-10">
+                            <div class="input-s-md inline">
+                                <div class="input-group m-n">
+                                    <input class="form-control form-datepicker date text-box single-line" id="dataInicial" name="dataInicial" placeholder="Informe a Data Inicial" type="text" value="01/07/2002" />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="padder-h inline text-center form-valign v-top">
+                                a
+                            </div>
+                            <div class="input-s-md inline">
+                                <div class="input-group m-n">
+                                    <input class="form-control form-datepicker date text-box single-line" id="dataFinal" name="dataFinal" type="text" value="31/12/2002" />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+                <footer class="panel-footer b-t clearfix">
+                    <div class="form-group m-b-n">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-s-md btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+</form>    </div>
+</div>
+
+<script src="/sar0/Scripts/jquery-1.11.1.min.js"></script>
+<link href="/sar0/Content/dataPicker/bootstrap-datepicker.css" rel="stylesheet" />
+<script src="/sar0/Content/dataPicker/bootstrap-datepicker.js"></script>
+<script src="/sar0/Content/dataPicker/bootstrap-datepicker.pt-BR.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+
+
+        $('#dataInicial').datepicker({
+            todayBtn: "linked",
+            language: "pt-BR",
+            orientation: "bottom auto",
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+        $('#dataFinal').datepicker({
+            todayBtn: "linked",
+            language: "pt-BR",
+            orientation: "bottom auto",
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+    });
+
+</script>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form id="form-result" class="form" role="form">
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-download"></i> Exportar <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/sar0/MedicaoCantareira/ExportarExcel"><i class="fa fa-file-excel-o"></i> Salvar em Excel</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 class="panel-title h5">Registros</h2>
+                </header>
+                <div class="panel-body">
+                    <div id="results">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" data-sort="coluna_1">C&#243;digo do Reservat&#243;rio</th>
+                                        <th class="text-center" data-sort="coluna_2">Reservat&#243;rio</th>
+                                        <th class="text-center" data-sort="coluna_3">Cota (m)</th>
+                                        <th class="text-center" data-sort="coluna_4">Volume &#218;til (hm&#179;)</th>
+                                        <th class="text-center" data-sort="coluna_5">Volume &#218;til (%)</th>
+                                        <th class="text-center" data-sort="coluna_6">Aflu&#234;ncia (m&#179;/s)</th>
+                                        <th class="text-center" data-sort="coluna_7">Deflu&#234;ncia (m&#179;/s)</th>
+                                        <th class="text-center" data-sort="coluna_8">Data da Medi&#231;&#227;o</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,69</td>
+                                            <td class="text-center coluna_4">30,66</td>
+                                            <td class="text-center coluna_5">43,46</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">1,47</td>
+                                            <td class="text-center coluna_8">01/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,62</td>
+                                            <td class="text-center coluna_4">30,17</td>
+                                            <td class="text-center coluna_5">42,77</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">1,46</td>
+                                            <td class="text-center coluna_8">02/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,56</td>
+                                            <td class="text-center coluna_4">29,76</td>
+                                            <td class="text-center coluna_5">42,18</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">1,46</td>
+                                            <td class="text-center coluna_8">03/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,48</td>
+                                            <td class="text-center coluna_4">29,20</td>
+                                            <td class="text-center coluna_5">41,39</td>
+                                            <td class="text-center coluna_6">1,06</td>
+                                            <td class="text-center coluna_7">1,45</td>
+                                            <td class="text-center coluna_8">04/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,39</td>
+                                            <td class="text-center coluna_4">28,58</td>
+                                            <td class="text-center coluna_5">40,51</td>
+                                            <td class="text-center coluna_6">1,10</td>
+                                            <td class="text-center coluna_7">2,26</td>
+                                            <td class="text-center coluna_8">05/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,36</td>
+                                            <td class="text-center coluna_4">28,37</td>
+                                            <td class="text-center coluna_5">40,22</td>
+                                            <td class="text-center coluna_6">1,13</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">06/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,36</td>
+                                            <td class="text-center coluna_4">28,37</td>
+                                            <td class="text-center coluna_5">40,22</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">07/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,35</td>
+                                            <td class="text-center coluna_4">28,30</td>
+                                            <td class="text-center coluna_5">40,12</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">08/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,33</td>
+                                            <td class="text-center coluna_4">28,17</td>
+                                            <td class="text-center coluna_5">39,92</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">09/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,31</td>
+                                            <td class="text-center coluna_4">28,03</td>
+                                            <td class="text-center coluna_5">39,73</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">2,51</td>
+                                            <td class="text-center coluna_8">10/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,31</td>
+                                            <td class="text-center coluna_4">28,03</td>
+                                            <td class="text-center coluna_5">39,73</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">2,51</td>
+                                            <td class="text-center coluna_8">11/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,32</td>
+                                            <td class="text-center coluna_4">28,10</td>
+                                            <td class="text-center coluna_5">39,83</td>
+                                            <td class="text-center coluna_6">1,11</td>
+                                            <td class="text-center coluna_7">2,51</td>
+                                            <td class="text-center coluna_8">12/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,34</td>
+                                            <td class="text-center coluna_4">28,24</td>
+                                            <td class="text-center coluna_5">40,02</td>
+                                            <td class="text-center coluna_6">1,12</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">13/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,34</td>
+                                            <td class="text-center coluna_4">28,24</td>
+                                            <td class="text-center coluna_5">40,02</td>
+                                            <td class="text-center coluna_6">1,08</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">14/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,34</td>
+                                            <td class="text-center coluna_4">28,24</td>
+                                            <td class="text-center coluna_5">40,02</td>
+                                            <td class="text-center coluna_6">1,07</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">15/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,34</td>
+                                            <td class="text-center coluna_4">28,24</td>
+                                            <td class="text-center coluna_5">40,02</td>
+                                            <td class="text-center coluna_6">1,06</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">16/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,33</td>
+                                            <td class="text-center coluna_4">28,17</td>
+                                            <td class="text-center coluna_5">39,92</td>
+                                            <td class="text-center coluna_6">1,09</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">17/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,32</td>
+                                            <td class="text-center coluna_4">28,10</td>
+                                            <td class="text-center coluna_5">39,83</td>
+                                            <td class="text-center coluna_6">1,10</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">18/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,29</td>
+                                            <td class="text-center coluna_4">27,89</td>
+                                            <td class="text-center coluna_5">39,53</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">19/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,28</td>
+                                            <td class="text-center coluna_4">27,82</td>
+                                            <td class="text-center coluna_5">39,44</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">2,51</td>
+                                            <td class="text-center coluna_8">20/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,26</td>
+                                            <td class="text-center coluna_4">27,69</td>
+                                            <td class="text-center coluna_5">39,24</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">2,51</td>
+                                            <td class="text-center coluna_8">21/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,24</td>
+                                            <td class="text-center coluna_4">27,55</td>
+                                            <td class="text-center coluna_5">39,05</td>
+                                            <td class="text-center coluna_6">1,09</td>
+                                            <td class="text-center coluna_7">2,51</td>
+                                            <td class="text-center coluna_8">22/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,21</td>
+                                            <td class="text-center coluna_4">27,34</td>
+                                            <td class="text-center coluna_5">38,76</td>
+                                            <td class="text-center coluna_6">1,06</td>
+                                            <td class="text-center coluna_7">2,50</td>
+                                            <td class="text-center coluna_8">23/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,29</td>
+                                            <td class="text-center coluna_4">27,89</td>
+                                            <td class="text-center coluna_5">39,53</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">2,50</td>
+                                            <td class="text-center coluna_8">24/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,34</td>
+                                            <td class="text-center coluna_4">28,24</td>
+                                            <td class="text-center coluna_5">40,02</td>
+                                            <td class="text-center coluna_6">1,08</td>
+                                            <td class="text-center coluna_7">2,51</td>
+                                            <td class="text-center coluna_8">25/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,36</td>
+                                            <td class="text-center coluna_4">28,37</td>
+                                            <td class="text-center coluna_5">40,22</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">26/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,39</td>
+                                            <td class="text-center coluna_4">28,58</td>
+                                            <td class="text-center coluna_5">40,51</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,52</td>
+                                            <td class="text-center coluna_8">27/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,41</td>
+                                            <td class="text-center coluna_4">28,72</td>
+                                            <td class="text-center coluna_5">40,70</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">2,53</td>
+                                            <td class="text-center coluna_8">28/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,43</td>
+                                            <td class="text-center coluna_4">28,86</td>
+                                            <td class="text-center coluna_5">40,90</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">2,53</td>
+                                            <td class="text-center coluna_8">29/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,44</td>
+                                            <td class="text-center coluna_4">28,92</td>
+                                            <td class="text-center coluna_5">41,00</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">2,53</td>
+                                            <td class="text-center coluna_8">30/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,46</td>
+                                            <td class="text-center coluna_4">29,06</td>
+                                            <td class="text-center coluna_5">41,19</td>
+                                            <td class="text-center coluna_6">1,14</td>
+                                            <td class="text-center coluna_7">2,53</td>
+                                            <td class="text-center coluna_8">31/07/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,47</td>
+                                            <td class="text-center coluna_4">29,13</td>
+                                            <td class="text-center coluna_5">41,29</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,54</td>
+                                            <td class="text-center coluna_8">01/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,52</td>
+                                            <td class="text-center coluna_4">29,48</td>
+                                            <td class="text-center coluna_5">41,78</td>
+                                            <td class="text-center coluna_6">3,01</td>
+                                            <td class="text-center coluna_7">2,54</td>
+                                            <td class="text-center coluna_8">02/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,61</td>
+                                            <td class="text-center coluna_4">30,10</td>
+                                            <td class="text-center coluna_5">42,67</td>
+                                            <td class="text-center coluna_6">5,07</td>
+                                            <td class="text-center coluna_7">1,13</td>
+                                            <td class="text-center coluna_8">03/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,71</td>
+                                            <td class="text-center coluna_4">30,80</td>
+                                            <td class="text-center coluna_5">43,66</td>
+                                            <td class="text-center coluna_6">6,00</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">04/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,74</td>
+                                            <td class="text-center coluna_4">31,01</td>
+                                            <td class="text-center coluna_5">43,96</td>
+                                            <td class="text-center coluna_6">0,99</td>
+                                            <td class="text-center coluna_7">1,00</td>
+                                            <td class="text-center coluna_8">05/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,78</td>
+                                            <td class="text-center coluna_4">31,29</td>
+                                            <td class="text-center coluna_5">44,35</td>
+                                            <td class="text-center coluna_6">1,57</td>
+                                            <td class="text-center coluna_7">1,01</td>
+                                            <td class="text-center coluna_8">06/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,83</td>
+                                            <td class="text-center coluna_4">31,64</td>
+                                            <td class="text-center coluna_5">44,85</td>
+                                            <td class="text-center coluna_6">2,24</td>
+                                            <td class="text-center coluna_7">0,61</td>
+                                            <td class="text-center coluna_8">07/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,87</td>
+                                            <td class="text-center coluna_4">31,93</td>
+                                            <td class="text-center coluna_5">45,25</td>
+                                            <td class="text-center coluna_6">2,51</td>
+                                            <td class="text-center coluna_7">1,51</td>
+                                            <td class="text-center coluna_8">08/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,91</td>
+                                            <td class="text-center coluna_4">32,21</td>
+                                            <td class="text-center coluna_5">45,65</td>
+                                            <td class="text-center coluna_6">1,75</td>
+                                            <td class="text-center coluna_7">0,51</td>
+                                            <td class="text-center coluna_8">09/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,93</td>
+                                            <td class="text-center coluna_4">32,35</td>
+                                            <td class="text-center coluna_5">45,85</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">0,52</td>
+                                            <td class="text-center coluna_8">10/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,95</td>
+                                            <td class="text-center coluna_4">32,49</td>
+                                            <td class="text-center coluna_5">46,05</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">0,50</td>
+                                            <td class="text-center coluna_8">11/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,97</td>
+                                            <td class="text-center coluna_4">32,63</td>
+                                            <td class="text-center coluna_5">46,25</td>
+                                            <td class="text-center coluna_6">0,98</td>
+                                            <td class="text-center coluna_7">0,50</td>
+                                            <td class="text-center coluna_8">12/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,99</td>
+                                            <td class="text-center coluna_4">32,77</td>
+                                            <td class="text-center coluna_5">46,45</td>
+                                            <td class="text-center coluna_6">1,13</td>
+                                            <td class="text-center coluna_7">0,50</td>
+                                            <td class="text-center coluna_8">13/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">817,00</td>
+                                            <td class="text-center coluna_4">32,85</td>
+                                            <td class="text-center coluna_5">46,55</td>
+                                            <td class="text-center coluna_6">1,08</td>
+                                            <td class="text-center coluna_7">0,52</td>
+                                            <td class="text-center coluna_8">14/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">817,01</td>
+                                            <td class="text-center coluna_4">32,92</td>
+                                            <td class="text-center coluna_5">46,65</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">0,52</td>
+                                            <td class="text-center coluna_8">15/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">817,01</td>
+                                            <td class="text-center coluna_4">32,92</td>
+                                            <td class="text-center coluna_5">46,65</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">1,22</td>
+                                            <td class="text-center coluna_8">16/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">817,00</td>
+                                            <td class="text-center coluna_4">32,85</td>
+                                            <td class="text-center coluna_5">46,55</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">1,51</td>
+                                            <td class="text-center coluna_8">17/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,97</td>
+                                            <td class="text-center coluna_4">32,63</td>
+                                            <td class="text-center coluna_5">46,25</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">1,51</td>
+                                            <td class="text-center coluna_8">18/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,96</td>
+                                            <td class="text-center coluna_4">32,56</td>
+                                            <td class="text-center coluna_5">46,15</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">1,51</td>
+                                            <td class="text-center coluna_8">19/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,94</td>
+                                            <td class="text-center coluna_4">32,42</td>
+                                            <td class="text-center coluna_5">45,95</td>
+                                            <td class="text-center coluna_6">1,14</td>
+                                            <td class="text-center coluna_7">1,79</td>
+                                            <td class="text-center coluna_8">20/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,90</td>
+                                            <td class="text-center coluna_4">32,14</td>
+                                            <td class="text-center coluna_5">45,55</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">2,05</td>
+                                            <td class="text-center coluna_8">21/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,87</td>
+                                            <td class="text-center coluna_4">31,93</td>
+                                            <td class="text-center coluna_5">45,25</td>
+                                            <td class="text-center coluna_6">1,06</td>
+                                            <td class="text-center coluna_7">2,05</td>
+                                            <td class="text-center coluna_8">22/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,84</td>
+                                            <td class="text-center coluna_4">31,71</td>
+                                            <td class="text-center coluna_5">44,95</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,05</td>
+                                            <td class="text-center coluna_8">23/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,80</td>
+                                            <td class="text-center coluna_4">31,43</td>
+                                            <td class="text-center coluna_5">44,55</td>
+                                            <td class="text-center coluna_6">0,67</td>
+                                            <td class="text-center coluna_7">2,04</td>
+                                            <td class="text-center coluna_8">24/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,76</td>
+                                            <td class="text-center coluna_4">31,15</td>
+                                            <td class="text-center coluna_5">44,15</td>
+                                            <td class="text-center coluna_6">1,05</td>
+                                            <td class="text-center coluna_7">2,04</td>
+                                            <td class="text-center coluna_8">25/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,72</td>
+                                            <td class="text-center coluna_4">30,87</td>
+                                            <td class="text-center coluna_5">43,76</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,03</td>
+                                            <td class="text-center coluna_8">26/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,67</td>
+                                            <td class="text-center coluna_4">30,52</td>
+                                            <td class="text-center coluna_5">43,26</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">2,03</td>
+                                            <td class="text-center coluna_8">27/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,63</td>
+                                            <td class="text-center coluna_4">30,24</td>
+                                            <td class="text-center coluna_5">42,87</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">2,02</td>
+                                            <td class="text-center coluna_8">28/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,57</td>
+                                            <td class="text-center coluna_4">29,83</td>
+                                            <td class="text-center coluna_5">42,27</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,02</td>
+                                            <td class="text-center coluna_8">29/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,53</td>
+                                            <td class="text-center coluna_4">29,55</td>
+                                            <td class="text-center coluna_5">41,88</td>
+                                            <td class="text-center coluna_6">1,09</td>
+                                            <td class="text-center coluna_7">2,01</td>
+                                            <td class="text-center coluna_8">30/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,48</td>
+                                            <td class="text-center coluna_4">29,20</td>
+                                            <td class="text-center coluna_5">41,39</td>
+                                            <td class="text-center coluna_6">1,12</td>
+                                            <td class="text-center coluna_7">2,01</td>
+                                            <td class="text-center coluna_8">31/08/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,44</td>
+                                            <td class="text-center coluna_4">28,92</td>
+                                            <td class="text-center coluna_5">41,00</td>
+                                            <td class="text-center coluna_6">1,26</td>
+                                            <td class="text-center coluna_7">2,00</td>
+                                            <td class="text-center coluna_8">01/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,39</td>
+                                            <td class="text-center coluna_4">28,58</td>
+                                            <td class="text-center coluna_5">40,51</td>
+                                            <td class="text-center coluna_6">1,05</td>
+                                            <td class="text-center coluna_7">2,00</td>
+                                            <td class="text-center coluna_8">02/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,35</td>
+                                            <td class="text-center coluna_4">28,30</td>
+                                            <td class="text-center coluna_5">40,12</td>
+                                            <td class="text-center coluna_6">1,60</td>
+                                            <td class="text-center coluna_7">1,99</td>
+                                            <td class="text-center coluna_8">03/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,27</td>
+                                            <td class="text-center coluna_4">27,76</td>
+                                            <td class="text-center coluna_5">39,34</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">1,74</td>
+                                            <td class="text-center coluna_8">04/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,22</td>
+                                            <td class="text-center coluna_4">27,41</td>
+                                            <td class="text-center coluna_5">38,85</td>
+                                            <td class="text-center coluna_6">0,91</td>
+                                            <td class="text-center coluna_7">1,50</td>
+                                            <td class="text-center coluna_8">05/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,16</td>
+                                            <td class="text-center coluna_4">27,00</td>
+                                            <td class="text-center coluna_5">38,27</td>
+                                            <td class="text-center coluna_6">1,05</td>
+                                            <td class="text-center coluna_7">1,49</td>
+                                            <td class="text-center coluna_8">06/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,10</td>
+                                            <td class="text-center coluna_4">26,60</td>
+                                            <td class="text-center coluna_5">37,70</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">1,49</td>
+                                            <td class="text-center coluna_8">07/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,10</td>
+                                            <td class="text-center coluna_4">26,60</td>
+                                            <td class="text-center coluna_5">37,70</td>
+                                            <td class="text-center coluna_6">4,62</td>
+                                            <td class="text-center coluna_7">1,48</td>
+                                            <td class="text-center coluna_8">08/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,04</td>
+                                            <td class="text-center coluna_4">26,19</td>
+                                            <td class="text-center coluna_5">37,12</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">1,48</td>
+                                            <td class="text-center coluna_8">09/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">816,01</td>
+                                            <td class="text-center coluna_4">25,98</td>
+                                            <td class="text-center coluna_5">36,83</td>
+                                            <td class="text-center coluna_6">1,85</td>
+                                            <td class="text-center coluna_7">0,92</td>
+                                            <td class="text-center coluna_8">10/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,97</td>
+                                            <td class="text-center coluna_4">25,71</td>
+                                            <td class="text-center coluna_5">36,45</td>
+                                            <td class="text-center coluna_6">1,08</td>
+                                            <td class="text-center coluna_7">0,81</td>
+                                            <td class="text-center coluna_8">11/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,92</td>
+                                            <td class="text-center coluna_4">25,38</td>
+                                            <td class="text-center coluna_5">35,97</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">0,80</td>
+                                            <td class="text-center coluna_8">12/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,87</td>
+                                            <td class="text-center coluna_4">25,04</td>
+                                            <td class="text-center coluna_5">35,49</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">0,80</td>
+                                            <td class="text-center coluna_8">13/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,80</td>
+                                            <td class="text-center coluna_4">24,57</td>
+                                            <td class="text-center coluna_5">34,83</td>
+                                            <td class="text-center coluna_6">1,08</td>
+                                            <td class="text-center coluna_7">0,80</td>
+                                            <td class="text-center coluna_8">14/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,75</td>
+                                            <td class="text-center coluna_4">24,24</td>
+                                            <td class="text-center coluna_5">34,35</td>
+                                            <td class="text-center coluna_6">1,05</td>
+                                            <td class="text-center coluna_7">0,79</td>
+                                            <td class="text-center coluna_8">15/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,69</td>
+                                            <td class="text-center coluna_4">23,84</td>
+                                            <td class="text-center coluna_5">33,79</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">0,79</td>
+                                            <td class="text-center coluna_8">16/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,62</td>
+                                            <td class="text-center coluna_4">23,37</td>
+                                            <td class="text-center coluna_5">33,13</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">0,79</td>
+                                            <td class="text-center coluna_8">17/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,56</td>
+                                            <td class="text-center coluna_4">22,97</td>
+                                            <td class="text-center coluna_5">32,56</td>
+                                            <td class="text-center coluna_6">1,21</td>
+                                            <td class="text-center coluna_7">0,79</td>
+                                            <td class="text-center coluna_8">18/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,48</td>
+                                            <td class="text-center coluna_4">22,45</td>
+                                            <td class="text-center coluna_5">31,81</td>
+                                            <td class="text-center coluna_6">1,50</td>
+                                            <td class="text-center coluna_7">1,52</td>
+                                            <td class="text-center coluna_8">19/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,39</td>
+                                            <td class="text-center coluna_4">21,85</td>
+                                            <td class="text-center coluna_5">30,98</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,04</td>
+                                            <td class="text-center coluna_8">20/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,36</td>
+                                            <td class="text-center coluna_4">21,66</td>
+                                            <td class="text-center coluna_5">30,70</td>
+                                            <td class="text-center coluna_6">3,61</td>
+                                            <td class="text-center coluna_7">1,79</td>
+                                            <td class="text-center coluna_8">21/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,35</td>
+                                            <td class="text-center coluna_4">21,59</td>
+                                            <td class="text-center coluna_5">30,60</td>
+                                            <td class="text-center coluna_6">4,09</td>
+                                            <td class="text-center coluna_7">0,86</td>
+                                            <td class="text-center coluna_8">22/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,30</td>
+                                            <td class="text-center coluna_4">21,26</td>
+                                            <td class="text-center coluna_5">30,14</td>
+                                            <td class="text-center coluna_6">1,08</td>
+                                            <td class="text-center coluna_7">0,86</td>
+                                            <td class="text-center coluna_8">23/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,24</td>
+                                            <td class="text-center coluna_4">20,87</td>
+                                            <td class="text-center coluna_5">29,59</td>
+                                            <td class="text-center coluna_6">1,08</td>
+                                            <td class="text-center coluna_7">0,85</td>
+                                            <td class="text-center coluna_8">24/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,18</td>
+                                            <td class="text-center coluna_4">20,48</td>
+                                            <td class="text-center coluna_5">29,03</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">0,85</td>
+                                            <td class="text-center coluna_8">25/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,13</td>
+                                            <td class="text-center coluna_4">20,16</td>
+                                            <td class="text-center coluna_5">28,57</td>
+                                            <td class="text-center coluna_6">1,13</td>
+                                            <td class="text-center coluna_7">0,85</td>
+                                            <td class="text-center coluna_8">26/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,07</td>
+                                            <td class="text-center coluna_4">19,77</td>
+                                            <td class="text-center coluna_5">28,02</td>
+                                            <td class="text-center coluna_6">1,07</td>
+                                            <td class="text-center coluna_7">0,84</td>
+                                            <td class="text-center coluna_8">27/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,00</td>
+                                            <td class="text-center coluna_4">19,32</td>
+                                            <td class="text-center coluna_5">27,38</td>
+                                            <td class="text-center coluna_6">1,05</td>
+                                            <td class="text-center coluna_7">0,84</td>
+                                            <td class="text-center coluna_8">28/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,93</td>
+                                            <td class="text-center coluna_4">18,87</td>
+                                            <td class="text-center coluna_5">26,75</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">0,84</td>
+                                            <td class="text-center coluna_8">29/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,85</td>
+                                            <td class="text-center coluna_4">18,36</td>
+                                            <td class="text-center coluna_5">26,02</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">0,83</td>
+                                            <td class="text-center coluna_8">30/09/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,76</td>
+                                            <td class="text-center coluna_4">17,79</td>
+                                            <td class="text-center coluna_5">25,21</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">1,84</td>
+                                            <td class="text-center coluna_8">01/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,66</td>
+                                            <td class="text-center coluna_4">17,15</td>
+                                            <td class="text-center coluna_5">24,31</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,10</td>
+                                            <td class="text-center coluna_8">02/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,58</td>
+                                            <td class="text-center coluna_4">16,65</td>
+                                            <td class="text-center coluna_5">23,60</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">2,08</td>
+                                            <td class="text-center coluna_8">03/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,48</td>
+                                            <td class="text-center coluna_4">16,02</td>
+                                            <td class="text-center coluna_5">22,71</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">2,07</td>
+                                            <td class="text-center coluna_8">04/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,45</td>
+                                            <td class="text-center coluna_4">15,83</td>
+                                            <td class="text-center coluna_5">22,44</td>
+                                            <td class="text-center coluna_6">1,06</td>
+                                            <td class="text-center coluna_7">2,06</td>
+                                            <td class="text-center coluna_8">05/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,45</td>
+                                            <td class="text-center coluna_4">15,83</td>
+                                            <td class="text-center coluna_5">22,44</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">2,06</td>
+                                            <td class="text-center coluna_8">06/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,47</td>
+                                            <td class="text-center coluna_4">15,96</td>
+                                            <td class="text-center coluna_5">22,62</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">2,06</td>
+                                            <td class="text-center coluna_8">07/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,48</td>
+                                            <td class="text-center coluna_4">16,02</td>
+                                            <td class="text-center coluna_5">22,71</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">2,06</td>
+                                            <td class="text-center coluna_8">08/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,47</td>
+                                            <td class="text-center coluna_4">15,96</td>
+                                            <td class="text-center coluna_5">22,62</td>
+                                            <td class="text-center coluna_6">1,52</td>
+                                            <td class="text-center coluna_7">2,06</td>
+                                            <td class="text-center coluna_8">09/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,44</td>
+                                            <td class="text-center coluna_4">15,77</td>
+                                            <td class="text-center coluna_5">22,35</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">2,06</td>
+                                            <td class="text-center coluna_8">10/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,40</td>
+                                            <td class="text-center coluna_4">15,52</td>
+                                            <td class="text-center coluna_5">22,00</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">11/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,36</td>
+                                            <td class="text-center coluna_4">15,27</td>
+                                            <td class="text-center coluna_5">21,65</td>
+                                            <td class="text-center coluna_6">0,99</td>
+                                            <td class="text-center coluna_7">3,43</td>
+                                            <td class="text-center coluna_8">12/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,32</td>
+                                            <td class="text-center coluna_4">15,02</td>
+                                            <td class="text-center coluna_5">21,29</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">3,56</td>
+                                            <td class="text-center coluna_8">13/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,33</td>
+                                            <td class="text-center coluna_4">15,09</td>
+                                            <td class="text-center coluna_5">21,38</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">3,56</td>
+                                            <td class="text-center coluna_8">14/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,35</td>
+                                            <td class="text-center coluna_4">15,21</td>
+                                            <td class="text-center coluna_5">21,56</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">3,56</td>
+                                            <td class="text-center coluna_8">15/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,36</td>
+                                            <td class="text-center coluna_4">15,27</td>
+                                            <td class="text-center coluna_5">21,65</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">3,57</td>
+                                            <td class="text-center coluna_8">16/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,28</td>
+                                            <td class="text-center coluna_4">14,78</td>
+                                            <td class="text-center coluna_5">20,94</td>
+                                            <td class="text-center coluna_6">1,11</td>
+                                            <td class="text-center coluna_7">3,56</td>
+                                            <td class="text-center coluna_8">17/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,24</td>
+                                            <td class="text-center coluna_4">14,53</td>
+                                            <td class="text-center coluna_5">20,59</td>
+                                            <td class="text-center coluna_6">1,07</td>
+                                            <td class="text-center coluna_7">3,54</td>
+                                            <td class="text-center coluna_8">18/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,24</td>
+                                            <td class="text-center coluna_4">14,53</td>
+                                            <td class="text-center coluna_5">20,59</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">3,53</td>
+                                            <td class="text-center coluna_8">19/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,22</td>
+                                            <td class="text-center coluna_4">14,40</td>
+                                            <td class="text-center coluna_5">20,42</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">3,53</td>
+                                            <td class="text-center coluna_8">20/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,24</td>
+                                            <td class="text-center coluna_4">14,53</td>
+                                            <td class="text-center coluna_5">20,59</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">3,53</td>
+                                            <td class="text-center coluna_8">21/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,25</td>
+                                            <td class="text-center coluna_4">14,59</td>
+                                            <td class="text-center coluna_5">20,68</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">3,54</td>
+                                            <td class="text-center coluna_8">22/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,28</td>
+                                            <td class="text-center coluna_4">14,78</td>
+                                            <td class="text-center coluna_5">20,94</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">2,74</td>
+                                            <td class="text-center coluna_8">23/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,29</td>
+                                            <td class="text-center coluna_4">14,84</td>
+                                            <td class="text-center coluna_5">21,03</td>
+                                            <td class="text-center coluna_6">1,23</td>
+                                            <td class="text-center coluna_7">2,56</td>
+                                            <td class="text-center coluna_8">24/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,29</td>
+                                            <td class="text-center coluna_4">14,84</td>
+                                            <td class="text-center coluna_5">21,03</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">2,56</td>
+                                            <td class="text-center coluna_8">25/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,40</td>
+                                            <td class="text-center coluna_4">15,52</td>
+                                            <td class="text-center coluna_5">22,00</td>
+                                            <td class="text-center coluna_6">7,42</td>
+                                            <td class="text-center coluna_7">3,28</td>
+                                            <td class="text-center coluna_8">26/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,48</td>
+                                            <td class="text-center coluna_4">16,02</td>
+                                            <td class="text-center coluna_5">22,71</td>
+                                            <td class="text-center coluna_6">5,46</td>
+                                            <td class="text-center coluna_7">3,55</td>
+                                            <td class="text-center coluna_8">27/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,51</td>
+                                            <td class="text-center coluna_4">16,21</td>
+                                            <td class="text-center coluna_5">22,97</td>
+                                            <td class="text-center coluna_6">2,31</td>
+                                            <td class="text-center coluna_7">3,56</td>
+                                            <td class="text-center coluna_8">28/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,58</td>
+                                            <td class="text-center coluna_4">16,65</td>
+                                            <td class="text-center coluna_5">23,60</td>
+                                            <td class="text-center coluna_6">6,65</td>
+                                            <td class="text-center coluna_7">3,58</td>
+                                            <td class="text-center coluna_8">29/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">4,49</td>
+                                            <td class="text-center coluna_7">3,59</td>
+                                            <td class="text-center coluna_8">30/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,67</td>
+                                            <td class="text-center coluna_4">17,22</td>
+                                            <td class="text-center coluna_5">24,40</td>
+                                            <td class="text-center coluna_6">5,37</td>
+                                            <td class="text-center coluna_7">1,71</td>
+                                            <td class="text-center coluna_8">31/10/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,73</td>
+                                            <td class="text-center coluna_4">17,60</td>
+                                            <td class="text-center coluna_5">24,94</td>
+                                            <td class="text-center coluna_6">5,42</td>
+                                            <td class="text-center coluna_7">1,14</td>
+                                            <td class="text-center coluna_8">01/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,77</td>
+                                            <td class="text-center coluna_4">17,85</td>
+                                            <td class="text-center coluna_5">25,30</td>
+                                            <td class="text-center coluna_6">4,70</td>
+                                            <td class="text-center coluna_7">1,15</td>
+                                            <td class="text-center coluna_8">02/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,80</td>
+                                            <td class="text-center coluna_4">18,04</td>
+                                            <td class="text-center coluna_5">25,57</td>
+                                            <td class="text-center coluna_6">4,67</td>
+                                            <td class="text-center coluna_7">1,15</td>
+                                            <td class="text-center coluna_8">03/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,80</td>
+                                            <td class="text-center coluna_4">18,04</td>
+                                            <td class="text-center coluna_5">25,57</td>
+                                            <td class="text-center coluna_6">1,09</td>
+                                            <td class="text-center coluna_7">1,15</td>
+                                            <td class="text-center coluna_8">04/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,78</td>
+                                            <td class="text-center coluna_4">17,91</td>
+                                            <td class="text-center coluna_5">25,39</td>
+                                            <td class="text-center coluna_6">1,07</td>
+                                            <td class="text-center coluna_7">1,91</td>
+                                            <td class="text-center coluna_8">05/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,74</td>
+                                            <td class="text-center coluna_4">17,66</td>
+                                            <td class="text-center coluna_5">25,03</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,58</td>
+                                            <td class="text-center coluna_8">06/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,70</td>
+                                            <td class="text-center coluna_4">17,41</td>
+                                            <td class="text-center coluna_5">24,67</td>
+                                            <td class="text-center coluna_6">1,48</td>
+                                            <td class="text-center coluna_7">2,54</td>
+                                            <td class="text-center coluna_8">07/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,71</td>
+                                            <td class="text-center coluna_4">17,47</td>
+                                            <td class="text-center coluna_5">24,76</td>
+                                            <td class="text-center coluna_6">1,13</td>
+                                            <td class="text-center coluna_7">2,57</td>
+                                            <td class="text-center coluna_8">08/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,72</td>
+                                            <td class="text-center coluna_4">17,53</td>
+                                            <td class="text-center coluna_5">24,85</td>
+                                            <td class="text-center coluna_6">1,31</td>
+                                            <td class="text-center coluna_7">2,57</td>
+                                            <td class="text-center coluna_8">09/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,71</td>
+                                            <td class="text-center coluna_4">17,47</td>
+                                            <td class="text-center coluna_5">24,76</td>
+                                            <td class="text-center coluna_6">1,05</td>
+                                            <td class="text-center coluna_7">2,57</td>
+                                            <td class="text-center coluna_8">10/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,70</td>
+                                            <td class="text-center coluna_4">17,41</td>
+                                            <td class="text-center coluna_5">24,67</td>
+                                            <td class="text-center coluna_6">1,61</td>
+                                            <td class="text-center coluna_7">2,54</td>
+                                            <td class="text-center coluna_8">11/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,69</td>
+                                            <td class="text-center coluna_4">17,34</td>
+                                            <td class="text-center coluna_5">24,58</td>
+                                            <td class="text-center coluna_6">3,01</td>
+                                            <td class="text-center coluna_7">3,31</td>
+                                            <td class="text-center coluna_8">12/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,66</td>
+                                            <td class="text-center coluna_4">17,15</td>
+                                            <td class="text-center coluna_5">24,31</td>
+                                            <td class="text-center coluna_6">2,49</td>
+                                            <td class="text-center coluna_7">3,50</td>
+                                            <td class="text-center coluna_8">13/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,62</td>
+                                            <td class="text-center coluna_4">16,90</td>
+                                            <td class="text-center coluna_5">23,95</td>
+                                            <td class="text-center coluna_6">2,29</td>
+                                            <td class="text-center coluna_7">3,49</td>
+                                            <td class="text-center coluna_8">14/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,60</td>
+                                            <td class="text-center coluna_4">16,77</td>
+                                            <td class="text-center coluna_5">23,78</td>
+                                            <td class="text-center coluna_6">3,99</td>
+                                            <td class="text-center coluna_7">3,48</td>
+                                            <td class="text-center coluna_8">15/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,57</td>
+                                            <td class="text-center coluna_4">16,59</td>
+                                            <td class="text-center coluna_5">23,51</td>
+                                            <td class="text-center coluna_6">3,06</td>
+                                            <td class="text-center coluna_7">3,48</td>
+                                            <td class="text-center coluna_8">16/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,60</td>
+                                            <td class="text-center coluna_4">16,77</td>
+                                            <td class="text-center coluna_5">23,78</td>
+                                            <td class="text-center coluna_6">6,52</td>
+                                            <td class="text-center coluna_7">2,58</td>
+                                            <td class="text-center coluna_8">17/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,62</td>
+                                            <td class="text-center coluna_4">16,90</td>
+                                            <td class="text-center coluna_5">23,95</td>
+                                            <td class="text-center coluna_6">5,35</td>
+                                            <td class="text-center coluna_7">2,08</td>
+                                            <td class="text-center coluna_8">18/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,64</td>
+                                            <td class="text-center coluna_4">17,03</td>
+                                            <td class="text-center coluna_5">24,13</td>
+                                            <td class="text-center coluna_6">4,87</td>
+                                            <td class="text-center coluna_7">1,39</td>
+                                            <td class="text-center coluna_8">19/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,64</td>
+                                            <td class="text-center coluna_4">17,03</td>
+                                            <td class="text-center coluna_5">24,13</td>
+                                            <td class="text-center coluna_6">3,04</td>
+                                            <td class="text-center coluna_7">0,84</td>
+                                            <td class="text-center coluna_8">20/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,64</td>
+                                            <td class="text-center coluna_4">17,03</td>
+                                            <td class="text-center coluna_5">24,13</td>
+                                            <td class="text-center coluna_6">3,47</td>
+                                            <td class="text-center coluna_7">0,80</td>
+                                            <td class="text-center coluna_8">21/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,62</td>
+                                            <td class="text-center coluna_4">16,90</td>
+                                            <td class="text-center coluna_5">23,95</td>
+                                            <td class="text-center coluna_6">2,31</td>
+                                            <td class="text-center coluna_7">0,80</td>
+                                            <td class="text-center coluna_8">22/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,60</td>
+                                            <td class="text-center coluna_4">16,77</td>
+                                            <td class="text-center coluna_5">23,78</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">3,42</td>
+                                            <td class="text-center coluna_8">23/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">2,45</td>
+                                            <td class="text-center coluna_7">3,49</td>
+                                            <td class="text-center coluna_8">24/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,63</td>
+                                            <td class="text-center coluna_4">16,96</td>
+                                            <td class="text-center coluna_5">24,04</td>
+                                            <td class="text-center coluna_6">4,04</td>
+                                            <td class="text-center coluna_7">3,50</td>
+                                            <td class="text-center coluna_8">25/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,62</td>
+                                            <td class="text-center coluna_4">16,90</td>
+                                            <td class="text-center coluna_5">23,95</td>
+                                            <td class="text-center coluna_6">3,01</td>
+                                            <td class="text-center coluna_7">3,85</td>
+                                            <td class="text-center coluna_8">26/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">4,50</td>
+                                            <td class="text-center coluna_7">4,52</td>
+                                            <td class="text-center coluna_8">27/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">5,95</td>
+                                            <td class="text-center coluna_7">4,52</td>
+                                            <td class="text-center coluna_8">28/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,62</td>
+                                            <td class="text-center coluna_4">16,90</td>
+                                            <td class="text-center coluna_5">23,95</td>
+                                            <td class="text-center coluna_6">5,87</td>
+                                            <td class="text-center coluna_7">3,63</td>
+                                            <td class="text-center coluna_8">29/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,66</td>
+                                            <td class="text-center coluna_4">17,15</td>
+                                            <td class="text-center coluna_5">24,31</td>
+                                            <td class="text-center coluna_6">6,11</td>
+                                            <td class="text-center coluna_7">1,79</td>
+                                            <td class="text-center coluna_8">30/11/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,67</td>
+                                            <td class="text-center coluna_4">17,22</td>
+                                            <td class="text-center coluna_5">24,40</td>
+                                            <td class="text-center coluna_6">4,03</td>
+                                            <td class="text-center coluna_7">1,50</td>
+                                            <td class="text-center coluna_8">01/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,65</td>
+                                            <td class="text-center coluna_4">17,09</td>
+                                            <td class="text-center coluna_5">24,22</td>
+                                            <td class="text-center coluna_6">2,80</td>
+                                            <td class="text-center coluna_7">2,75</td>
+                                            <td class="text-center coluna_8">02/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">3,23</td>
+                                            <td class="text-center coluna_7">3,49</td>
+                                            <td class="text-center coluna_8">03/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">2,51</td>
+                                            <td class="text-center coluna_7">3,48</td>
+                                            <td class="text-center coluna_8">04/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">1,94</td>
+                                            <td class="text-center coluna_7">2,71</td>
+                                            <td class="text-center coluna_8">05/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">1,01</td>
+                                            <td class="text-center coluna_7">2,28</td>
+                                            <td class="text-center coluna_8">06/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,61</td>
+                                            <td class="text-center coluna_4">16,84</td>
+                                            <td class="text-center coluna_5">23,86</td>
+                                            <td class="text-center coluna_6">1,18</td>
+                                            <td class="text-center coluna_7">1,71</td>
+                                            <td class="text-center coluna_8">07/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,63</td>
+                                            <td class="text-center coluna_4">16,96</td>
+                                            <td class="text-center coluna_5">24,04</td>
+                                            <td class="text-center coluna_6">2,71</td>
+                                            <td class="text-center coluna_7">1,52</td>
+                                            <td class="text-center coluna_8">08/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,64</td>
+                                            <td class="text-center coluna_4">17,03</td>
+                                            <td class="text-center coluna_5">24,13</td>
+                                            <td class="text-center coluna_6">2,69</td>
+                                            <td class="text-center coluna_7">1,69</td>
+                                            <td class="text-center coluna_8">09/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,67</td>
+                                            <td class="text-center coluna_4">17,22</td>
+                                            <td class="text-center coluna_5">24,40</td>
+                                            <td class="text-center coluna_6">4,85</td>
+                                            <td class="text-center coluna_7">2,01</td>
+                                            <td class="text-center coluna_8">10/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,68</td>
+                                            <td class="text-center coluna_4">17,28</td>
+                                            <td class="text-center coluna_5">24,49</td>
+                                            <td class="text-center coluna_6">3,77</td>
+                                            <td class="text-center coluna_7">2,01</td>
+                                            <td class="text-center coluna_8">11/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,69</td>
+                                            <td class="text-center coluna_4">17,34</td>
+                                            <td class="text-center coluna_5">24,58</td>
+                                            <td class="text-center coluna_6">3,85</td>
+                                            <td class="text-center coluna_7">2,01</td>
+                                            <td class="text-center coluna_8">12/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,75</td>
+                                            <td class="text-center coluna_4">17,72</td>
+                                            <td class="text-center coluna_5">25,12</td>
+                                            <td class="text-center coluna_6">7,22</td>
+                                            <td class="text-center coluna_7">2,02</td>
+                                            <td class="text-center coluna_8">13/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,92</td>
+                                            <td class="text-center coluna_4">18,81</td>
+                                            <td class="text-center coluna_5">26,66</td>
+                                            <td class="text-center coluna_6">15,04</td>
+                                            <td class="text-center coluna_7">2,04</td>
+                                            <td class="text-center coluna_8">14/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,01</td>
+                                            <td class="text-center coluna_4">19,38</td>
+                                            <td class="text-center coluna_5">27,48</td>
+                                            <td class="text-center coluna_6">9,53</td>
+                                            <td class="text-center coluna_7">2,06</td>
+                                            <td class="text-center coluna_8">15/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,03</td>
+                                            <td class="text-center coluna_4">19,51</td>
+                                            <td class="text-center coluna_5">27,66</td>
+                                            <td class="text-center coluna_6">4,62</td>
+                                            <td class="text-center coluna_7">2,06</td>
+                                            <td class="text-center coluna_8">16/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,03</td>
+                                            <td class="text-center coluna_4">19,51</td>
+                                            <td class="text-center coluna_5">27,66</td>
+                                            <td class="text-center coluna_6">2,33</td>
+                                            <td class="text-center coluna_7">1,23</td>
+                                            <td class="text-center coluna_8">17/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,02</td>
+                                            <td class="text-center coluna_4">19,45</td>
+                                            <td class="text-center coluna_5">27,57</td>
+                                            <td class="text-center coluna_6">1,44</td>
+                                            <td class="text-center coluna_7">1,09</td>
+                                            <td class="text-center coluna_8">18/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,99</td>
+                                            <td class="text-center coluna_4">19,26</td>
+                                            <td class="text-center coluna_5">27,29</td>
+                                            <td class="text-center coluna_6">0,45</td>
+                                            <td class="text-center coluna_7">1,02</td>
+                                            <td class="text-center coluna_8">19/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,93</td>
+                                            <td class="text-center coluna_4">18,87</td>
+                                            <td class="text-center coluna_5">26,75</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">2,01</td>
+                                            <td class="text-center coluna_8">20/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">814,96</td>
+                                            <td class="text-center coluna_4">19,06</td>
+                                            <td class="text-center coluna_5">27,02</td>
+                                            <td class="text-center coluna_6">2,83</td>
+                                            <td class="text-center coluna_7">2,01</td>
+                                            <td class="text-center coluna_8">21/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,00</td>
+                                            <td class="text-center coluna_4">19,32</td>
+                                            <td class="text-center coluna_5">27,38</td>
+                                            <td class="text-center coluna_6">3,64</td>
+                                            <td class="text-center coluna_7">2,01</td>
+                                            <td class="text-center coluna_8">22/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,06</td>
+                                            <td class="text-center coluna_4">19,71</td>
+                                            <td class="text-center coluna_5">27,93</td>
+                                            <td class="text-center coluna_6">2,33</td>
+                                            <td class="text-center coluna_7">2,02</td>
+                                            <td class="text-center coluna_8">23/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,08</td>
+                                            <td class="text-center coluna_4">19,84</td>
+                                            <td class="text-center coluna_5">28,12</td>
+                                            <td class="text-center coluna_6">2,44</td>
+                                            <td class="text-center coluna_7">2,02</td>
+                                            <td class="text-center coluna_8">24/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,07</td>
+                                            <td class="text-center coluna_4">19,77</td>
+                                            <td class="text-center coluna_5">28,02</td>
+                                            <td class="text-center coluna_6">1,75</td>
+                                            <td class="text-center coluna_7">2,02</td>
+                                            <td class="text-center coluna_8">25/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,05</td>
+                                            <td class="text-center coluna_4">19,64</td>
+                                            <td class="text-center coluna_5">27,84</td>
+                                            <td class="text-center coluna_6">1,26</td>
+                                            <td class="text-center coluna_7">2,00</td>
+                                            <td class="text-center coluna_8">26/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,01</td>
+                                            <td class="text-center coluna_4">19,38</td>
+                                            <td class="text-center coluna_5">27,48</td>
+                                            <td class="text-center coluna_6">1,03</td>
+                                            <td class="text-center coluna_7">2,02</td>
+                                            <td class="text-center coluna_8">27/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,06</td>
+                                            <td class="text-center coluna_4">19,71</td>
+                                            <td class="text-center coluna_5">27,93</td>
+                                            <td class="text-center coluna_6">1,62</td>
+                                            <td class="text-center coluna_7">2,02</td>
+                                            <td class="text-center coluna_8">28/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,11</td>
+                                            <td class="text-center coluna_4">20,03</td>
+                                            <td class="text-center coluna_5">28,39</td>
+                                            <td class="text-center coluna_6">1,06</td>
+                                            <td class="text-center coluna_7">2,03</td>
+                                            <td class="text-center coluna_8">29/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,16</td>
+                                            <td class="text-center coluna_4">20,35</td>
+                                            <td class="text-center coluna_5">28,85</td>
+                                            <td class="text-center coluna_6">1,02</td>
+                                            <td class="text-center coluna_7">2,03</td>
+                                            <td class="text-center coluna_8">30/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,17</td>
+                                            <td class="text-center coluna_4">20,42</td>
+                                            <td class="text-center coluna_5">28,94</td>
+                                            <td class="text-center coluna_6">1,04</td>
+                                            <td class="text-center coluna_7">2,80</td>
+                                            <td class="text-center coluna_8">31/12/2002</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center coluna_1">29002</td>
+                                            <td class="text-center coluna_2">CACHOEIRA                                         </td>
+                                            <td class="text-center coluna_3">815,18</td>
+                                            <td class="text-center coluna_4">20,48</td>
+                                            <td class="text-center coluna_5">29,03</td>
+                                            <td class="text-center coluna_6">1,00</td>
+                                            <td class="text-center coluna_7">3,00</td>
+                                            <td class="text-center coluna_8">01/01/2003</td>
+
+                                        </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                        <footer class="panel-footer">
+                            <div class="row">
+                                <div class="col-sm-4">
+
+                                </div>
+                                <div class="col-sm-8 text-right">
+                                    <ul class="pagination pagination-sm m-t-xs m-b-none">
+                                        <li class="disabled"><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+            </section>
+        </form>
+    </div>
+    <p class="col-md-12">* Vazão liberada a jusante do reservatório. Não contempla as vazões transferidas pelos túneis.</p>
+</div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                    <a href="#" class="hide nav-off-screen-block" data-toggle-class="nav-off-screen" data-target="#nav"></a>
+                </section>
+
+            </section>
+        </section>
+    </section>
+
+
+    <div class="loading">
+        <div class="message">
+            <div class="text-center">
+                <div class="block m-b">
+                    <i class="fa fa-spinner fa-5x fa-spin"></i>
+                </div>
+                <h3>Carregando...</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="/sar0/Content/scripts/vendor.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        // (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        // function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        // e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        // e.src='//www.google-analytics.com/analytics.js';
+        // r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        // ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+    <script src="/sar0/Content/scripts/ie.js"></script>
+    <script src="/sar0/Content/scripts/main.js"></script>
+    <script src="/sar0/Content/scripts/demo.js"></script>
+    <script src="/sar0/Content/scripts/customs.js"></script>
+    <script src="/sar0/Content/dataPicker/bootstrap-datepicker.js"></script>
+    <script src="/sar0/Content/dataPicker/bootstrap-datepicker.pt-BR.min.js"></script>
+
+    <script defer="defer" async="async" src="https://barra.brasil.gov.br/barra.js"></script>
+
+    
+    
+
+    
+
+
+</body>
+</html>

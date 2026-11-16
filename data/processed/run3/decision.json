@@ -1,0 +1,10 @@
+{
+ "chosen": {
+  "cachoeira_dam": null,
+  "atibainha_dam": null
+ },
+ "mean_validation_kge": {
+  "gr4j": 0.562115140539367,
+  "gr5j": 0.5625755878289617
+ }
+}

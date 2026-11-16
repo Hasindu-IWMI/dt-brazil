@@ -1,0 +1,63 @@
+{
+ "catchment": "cachoeira_dam",
+ "model": "gr4j",
+ "fold": "fold2",
+ "calibration_window": [
+  "2014-01-01",
+  "2026-07-31"
+ ],
+ "validation_window": [
+  "2004-01-01",
+  "2013-12-31"
+ ],
+ "parameters": {
+  "x1": 1356.66,
+  "x2": -0.5873,
+  "x3": 40.2069,
+  "x4": 2.1317
+ },
+ "at_bound": [],
+ "rain_lag_days": 1,
+ "objective": {
+  "0": 0.7867,
+  "1": 0.7874
+ },
+ "ensemble_objective_range": [
+  0.7873,
+  0.7874
+ ],
+ "calibration": {
+  "days": 4595,
+  "nonpositive_days_excluded": 0,
+  "kge": 0.7243848248604752,
+  "benchmark_kge": 0.37865526966788865,
+  "bias_pct": 1.3904901662237235,
+  "monthly_kge": 0.7973018357851409,
+  "months": 151,
+  "low_flow_bias_pct": 131.61952042854887,
+  "kge_sqrt": 0.7873480160936502
+ },
+ "validation": {
+  "days": 3653,
+  "nonpositive_days_excluded": 0,
+  "kge": 0.7473965179459643,
+  "benchmark_kge": 0.13192939243796065,
+  "bias_pct": -8.2232252316215,
+  "monthly_kge": 0.8489606615655585,
+  "months": 120,
+  "low_flow_bias_pct": 103.93515312507611,
+  "kge_sqrt": 0.7661640543079835
+ },
+ "early_1986_2001": {
+  "days": 5823,
+  "nonpositive_days_excluded": 21,
+  "kge": 0.566040166375537,
+  "benchmark_kge": 0.0634960595928099,
+  "bias_pct": 2.288849359987677,
+  "monthly_kge": 0.6598013066237179,
+  "months": 192,
+  "low_flow_bias_pct": 61.28693046029989,
+  "kge_sqrt": 0.7526681378242394
+ },
+ "last_day": "2026-07-31"
+}
