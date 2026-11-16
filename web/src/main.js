@@ -13,6 +13,7 @@ import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer
 import { Atmosphere } from './scene/atmosphere.js';
 import { Terrain, loadDem, LANDCOVER } from './scene/terrain.js';
 import { realisticWaterMaterial, analyticalWaterMaterial } from './scene/water.js';
+import { RecordLayers } from './scene/layers.js';
 
 const RULES_FROM = '2017-06-01';
 const COLUMN_M = 4500;  // display height of a full (100 %) storage column, metres
@@ -43,9 +44,10 @@ const DATA = `${import.meta.env.BASE_URL}data/`;
 // a missing optional file (the basemap is not in git) gives null; some dev servers answer
 // a missing path with index.html, so a body that is not JSON also gives null
 const json = (f) => fetch(DATA + f).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-const [hiMeta, vectors, ts, catchments, imagery] = await Promise.all([
+const [hiMeta, vectors, ts, catchments, imagery, layerData] = await Promise.all([
   json('terrain_hi.json'), json('vectors.json'), json('timeseries.json'), json('catchments.json'),
   new THREE.TextureLoader().loadAsync(DATA + 'imagery.jpg').catch(() => null),
+  json('layers.json'), // rain, river and tunnel records (pipeline/viewer_layers.py); optional
 ]);
 let meta = hiMeta;
 let elev;
@@ -191,6 +193,7 @@ for (const [key, r] of Object.entries(reservoirs)) {
   r.fill = new THREE.Mesh(new THREE.BoxGeometry(1300, 1, 1300), new THREE.MeshLambertMaterial({ color: 0x3987e5 }));
   r.el = document.createElement('div');
   r.el.className = 'label';
+  r.el.dataset.prio = '5';
   r.label = new CSS2DObject(r.el);
   markers.add(r.frame, r.fill, r.label);
   r.key = key;
@@ -205,9 +208,17 @@ for (const code of SCENE_GAUGES) {
   pin.rotation.x = Math.PI;
   const el = document.createElement('div');
   el.className = 'label';
+  el.dataset.prio = '3';
   const label = new CSS2DObject(el);
   markers.add(pin, label);
   gauges[code] = { pin, el, label, x: X(g.lon), z: Z(g.lat), h: surfaceAt(g.lon, g.lat) };
+}
+
+// ---- rain, river and tunnel records on the terrain (scene/layers.js)
+const records = layerData ? new RecordLayers({ data: layerData, dates: ts.dates, frame, surfaceAt, inBox }) : null;
+if (records) {
+  markers.add(records.group);
+  terrain.setOverlay(records.overlayTexture());
 }
 
 let showColumns = style === 'analytical';
@@ -263,6 +274,7 @@ function applyRelief() {
   shownExag = exag;
   world.scale.y = exag;
   placeMarkers();
+  records?.place(exag);
   $('exag').textContent = exag === 1 ? 'true scale (×1)' : `×${exag}`;
 }
 function sunText() {
@@ -291,6 +303,12 @@ $('haze').value = haze;
 $('haze').addEventListener('change', () => { haze = $('haze').value; atmosphere.set({ haze }); sunText(); });
 $('lyr-shadow').addEventListener('change', (e) => { shadows = e.target.checked; applyShadows(); });
 $('lyr-catch').addEventListener('change', (e) => { catchLines.visible = e.target.checked; });
+$('lyr-rain').addEventListener('change', (e) => { if (records) records.rainGroup.visible = e.target.checked; });
+$('lyr-flows').addEventListener('change', (e) => {
+  if (records) { records.flowGroup.visible = e.target.checked; records.tunnelGroup.visible = e.target.checked; }
+});
+$('lyr-upcatch').addEventListener('change', (e) => terrain.setOverlay(e.target.checked && records ? records.overlayTexture() : null));
+if (!records) for (const id of ['lyr-rain', 'lyr-flows', 'lyr-upcatch']) { $(id).checked = false; $(id).disabled = true; }
 $('lyr-rivers').addEventListener('change', (e) => { rivers.visible = e.target.checked; });
 $('lyr-columns').addEventListener('change', (e) => { showColumns = e.target.checked; placeMarkers(); });
 $('lyr-lc').addEventListener('change', async (e) => {
@@ -324,6 +342,30 @@ function homeView() {
   controls.target.set(-2000, ty, 2000);
   camera.position.set(-14000, ty + 30000, 68000);
   controls.update();
+}
+
+// ---- panel: rain, rivers above the lakes, tunnels (observed, except catchment rain, which is derived)
+function recordsPanel() {
+  const i = index;
+  const r = records;
+  const mm = (v) => (v === null ? '<span class="nodata">–</span>' : v.toFixed(v < 10 ? 1 : 0));
+  const rain = [['cachoeira_dam', 'Cachoeira'], ['atibainha_dam', 'Atibainha']].map(([k, n]) =>
+    `<tr><td>${n}</td><td>${mm(r.catchRainOn(k, i))}</td><td>${mm(r.catchRainSum(k, i, 7))}</td><td>${mm(r.catchRainSum(k, i, 30))}</td></tr>`).join('');
+  const rivers = ['1430', '1397'].map((id) => {
+    const s = r.station(id);
+    const q = r.flowOn(s, i);
+    return `<tr><td>${s.label.replace(' above the lake', '')}</td><td>${q === null ? '<span class="nodata">no record</span>' : q.toFixed(2)}</td>`
+      + `<td>${q === null ? '' : (q * 86.4 / s.area_km2).toFixed(2)}</td></tr>`;
+  }).join('');
+  const tunnels = layerData.tunnels.map((t) => {
+    const q = t.station ? r.flowOn(r.station(t.station), i) : null;
+    return `<tr><td>${t.name}<br><span class="muted">${t.from} → ${t.to}</span></td><td>${!t.measured ? '<span class="nodata">not public</span>'
+      : q === null ? '<span class="nodata">no record</span>' : q.toFixed(1)}</td></tr>`;
+  }).join('');
+  $('rec-body').innerHTML = `
+    <table><thead><tr><th>Catchment rain, mm <i class="tag">derived</i></th><th>Day</th><th>7 days</th><th>30 days</th></tr></thead><tbody>${rain}</tbody></table>
+    <table><thead><tr><th>River above the lake</th><th>m³/s</th><th>mm/day</th></tr></thead><tbody>${rivers}</tbody></table>
+    <table><thead><tr><th>Tunnels and transfers</th><th>m³/s</th></tr></thead><tbody>${tunnels}</tbody></table>`;
 }
 
 // ---- panel tables
@@ -412,25 +454,83 @@ for (const [name, m] of Object.entries(ts.model ?? {})) {
     unit: ' m³/s', series, band,
   };
 }
+// Observed rain, river and tunnel records (layers.json). Orange stays reserved for modelled series.
+const TEAL = '#2bb3a3';
+const VIOLET = '#b48cff';
+function trailingSum(arr, w) { // total of the w days ending on each day; a window with a gap stays a gap
+  const out = new Array(arr.length).fill(null);
+  let sum = 0;
+  let bad = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === null) bad++; else sum += arr[i];
+    if (i >= w) { if (arr[i - w] === null) bad--; else sum -= arr[i - w]; }
+    if (i >= w - 1 && bad === 0) out[i] = sum;
+  }
+  return out;
+}
+if (records) {
+  const full = (s, vals) => { // a contiguous series -> an array on the viewer's dates
+    const a = new Array(N).fill(null);
+    const o = ts.dates.indexOf(s.first);
+    if (o >= 0) vals.forEach((v, k) => { if (o + k < N) a[o + k] = v; });
+    return a;
+  };
+  const cr = layerData.catchment_rain;
+  const st = (id) => layerData.flow_stations.find((s) => s.id === id);
+  const flow7 = (id) => smooth(full(st(id), st(id).q), 7);
+  const area = (n) => layerData.catchments.masks[n]?.area_km2;
+  charts.rain = {
+    title: 'Catchment rain, 30-day total, mm (derived)', windowed: true, unit: ' mm',
+    sub: '· inverse-distance mean of the audited gauges within 20 km of each catchment centroid · a 30-day window with a missing day stays a gap',
+    series: [{ name: 'Cachoeira', color: OBS, data: trailingSum(full(cr.cachoeira_dam, cr.cachoeira_dam.mm), 30) },
+      { name: 'Atibainha', color: TEAL, data: trailingSum(full(cr.atibainha_dam, cr.atibainha_dam.mm), 30) }],
+  };
+  for (const [key, id, res, catchName, dam] of [['upC', '1430', 'cachoeira', 'cachoeira_upstream_gauge', 'cachoeira_dam'],
+    ['upA', '1397', 'atibainha', 'atibainha_upstream_gauge', 'atibainha_dam']]) {
+    charts[key] = {
+      title: `${ts.reservoirs[res].name}: river above the lake (${st(id).code}) and operator inflow, m³/s`, windowed: true, unit: ' m³/s',
+      sub: `· 7-day running means · the gauge drains ${area(catchName)} of the ${area(dam)} km² catchment (DEM) · the inflow is the operator's, from the reservoir balance`,
+      series: [{ name: `River above the lake (${st(id).code})`, color: TEAL, data: flow7(id), win: true },
+        { name: 'Operator inflow (SAR)', color: OBS, data: smooth(ts.reservoirs[res].inflow, 7) }],
+    };
+  }
+  charts.tunnels = {
+    title: 'Tunnels 6 and 5: measured outlet flow, m³/s', windowed: true, unit: ' m³/s',
+    sub: '· 7-day running means · Tunnel 7 and the Paraíba do Sul transfer have no public flow record',
+    series: [{ name: 'Tunnel 6 (Cachoeira → Atibainha)', color: VIOLET, data: flow7('12'), win: true },
+      { name: 'Tunnel 5 (Atibainha → Paiva Castro)', color: TEAL, data: flow7('18'), win: true }],
+  };
+}
 const pick = $('chart-pick');
 for (const [k, c] of Object.entries(charts)) pick.add(new Option(c.title, k));
 let chart = charts.storage;
 let yMin = 0;
 let yMax = 100;
+let i0 = 0; // the chart's date window: series that start late get the axis they need
+let i1 = N - 1;
 function useChart(k) {
   chart = charts[k];
-  const all = chart.series.flatMap((sr) => sr.data).concat(chart.band ? chart.band.high : []).filter((v) => v !== null);
+  i0 = 0;
+  i1 = N - 1;
+  if (chart.windowed) {
+    // the window starts with the record that defines it (a comparison only means something where both exist)
+    const def = chart.series.some((sr) => sr.win) ? chart.series.filter((sr) => sr.win) : chart.series;
+    i0 = Math.min(...def.map((sr) => sr.data.findIndex((v) => v !== null)).filter((j) => j >= 0));
+    i0 = Math.max(0, ts.dates.indexOf(ts.dates[i0].slice(0, 4) + '-01-01') >= 0 ? ts.dates.indexOf(ts.dates[i0].slice(0, 4) + '-01-01') : i0);
+  }
+  const all = chart.series.flatMap((sr) => sr.data.slice(i0, i1 + 1)).concat(chart.band ? chart.band.high : []).filter((v) => v !== null);
   if (chart.bands) { yMin = Math.min(0, Math.floor(Math.min(...all) / 10) * 10); yMax = 100; }
   else { yMin = 0; yMax = Math.ceil(Math.max(...all) / 5) * 5; }
   $('chart-sub').textContent = chart.sub;
   $('legend').innerHTML = chart.series.length > 1
-    ? chart.series.map((sr) => `<span><i style="border-color:${sr.color}"></i>${sr.name}</span>`).join('') + `<span><i class="band" style="background:${MOD}"></i>Ensemble range</span>`
+    ? chart.series.map((sr) => `<span><i style="border-color:${sr.color}"></i>${sr.name}</span>`).join('')
+      + (chart.band ? `<span><i class="band" style="background:${MOD}"></i>Ensemble range</span>` : '')
     : '';
 }
 useChart('storage');
 let cw = 0;
 let ch = 0;
-const px = (i) => PAD.l + (i / (N - 1)) * (cw - PAD.l - PAD.r);
+const px = (i) => PAD.l + ((i - i0) / (i1 - i0)) * (cw - PAD.l - PAD.r);
 const py = (v) => PAD.t + (1 - (v - yMin) / (yMax - yMin)) * (ch - PAD.t - PAD.b);
 
 function drawChart(cur, hover) {
@@ -469,7 +569,7 @@ function drawChart(cur, hover) {
   ctx.textAlign = 'center';
   ctx.fillStyle = '#8f8e85';
   let lastX = -99;
-  for (let i = 0; i < N; i++) {
+  for (let i = i0; i <= i1; i++) {
     if (ts.dates[i].endsWith('-01-01') && px(i) - lastX > 44) {
       ctx.fillText(ts.dates[i].slice(0, 4), px(i), ch - 7);
       ctx.strokeStyle = '#2c2c2a';
@@ -483,7 +583,7 @@ function drawChart(cur, hover) {
     ctx.lineWidth = 1;
     ctx.beginPath();
     const stride2 = Math.max(1, Math.floor(N / (cw * 2)));
-    for (let i = 0; i < N; i += stride2) {
+    for (let i = i0; i <= i1; i += stride2) {
       const l = chart.band.low[i];
       const h = chart.band.high[i];
       if (l === null || h === null) continue;
@@ -498,7 +598,7 @@ function drawChart(cur, hover) {
     ctx.lineJoin = 'round';
     ctx.beginPath();
     let pen = false;
-    for (let i = 0; i < N; i++) {
+    for (let i = i0; i <= i1; i++) {
       const v = sr.data[i];
       if (v === null) { pen = false; continue; }
       if (pen) ctx.lineTo(px(i), py(v)); else ctx.moveTo(px(i), py(v));
@@ -515,8 +615,8 @@ function drawChart(cur, hover) {
       ctx.fillStyle = sr.color; ctx.beginPath(); ctx.arc(px(i), py(sr.data[i]), 3.5, 0, 7); ctx.fill();
     }
   };
-  if (hover !== null && hover !== cur) mark(hover, '#8f8e85', 1);
-  mark(cur, '#f0efec', 1.5);
+  if (hover !== null && hover !== cur && hover >= i0) mark(hover, '#8f8e85', 1);
+  if (cur >= i0) mark(cur, '#f0efec', 1.5); // a date before the window is not marked
 }
 
 // ---- state
@@ -566,6 +666,7 @@ function show(i) {
     o.el.innerHTML = `<b>${r.name}</b>${bar}<span>${p === null ? 'no data' : fmt(p, 1) + '% stored' + (p < 0 ? ' (below minimum operating level)' : '')}${r.level[index] === null ? '' : ' · ' + fmt(r.level[index], 2) + ' m'}</span>`;
   }
   placeMarkers();
+  if (records) { records.show(index); recordsPanel(); }
   for (const [code, g] of Object.entries(ts.gauges)) {
     cell(gaugeRows[code][2], g.flow[index], 2);
     if (gauges[code]) {
@@ -610,7 +711,7 @@ addEventListener('keydown', (e) => {
 const tip = $('tip');
 const indexAt = (e) => {
   const r = canvas.getBoundingClientRect();
-  return Math.max(0, Math.min(N - 1, Math.round(((e.clientX - r.left - PAD.l) / (cw - PAD.l - PAD.r)) * (N - 1))));
+  return Math.max(i0, Math.min(i1, i0 + Math.round(((e.clientX - r.left - PAD.l) / (cw - PAD.l - PAD.r)) * (i1 - i0))));
 };
 canvas.addEventListener('pointermove', (e) => {
   hoverIndex = indexAt(e);
@@ -661,6 +762,65 @@ renderer.setAnimationLoop((t) => {
   const near = THREE.MathUtils.clamp((camera.position.y - ground) * 0.25, 20, 3000);
   if (Math.abs(near - camera.near) > camera.near * 0.2) { camera.near = near; camera.updateProjectionMatrix(); }
   atmosphere.update(exag, dt);
+  records?.tick(t / 1000);
   renderer.render(scene, camera);
   labels.render(scene, camera);
+  if (++frameNo % 3 === 0) declutter();
 });
+
+// Labels: where two overlap on screen, the lower-priority one is hidden (hover still describes it).
+// Priority: reservoirs 5, measured tunnels and gauges above the lakes 4, ANA gauges 3, unmeasured tunnels 2, others 1.
+let frameNo = 0;
+function declutter() {
+  const els = [...labels.domElement.querySelectorAll('.label')].filter((el) => el.style.display !== 'none');
+  els.sort((a, b) => (Number(b.dataset.prio) || 0) - (Number(a.dataset.prio) || 0));
+  const kept = [];
+  for (const el of els) {
+    const r = el.getBoundingClientRect();
+    const clash = kept.some((k) => r.left < k.right + 4 && r.right > k.left - 4 && r.top < k.bottom + 2 && r.bottom > k.top - 2);
+    el.style.visibility = clash ? 'hidden' : '';
+    if (!clash) kept.push(r);
+  }
+}
+
+// ---- hover: what a marker is, where it comes from, its value on the replayed date
+if (records) {
+  const ray = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  const hoverTip = $('hover-tip');
+  let pending = null;
+  renderer.domElement.addEventListener('pointermove', (e) => {
+    pending = e;
+    requestAnimationFrame(() => {
+      if (!pending) return;
+      const ev = pending;
+      pending = null;
+      const r = renderer.domElement.getBoundingClientRect();
+      ndc.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
+      ray.setFromCamera(ndc, camera);
+      const visible = records.pickables.filter((o) => o.visible && o.parent?.visible !== false && records.group.visible
+        && (o.userData.kind !== 'rain' || records.rainGroup.visible));
+      // several sites have a rain gauge and a river gauge side by side: describe both
+      const hits = ray.intersectObjects(visible, false);
+      const seen = new Set();
+      const parts = [];
+      for (const h of hits) {
+        if (h.distance > hits[0].distance + 1500 || parts.length === 2) break;
+        const key = h.object.uuid + ':' + (h.instanceId ?? '');
+        if (seen.has(key)) continue;
+        seen.add(key);
+        const d = records.describe(h);
+        if (d) parts.push(d);
+      }
+      const text = parts.length ? parts.join('<hr>') : null;
+      hoverTip.hidden = !text;
+      if (text) {
+        hoverTip.innerHTML = text;
+        hoverTip.style.left = `${ev.clientX - r.left + 14}px`;
+        hoverTip.style.top = `${ev.clientY - r.top + 14}px`;
+      }
+      renderer.domElement.style.cursor = text ? 'help' : '';
+    });
+  });
+  renderer.domElement.addEventListener('pointerleave', () => { hoverTip.hidden = true; });
+}

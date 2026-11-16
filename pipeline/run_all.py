@@ -22,6 +22,9 @@ continues with what is on disk; a failed build step stops the run.
   build  forcing.py      catchment rain and evapotranspiration
   build  sibh_flow.py    daily series from the SIBH flow stations, compared with
                          the reservoir records (report only; uses the forcing rain)
+  build  upstream_catchments.py  checks and runoff of the gauges above the lakes on their
+                         DEM catchments (report only)
+  build  viewer_layers.py  rain, river and tunnel records for the viewer (layers.json)
 
 Deliberately NOT run: delineate.py and the terrain tools (one-off; their
 inputs are fixed), and the frozen analyses model.py, model_run3.py,
@@ -63,7 +66,9 @@ def steps(fetch, refresh, scene):
           ("build", "rain_alignment", py + [os.path.join(HERE, "rain_alignment.py")]),
           ("build", "audit_rain", py + [os.path.join(HERE, "audit_rain.py")]),
           ("build", "forcing", py + [os.path.join(HERE, "forcing.py")]),
-          ("build", "sibh_flow", py + [os.path.join(HERE, "sibh_flow.py")])]
+          ("build", "sibh_flow", py + [os.path.join(HERE, "sibh_flow.py")]),
+          ("build", "upstream_catchments", py + [os.path.join(HERE, "upstream_catchments.py")]),
+          ("build", "viewer_layers", py + [os.path.join(HERE, "viewer_layers.py")])]
     if scene:
         npm = shutil.which("npm") or "npm"
         s.append(("build", "scene", [npm, "--prefix", os.path.join(c.ROOT, "web"), "run", "scene"]))

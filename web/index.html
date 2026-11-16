@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-  <div id="scene"></div>
+  <div id="scene"><div id="hover-tip" class="hover-tip" hidden></div></div>
 
   <header id="top">
     <div>
@@ -36,6 +36,9 @@
     <div class="layers">
       <label class="real-only"><input type="checkbox" id="lyr-shadow" aria-label="Terrain shadows"> Terrain shadows</label>
       <label><input type="checkbox" id="lyr-catch" checked aria-label="Catchment boundaries"> Catchment boundaries</label>
+      <label><input type="checkbox" id="lyr-upcatch" checked aria-label="Gauge catchments from the DEM"> Gauge catchments (DEM)</label>
+      <label><input type="checkbox" id="lyr-rain" checked aria-label="Rain gauges"> Rain gauges (that day)</label>
+      <label><input type="checkbox" id="lyr-flows" checked aria-label="River and tunnel flows"> River and tunnel flows</label>
       <label><input type="checkbox" id="lyr-rivers" checked aria-label="Rivers"> Rivers</label>
       <label><input type="checkbox" id="lyr-columns" aria-label="Storage columns"> Storage columns</label>
       <label><input type="checkbox" id="lyr-lc" aria-label="Land cover 2021"> Land cover (2021)</label>
@@ -69,6 +72,13 @@
       <div class="kv derived"><span>Local inflow between dams and Atibaia gauge <i>derived</i></span><b id="inc">–</b></div>
     </section>
     <section>
+      <h2>Rain, rivers above the lakes, tunnels</h2>
+      <div id="rec-body" class="rec"></div>
+      <p class="note">Rain: audited daily gauges; catchment totals are derived (inverse-distance weighting, as in the forcing).
+        Rivers and tunnels: SIBH telemetry, daily means. mm/day uses each gauge's catchment area derived from the DEM
+        (teal on the map). Tunnel routes on the map are schematic.</p>
+    </section>
+    <section>
       <h2>Inflow model <span class="tag">modelled</span></h2>
       <table id="model-table">
         <thead><tr><th>Reservoir</th><th>Observed</th><th>Modelled</th><th>Range</th></tr></thead>
@@ -82,7 +92,9 @@
         <li><b>Observed:</b> reservoir level, storage, inflow, release (ANA SAR); river flow (ANA gauges).</li>
         <li><b>Modelled:</b> reservoir inflow from rain and temperature (GR4J). Shown only where the model passed its validation test; see the validation report.</li>
         <li><b>Derived:</b> system storage, operating band, implied export, local inflow. Formulas are in the data-quality report.</li>
-        <li><b>Not shown, because not known:</b> lake outline or level on each date (no bathymetry), tunnel flows, sub-daily data.</li>
+        <li><b>Observed on the map:</b> rain at each gauge that day (columns; grey base = no record), daily discharge at river gauges and tunnel outlets (ring area ∝ flow), Tunnels 6 and 5 (particles ∝ measured flow).</li>
+        <li><b>Derived on the map:</b> the teal catchments of the two gauges above the lakes, delineated from the DEM (no area is published for them).</li>
+        <li><b>Not shown, because not known:</b> lake outline or level on each date (no bathymetry), Tunnel 7 and Paraíba do Sul transfer flows (grey dashed: no public record), the tunnels' true underground routes, sub-daily data.</li>
         <li><b>Display only, does not change with the date:</b> ground imagery (Sentinel-2, dry season August 2024), land cover (ESA WorldCover 2021), lake outlines (OpenStreetMap) drawn at the terrain's own lake surface, and the sky and haze. The sun is the computed sun for the replayed date at the chosen hour.</li>
         <li>White lines are catchment boundaries delineated from the terrain. Terrain is Copernicus GLO-30 at 30 m, a surface model (it includes forest canopy), for display only. Vertical scale: <span id="exag"></span>.</li>
       </ul>

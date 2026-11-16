@@ -1,6 +1,6 @@
 # Day alignment of the ANA rain gauges
 
-Generated 2026-11-16 08:07 UTC by `pipeline/rain_alignment.py`. No model output is used; nothing here changes the forcing.
+Generated 2026-11-16 11:10 UTC by `pipeline/rain_alignment.py`. No model output is used; nothing here changes the forcing.
 
 Each ANA gauge, from 2010, is compared year by year with the telemetric SIBH sites within 15 km (on ANA's own day convention, see `sibh_rain_report.md`). r(s) is the median, over sites with at least 200 shared days that year, of the daily correlation between ANA day D and the site's day D + s. A year is marked **shifted** when the best s is not 0 and beats s = 0 by at least 0.15.
 

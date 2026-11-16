@@ -66,3 +66,16 @@ test('UTM forward matches known points (zone 23 S)', () => {
   const [eE, nE] = utmForward(-43.7, -23.075, 23, true);
   assert.ok(Math.abs((eW - 500000) + (eE - 500000)) < 0.01 && Math.abs(nW - nE) < 0.01);
 });
+
+test('record layers: a contiguous series maps onto the viewer dates, null outside it', async () => {
+  const { valueOn } = await import('../src/scene/layers.js');
+  const dates = ['2020-01-01', '2020-01-02', '2020-01-03', '2020-01-04', '2020-01-05'];
+  const s = { first: '2020-01-02', q: [1.5, null, 3] };
+  const cache = new Map();
+  assert.equal(valueOn(s, s.q, dates, 0, cache), null); // before the record
+  assert.equal(valueOn(s, s.q, dates, 1, cache), 1.5);
+  assert.equal(valueOn(s, s.q, dates, 2, cache), null); // a gap stays a gap
+  assert.equal(valueOn(s, s.q, dates, 3, cache), 3);
+  assert.equal(valueOn(s, s.q, dates, 4, cache), null); // after the record
+  assert.equal(valueOn({ first: null }, [], dates, 2, cache), null);
+});

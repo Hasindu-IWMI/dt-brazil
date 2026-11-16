@@ -1,6 +1,6 @@
 # Forcing report
 
-Generated 2026-11-16 08:07 UTC by `pipeline/forcing.py`.
+Generated 2026-11-16 11:10 UTC by `pipeline/forcing.py`.
 
 Catchment rain uses the audited gauge records: 109 gauge-months and 22 gauge-years excluded by `audit_rain.py`. The unaudited value is kept beside it.
 

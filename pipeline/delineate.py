@@ -3,8 +3,18 @@ drainage areas published by ANA for the same points.
 
 Method: priority-flood depression filling (Barnes et al. 2014) with a tiny
 gradient so flats drain, D8 flow directions, flow accumulation, then the set
-of cells draining to each outlet. Outlets are snapped to the cell with the
-largest accumulation within SNAP cells of the published coordinates.
+of cells draining to each outlet. Outlets are snapped by one of two rules:
+
+  max     the cell with the largest accumulation within SNAP cells of the
+          published coordinates. Used where a drainage area is published, so
+          the area check tests the snap.
+  stream  the nearest cell draining at least STREAM_KM2 (ties: the larger).
+          Used for the river gauges above the reservoirs (SIBH 3E-121 and
+          3E-122, ANA 62654500 and 62664500), for which no drainage area is
+          published. There the max rule jumps up to 540 m downstream to a
+          tributary junction; its area is reported as a sensitivity.
+          (Rule chosen from the accumulation grid around the two points,
+          before any flow at these gauges was compared with the areas.)
 
 The DEM is Copernicus GLO-30 sampled at 3 arc-seconds. It is a surface model,
 so divides under forest are slightly uncertain; the area check is the test.
@@ -25,13 +35,18 @@ import common as c  # noqa: E402
 
 DEM = os.path.join(c.RAW, "dem", "delineation")
 SNAP = 6
-# name, lat, lon, published drainage area (km2), source of the published figure
+STREAM_KM2 = 20.0
+# name, lat, lon, published drainage area (km2) or None, source of the figure (or why none), snap rule
 OUTLETS = [
-    ("cachoeira_dam", -23.0508, -46.3192, 392.0, "ANA inventory, station 62666010"),
-    ("atibainha_dam", -23.1739, -46.3900, 312.0, "ANA inventory, station 62653510"),
-    ("piracaia_gauge", -23.0517, -46.3653, 431.0, "ANA inventory, station 62665000"),
-    ("nazare_gauge", -23.1664, -46.4161, 358.0, "ANA inventory, station 62662000"),
-    ("atibaia_gauge", -23.1056, -46.5569, 1140.0, "ANA inventory, station 62670000"),
+    ("cachoeira_dam", -23.0508, -46.3192, 392.0, "ANA inventory, station 62666010", "max"),
+    ("atibainha_dam", -23.1739, -46.3900, 312.0, "ANA inventory, station 62653510", "max"),
+    ("piracaia_gauge", -23.0517, -46.3653, 431.0, "ANA inventory, station 62665000", "max"),
+    ("nazare_gauge", -23.1664, -46.4161, 358.0, "ANA inventory, station 62662000", "max"),
+    ("atibaia_gauge", -23.1056, -46.5569, 1140.0, "ANA inventory, station 62670000", "max"),
+    ("cachoeira_upstream_gauge", -23.0064, -46.2397, None,
+     "ANA 62664500 = SIBH 3E-122 (Cachoeira Montante, Rio da Cachoeira); no drainage area published", "stream"),
+    ("atibainha_upstream_gauge", -23.0950, -46.2647, None,
+     "ANA 62654500 = SIBH 3E-121 (Atibainha Montante, Rio Atibainha); no drainage area published", "stream"),
 ]
 NB = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
@@ -96,17 +111,41 @@ def main():
         if down[i] >= 0:
             children[down[i]].append(i)
 
-    results = {}
-    table = []
-    for name, lat, lon, published, src in OUTLETS:
-        r0 = int((bb["north"] - lat) / dlat)
-        c0 = int((lon - bb["west"]) / dlon)
+    def km_between(lat1, lon1, lat2, lon2):
+        return math.hypot((lon2 - lon1) * 111.320 * math.cos(math.radians((lat1 + lat2) / 2)), (lat2 - lat1) * 110.574)
+
+    def snap_max(r0, c0):
         best = None
         for r in range(max(0, r0 - SNAP), min(H, r0 + SNAP + 1)):
             for col in range(max(0, c0 - SNAP), min(W, c0 + SNAP + 1)):
                 i = r * W + col
                 if best is None or acc[i] > acc[best]:
                     best = i
+        return best
+
+    def snap_stream(r0, c0, lat, lon):
+        need = STREAM_KM2 / cell_km2(r0)
+        best = None
+        for rad in range(0, SNAP + 1):  # widening rings; nearest qualifying cell by distance
+            for r in range(max(0, r0 - rad), min(H, r0 + rad + 1)):
+                for col in range(max(0, c0 - rad), min(W, c0 + rad + 1)):
+                    i = r * W + col
+                    if acc[i] < need:
+                        continue
+                    d = km_between(lat, lon, bb["north"] - (r + 0.5) * dlat, bb["west"] + (col + 0.5) * dlon)
+                    if best is None or d < best[0] - 1e-9 or (abs(d - best[0]) < 1e-9 and acc[i] > acc[best[1]]):
+                        best = (d, i)
+            if best is not None:
+                return best[1]
+        raise SystemExit("no stream of %.0f km2 within %d cells of %.4f, %.4f" % (STREAM_KM2, SNAP, lat, lon))
+
+    results = {}
+    table = []
+    for name, lat, lon, published, src, rule in OUTLETS:
+        r0 = int((bb["north"] - lat) / dlat)
+        c0 = int((lon - bb["west"]) / dlon)
+        best = snap_max(r0, c0) if rule == "max" else snap_stream(r0, c0, lat, lon)
+        alt = snap_max(r0, c0) if rule == "stream" else None
         mask = bytearray(n)
         stack = [best]
         mask[best] = 1
@@ -141,20 +180,27 @@ def main():
             sum_lat += r * k
             cells += k
         br, bc = divmod(best, W)
+        out_lat, out_lon = bb["north"] - (br + 0.5) * dlat, bb["west"] + (bc + 0.5) * dlon
+        diff = None if published is None else round((area - published) / published * 100.0, 1)
         results[name] = {
             "area_km2": round(area, 1), "published_km2": published, "published_source": src,
-            "difference_pct": round((area - published) / published * 100.0, 1),
-            "outlet": {"lat": round(bb["north"] - (br + 0.5) * dlat, 5), "lon": round(bb["west"] + (bc + 0.5) * dlon, 5)},
+            "difference_pct": diff, "snap_rule": rule, "snap_m": round(km_between(lat, lon, out_lat, out_lon) * 1000),
+            "outlet": {"lat": round(out_lat, 5), "lon": round(out_lon, 5)},
             "centroid": {"lat": round(bb["north"] - (sum_lat / cells + 0.5) * dlat, 4),
                          "lon": round(bb["west"] + (sum_lon / cells + 0.5) * dlon, 4)},
             "touches_window_edge": touches_edge, "runs": runs,
         }
-        table.append((name, area, published, (area - published) / published * 100.0, touches_edge))
-        print("%-16s delineated %7.1f km2   published %7.1f km2   difference %+5.1f%%%s" %
-              (name, area, published, (area - published) / published * 100.0,
-               "   TOUCHES WINDOW EDGE" if touches_edge else ""), flush=True)
+        if alt is not None:  # sensitivity: the area the max rule would give
+            results[name]["max_rule_area_km2"] = round(acc[alt] * cell_km2(alt // W), 1)
+        table.append((name, area, published, diff, touches_edge))
+        print("%-24s delineated %7.1f km2   %s   snap %s, %d m%s%s" % (
+            name, area, "published %7.1f km2, difference %+5.1f%%" % (published, diff) if published else "no published area",
+            rule, results[name]["snap_m"],
+            "   (max rule: %.1f km2)" % results[name]["max_rule_area_km2"] if alt is not None else "",
+            "   TOUCHES WINDOW EDGE" if touches_edge else ""), flush=True)
 
-    out = {"dem": meta, "method": "priority-flood fill, D8, snap %d cells" % SNAP, "catchments": results}
+    out = {"dem": meta, "method": "priority-flood fill, D8; snap rules: max (largest accumulation within %d cells), "
+                                  "stream (nearest cell draining >= %.0f km2)" % (SNAP, STREAM_KM2), "catchments": results}
     c.ensure_dir(c.PROCESSED)
     with open(os.path.join(c.PROCESSED, "catchments.json"), "w", encoding="utf-8") as f:
         json.dump(out, f)
@@ -183,6 +229,7 @@ def main():
                 if col == W - 1 or not mask[r * W + col + 1]:
                     segs.append([lon_e, lat_n, lon_e, lat_s])
         web["catchments"][name] = {"area_km2": res["area_km2"], "published_km2": res["published_km2"],
+                                   "max_rule_area_km2": res.get("max_rule_area_km2"), "outlet": res["outlet"],
                                    "segments": [[round(v, 5) for v in s] for s in segs]}
     web_dir = os.path.join(c.ROOT, "web", "public", "data")
     c.ensure_dir(web_dir)

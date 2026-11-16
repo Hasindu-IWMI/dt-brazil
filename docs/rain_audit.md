@@ -1,6 +1,6 @@
 # Rain gauge audit
 
-Generated 2026-11-16 08:07 UTC by `pipeline/audit_rain.py`. Gauges are judged only against each other; no model output is used.
+Generated 2026-11-16 11:10 UTC by `pipeline/audit_rain.py`. Gauges are judged only against each other; no model output is used.
 
 Rules: at least 25 days reported, total under 25% of the regional median, median at least 50 mm (dry-record month); at least 330 days reported, ratio to the regional median under 70% or over 140% of the gauge's own median ratio (anomalous year).
 

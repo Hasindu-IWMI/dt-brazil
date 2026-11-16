@@ -145,12 +145,20 @@ export class Terrain {
     // does not read as a cut slab.
     this.edgeCol = { value: new THREE.Color(0x4a4a35) };
     this.edgeOn = { value: 1 };
+    // overlay: an RGBA texture on the same window (e.g. catchments), mixed into the ground colour so it
+    // is lit and shaded with the relief, i.e. draped exactly on the DEM at every view
+    const blank = new THREE.DataTexture(new Uint8Array(4), 1, 1, THREE.RGBAFormat);
+    blank.needsUpdate = true;
+    this.overlay = { value: blank };
+    this.overlayOn = { value: 0 };
     const EDGE = /* glsl */ `
       #ifdef USE_MAP
       {
         vec2 e = min(vMapUv, 1.0 - vMapUv);
         float k = (1.0 - smoothstep(0.0, 0.045, min(e.x, e.y * 0.8))) * uEdgeOn;
         diffuseColor.rgb = mix(diffuseColor.rgb, uEdgeCol, k);
+        vec4 ov = texture2D(tOverlay, vMapUv);
+        diffuseColor.rgb = mix(diffuseColor.rgb, ov.rgb, ov.a * uOverlayOn);
       }
       #endif`;
     this.surface = withAtmosphere(new THREE.MeshStandardMaterial({
@@ -161,7 +169,10 @@ export class Terrain {
       prev(shader, r);
       shader.uniforms.uEdgeCol = this.edgeCol;
       shader.uniforms.uEdgeOn = this.edgeOn;
-      shader.fragmentShader = 'uniform vec3 uEdgeCol;\nuniform float uEdgeOn;\n' + shader.fragmentShader.replace('#include <map_fragment>', '#include <map_fragment>\n' + EDGE);
+      shader.uniforms.tOverlay = this.overlay;
+      shader.uniforms.uOverlayOn = this.overlayOn;
+      shader.fragmentShader = 'uniform vec3 uEdgeCol;\nuniform float uEdgeOn;\nuniform sampler2D tOverlay;\nuniform float uOverlayOn;\n'
+        + shader.fragmentShader.replace('#include <map_fragment>', '#include <map_fragment>\n' + EDGE);
     };
     this.skirtMat = withAtmosphere(new THREE.MeshStandardMaterial({ color: 0x4a4a35, roughness: 1, side: THREE.DoubleSide }), { key: 'skirt' });
     this.mesh = new THREE.Mesh(geo, [this.surface, this.skirtMat]);
@@ -264,6 +275,12 @@ export class Terrain {
     this.landcoverTex = mk(col, w, h, true);
     this.roughTex = mk(rough, rw, rh, false);
     this.apply();
+  }
+
+  /** Drape an RGBA texture (same window as the DEM) on the ground; null removes it. */
+  setOverlay(tex) {
+    if (tex) this.overlay.value = tex;
+    this.overlayOn.value = tex ? 1 : 0;
   }
 
   setStyle(style) { this.style = style; this.apply(); }

@@ -1,0 +1,196 @@
+{
+ "cachoeira_upstream_gauge": {
+  "dam": "cachoeira_dam",
+  "sibh_id": "1430",
+  "code": "3E-122",
+  "river": "Rio da Cachoeira",
+  "area_km2": 295.5,
+  "max_rule_area_km2": 301.5,
+  "snap_m": 20,
+  "share_of_dam_pct": 74.4,
+  "cells_outside_dam": 0,
+  "outlet_to_river_m": 13,
+  "centroid": {
+   "lat": -22.932,
+   "lon": -46.1518
+  },
+  "rain_gauges_used": [
+   "SIBH-27832",
+   "SIBH-1132",
+   "SIBH-1449",
+   "2246174",
+   "2246099",
+   "2246090",
+   "SIBH-1431",
+   "SIBH-1202",
+   "SIBH-27081",
+   "SIBH-5"
+  ],
+  "years": {
+   "2022": {
+    "days": 363,
+    "rain_mm": 2323,
+    "runoff_mm": 501,
+    "ratio": 0.22,
+    "dam_days": 363,
+    "dam_rain_mm": 1912,
+    "dam_runoff_mm": 408,
+    "dam_ratio": 0.21
+   },
+   "2023": {
+    "days": 365,
+    "rain_mm": 2217,
+    "runoff_mm": 650,
+    "ratio": 0.29,
+    "dam_days": 365,
+    "dam_rain_mm": 1907,
+    "dam_runoff_mm": 396,
+    "dam_ratio": 0.21
+   },
+   "2025": {
+    "days": 360,
+    "rain_mm": 1125,
+    "runoff_mm": 359,
+    "ratio": 0.32,
+    "dam_days": 360,
+    "dam_rain_mm": 1116,
+    "dam_runoff_mm": 178,
+    "dam_ratio": 0.16
+   },
+   "2026": {
+    "days": 319,
+    "rain_mm": 1747,
+    "runoff_mm": 569,
+    "ratio": 0.33,
+    "dam_days": 317,
+    "dam_rain_mm": 1713,
+    "dam_runoff_mm": 430,
+    "dam_ratio": 0.25
+   }
+  }
+ },
+ "atibainha_upstream_gauge": {
+  "dam": "atibainha_dam",
+  "sibh_id": "1397",
+  "code": "3E-121",
+  "river": "Rio Atibainha",
+  "area_km2": 128.4,
+  "max_rule_area_km2": 136.6,
+  "snap_m": 48,
+  "share_of_dam_pct": 41.0,
+  "cells_outside_dam": 0,
+  "outlet_to_river_m": 21,
+  "centroid": {
+   "lat": -23.0726,
+   "lon": -46.2086
+  },
+  "rain_gauges_used": [
+   "SIBH-1398",
+   "SIBH-33857",
+   "SIBH-27081",
+   "SIBH-1431",
+   "SIBH-13",
+   "2346334",
+   "SIBH-11",
+   "SIBH-1132",
+   "2346004",
+   "2246174",
+   "SIBH-33477",
+   "SIBH-831",
+   "SIBH-1449",
+   "SIBH-27826",
+   "SIBH-27832",
+   "2246099",
+   "2346094",
+   "2246090",
+   "SIBH-5",
+   "SIBH-1202",
+   "SIBH-1080",
+   "2346352",
+   "SIBH-35353",
+   "2346005"
+  ],
+  "years": {
+   "2019": {
+    "days": 365,
+    "rain_mm": 1240,
+    "runoff_mm": 463,
+    "ratio": 0.37,
+    "dam_days": 365,
+    "dam_rain_mm": 1358,
+    "dam_runoff_mm": 312,
+    "dam_ratio": 0.23
+   },
+   "2020": {
+    "days": 366,
+    "rain_mm": 1206,
+    "runoff_mm": 491,
+    "ratio": 0.41,
+    "dam_days": 366,
+    "dam_rain_mm": 1153,
+    "dam_runoff_mm": 268,
+    "dam_ratio": 0.23
+   },
+   "2021": {
+    "days": 364,
+    "rain_mm": 1172,
+    "runoff_mm": 507,
+    "ratio": 0.43,
+    "dam_days": 364,
+    "dam_rain_mm": 1147,
+    "dam_runoff_mm": 269,
+    "dam_ratio": 0.23
+   },
+   "2022": {
+    "days": 362,
+    "rain_mm": 1549,
+    "runoff_mm": 506,
+    "ratio": 0.33,
+    "dam_days": 362,
+    "dam_rain_mm": 1523,
+    "dam_runoff_mm": 374,
+    "dam_ratio": 0.25
+   },
+   "2023": {
+    "days": 364,
+    "rain_mm": 1698,
+    "runoff_mm": 687,
+    "ratio": 0.4,
+    "dam_days": 364,
+    "dam_rain_mm": 1632,
+    "dam_runoff_mm": 470,
+    "dam_ratio": 0.29
+   },
+   "2024": {
+    "days": 366,
+    "rain_mm": 1357,
+    "runoff_mm": 626,
+    "ratio": 0.46,
+    "dam_days": 366,
+    "dam_rain_mm": 1308,
+    "dam_runoff_mm": 315,
+    "dam_ratio": 0.24
+   },
+   "2025": {
+    "days": 364,
+    "rain_mm": 1137,
+    "runoff_mm": 554,
+    "ratio": 0.49,
+    "dam_days": 364,
+    "dam_rain_mm": 1168,
+    "dam_runoff_mm": 278,
+    "dam_ratio": 0.24
+   },
+   "2026": {
+    "days": 318,
+    "rain_mm": 1668,
+    "runoff_mm": 700,
+    "ratio": 0.42,
+    "dam_days": 316,
+    "dam_rain_mm": 1666,
+    "dam_runoff_mm": 466,
+    "dam_ratio": 0.28
+   }
+  }
+ }
+}

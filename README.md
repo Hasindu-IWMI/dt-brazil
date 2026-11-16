@@ -59,6 +59,7 @@ data first, display second, and every display assumption labelled.
 | Sun | Solar position for the window centre, replayed date, chosen hour (UTC−3; the daylight-saving hour before 2019 is ignored) | Twilight lighting when the sun is below the horizon |
 | Sky and haze | none | Preetham sky scaled to the scene's exposure; haze colour from the same sky model; "Clear" and "Hazy" are looks, not observations |
 | Storage | Observed % stored (ANA SAR), shown in labels, colours and columns | Column height scale |
+| Rain, rivers, tunnels | Audited daily rain at each gauge; daily discharge at the SIBH river gauges and tunnel outlets; the DEM catchments of the two gauges above the lakes (teal) | Column height and ring size scales; **tunnel routes are schematic arcs** between the known ends (a station, or else the nearest shore of the connected reservoir) |
 
 The imagery and land cover show one season and do not change with the replay
 date. During the 2014–15 crisis, the lakes on the ground imagery would have
@@ -588,6 +589,44 @@ one changed its rating, and the other reads above SAR's whole-reservoir
 inflow. **No model was run.** Any run on them needs its own design, fixed in
 advance.
 
+## The gauges above the lakes on their DEM catchments, added 16 November 2026
+
+No drainage area is published for 3E-122 (ANA 62664500, Rio da Cachoeira) or
+3E-121 (ANA 62654500, Rio Atibainha); ANA's inventory confirms the codes but
+leaves the field empty. `pipeline/delineate.py` now derives them from the DEM,
+with the same fill and flow directions as the dam catchments. Each gauge is
+snapped to the nearest stream draining at least 20 km². The rule was chosen
+from the terrain alone, because the rule used for the dams would jump 540 m
+downstream to a tributary junction.
+
+| Gauge | DEM area | Other snap rule | Share of dam catchment | Nested in it | Outlet to the mapped river |
+| --- | --- | --- | --- | --- | --- |
+| 3E-122, Rio da Cachoeira | 295.5 km² | 301.5 km² | 74% | yes | 13 m |
+| 3E-121, Rio Atibainha | 128.4 km² | 136.6 km² | 41% | yes | 21 m |
+
+`pipeline/upstream_catchments.py` then puts each gauge on the same footing as
+the operator's inflow: runoff depth against rain on its own catchment, by
+year (`docs/upstream_catchments.md`). The gauge catchments return 0.33–0.49
+of their rain (Atibainha, 2019–2026) and 0.22–0.33 (Cachoeira, 2022–2026). The
+operator's inflow implies 0.23–0.29 and 0.16–0.25 for the whole dam
+catchments. So the measured rivers above the lakes yield 1.4–2 times more water
+per mm of rain than the operator's inflow implies for the whole catchment.
+
+The open data cannot say why. The upper catchments may really yield more, the
+gauge ratings may read high (3E-121's rating changed in 2023 and 2024), or the
+operator's inflow may be low. Cachoeira's 2022 rain (2,323 mm on the gauge
+catchment against 1,912 mm on the dam catchment) should be checked before any
+use. **No model was run.**
+
+The viewer shows all of this on the terrain: the two catchments draped in
+teal, rain columns at every gauge, discharge rings at the river gauges and
+tunnel outlets, and the tunnels as schematic arcs. Tunnels 6 and 5 carry
+particles that follow their measured flow; Tunnel 7 and the Paraíba do Sul
+transfer are grey and dashed, because no flow record is public. There is a
+panel section and four chart options (catchment rain; each gauge against the
+operator's inflow; the measured tunnels). Hovering over any marker says what
+it is, where it comes from and its value on the replayed date.
+
 ## Next steps
 
 1. Send the data requests drafted in `docs/data_requests.md` (six letters in
@@ -601,7 +640,10 @@ advance.
    of `docs/data_requests.md` say how to trim and extend letters 1–4; the
    letters themselves are not yet rewritten).
 3. Decide how to treat the two rain gauges with the wrong day (drop or shift
-   those gauge-years), then write the design for any new model run.
+   those gauge-years), check Cachoeira's 2022 catchment rain, then write the
+   design for any new model run. The gauges above the lakes now have DEM
+   catchment areas (above), so they can be the observation such a design is
+   judged against, with the rating change at 3E-121 handled explicitly.
 4. Ask the operator how inflow was computed before 2000 (Atibainha looks too high).
 5. Viewer: trees and clouds after the Kelani WebTwin, and checks on laptop GPUs.
 6. Replace the terrain with ANADEM (bare earth) when a 2 GB download is

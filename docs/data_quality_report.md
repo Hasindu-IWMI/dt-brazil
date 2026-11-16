@@ -1,6 +1,6 @@
 # Data quality report: upper Atibaia pilot
 
-Generated 2026-11-16 08:07 UTC by `pipeline/process.py`. Every figure is computed from the files in `data/raw`.
+Generated 2026-11-16 11:10 UTC by `pipeline/process.py`. Every figure is computed from the files in `data/raw`.
 
 ## 1. Reservoir records (ANA SAR, Cantareira module)
 

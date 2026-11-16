@@ -1,6 +1,6 @@
 # Telemetric rain gauges from SIBH
 
-Generated 2026-11-16 08:07 UTC by `pipeline/sibh_rain.py` from hourly sums downloaded by `pipeline/fetch_sibh_rain.py` (SP Águas SIBH public API, retrieved 2026-11-16). No model output is used.
+Generated 2026-11-16 11:10 UTC by `pipeline/sibh_rain.py` from hourly sums downloaded by `pipeline/fetch_sibh_rain.py` (SP Águas SIBH public API, retrieved 2026-11-16). No model output is used.
 
 ## Selection
 

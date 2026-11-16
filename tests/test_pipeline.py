@@ -26,6 +26,8 @@ import gr4j  # noqa: E402
 import process  # noqa: E402
 import sibh_flow  # noqa: E402
 import sibh_rain  # noqa: E402
+import upstream_catchments  # noqa: E402
+import viewer_layers  # noqa: E402
 
 
 class Common(unittest.TestCase):
@@ -399,6 +401,26 @@ class Gr4j(unittest.TestCase):
         self.assertLess(sum(q), sum(rain))  # no water created with x2 = 0
 
 
+class UpstreamAndLayers(unittest.TestCase):
+    def test_distance_to_a_line(self):
+        line = [[-46.3, -23.0], [-46.2, -23.0]]
+        self.assertAlmostEqual(upstream_catchments.dist_to_line_km(-23.0, -46.25, line), 0.0, places=6)
+        self.assertAlmostEqual(upstream_catchments.dist_to_line_km(-23.01, -46.25, line), 1.10574, places=3)
+        # beyond the end of the segment the distance is to the end point
+        self.assertAlmostEqual(upstream_catchments.dist_to_line_km(-23.0, -46.19, line), 0.01 * 111.320 * math.cos(math.radians(23.0)), places=3)
+
+    def test_contiguous_series_trims_to_first_and_last_record(self):
+        dates = ["2020-01-0%d" % d for d in range(1, 8)]
+        first, vals = viewer_layers.contiguous({"2020-01-03": 1.234, "2020-01-05": 2.0, "2020-01-09": 5.0}, dates, 1)
+        self.assertEqual(first, "2020-01-03")
+        self.assertEqual(vals, [1.2, None, 2.0])
+        self.assertEqual(viewer_layers.contiguous({}, dates, 1), (None, []))
+
+    def test_nearest_shore(self):
+        rings = [[[-46.30, -23.00], [-46.20, -23.00], [-46.20, -23.10]]]
+        self.assertEqual(viewer_layers.nearest_shore(-23.11, -46.19, rings), [-46.2, -23.1])
+
+
 class DataInvariants(unittest.TestCase):
     """Checks on the committed data, so a refresh cannot break them silently."""
 
@@ -427,6 +449,32 @@ class DataInvariants(unittest.TestCase):
         for name, m in ts.get("model", {}).items():
             if not m.get("accepted"):
                 self.assertNotIn("sim", m, name)
+
+    def test_gauge_catchments_nest_in_their_dam_catchments(self):
+        with open(os.path.join(c.PROCESSED, "catchments.json"), encoding="utf-8") as f:
+            cats = json.load(f)["catchments"]
+        for gauge, dam in (("cachoeira_upstream_gauge", "cachoeira_dam"), ("atibainha_upstream_gauge", "atibainha_dam")):
+            cells = lambda name: {(r, q) for r, a, b in cats[name]["runs"] for q in range(a, b + 1)}
+            self.assertFalse(cells(gauge) - cells(dam), gauge)
+            self.assertLess(cats[gauge]["area_km2"], cats[dam]["area_km2"])
+            self.assertEqual(cats[gauge]["snap_rule"], "stream")
+
+    def test_viewer_layers_align_with_the_viewer_dates(self):
+        web = os.path.join(ROOT, "web", "public", "data")
+        with open(os.path.join(web, "timeseries.json"), encoding="utf-8") as f:
+            dates = json.load(f)["dates"]
+        with open(os.path.join(web, "layers.json"), encoding="utf-8") as f:
+            lay = json.load(f)
+        pos = {d: k for k, d in enumerate(dates)}
+        series = [(s["first"], s["mm"]) for s in lay["rain_sites"]] + [(s["first"], s["q"]) for s in lay["flow_stations"]]             + [(s["first"], s["mm"]) for s in lay["catchment_rain"].values()]
+        for first, vals in series:
+            self.assertIn(first, pos)
+            self.assertLessEqual(pos[first] + len(vals), len(dates))
+            self.assertIsNotNone(vals[0])
+        for t in lay["tunnels"]:
+            self.assertEqual(t["measured"], t["station"] is not None, t["name"])
+            for end in (t["a"], t["b"]):
+                self.assertIn(end["is"], ("station", "schematic"))
 
     def test_storage_never_below_documented_minimum(self):
         with open(os.path.join(ROOT, "web", "public", "data", "timeseries.json"), encoding="utf-8") as f:

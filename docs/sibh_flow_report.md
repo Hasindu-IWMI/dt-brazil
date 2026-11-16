@@ -1,6 +1,6 @@
 # River, dam and transfer stations from SIBH
 
-Generated 2026-11-16 09:23 UTC by `pipeline/sibh_flow.py` from hourly means downloaded by `pipeline/fetch_sibh_flow.py` (SP Águas SIBH public API, retrieved 2026-11-16). Observed records only: no model is run and no model output is used. SIBH's telemetric records are unconsolidated.
+Generated 2026-11-16 11:10 UTC by `pipeline/sibh_flow.py` from hourly means downloaded by `pipeline/fetch_sibh_flow.py` (SP Águas SIBH public API, retrieved 2026-11-16). Observed records only: no model is run and no model output is used. SIBH's telemetric records are unconsolidated.
 
 A day is the local calendar day (UTC-3) and is kept for a variable if at least 18 of its 24 hourly means are valid; the daily value is their mean. Levels more than 50 m from the station's median in the same datum, and discharges below 0 or above 1000 m3/s, are rejected; nothing else is filtered or filled. Rules: docstring of `pipeline/sibh_flow.py`.
 
