@@ -1,0 +1,1110 @@
+{
+ "source": "SP Águas SIBH (public API)",
+ "radius_km": 20.0,
+ "retrieved": "2026-11-16",
+ "candidates": [
+  {
+   "id": "1132",
+   "prefix": "352550801A",
+   "owner": "CEMADEN",
+   "name": "CACHOEIRA",
+   "lat": -22.962,
+   "lon": -46.176,
+   "km_to_centroid": {
+    "cachoeira_dam": 0.9,
+    "atibainha_dam": 22.6
+   },
+   "excluded": "",
+   "days_kept": 802,
+   "hours": 31300,
+   "days_incomplete": 1167,
+   "days_invalid_hour": 0,
+   "first_day": "2015-01-02",
+   "last_day": "2025-02-27",
+   "used": true,
+   "site_days": 802,
+   "site_filled_from": []
+  },
+  {
+   "id": "372",
+   "prefix": "2346798",
+   "owner": "SABESP",
+   "name": "Piracaia (SB-CA-DBT6 Desemboque do Túnel 6)",
+   "lat": -23.10971,
+   "lon": -46.28694,
+   "km_to_centroid": {
+    "cachoeira_dam": 19.6,
+    "atibainha_dam": 3.2
+   },
+   "excluded": "",
+   "days_kept": 306,
+   "hours": 7390,
+   "days_incomplete": 3,
+   "days_invalid_hour": 0,
+   "first_day": "2026-01-14",
+   "last_day": "2026-11-15",
+   "used": false,
+   "not_used": "co-located with 13, which leads the site; this gauge fills its gaps"
+  },
+  {
+   "id": "13",
+   "prefix": "616",
+   "owner": "SABESP",
+   "name": "Piracaia (Desemboque do Túnel - 6)",
+   "lat": -23.10821,
+   "lon": -46.28728,
+   "km_to_centroid": {
+    "cachoeira_dam": 19.5,
+    "atibainha_dam": 3.4
+   },
+   "excluded": "",
+   "days_kept": 672,
+   "hours": 16493,
+   "days_incomplete": 27,
+   "days_invalid_hour": 1,
+   "first_day": "2014-12-18",
+   "last_day": "2026-01-13",
+   "used": true,
+   "site_days": 978,
+   "site_filled_from": [
+    "372"
+   ]
+  },
+  {
+   "id": "27832",
+   "prefix": "352550803A",
+   "owner": "CEMADEN",
+   "name": "Joanópolis (03- Ribeirão da Correnteza)",
+   "lat": -22.932,
+   "lon": -46.169,
+   "km_to_centroid": {
+    "cachoeira_dam": 3.5,
+    "atibainha_dam": 25.9
+   },
+   "excluded": "",
+   "days_kept": 2082,
+   "hours": 74045,
+   "days_incomplete": 1618,
+   "days_invalid_hour": 0,
+   "first_day": "2015-03-01",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 2082,
+   "site_filled_from": []
+  },
+  {
+   "id": "15226",
+   "prefix": "2246174",
+   "owner": "ANA",
+   "name": "JOANÓPOLIS",
+   "lat": -22.9347,
+   "lon": -46.2117,
+   "km_to_centroid": {
+    "cachoeira_dam": 3.9,
+    "atibainha_dam": 23.9
+   },
+   "excluded": "owned by ANA; taken from ANA's service",
+   "used": false
+  },
+  {
+   "id": "1449",
+   "prefix": "352550802A",
+   "owner": "CEMADEN",
+   "name": "JOANOPOLIS02",
+   "lat": -22.93,
+   "lon": -46.21,
+   "km_to_centroid": {
+    "cachoeira_dam": 4.2,
+    "atibainha_dam": 24.4
+   },
+   "excluded": "",
+   "days_kept": 810,
+   "hours": 23296,
+   "days_incomplete": 236,
+   "days_invalid_hour": 0,
+   "first_day": "2015-01-02",
+   "last_day": "2020-10-15",
+   "used": true,
+   "site_days": 810,
+   "site_filled_from": []
+  },
+  {
+   "id": "33857",
+   "prefix": "724",
+   "owner": "SAISP",
+   "name": "Rio Atibainha - Montante Atibainha",
+   "lat": -23.10214,
+   "lon": -46.27339,
+   "km_to_centroid": {
+    "cachoeira_dam": 18.2,
+    "atibainha_dam": 4.3
+   },
+   "excluded": "",
+   "days_kept": 866,
+   "hours": 21097,
+   "days_incomplete": 23,
+   "days_invalid_hour": 0,
+   "first_day": "2022-01-02",
+   "last_day": "2024-05-28",
+   "used": true,
+   "site_days": 866,
+   "site_filled_from": []
+  },
+  {
+   "id": "1398",
+   "prefix": "E3-268",
+   "owner": "SP ÁGUAS",
+   "name": "Nazaré Paulista (Atibainha Montante)",
+   "lat": -23.09521,
+   "lon": -46.26463,
+   "km_to_centroid": {
+    "cachoeira_dam": 17.1,
+    "atibainha_dam": 5.4
+   },
+   "excluded": "",
+   "days_kept": 1593,
+   "hours": 38795,
+   "days_incomplete": 30,
+   "days_invalid_hour": 1,
+   "first_day": "2018-03-22",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 1593,
+   "site_filled_from": []
+  },
+  {
+   "id": "29188",
+   "prefix": "E3-229",
+   "owner": "SP ÁGUAS",
+   "name": "CRIOULOS",
+   "lat": -23.08028,
+   "lon": -46.30139,
+   "km_to_centroid": {
+    "cachoeira_dam": 17.9,
+    "atibainha_dam": 6.7
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "29208",
+   "prefix": "E3-250",
+   "owner": "SP ÁGUAS",
+   "name": "RIBEIRAO ACIMA",
+   "lat": -23.18363,
+   "lon": -46.33367,
+   "km_to_centroid": {
+    "cachoeira_dam": 29.1,
+    "atibainha_dam": 6.9
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "1411",
+   "prefix": "353860003A",
+   "owner": "CEMADEN",
+   "name": "PIÃO",
+   "lat": -23.095,
+   "lon": -46.236,
+   "km_to_centroid": {
+    "cachoeira_dam": 15.9,
+    "atibainha_dam": 7.1
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 0,
+   "days_incomplete": 0,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "1431",
+   "prefix": "E3-269",
+   "owner": "SP ÁGUAS",
+   "name": "Piracaia (Cachoeira Montante)",
+   "lat": -23.00644,
+   "lon": -46.23946,
+   "km_to_centroid": {
+    "cachoeira_dam": 7.6,
+    "atibainha_dam": 15.4
+   },
+   "excluded": "",
+   "days_kept": 3947,
+   "hours": 95696,
+   "days_incomplete": 53,
+   "days_invalid_hour": 0,
+   "first_day": "2015-06-14",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 3947,
+   "site_filled_from": []
+  },
+  {
+   "id": "28651",
+   "prefix": "D3-019",
+   "owner": "SP ÁGUAS",
+   "name": "FAZENDA BONFIM",
+   "lat": -22.96667,
+   "lon": -46.1,
+   "km_to_centroid": {
+    "cachoeira_dam": 8.7,
+    "atibainha_dam": 27.0
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "25524",
+   "prefix": "D3-054",
+   "owner": "SP ÁGUAS",
+   "name": "JOANOPOLIS",
+   "lat": -22.93222,
+   "lon": -46.26778,
+   "km_to_centroid": {
+    "cachoeira_dam": 9.1,
+    "atibainha_dam": 23.0
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "1202",
+   "prefix": "352550804A",
+   "owner": "CEMADEN",
+   "name": "CENTRO",
+   "lat": -22.931,
+   "lon": -46.272,
+   "km_to_centroid": {
+    "cachoeira_dam": 9.5,
+    "atibainha_dam": 23.1
+   },
+   "excluded": "",
+   "days_kept": 2701,
+   "hours": 66900,
+   "days_incomplete": 135,
+   "days_invalid_hour": 0,
+   "first_day": "2015-01-02",
+   "last_day": "2026-09-27",
+   "used": true,
+   "site_days": 2701,
+   "site_filled_from": []
+  },
+  {
+   "id": "35780",
+   "prefix": "2246167",
+   "owner": "ANA",
+   "name": "Extrema (Nascente Principal)",
+   "lat": -22.89,
+   "lon": -46.24,
+   "km_to_centroid": {
+    "cachoeira_dam": 9.6,
+    "atibainha_dam": 28.0
+   },
+   "excluded": "owned by ANA; taken from ANA's service",
+   "used": false
+  },
+  {
+   "id": "33433",
+   "prefix": "IAC-Joanópolis - SP",
+   "owner": "IAC",
+   "name": "Joanópolis - SP",
+   "lat": -22.92982,
+   "lon": -46.2758,
+   "km_to_centroid": {
+    "cachoeira_dam": 9.9,
+    "atibainha_dam": 23.2
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 0,
+   "days_incomplete": 0,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "35574",
+   "prefix": "1000197",
+   "owner": "SABESP",
+   "name": "Piracaia (Barragem)",
+   "lat": -23.05083,
+   "lon": -46.31928,
+   "km_to_centroid": {
+    "cachoeira_dam": 17.1,
+    "atibainha_dam": 10.3
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 0,
+   "days_incomplete": 0,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "11",
+   "prefix": "1001177",
+   "owner": "SABESP",
+   "name": "Piracaia (Barragem Cachoeira)",
+   "lat": -23.05074,
+   "lon": -46.3193,
+   "km_to_centroid": {
+    "cachoeira_dam": 17.1,
+    "atibainha_dam": 10.3
+   },
+   "excluded": "",
+   "days_kept": 6113,
+   "hours": 147612,
+   "days_incomplete": 45,
+   "days_invalid_hour": 1,
+   "first_day": "2010-01-02",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 6130,
+   "site_filled_from": [
+    "33277"
+   ]
+  },
+  {
+   "id": "368",
+   "prefix": "2346794",
+   "owner": "SABESP",
+   "name": "SB-CA-BRC Barragem Cachoeira",
+   "lat": -23.05,
+   "lon": -46.32,
+   "km_to_centroid": {
+    "cachoeira_dam": 17.1,
+    "atibainha_dam": 10.4
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 4,
+   "days_incomplete": 1,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "14991",
+   "prefix": "2346446",
+   "owner": "ANA",
+   "name": "Nazaré Paulista",
+   "lat": -23.2103,
+   "lon": -46.3553,
+   "km_to_centroid": {
+    "cachoeira_dam": 32.8,
+    "atibainha_dam": 10.5
+   },
+   "excluded": "owned by ANA; taken from ANA's service",
+   "used": false
+  },
+  {
+   "id": "33277",
+   "prefix": "E3-110",
+   "owner": "SP ÁGUAS",
+   "name": "Piracaia (Captação)",
+   "lat": -23.0475,
+   "lon": -46.32639,
+   "km_to_centroid": {
+    "cachoeira_dam": 17.5,
+    "atibainha_dam": 10.9
+   },
+   "excluded": "",
+   "days_kept": 1593,
+   "hours": 39243,
+   "days_incomplete": 55,
+   "days_invalid_hour": 0,
+   "first_day": "2010-01-02",
+   "last_day": "2026-11-15",
+   "used": false,
+   "not_used": "co-located with 11, which leads the site; this gauge fills its gaps"
+  },
+  {
+   "id": "14981",
+   "prefix": "2346450",
+   "owner": "ANA",
+   "name": "CAPTAÇÃO DE PIRACAIA",
+   "lat": -23.0475,
+   "lon": -46.3264,
+   "km_to_centroid": {
+    "cachoeira_dam": 17.5,
+    "atibainha_dam": 10.9
+   },
+   "excluded": "owned by ANA; taken from ANA's service",
+   "used": false
+  },
+  {
+   "id": "35833",
+   "prefix": "1000910",
+   "owner": "SABESP",
+   "name": "Piracaia (Precipitação Radar Bacia do Cachoeira)",
+   "lat": -23.04194,
+   "lon": -46.31196,
+   "km_to_centroid": {
+    "cachoeira_dam": 15.9,
+    "atibainha_dam": 11.0
+   },
+   "excluded": "radar product, not a gauge",
+   "used": false
+  },
+  {
+   "id": "27081",
+   "prefix": "353860001A",
+   "owner": "CEMADEN",
+   "name": "Piracaia (Caras)",
+   "lat": -23.029,
+   "lon": -46.264,
+   "km_to_centroid": {
+    "cachoeira_dam": 11.2,
+    "atibainha_dam": 12.4
+   },
+   "excluded": "",
+   "days_kept": 2088,
+   "hours": 65629,
+   "days_incomplete": 883,
+   "days_invalid_hour": 0,
+   "first_day": "2015-01-02",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 2088,
+   "site_filled_from": []
+  },
+  {
+   "id": "35832",
+   "prefix": "1000911",
+   "owner": "SABESP",
+   "name": "Nazaré Paulista (Precipitação Radar Bacia do Atibainha)",
+   "lat": -23.1765,
+   "lon": -46.38977,
+   "km_to_centroid": {
+    "cachoeira_dam": 31.9,
+    "atibainha_dam": 11.3
+   },
+   "excluded": "radar product, not a gauge",
+   "used": false
+  },
+  {
+   "id": "35785",
+   "prefix": "2246197",
+   "owner": "ANA",
+   "name": "Camanducaia (Santa Terezinha)",
+   "lat": -22.86,
+   "lon": -46.16,
+   "km_to_centroid": {
+    "cachoeira_dam": 11.3,
+    "atibainha_dam": 33.5
+   },
+   "excluded": "owned by ANA; taken from ANA's service",
+   "used": false
+  },
+  {
+   "id": "33477",
+   "prefix": "IAC-Piracaia - SP",
+   "owner": "IAC",
+   "name": "Piracaia - SP",
+   "lat": -23.06038,
+   "lon": -46.35736,
+   "km_to_centroid": {
+    "cachoeira_dam": 20.9,
+    "atibainha_dam": 11.3
+   },
+   "excluded": "",
+   "days_kept": 810,
+   "hours": 20343,
+   "days_incomplete": 51,
+   "days_invalid_hour": 0,
+   "first_day": "2024-05-07",
+   "last_day": "2026-11-14",
+   "used": true,
+   "site_days": 810,
+   "site_filled_from": []
+  },
+  {
+   "id": "367",
+   "prefix": "2346793",
+   "owner": "SABESP",
+   "name": "SB-CA-BRA BARRAGEM ATIBAINHA",
+   "lat": -23.17183,
+   "lon": -46.39091,
+   "km_to_centroid": {
+    "cachoeira_dam": 31.6,
+    "atibainha_dam": 11.3
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 4,
+   "days_incomplete": 1,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "15",
+   "prefix": "1001178",
+   "owner": "SABESP",
+   "name": "Nazaré Paulista (Barragem Atibainha)",
+   "lat": -23.17389,
+   "lon": -46.3927,
+   "km_to_centroid": {
+    "cachoeira_dam": 31.9,
+    "atibainha_dam": 11.5
+   },
+   "excluded": "",
+   "days_kept": 6092,
+   "hours": 147280,
+   "days_incomplete": 55,
+   "days_invalid_hour": 4,
+   "first_day": "2010-01-02",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 6126,
+   "site_filled_from": [
+    "1436"
+   ]
+  },
+  {
+   "id": "21",
+   "prefix": "1000721",
+   "owner": "SABESP",
+   "name": "Nazaré Paulista (Canal Jusante Atibainha)",
+   "lat": -23.1739,
+   "lon": -46.3927,
+   "km_to_centroid": {
+    "cachoeira_dam": 31.9,
+    "atibainha_dam": 11.5
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 0,
+   "days_incomplete": 0,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "35576",
+   "prefix": "1000198",
+   "owner": "SABESP",
+   "name": "Nazaré Paulista (Barragem Atibainha)",
+   "lat": -23.17392,
+   "lon": -46.39273,
+   "km_to_centroid": {
+    "cachoeira_dam": 31.9,
+    "atibainha_dam": 11.5
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 0,
+   "days_incomplete": 0,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "29130",
+   "prefix": "E3-076",
+   "owner": "SP ÁGUAS",
+   "name": "PIRACAIA",
+   "lat": -23.05,
+   "lon": -46.35002,
+   "km_to_centroid": {
+    "cachoeira_dam": 19.7,
+    "atibainha_dam": 11.8
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "1436",
+   "prefix": "353240501A",
+   "owner": "CEMADEN",
+   "name": "Nazaré Paulista (ETA SABESP)",
+   "lat": -23.174,
+   "lon": -46.398,
+   "km_to_centroid": {
+    "cachoeira_dam": 32.2,
+    "atibainha_dam": 12.0
+   },
+   "excluded": "",
+   "days_kept": 3359,
+   "hours": 88265,
+   "days_incomplete": 389,
+   "days_invalid_hour": 0,
+   "first_day": "2015-03-01",
+   "last_day": "2026-11-15",
+   "used": false,
+   "not_used": "co-located with 15, which leads the site; this gauge fills its gaps"
+  },
+  {
+   "id": "33455",
+   "prefix": "IAC-Nazaré Paulista - SP",
+   "owner": "IAC",
+   "name": "Nazaré Paulista - SP",
+   "lat": -23.17693,
+   "lon": -46.39732,
+   "km_to_centroid": {
+    "cachoeira_dam": 32.4,
+    "atibainha_dam": 12.1
+   },
+   "excluded": "",
+   "days_kept": 840,
+   "hours": 21161,
+   "days_incomplete": 62,
+   "days_invalid_hour": 0,
+   "first_day": "2024-05-07",
+   "last_day": "2026-11-15",
+   "used": false,
+   "not_used": "co-located with 15, which leads the site; this gauge fills its gaps"
+  },
+  {
+   "id": "831",
+   "prefix": "E3-296",
+   "owner": "SAISP",
+   "name": "Piracaia (Rio Cachoeira - Centro)",
+   "lat": -23.05004,
+   "lon": -46.3589,
+   "km_to_centroid": {
+    "cachoeira_dam": 20.5,
+    "atibainha_dam": 12.3
+   },
+   "excluded": "",
+   "days_kept": 777,
+   "hours": 19012,
+   "days_incomplete": 22,
+   "days_invalid_hour": 0,
+   "first_day": "2018-02-08",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 777,
+   "site_filled_from": []
+  },
+  {
+   "id": "25465",
+   "prefix": "E3-099",
+   "owner": "SP ÁGUAS",
+   "name": "NAZARE PAULISTA",
+   "lat": -23.18444,
+   "lon": -46.40111,
+   "km_to_centroid": {
+    "cachoeira_dam": 33.3,
+    "atibainha_dam": 12.7
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "29186",
+   "prefix": "E3-227",
+   "owner": "SP ÁGUAS",
+   "name": "BATATUBA",
+   "lat": -23.08333,
+   "lon": -46.4,
+   "km_to_centroid": {
+    "cachoeira_dam": 26.0,
+    "atibainha_dam": 13.1
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "33279",
+   "prefix": "E3-121",
+   "owner": "SP ÁGUAS",
+   "name": "Nazaré Paulista (Mascate)",
+   "lat": -23.16639,
+   "lon": -46.41611,
+   "km_to_centroid": {
+    "cachoeira_dam": 32.9,
+    "atibainha_dam": 13.6
+   },
+   "excluded": "",
+   "days_kept": 1643,
+   "hours": 40163,
+   "days_incomplete": 40,
+   "days_invalid_hour": 4,
+   "first_day": "2010-01-02",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 1643,
+   "site_filled_from": []
+  },
+  {
+   "id": "7",
+   "prefix": "619",
+   "owner": "SABESP",
+   "name": "Joanópolis (Barragem Jacareí - Túnel 7 / Vargem)",
+   "lat": -22.97241,
+   "lon": -46.32963,
+   "km_to_centroid": {
+    "cachoeira_dam": 14.9,
+    "atibainha_dam": 18.9
+   },
+   "excluded": "",
+   "days_kept": 961,
+   "hours": 23256,
+   "days_incomplete": 12,
+   "days_invalid_hour": 0,
+   "first_day": "2020-11-07",
+   "last_day": "2026-11-15",
+   "used": false,
+   "not_used": "co-located with 5, which leads the site; this gauge fills its gaps"
+  },
+  {
+   "id": "365",
+   "prefix": "2246243",
+   "owner": "SABESP",
+   "name": "SB-CA-BJC-T7 Emboque Túnel 7",
+   "lat": -22.97,
+   "lon": -46.33,
+   "km_to_centroid": {
+    "cachoeira_dam": 15.0,
+    "atibainha_dam": 19.2
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 4,
+   "days_incomplete": 1,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "5",
+   "prefix": "179",
+   "owner": "SABESP",
+   "name": "Joanópolis (Barragem Jacareí)",
+   "lat": -22.97151,
+   "lon": -46.33003,
+   "km_to_centroid": {
+    "cachoeira_dam": 15.0,
+    "atibainha_dam": 19.1
+   },
+   "excluded": "",
+   "days_kept": 1548,
+   "hours": 37567,
+   "days_incomplete": 28,
+   "days_invalid_hour": 0,
+   "first_day": "2010-01-02",
+   "last_day": "2026-06-15",
+   "used": true,
+   "site_days": 1719,
+   "site_filled_from": [
+    "7"
+   ]
+  },
+  {
+   "id": "35608",
+   "prefix": "1000734",
+   "owner": "SABESP",
+   "name": "Santa Isabel (Transposição Jaguari (PS) - Atibainha (SC))",
+   "lat": -23.23361,
+   "lon": -46.18076,
+   "km_to_centroid": {
+    "cachoeira_dam": 30.3,
+    "atibainha_dam": 15.1
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 0,
+   "days_incomplete": 0,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "27826",
+   "prefix": "352020201A",
+   "owner": "CEMADEN",
+   "name": "POLICIA MILITAR",
+   "lat": -23.20738,
+   "lon": -46.15531,
+   "km_to_centroid": {
+    "cachoeira_dam": 27.5,
+    "atibainha_dam": 15.4
+   },
+   "excluded": "",
+   "days_kept": 2355,
+   "hours": 59807,
+   "days_incomplete": 238,
+   "days_invalid_hour": 0,
+   "first_day": "2015-08-02",
+   "last_day": "2025-07-07",
+   "used": true,
+   "site_days": 2355,
+   "site_filled_from": []
+  },
+  {
+   "id": "29201",
+   "prefix": "E3-242",
+   "owner": "SP ÁGUAS",
+   "name": "IGARATA",
+   "lat": -23.2077,
+   "lon": -46.15632,
+   "km_to_centroid": {
+    "cachoeira_dam": 27.6,
+    "atibainha_dam": 15.4
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "17",
+   "prefix": "746",
+   "owner": "SABESP",
+   "name": "Nazaré Paulista (Emboque do Tunel 5)",
+   "lat": -23.22073,
+   "lon": -46.41373,
+   "km_to_centroid": {
+    "cachoeira_dam": 37.2,
+    "atibainha_dam": 15.8
+   },
+   "excluded": "",
+   "days_kept": 943,
+   "hours": 22885,
+   "days_incomplete": 15,
+   "days_invalid_hour": 0,
+   "first_day": "2019-01-24",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 943,
+   "site_filled_from": []
+  },
+  {
+   "id": "35353",
+   "prefix": "637",
+   "owner": "SABESP",
+   "name": "Santa Isabel (EEAB Paraíba do Sul - Atibainha)",
+   "lat": -23.23903,
+   "lon": -46.17464,
+   "km_to_centroid": {
+    "cachoeira_dam": 30.9,
+    "atibainha_dam": 15.9
+   },
+   "excluded": "",
+   "days_kept": 501,
+   "hours": 12287,
+   "days_incomplete": 16,
+   "days_invalid_hour": 0,
+   "first_day": "2025-06-17",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 501,
+   "site_filled_from": []
+  },
+  {
+   "id": "28674",
+   "prefix": "D3-070",
+   "owner": "SP ÁGUAS",
+   "name": "GUIRRA",
+   "lat": -23.0,
+   "lon": -46.03333,
+   "km_to_centroid": {
+    "cachoeira_dam": 16.1,
+    "atibainha_dam": 30.2
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  },
+  {
+   "id": "373",
+   "prefix": "2346799",
+   "owner": "SABESP",
+   "name": "Santa Isabel (SB-CA-EAB-Elevatória Paraíba do Sul)",
+   "lat": -23.24,
+   "lon": -46.17,
+   "km_to_centroid": {
+    "cachoeira_dam": 31.0,
+    "atibainha_dam": 16.3
+   },
+   "excluded": "",
+   "days_kept": 0,
+   "hours": 4,
+   "days_incomplete": 1,
+   "days_invalid_hour": 0,
+   "first_day": null,
+   "last_day": null,
+   "used": false,
+   "not_used": "no complete day"
+  },
+  {
+   "id": "1080",
+   "prefix": "353860002A",
+   "owner": "CEMADEN",
+   "name": "Piracaia (Dobrada)",
+   "lat": -23.01,
+   "lon": -46.367,
+   "km_to_centroid": {
+    "cachoeira_dam": 19.5,
+    "atibainha_dam": 16.5
+   },
+   "excluded": "",
+   "days_kept": 3200,
+   "hours": 81053,
+   "days_incomplete": 281,
+   "days_invalid_hour": 0,
+   "first_day": "2015-01-02",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 3200,
+   "site_filled_from": []
+  },
+  {
+   "id": "33364",
+   "prefix": "IAC-Bom Jesus dos Perdões - SP",
+   "owner": "IAC",
+   "name": "Bom Jesus dos Perdões - SP",
+   "lat": -23.13122,
+   "lon": -46.45007,
+   "km_to_centroid": {
+    "cachoeira_dam": 33.2,
+    "atibainha_dam": 16.7
+   },
+   "excluded": "",
+   "days_kept": 872,
+   "hours": 21442,
+   "days_incomplete": 30,
+   "days_invalid_hour": 0,
+   "first_day": "2024-05-07",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 872,
+   "site_filled_from": []
+  },
+  {
+   "id": "35494",
+   "prefix": "487",
+   "owner": "SABESP",
+   "name": "Santa Isabel (Captação Represa do Jaguari)",
+   "lat": -23.29459,
+   "lon": -46.23928,
+   "km_to_centroid": {
+    "cachoeira_dam": 37.4,
+    "atibainha_dam": 17.9
+   },
+   "excluded": "",
+   "days_kept": 380,
+   "hours": 9221,
+   "days_incomplete": 6,
+   "days_invalid_hour": 0,
+   "first_day": "2025-10-22",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 380,
+   "site_filled_from": []
+  },
+  {
+   "id": "27056",
+   "prefix": "350710001A",
+   "owner": "CEMADEN",
+   "name": "Bom Jesus dos Perdões (Centro)",
+   "lat": -23.136,
+   "lon": -46.466,
+   "km_to_centroid": {
+    "cachoeira_dam": 34.8,
+    "atibainha_dam": 18.3
+   },
+   "excluded": "",
+   "days_kept": 2875,
+   "hours": 74011,
+   "days_incomplete": 320,
+   "days_invalid_hour": 0,
+   "first_day": "2015-10-23",
+   "last_day": "2026-11-10",
+   "used": true,
+   "site_days": 2875,
+   "site_filled_from": []
+  },
+  {
+   "id": "778",
+   "prefix": "A509",
+   "owner": "ANA",
+   "name": "Monte Verde - MG",
+   "lat": -22.86,
+   "lon": -46.04,
+   "km_to_centroid": {
+    "cachoeira_dam": 18.5,
+    "atibainha_dam": 39.9
+   },
+   "excluded": "owned by ANA; taken from ANA's service",
+   "used": false
+  },
+  {
+   "id": "771",
+   "prefix": "IAC-Extrema - MG",
+   "owner": "IAC",
+   "name": "Extrema - SP",
+   "lat": -22.85,
+   "lon": -46.33,
+   "km_to_centroid": {
+    "cachoeira_dam": 19.2,
+    "atibainha_dam": 32.3
+   },
+   "excluded": "",
+   "days_kept": 752,
+   "hours": 18997,
+   "days_incomplete": 54,
+   "days_invalid_hour": 0,
+   "first_day": "2024-06-26",
+   "last_day": "2026-11-15",
+   "used": true,
+   "site_days": 752,
+   "site_filled_from": []
+  },
+  {
+   "id": "35784",
+   "prefix": "2246196",
+   "owner": "ANA",
+   "name": "Camanducaia (Copasa)",
+   "lat": -22.86,
+   "lon": -46.03,
+   "km_to_centroid": {
+    "cachoeira_dam": 19.3,
+    "atibainha_dam": 40.6
+   },
+   "excluded": "owned by ANA; taken from ANA's service",
+   "used": false
+  },
+  {
+   "id": "29184",
+   "prefix": "E3-225",
+   "owner": "SP ÁGUAS",
+   "name": "MORRO GRANDE",
+   "lat": -23.26674,
+   "lon": -46.41651,
+   "km_to_centroid": {
+    "cachoeira_dam": 41.4,
+    "atibainha_dam": 19.4
+   },
+   "excluded": "conventional gauge; duplicates ANA's record",
+   "used": false
+  }
+ ],
+ "day_label": "reading day",
+ "day_window": "07:00 to 07:00 local (UTC-3)",
+ "rules": {
+  "max_hourly_mm": 150.0,
+  "complete_day": "all 24 hourly sums present and valid",
+  "label_test": "median correlation with ANA gauges within 10 km, at least 180 shared days",
+  "colocated_km": 1.0
+ }
+}

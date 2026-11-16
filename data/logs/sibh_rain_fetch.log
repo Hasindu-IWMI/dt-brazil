@@ -1,0 +1,41 @@
+SIBH rain stations within 20 km: 57, kept 38
+ok 1132 CEMADEN CACHOEIRA new hourly rows: 31300
+ok 372 SABESP Piracaia (SB-CA-DBT6 Desemboque do Túnel 6) new hourly rows: 7390
+ok 13 SABESP Piracaia (Desemboque do Túnel - 6) new hourly rows: 16493
+ok 27832 CEMADEN Joanópolis (03- Ribeirão da Correnteza) new hourly rows: 74045
+ok 1449 CEMADEN JOANOPOLIS02 new hourly rows: 23296
+ok 33857 SAISP Rio Atibainha - Montante Atibainha new hourly rows: 21097
+ok 1398 SP ÁGUAS Nazaré Paulista (Atibainha Montante) new hourly rows: 38795
+ok 1411 CEMADEN PIÃO new hourly rows: 0
+ok 1431 SP ÁGUAS Piracaia (Cachoeira Montante) new hourly rows: 95696
+ok 1202 CEMADEN CENTRO new hourly rows: 66900
+ok 33433 IAC Joanópolis - SP new hourly rows: 0
+ok 35574 SABESP Piracaia (Barragem) new hourly rows: 0
+ok 11 SABESP Piracaia (Barragem Cachoeira) new hourly rows: 147612
+ok 368 SABESP SB-CA-BRC Barragem Cachoeira new hourly rows: 4
+ok 33277 SP ÁGUAS Piracaia (Captação) new hourly rows: 39243
+ok 27081 CEMADEN Piracaia (Caras) new hourly rows: 65629
+ok 33477 IAC Piracaia - SP new hourly rows: 20343
+ok 367 SABESP SB-CA-BRA BARRAGEM ATIBAINHA new hourly rows: 4
+ok 15 SABESP Nazaré Paulista (Barragem Atibainha) new hourly rows: 147280
+ok 21 SABESP Nazaré Paulista (Canal Jusante Atibainha) new hourly rows: 0
+ok 35576 SABESP Nazaré Paulista (Barragem Atibainha) new hourly rows: 0
+ok 1436 CEMADEN Nazaré Paulista (ETA SABESP) new hourly rows: 88265
+ok 33455 IAC Nazaré Paulista - SP new hourly rows: 21161
+ok 831 SAISP Piracaia (Rio Cachoeira - Centro) new hourly rows: 19012
+ok 33279 SP ÁGUAS Nazaré Paulista (Mascate) new hourly rows: 40163
+ok 7 SABESP Joanópolis (Barragem Jacareí - Túnel 7 / Vargem) new hourly rows: 23256
+ok 365 SABESP SB-CA-BJC-T7 Emboque Túnel 7 new hourly rows: 4
+ok 5 SABESP Joanópolis (Barragem Jacareí) new hourly rows: 37567
+ok 35608 SABESP Santa Isabel (Transposição Jaguari (PS) - Atibainha (SC)) new hourly rows: 0
+ok 27826 CEMADEN POLICIA MILITAR new hourly rows: 59807
+ok 17 SABESP Nazaré Paulista (Emboque do Tunel 5) new hourly rows: 22885
+ok 35353 SABESP Santa Isabel (EEAB Paraíba do Sul - Atibainha) new hourly rows: 12287
+ok 373 SABESP Santa Isabel (SB-CA-EAB-Elevatória Paraíba do Sul) new hourly rows: 4
+ok 1080 CEMADEN Piracaia (Dobrada) new hourly rows: 81053
+ok 33364 IAC Bom Jesus dos Perdões - SP new hourly rows: 21442
+ok 35494 SABESP Santa Isabel (Captação Represa do Jaguari) new hourly rows: 9221
+ok 27056 CEMADEN Bom Jesus dos Perdões (Centro) new hourly rows: 74011
+ok 771 IAC Extrema - SP new hourly rows: 18997
+stations: data\processed\sibh_rain_stations.json
+exit 0

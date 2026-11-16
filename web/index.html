@@ -20,6 +20,30 @@
     </div>
   </header>
 
+  <div id="view" class="card" aria-label="View settings">
+    <button id="view-toggle" class="card-toggle" aria-expanded="true" aria-controls="view">View ▾</button>
+    <div id="style" class="seg" role="group" aria-label="Style">
+      <button data-style="realistic">Realistic</button><button data-style="analytical">Analytical</button>
+    </div>
+    <label class="row real-only"><span>Hour</span><input id="hour" type="range" min="6" max="18" step="0.25" value="10" aria-label="Hour of day, local standard time"><b id="hour-out">10:00</b></label>
+    <div id="sun-out" class="muted small"></div>
+    <label class="row"><span>Relief</span><select id="relief" aria-label="Vertical scale">
+      <option value="1">True scale</option><option value="1.5">×1.5</option><option value="2">×2</option><option value="3">×3</option><option value="4">×4</option>
+    </select></label>
+    <label class="row real-only"><span>Haze</span><select id="haze" aria-label="Haze">
+      <option value="clear">Clear</option><option value="hazy">Hazy</option>
+    </select></label>
+    <div class="layers">
+      <label class="real-only"><input type="checkbox" id="lyr-shadow" aria-label="Terrain shadows"> Terrain shadows</label>
+      <label><input type="checkbox" id="lyr-catch" checked aria-label="Catchment boundaries"> Catchment boundaries</label>
+      <label><input type="checkbox" id="lyr-rivers" checked aria-label="Rivers"> Rivers</label>
+      <label><input type="checkbox" id="lyr-columns" aria-label="Storage columns"> Storage columns</label>
+      <label><input type="checkbox" id="lyr-lc" aria-label="Land cover 2021"> Land cover (2021)</label>
+    </div>
+    <div id="lc-legend" class="legend" hidden></div>
+    <button id="reset" class="small-btn">Reset view</button>
+  </div>
+
   <aside id="panel">
     <section>
       <h2>Cantareira system storage</h2>
@@ -58,8 +82,9 @@
         <li><b>Observed:</b> reservoir level, storage, inflow, release (ANA SAR); river flow (ANA gauges).</li>
         <li><b>Modelled:</b> reservoir inflow from rain and temperature (GR4J). Shown only where the model passed its validation test; see the validation report.</li>
         <li><b>Derived:</b> system storage, operating band, implied export, local inflow. Formulas are in the data-quality report.</li>
-        <li><b>Not shown, because not known:</b> lake outline on each date (no bathymetry), tunnel flows, sub-daily data.</li>
-        <li>White lines are catchment boundaries delineated from the terrain. Lake outlines are fixed map outlines (OpenStreetMap). Terrain is Copernicus GLO-30, a surface model, for display only. Vertical scale ×<span id="exag"></span>.</li>
+        <li><b>Not shown, because not known:</b> lake outline or level on each date (no bathymetry), tunnel flows, sub-daily data.</li>
+        <li><b>Display only, does not change with the date:</b> ground imagery (Sentinel-2, dry season August 2024), land cover (ESA WorldCover 2021), lake outlines (OpenStreetMap) drawn at the terrain's own lake surface, and the sky and haze. The sun is the computed sun for the replayed date at the chosen hour.</li>
+        <li>White lines are catchment boundaries delineated from the terrain. Terrain is Copernicus GLO-30 at 30 m, a surface model (it includes forest canopy), for display only. Vertical scale: <span id="exag"></span>.</li>
       </ul>
       <p class="note" id="stamp"></p>
     </section>

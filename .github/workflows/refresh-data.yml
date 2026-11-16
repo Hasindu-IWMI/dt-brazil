@@ -1,0 +1,63 @@
+# Weekly data refresh. Fetches the newest open records, rebuilds the tables,
+# reports and viewer data, runs the tests, and opens (or updates) a pull
+# request for a person to review. Nothing is merged automatically, and no
+# model is re-run (see pipeline/run_all.py).
+#
+# One-time setting needed: Settings > Actions > General > Workflow permissions >
+# "Allow GitHub Actions to create and approve pull requests".
+name: refresh-data
+
+on:
+  schedule:
+    - cron: '17 9 * * 1'  # Mondays 09:17 UTC (06:17 in São Paulo)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency: refresh-data
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch new records and rebuild
+        run: python -I pipeline/run_all.py --refresh
+      - name: Tests on the refreshed data
+        run: python -I -m unittest discover -s tests -v
+      # the per-step logs are git-ignored; keep them with the run instead
+      - name: Keep the per-step logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-all-logs
+          path: data/logs/run_all_*.log
+          retention-days: 30
+      - name: Open a pull request for review
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data-refresh
+          delete-branch: true
+          add-paths: |
+            data
+            docs
+            web/public/data
+          commit-message: Data refresh from open sources (automatic)
+          title: Data refresh (automatic)
+          body: |
+            Automatic weekly refresh by `.github/workflows/refresh-data.yml`, running
+            `python -I pipeline/run_all.py --refresh`.
+
+            Before merging, read the diffs of `docs/data_quality_report.md`,
+            `docs/rain_audit.md`, `docs/forcing_report.md`, `docs/sibh_rain_report.md` and `docs/rain_alignment.md`,
+            and the per-step logs attached to the workflow run as the `run-all-logs`
+            artifact (lines starting `FAIL` are downloads that timed out; the next run
+            retries them).
+
+            No model was re-run. The tests passed on the refreshed data.

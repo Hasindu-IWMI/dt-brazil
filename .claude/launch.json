@@ -4,8 +4,24 @@
     {
       "name": "upper-atibaia-viewer",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "web", "run", "dev"],
+      "runtimeArgs": [
+        "--prefix",
+        "web",
+        "run",
+        "dev"
+      ],
       "port": 5173
+    },
+    {
+      "name": "upper-atibaia-viewer-build",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "web",
+        "run",
+        "preview"
+      ],
+      "port": 4173
     }
   ]
 }

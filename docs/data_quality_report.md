@@ -1,6 +1,6 @@
 # Data quality report: upper Atibaia pilot
 
-Generated 2026-11-14 17:56 UTC by `pipeline/process.py`. Every figure is computed from the files in `data/raw`.
+Generated 2026-11-16 08:07 UTC by `pipeline/process.py`. Every figure is computed from the files in `data/raw`.
 
 ## 1. Reservoir records (ANA SAR, Cantareira module)
 
@@ -185,6 +185,6 @@ The reported releases are stepped rather than continuously varying, as valve set
 ## 6. What these data cannot tell us
 
 - Tunnel flows between reservoirs and the withdrawal to Sao Paulo are not published in SAR; only the residual in section 2 is available.
-- No sub-daily data: ANA's public telemetry returned nothing for the Atibaia gauges. Ten-minute data exist on the Sao Paulo state network and were not downloaded.
+- No sub-daily river data: ANA's public telemetry returned nothing for the Atibaia gauges. Ten-minute river data exist on the Sao Paulo state network (SIBH) and have not been downloaded; its rain gauges are used, as daily totals (`pipeline/sibh_rain.py`).
 - Gauge discharge comes from rating curves; their uncertainty is not published in the open service.
-- Rainfall and evaporation are not yet in the pipeline, so no rainfall-runoff model has been built or validated.
+- Rainfall and evaporation are in the pipeline (`pipeline/forcing.py`); the inflow models built on them did not pass validation (see the README).

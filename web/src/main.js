@@ -1,14 +1,22 @@
 // Upper Atibaia viewer: replays OBSERVED daily records over a 3D terrain.
 // The viewer computes nothing hydrological. Every number on screen is read
 // from public/data/timeseries.json, produced by pipeline/process.py.
+//
+// The scene has two styles. REALISTIC (default) drapes Sentinel-2 dry-season imagery on the
+// full-resolution Copernicus DEM, lights it with the computed sun for the replayed date, and adds
+// a sky, height haze and reflective lakes. ANALYTICAL is the original look: elevation colours,
+// lakes coloured by observed storage, storage columns. Everything that makes the realistic style
+// realistic is DISPLAY ONLY; no number on screen depends on it.
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { Atmosphere } from './scene/atmosphere.js';
+import { Terrain, loadDem, LANDCOVER } from './scene/terrain.js';
+import { realisticWaterMaterial, analyticalWaterMaterial } from './scene/water.js';
 
-const EXAG = 4;          // vertical exaggeration of terrain (display choice)
-const BASE_M = 600;      // elevation drawn at y = 0
 const RULES_FROM = '2017-06-01';
-const COLUMN_KM = 5;     // height of a full (100 %) storage column
+const COLUMN_M = 4500;  // display height of a full (100 %) storage column, metres
+const UTC_OFFSET_H = -3; // local standard time in São Paulo (daylight saving, used until 2019, ignored)
 
 // OSM outline -> reservoir record. Cachoeira is unnamed in OSM and is
 // identified by position (outline centred near 23.03 S, 46.29 W, at Piracaia).
@@ -24,179 +32,298 @@ const SHORT = { '62670000': 'Atibaia gauge', '62665000': 'Piracaia gauge', '6266
 
 const $ = (id) => document.getElementById(id);
 const fmt = (v, d = 1) => (v === null || v === undefined ? null : v.toFixed(d));
+const params = new URLSearchParams(location.search);
+let style = params.get('style') === 'analytical' ? 'analytical' : 'realistic';
+let exag = Number(params.get('relief')) || 1;
+let hour = Number(params.get('hour')) || 10;
+let haze = params.get('haze') === 'hazy' ? 'hazy' : 'clear';
 
-const [terrainMeta, terrainBuf, vectors, ts, catchments] = await Promise.all([
-  fetch('/data/terrain.json').then((r) => r.json()),
-  fetch('/data/terrain.f32').then((r) => r.arrayBuffer()),
-  fetch('/data/vectors.json').then((r) => r.json()),
-  fetch('/data/timeseries.json').then((r) => r.json()),
-  fetch('/data/catchments.json').then((r) => r.json()),
+// Relative to the deployed base, so a static build works under any path.
+const DATA = `${import.meta.env.BASE_URL}data/`;
+// a missing optional file (the basemap is not in git) gives null; some dev servers answer
+// a missing path with index.html, so a body that is not JSON also gives null
+const json = (f) => fetch(DATA + f).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+const [hiMeta, vectors, ts, catchments, imagery] = await Promise.all([
+  json('terrain_hi.json'), json('vectors.json'), json('timeseries.json'), json('catchments.json'),
+  new THREE.TextureLoader().loadAsync(DATA + 'imagery.jpg').catch(() => null),
 ]);
-const elev = new Float32Array(terrainBuf);
-const { bbox, width: W, height: H } = terrainMeta;
+let meta = hiMeta;
+let elev;
+if (hiMeta) {
+  elev = await loadDem(DATA + 'terrain_hi.bin', hiMeta.width, hiMeta.height);
+} else { // fall back to the 3 arc-second display window
+  meta = await json('terrain.json');
+  elev = new Float32Array(await (await fetch(DATA + 'terrain.f32')).arrayBuffer());
+}
+const { bbox } = meta;
 
-// ---- geographic -> scene (km, local equirectangular about the window centre)
+// ---- geographic -> scene (metres, local equirectangular about the window centre; x east, y up, z south)
 const lon0 = (bbox.west + bbox.east) / 2;
 const lat0 = (bbox.south + bbox.north) / 2;
-const KX = 111.32 * Math.cos((lat0 * Math.PI) / 180);
-const KZ = 110.57;
-const X = (lon) => (lon - lon0) * KX;
-const Z = (lat) => -(lat - lat0) * KZ;
-const Y = (m) => ((m - BASE_M) / 1000) * EXAG;
+const KX = 111320 * Math.cos((lat0 * Math.PI) / 180);
+const KZ = 110570;
+const frame = { KX, KZ, X: (lon) => (lon - lon0) * KX, Z: (lat) => -(lat - lat0) * KZ, lon: (x) => lon0 + x / KX, lat: (z) => lat0 - z / KZ };
+const { X, Z } = frame;
 const inBox = (lon, lat) => lon >= bbox.west && lon <= bbox.east && lat >= bbox.south && lat <= bbox.north;
 
-function elevAt(lon, lat) {
-  const fx = ((lon - bbox.west) / (bbox.east - bbox.west)) * (W - 1);
-  const fy = ((bbox.north - lat) / (bbox.north - bbox.south)) * (H - 1);
-  const x0 = Math.max(0, Math.min(W - 2, Math.floor(fx)));
-  const y0 = Math.max(0, Math.min(H - 2, Math.floor(fy)));
-  const tx = Math.max(0, Math.min(1, fx - x0));
-  const ty = Math.max(0, Math.min(1, fy - y0));
-  const i = y0 * W + x0;
-  return (elev[i] * (1 - tx) + elev[i + 1] * tx) * (1 - ty) + (elev[i + W] * (1 - tx) + elev[i + W + 1] * tx) * ty;
-}
-
-// ---- renderer
+// ---- renderer, camera, controls
 const host = $('scene');
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.NeutralToneMapping;
 host.appendChild(renderer.domElement);
+// Mesh density by GPU class (?quality=high|medium|low overrides): the surface mesh is 3.4 M
+// triangles at 60 m spacing, which integrated and mobile GPUs draw slowly. Relief shading uses
+// the 30 m normal map at every setting.
+const gpu = (() => {
+  const gl = renderer.getContext();
+  const ext = gl.getExtension('WEBGL_debug_renderer_info');
+  return ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)) : '';
+})();
+const quality = params.get('quality') ?? (/Intel|Mali|Adreno|Apple|PowerVR|SwiftShader|llvmpipe/i.test(gpu) ? 'medium' : 'high');
+const stride = { high: 2, medium: 3, low: 4 }[quality] ?? 2;
 const labels = new CSS2DRenderer();
 labels.domElement.style.cssText = 'position:absolute;inset:0;pointer-events:none';
 host.appendChild(labels.domElement);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x111110);
-const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 500);
-camera.position.set(-6, 74, 88);
+const camera = new THREE.PerspectiveCamera(40, 1, 50, 1.5e6);
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 0.5, 6);
-controls.maxPolarAngle = Math.PI * 0.48;
-controls.minDistance = 8;
-controls.maxDistance = 220;
+controls.maxPolarAngle = Math.PI * 0.49;
+controls.minDistance = 1500;
+controls.maxDistance = 320000;
 controls.enableDamping = true;
+controls.screenSpacePanning = false;
 
-scene.add(new THREE.HemisphereLight(0xffffff, 0x2a2a26, 0.9));
-const sun = new THREE.DirectionalLight(0xffffff, 1.6);
-sun.position.set(-40, 60, -30);
-scene.add(sun);
+const world = new THREE.Group(); // terrain-attached objects; its y scale is the vertical exaggeration
+scene.add(world);
+const markers = new THREE.Group(); // pins, columns and labels keep their size at any exaggeration
+scene.add(markers);
 
-// ---- terrain
-{
-  const wKm = (bbox.east - bbox.west) * KX;
-  const hKm = (bbox.north - bbox.south) * KZ;
-  const geo = new THREE.PlaneGeometry(wKm, hKm, W - 1, H - 1);
-  geo.rotateX(-Math.PI / 2);
-  const pos = geo.attributes.position;
-  const col = new Float32Array(pos.count * 3);
-  const lo = new THREE.Color(0x3d4a3c);
-  const mid = new THREE.Color(0x6f745c);
-  const hi = new THREE.Color(0xb9ae94);
-  const c = new THREE.Color();
-  const { minElevation: e0, maxElevation: e1 } = terrainMeta;
-  for (let i = 0; i < pos.count; i++) {
-    const m = elev[i];
-    pos.setY(i, Y(m));
-    const t = (m - e0) / (e1 - e0);
-    if (t < 0.45) c.copy(lo).lerp(mid, t / 0.45); else c.copy(mid).lerp(hi, (t - 0.45) / 0.55);
-    col.set([c.r, c.g, c.b], i * 3);
-  }
-  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-  geo.computeVertexNormals();
-  scene.add(new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ vertexColors: true })));
+const terrain = new Terrain({ elev, meta, frame, stride, imagery, anisotropy: renderer.capabilities.getMaxAnisotropy() });
+world.add(terrain.group);
+const atmosphere = new Atmosphere(scene, renderer, lat0, lon0);
+// terrain shadows (hills shading valleys at low sun): one extra depth pass, on by default on 'high'
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+terrain.mesh.castShadow = true;
+terrain.mesh.receiveShadow = true;
+let shadows = params.has('shadows') ? params.get('shadows') !== '0' : quality === 'high';
+function applyShadows() {
+  atmosphere.sun.castShadow = shadows && style === 'realistic';
+  renderer.shadowMap.needsUpdate = true;
+  $('lyr-shadow').checked = shadows;
 }
 
-// ---- rivers (mapped lines, draped on the terrain)
-{
-  const mat = new THREE.LineBasicMaterial({ color: 0x7fb4ee, transparent: true, opacity: 0.85 });
-  for (const r of vectors.rivers) {
-    if (!RIVERS.includes(r.name)) continue;
-    let pts = [];
-    const flush = () => { if (pts.length > 1) scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), mat)); pts = []; };
-    for (const [lon, lat] of r.line) {
-      if (!inBox(lon, lat)) { flush(); continue; }
-      pts.push(new THREE.Vector3(X(lon), Y(elevAt(lon, lat)) + 0.06, Z(lat)));
-    }
-    flush();
-  }
+// Height on the drawn mesh (bilinear between mesh vertices), so lines and pins sit on the surface you see.
+function surfaceAt(lon, lat) {
+  const { W, H, dLon, dLat } = terrain;
+  const fx = ((lon - bbox.west) / dLon - 0.5) / stride;
+  const fy = ((bbox.north - lat) / dLat - 0.5) / stride;
+  const cols = Math.floor((W - 1) / stride) + 1, rows = Math.floor((H - 1) / stride) + 1;
+  if (fx < 0 || fy < 0 || fx > cols - 1 || fy > rows - 1) return terrain.elevAt(lon, lat) ?? terrain.baseElev;
+  const x0 = Math.min(cols - 2, Math.floor(fx)), y0 = Math.min(rows - 2, Math.floor(fy));
+  const tx = fx - x0, ty = fy - y0;
+  const e = (c, r) => elev[r * stride * W + c * stride];
+  return (e(x0, y0) * (1 - tx) + e(x0 + 1, y0) * tx) * (1 - ty) + (e(x0, y0 + 1) * (1 - tx) + e(x0 + 1, y0 + 1) * tx) * ty;
 }
+
+// ---- rivers (mapped lines, on the terrain)
+const riverMat = new THREE.LineBasicMaterial({ color: 0x7fb4ee, transparent: true, opacity: 0.85 });
+const rivers = new THREE.Group();
+for (const r of vectors.rivers) {
+  if (!RIVERS.includes(r.name)) continue;
+  let pts = [];
+  const flush = () => { if (pts.length > 1) rivers.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), riverMat)); pts = []; };
+  for (const [lon, lat] of r.line) {
+    if (!inBox(lon, lat)) { flush(); continue; }
+    pts.push(new THREE.Vector3(X(lon), surfaceAt(lon, lat) + 12, Z(lat)));
+  }
+  flush();
+}
+world.add(rivers);
 
 // ---- catchment boundaries delineated from the terrain (pipeline/delineate.py)
-{
-  const mat = new THREE.LineBasicMaterial({ color: 0xf0efec, transparent: true, opacity: 0.75 });
-  for (const name of ['cachoeira_dam', 'atibainha_dam', 'atibaia_gauge']) {
-    const cat = catchments.catchments[name];
-    if (!cat) continue;
-    const pts = [];
-    for (const [a, b, c2, d] of cat.segments) {
-      pts.push(new THREE.Vector3(X(a), Y(elevAt(a, b)) + 0.12, Z(b)), new THREE.Vector3(X(c2), Y(elevAt(c2, d)) + 0.12, Z(d)));
-    }
-    scene.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), mat));
+const catchMat = new THREE.LineBasicMaterial({ color: 0xf0efec, transparent: true, opacity: 0.75 });
+const catchLines = new THREE.Group();
+for (const name of ['cachoeira_dam', 'atibainha_dam', 'atibaia_gauge']) {
+  const cat = catchments.catchments[name];
+  if (!cat) continue;
+  const pts = [];
+  for (const [a, b, c2, d] of cat.segments) {
+    pts.push(new THREE.Vector3(X(a), surfaceAt(a, b) + 25, Z(b)), new THREE.Vector3(X(c2), surfaceAt(c2, d) + 25, Z(d)));
   }
+  catchLines.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), catchMat));
 }
+world.add(catchLines);
 
-// ---- reservoirs: fixed mapped outline, coloured by observed storage; a column shows % stored
+// ---- reservoirs: fixed mapped outline at the DEM's own lake surface; storage shown by colour/column/label
 const seqLo = new THREE.Color(0xcfe2f8); // sequential: one hue, light (empty) to dark (full)
 const seqHi = new THREE.Color(0x154a8f);
 const noData = new THREE.Color(0x6b6a64);
+const waterMat = realisticWaterMaterial();
 const reservoirs = {};
 for (const w of vectors.waters) {
   const key = OUTLINES[w.id];
   if (!key) continue;
-  const r = (reservoirs[key] ??= { meshes: [], sx: 0, sz: 0, n: 0, top: -Infinity });
+  const r = (reservoirs[key] ??= { meshes: [], sx: 0, sz: 0, n: 0, top: -Infinity, analMat: analyticalWaterMaterial(noData) });
   for (const ring of w.rings) {
     const inside = ring.filter(([lon, lat]) => inBox(lon, lat));
     if (inside.length < 3) continue;
-    const hs = inside.map(([lon, lat]) => elevAt(lon, lat)).sort((a, b) => a - b);
-    const shoreline = hs[Math.floor(hs.length / 2)];
-    const shape = new THREE.Shape(inside.map(([lon, lat]) => new THREE.Vector2(X(lon), -Z(lat))));
-    const geo = new THREE.ShapeGeometry(shape);
+    const surface = terrain.medianInside(inside);
+    if (surface === null) continue;
+    const geo = new THREE.ShapeGeometry(new THREE.Shape(inside.map(([lon, lat]) => new THREE.Vector2(X(lon), -Z(lat)))));
     geo.rotateX(-Math.PI / 2);
-    const mesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: noData, transparent: true, opacity: 0.92, depthTest: false }));
-    mesh.position.y = Y(shoreline) + 0.05;
-    mesh.renderOrder = 2;
-    scene.add(mesh);
+    const mesh = new THREE.Mesh(geo, waterMat);
+    mesh.position.y = surface + 1.5;
+    world.add(mesh);
     r.meshes.push(mesh);
     for (const [lon, lat] of inside) { r.sx += X(lon); r.sz += Z(lat); r.n++; }
-    r.top = Math.max(r.top, Y(shoreline));
+    r.top = Math.max(r.top, surface);
   }
 }
 for (const [key, r] of Object.entries(reservoirs)) {
   if (!r.n) continue;
-  const x = r.sx / r.n;
-  const z = r.sz / r.n;
-  const frame = new THREE.LineSegments(
-    new THREE.EdgesGeometry(new THREE.BoxGeometry(0.9, COLUMN_KM, 0.9)),
+  r.x = r.sx / r.n;
+  r.z = r.sz / r.n;
+  r.frame = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(1500, COLUMN_M, 1500)),
     new THREE.LineBasicMaterial({ color: 0xf0efec, transparent: true, opacity: 0.7 }));
-  frame.position.set(x, r.top + COLUMN_KM / 2 + 0.1, z);
-  scene.add(frame);
-  const fill = new THREE.Mesh(new THREE.BoxGeometry(0.8, 1, 0.8), new THREE.MeshLambertMaterial({ color: 0x3987e5 }));
-  fill.position.set(x, r.top + 0.1, z);
-  scene.add(fill);
-  const el = document.createElement('div');
-  el.className = 'label';
-  const lab = new CSS2DObject(el);
-  lab.position.set(x, r.top + COLUMN_KM + 1.1, z);
-  scene.add(lab);
-  Object.assign(r, { fill, el, base: r.top + 0.1 });
+  r.fill = new THREE.Mesh(new THREE.BoxGeometry(1300, 1, 1300), new THREE.MeshLambertMaterial({ color: 0x3987e5 }));
+  r.el = document.createElement('div');
+  r.el.className = 'label';
+  r.label = new CSS2DObject(r.el);
+  markers.add(r.frame, r.fill, r.label);
+  r.key = key;
 }
 
 // ---- gauges
-const gaugeLabels = {};
+const gauges = {};
 for (const code of SCENE_GAUGES) {
   const g = ts.gauges[code];
   if (!g || g.lat == null || !inBox(g.lon, g.lat)) continue;
-  const y = Y(elevAt(g.lon, g.lat));
-  const pin = new THREE.Mesh(new THREE.ConeGeometry(0.35, 1.2, 12), new THREE.MeshLambertMaterial({ color: 0xf0efec }));
+  const pin = new THREE.Mesh(new THREE.ConeGeometry(260, 900, 16), new THREE.MeshLambertMaterial({ color: 0xf0efec }));
   pin.rotation.x = Math.PI;
-  pin.position.set(X(g.lon), y + 0.7, Z(g.lat));
-  scene.add(pin);
   const el = document.createElement('div');
   el.className = 'label';
-  const lab = new CSS2DObject(el);
-  lab.position.set(X(g.lon), y + 2.0, Z(g.lat));
-  scene.add(lab);
-  gaugeLabels[code] = el;
+  const label = new CSS2DObject(el);
+  markers.add(pin, label);
+  gauges[code] = { pin, el, label, x: X(g.lon), z: Z(g.lat), h: surfaceAt(g.lon, g.lat) };
+}
+
+let showColumns = style === 'analytical';
+let storageT = {}; // reservoir -> fraction stored (or null) for the current date
+function placeMarkers() {
+  for (const r of Object.values(reservoirs)) {
+    if (!r.fill) continue;
+    const base = r.top * exag + 60;
+    const t = storageT[r.key];
+    const hgt = Math.max(20, (t ?? 0) * COLUMN_M);
+    r.frame.position.set(r.x, base + COLUMN_M / 2, r.z);
+    r.fill.scale.y = hgt;
+    r.fill.position.set(r.x, base + hgt / 2, r.z);
+    r.frame.visible = showColumns;
+    r.fill.visible = showColumns && t !== null && t !== undefined;
+    r.label.position.set(r.x, base + (showColumns ? COLUMN_M + 700 : 900), r.z);
+  }
+  for (const g of Object.values(gauges)) {
+    g.pin.position.set(g.x, g.h * exag + 450, g.z);
+    g.label.position.set(g.x, g.h * exag + 1500, g.z);
+  }
+}
+
+// ---- view: style, sun, relief, haze, layers
+function sunTime(dateIso) {
+  const [y, m, d] = dateIso.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, d) + (hour - UTC_OFFSET_H) * 3600e3);
+}
+function applyStyle() {
+  const real = style === 'realistic';
+  scene.background = real ? null : new THREE.Color(0x111110);
+  atmosphere.setEnabled(real);
+  terrain.setStyle(style);
+  riverMat.color.set(real ? 0xa9d6f5 : 0x7fb4ee);
+  riverMat.opacity = real ? 0.55 : 0.85;
+  catchMat.opacity = real ? 0.6 : 0.75;
+  for (const r of Object.values(reservoirs)) for (const m of r.meshes) {
+    m.material = real ? waterMat : r.analMat;
+    m.renderOrder = real ? 0 : 2;
+  }
+  applyShadows();
+  document.querySelectorAll('#style button').forEach((b) => b.classList.toggle('on', b.dataset.style === style));
+  document.body.classList.toggle('analytical', !real);
+  $('lyr-columns').checked = showColumns;
+  show(index);
+}
+let shownExag = exag;
+function applyRelief() {
+  // keep the view: heights of camera and target scale with the relief
+  const k = exag / shownExag;
+  controls.target.y *= k;
+  camera.position.y *= k;
+  shownExag = exag;
+  world.scale.y = exag;
+  placeMarkers();
+  $('exag').textContent = exag === 1 ? 'true scale (×1)' : `×${exag}`;
+}
+function sunText() {
+  const p = atmosphere.sunPos;
+  const hh = String(Math.floor(hour)).padStart(2, '0');
+  const mm = String(Math.round((hour % 1) * 60)).padStart(2, '0');
+  $('hour-out').textContent = `${hh}:${mm}`;
+  $('sun-out').textContent = style !== 'realistic' ? 'Fixed light (analytical style)'
+    : p.elevation < 0 ? `Sun below the horizon on ${ts.dates[index]} (lit as twilight)`
+      : `Sun on ${ts.dates[index]}: ${p.elevation.toFixed(0)}° up, bearing ${p.azimuth.toFixed(0)}°`;
+}
+
+$('style').addEventListener('click', (e) => {
+  const s = e.target.dataset?.style;
+  if (!s || s === style) return;
+  style = s;
+  showColumns = style === 'analytical';
+  applyStyle();
+  placeMarkers();
+});
+$('hour').value = String(hour);
+$('hour').addEventListener('input', () => { hour = Number($('hour').value); lastSunDay = null; show(index); });
+$('relief').value = String(exag);
+$('relief').addEventListener('change', () => { exag = Number($('relief').value); applyRelief(); });
+$('haze').value = haze;
+$('haze').addEventListener('change', () => { haze = $('haze').value; atmosphere.set({ haze }); sunText(); });
+$('lyr-shadow').addEventListener('change', (e) => { shadows = e.target.checked; applyShadows(); });
+$('lyr-catch').addEventListener('change', (e) => { catchLines.visible = e.target.checked; });
+$('lyr-rivers').addEventListener('change', (e) => { rivers.visible = e.target.checked; });
+$('lyr-columns').addEventListener('change', (e) => { showColumns = e.target.checked; placeMarkers(); });
+$('lyr-lc').addEventListener('change', async (e) => {
+  if (e.target.checked && !terrain.landcoverTex) {
+    try {
+      await terrain.loadLandcover(DATA + 'landcover.png');
+    } catch {
+      e.target.checked = false; // not built yet: npm --prefix web run basemap
+      e.target.disabled = true;
+      e.target.parentElement.title = 'Land cover not built (npm --prefix web run basemap)';
+      return;
+    }
+  }
+  terrain.setLandcover(e.target.checked);
+  $('lc-legend').hidden = !e.target.checked;
+});
+$('lc-legend').innerHTML = '<div class="muted">ESA WorldCover 2021</div>' + [10, 20, 30, 40, 50, 60, 80, 90]
+  .map((k) => `<span><i style="background:${LANDCOVER[k][1]}"></i>${LANDCOVER[k][0]}</span>`).join('');
+$('reset').addEventListener('click', () => homeView());
+function setCardOpen(open) {
+  $('view').classList.toggle('collapsed', !open);
+  $('view-toggle').setAttribute('aria-expanded', String(open));
+  $('view-toggle').textContent = open ? 'View ▾' : 'View ▸';
+}
+$('view-toggle').addEventListener('click', () => setCardOpen($('view').classList.contains('collapsed')));
+setCardOpen(innerWidth >= 1100);
+
+function homeView() {
+  const ty = surfaceAt(lon0, lat0 - 0.05) * exag;
+  // oblique enough that the sky and the haze at the horizon are in view
+  controls.target.set(-2000, ty, 2000);
+  camera.position.set(-14000, ty + 30000, 68000);
+  controls.update();
 }
 
 // ---- panel tables
@@ -233,8 +360,8 @@ for (const [name, m] of Object.entries(ts.model ?? {})) {
 $('model-note').textContent = verdicts.length
   ? `Inflow in m³/s. ${verdicts.join(' ')} Acceptance needed low-flow bias within ±50% in both folds. A model that failed validation is not shown.`
   : 'No model results yet.';
-$('exag').textContent = EXAG;
-$('stamp').textContent = `Records to ${ts.dates.at(-1)}. Data file built ${ts.generated_utc.slice(0, 10)}. Sources: ANA SAR; ANA HidroSerieHistorica; Copernicus DEM; © OpenStreetMap contributors.`;
+$('stamp').textContent = `Records to ${ts.dates.at(-1)}. Data file built ${ts.generated_utc.slice(0, 10)}. Sources: ANA SAR; ANA HidroSerieHistorica; `
+  + 'Copernicus DEM GLO-30; contains modified Copernicus Sentinel data 2024; ESA WorldCover 2021 (CC BY 4.0); © OpenStreetMap contributors.';
 
 const cell = (td, v, d = 1) => {
   const s = fmt(v, d);
@@ -355,8 +482,8 @@ function drawChart(cur, hover) {
     ctx.globalAlpha = 0.28;
     ctx.lineWidth = 1;
     ctx.beginPath();
-    const stride = Math.max(1, Math.floor(N / (cw * 2)));
-    for (let i = 0; i < N; i += stride) {
+    const stride2 = Math.max(1, Math.floor(N / (cw * 2)));
+    for (let i = 0; i < N; i += stride2) {
       const l = chart.band.low[i];
       const h = chart.band.high[i];
       if (l === null || h === null) continue;
@@ -396,6 +523,7 @@ function drawChart(cur, hover) {
 let index = N - 1;
 let hoverIndex = null;
 let playing = false;
+let lastSunDay = null;
 const slider = $('slider');
 slider.max = String(N - 1);
 
@@ -403,6 +531,11 @@ function show(i) {
   index = Math.max(0, Math.min(N - 1, i));
   slider.value = String(index);
   $('date').textContent = ts.dates[index];
+  if (ts.dates[index] !== lastSunDay) { // the sun follows the replayed date (display only)
+    lastSunDay = ts.dates[index];
+    atmosphere.set({ time: sunTime(ts.dates[index]), haze });
+  }
+  sunText();
   const s = ts.system;
   const pct = s.pct[index];
   $('sys-pct').textContent = fmt(pct, 1) ?? 'no data';
@@ -427,19 +560,17 @@ function show(i) {
     if (!o || !o.fill) continue;
     const p = r.pct[index];
     const t = p === null ? null : Math.max(0, Math.min(1, p / 100));
-    const colour = t === null ? noData : seqLo.clone().lerp(seqHi, t);
-    for (const m of o.meshes) m.material.color.copy(colour);
-    const hgt = Math.max(0.02, (t ?? 0) * COLUMN_KM);
-    o.fill.scale.y = hgt;
-    o.fill.position.y = o.base + hgt / 2;
-    o.fill.visible = t !== null;
-    o.el.innerHTML = `<b>${r.name}</b><br><span>${p === null ? 'no data' : fmt(p, 1) + '% stored' + (p < 0 ? ' (below minimum operating level)' : '')}${r.level[index] === null ? '' : ' · ' + fmt(r.level[index], 2) + ' m'}</span>`;
+    storageT[key] = t;
+    o.analMat.color.copy(t === null ? noData : seqLo.clone().lerp(seqHi, t));
+    const bar = p === null ? '' : `<div class="bar${p < 0 ? ' neg' : ''}"><i style="width:${Math.max(0, Math.min(100, p))}%"></i></div>`;
+    o.el.innerHTML = `<b>${r.name}</b>${bar}<span>${p === null ? 'no data' : fmt(p, 1) + '% stored' + (p < 0 ? ' (below minimum operating level)' : '')}${r.level[index] === null ? '' : ' · ' + fmt(r.level[index], 2) + ' m'}</span>`;
   }
+  placeMarkers();
   for (const [code, g] of Object.entries(ts.gauges)) {
     cell(gaugeRows[code][2], g.flow[index], 2);
-    if (gaugeLabels[code]) {
+    if (gauges[code]) {
       const f = g.flow[index];
-      gaugeLabels[code].innerHTML = `<b>${SHORT[code]}</b><br><span>${f === null ? 'no data' : fmt(f, 2) + ' m³/s'}</span>`;
+      gauges[code].el.innerHTML = `<b>${SHORT[code]}</b><br><span>${f === null ? 'no data' : fmt(f, 2) + ' m³/s'}</span>`;
     }
   }
   for (const [name, m] of Object.entries(ts.model ?? {})) {
@@ -470,7 +601,7 @@ $('play').addEventListener('click', () => {
   $('play').textContent = playing ? 'Pause' : 'Play';
 });
 addEventListener('keydown', (e) => {
-  if (e.target.tagName === 'SELECT') return;
+  if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
   if (e.key === 'ArrowRight') show(index + 1);
   if (e.key === 'ArrowLeft') show(index - 1);
   if (e.key === ' ') { e.preventDefault(); $('play').click(); }
@@ -506,16 +637,30 @@ function resize() {
 }
 addEventListener('resize', resize);
 resize();
-show(index);
+applyRelief();
+applyStyle();
+homeView();
+if (import.meta.env.DEV) window.__viewer = { camera, controls, atmosphere, terrain, scene, renderer }; // debugging only
+// the land-cover roughness cue (mapped water catches the sun) loads after the first frame
+if (imagery) terrain.loadLandcover(DATA + 'landcover.png').catch(() => {});
 
 let last = 0;
+let prevT = performance.now();
 renderer.setAnimationLoop((t) => {
   if (playing && t - last > 60) {
     last = t;
     const step = Number($('speed').value);
     if (index >= N - 1) { playing = false; $('play').textContent = 'Play'; } else show(index + step);
   }
+  const dt = Math.min(0.1, (t - prevT) / 1000);
+  prevT = t;
   controls.update();
+  // keep the camera above the ground, and the near plane as far out as the view allows
+  const ground = terrain.elevAtXZ(camera.position.x, camera.position.z) * exag;
+  if (camera.position.y < ground + 120) camera.position.y = ground + 120;
+  const near = THREE.MathUtils.clamp((camera.position.y - ground) * 0.25, 20, 3000);
+  if (Math.abs(near - camera.near) > camera.near * 0.2) { camera.near = near; camera.updateProjectionMatrix(); }
+  atmosphere.update(exag, dt);
   renderer.render(scene, camera);
   labels.render(scene, camera);
 });

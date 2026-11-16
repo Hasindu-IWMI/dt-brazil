@@ -1,9 +1,12 @@
 """Build daily forcing (rain, potential evapotranspiration) for each catchment.
 
-Rain: ANA daily rain gauges (observed). Catchment rain is the inverse-distance-
-squared weighted mean, to the catchment centroid, of the gauges within
-RADIUS_KM that report on that day. The number of gauges used is stored for
-every day, and days with no gauge are left empty.
+Rain: ANA daily rain gauges and, where sibh_rain.py has built them, the
+telemetric gauges of SP Águas, Sabesp, CEMADEN, SAISP and IAC from SIBH
+(observed; from 2011 at the earliest; same 07:00-to-07:00 day as ANA).
+Catchment rain is the inverse-distance-squared weighted mean, to the
+catchment centroid, of the gauges within RADIUS_KM that report on that day.
+The number of gauges used is stored for every day, and days with no gauge are
+left empty.
 
 Potential evapotranspiration: Oudin et al. (2005) formula from daily mean air
 temperature and latitude. Temperature is NASA POWER T2M (MERRA-2 reanalysis,
@@ -45,6 +48,23 @@ RAIN_GAUGES = {
 }
 CATCHMENTS = ["cachoeira_dam", "atibainha_dam"]
 MAX_DAILY_RAIN_MM = 400.0  # values above this are treated as placeholders
+SIBH_STATIONS = os.path.join(c.PROCESSED, "sibh_rain_stations.json")
+
+
+def sibh_gauges():
+    """Telemetric gauges that sibh_rain.py marked as used, as
+    'SIBH-<id>' -> (name, lat, lon). Empty until sibh_rain.py has run."""
+    if not os.path.exists(SIBH_STATIONS):
+        return {}
+    with open(SIBH_STATIONS, encoding="utf-8") as f:
+        cands = json.load(f)["candidates"]
+    return {"SIBH-%s" % s["id"]: ("%s (%s, telemetric)" % (s["name"], s["owner"]), s["lat"], s["lon"])
+            for s in cands if s.get("used")}
+
+
+# Every gauge the audit and the forcing use: ANA's, then SIBH's.
+ALL_GAUGES = dict(RAIN_GAUGES)
+ALL_GAUGES.update(sibh_gauges())
 
 
 def km(lat1, lon1, lat2, lon2):
@@ -56,7 +76,10 @@ def km(lat1, lon1, lat2, lon2):
 def load_rain(code, exclusions=None):
     """Daily rain for one gauge. With exclusions (from audit_rain.py), the
     flagged gauge-months and gauge-years are dropped, i.e. treated as missing."""
-    path = os.path.join(c.PROCESSED, "ana_rain_%s.csv" % code)
+    if code.startswith("SIBH-"):
+        path = os.path.join(c.PROCESSED, "sibh_rain_%s.csv" % code[len("SIBH-"):])
+    else:
+        path = os.path.join(c.PROCESSED, "ana_rain_%s.csv" % code)
     if not os.path.exists(path):
         return {}
     months = years = ()
@@ -119,10 +142,10 @@ def oudin_pet(temp_c, lat_deg, day_of_year):
 
 def main():
     cats = json.load(open(os.path.join(c.PROCESSED, "catchments.json"), encoding="utf-8"))["catchments"]
-    raw = {code: load_rain(code) for code in RAIN_GAUGES}
+    raw = {code: load_rain(code) for code in ALL_GAUGES}
     excl_path = os.path.join(c.PROCESSED, "rain_exclusions.json")
     exclusions = json.load(open(excl_path, encoding="utf-8")) if os.path.exists(excl_path) else None
-    rain = {code: load_rain(code, exclusions) for code in RAIN_GAUGES}
+    rain = {code: load_rain(code, exclusions) for code in ALL_GAUGES}
     lines = ["# Forcing report", "",
              "Generated %s UTC by `pipeline/forcing.py`." % dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "",
              "Catchment rain uses the audited gauge records: %s. The unaudited value is kept beside it." %
@@ -131,7 +154,7 @@ def main():
              "## Rain gauges", "",
              "| Code | Name | First day | Last day | Days present | Mean annual rain, complete years (mm) |",
              "| --- | --- | --- | --- | --- | --- |"]
-    for code, (name, _, _) in RAIN_GAUGES.items():
+    for code, (name, _, _) in ALL_GAUGES.items():
         r = rain[code]
         if not r:
             lines.append("| %s | %s | no data | | | |" % (code, name))
@@ -147,7 +170,7 @@ def main():
                                                       "%.0f (%d years)" % (sum(full) / len(full), len(full)) if full else "no complete year"))
     for cat in CATCHMENTS:
         cen = cats[cat]["centroid"]
-        near = sorted((km(cen["lat"], cen["lon"], la, lo), code) for code, (_, la, lo) in RAIN_GAUGES.items())
+        near = sorted((km(cen["lat"], cen["lon"], la, lo), code) for code, (_, la, lo) in ALL_GAUGES.items())
         used = [(d, code) for d, code in near if d <= RADIUS_KM and rain[code]]
         temp = power_temperature(cat, cen["lat"], cen["lon"])
         start = dt.date(1981, 1, 1)
@@ -170,7 +193,7 @@ def main():
                   "- Centroid %.4f, %.4f; delineated area %.1f km2 (published %.1f)." %
                   (cen["lat"], cen["lon"], cats[cat]["area_km2"], cats[cat]["published_km2"]),
                   "- Gauges within %.0f km of the centroid: %s." %
-                  (RADIUS_KM, ", ".join("%s %s (%.1f km)" % (code, RAIN_GAUGES[code][0], dist) for dist, code in used)),
+                  (RADIUS_KM, ", ".join("%s %s (%.1f km)" % (code, ALL_GAUGES[code][0], dist) for dist, code in used)),
                   "- Days with no gauge reporting: %d of %d." % (sum(1 for r in rows if r[1] is None), len(rows)),
                   "- Days with no temperature: %d." % sum(1 for r in rows if r[3] is None), "",
                   "| Period | Median gauges per day | Days with one gauge or none | Mean annual rain, audited (mm) | Before the audit (mm) | Mean annual PET (mm) |",

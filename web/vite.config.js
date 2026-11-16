@@ -1,3 +1,5 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({ build: { target: 'es2022' } });
+// base './' makes the static build (web/dist) work from any folder or URL path,
+// e.g. GitHub Pages at /<repo>/ or a plain file server.
+export default defineConfig({ base: './', build: { target: 'es2022' } });

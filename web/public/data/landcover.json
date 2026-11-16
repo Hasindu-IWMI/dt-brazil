@@ -1,0 +1,40 @@
+{
+  "source": "ESA WorldCover 10 m 2021 v200",
+  "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_S24W048_Map.tif",
+  "licence": "CC BY 4.0",
+  "attribution": "© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+  "meaning": "Land cover in 2021. It does not change with the replay date.",
+  "bbox": {
+    "west": -46.7,
+    "south": -23.4,
+    "east": -45.9,
+    "north": -22.75
+  },
+  "width": 4096,
+  "height": 3328,
+  "resampling": "nearest",
+  "classes": {
+    "10": "Tree cover",
+    "20": "Shrubland",
+    "30": "Grassland",
+    "40": "Cropland",
+    "50": "Built-up",
+    "60": "Bare / sparse vegetation",
+    "70": "Snow and ice",
+    "80": "Permanent water bodies",
+    "90": "Herbaceous wetland",
+    "95": "Mangroves",
+    "100": "Moss and lichen"
+  },
+  "shareOfWindowPct": {
+    "10": 56.8,
+    "20": 0,
+    "30": 32.21,
+    "40": 4.4,
+    "50": 4.03,
+    "60": 0.36,
+    "80": 2.2,
+    "90": 0
+  },
+  "built": "2026-11-16T07:27:28.177Z"
+}

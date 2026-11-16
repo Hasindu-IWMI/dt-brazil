@@ -16,6 +16,15 @@ See "What is and is not here" below.
 npm --prefix web install
 ```
 
+The display basemap (30 m terrain, Sentinel-2 imagery, WorldCover land cover;
+about 16 MB) is not in git. Build it once after cloning; it reads the open
+sources directly and takes a few minutes. Without it the viewer still runs,
+with the 90 m terrain and elevation colours.
+
+```bash
+npm --prefix web run basemap
+```
+
 ```bash
 npm --prefix web run dev
 ```
@@ -23,39 +32,115 @@ npm --prefix web run dev
 Then open http://localhost:5173. Drag to orbit, scroll to zoom, use the slider
 or Play to move through time, click the chart to jump to a date.
 
+The card at the top left switches between two styles:
+
+- **Realistic** (default) is Sentinel-2 imagery on the full-resolution
+  Copernicus DEM at true scale. It is lit by the computed sun for the replayed
+  date at the chosen hour, with a sky, height haze and reflective lakes.
+- **Analytical** is the original look: elevation colours, lakes coloured by
+  observed storage, and storage columns.
+
+The card also sets the vertical scale (true scale to ×4), haze and layers,
+including ESA WorldCover land cover. URL options: `?style=analytical`,
+`?relief=2`, `?hour=16.5`, `?haze=hazy`, `?quality=high|medium|low` (mesh
+density; chosen from the GPU by default).
+
+### Realistic display: what is data and what is display
+
+The approach follows the Kelani WebTwin (`DT Kelaniya/webtwin/docs/REALISM_AND_XR.md`):
+data first, display second, and every display assumption labelled.
+
+| Element | Data (unchanged) | Display only |
+| --- | --- | --- |
+| Terrain | Copernicus GLO-30 heights at 30 m (a surface model: forest canopy included), EGM2008 | Vertical exaggeration; mesh drawn every 60 m (90 m on integrated GPUs) with 30 m relief shading |
+| Ground colour | Sentinel-2 L2A, median of four cloud-free dates in August 2024 (`web/public/data/imagery.json` lists the scenes) | Display stretch; colour fades to the mean image colour at the window edge |
+| Land cover layer | ESA WorldCover 2021 classes | Legend colours; water pixels drawn smoother (they catch the sun) |
+| Lakes | OpenStreetMap outlines | Drawn at the DEM's own lake surface with sky reflection and ripples. **Not** the observed level or extent on the replay date: no bathymetry is public, and the reservoir level datum is not tied to the DEM's |
+| Sun | Solar position for the window centre, replayed date, chosen hour (UTC−3; the daylight-saving hour before 2019 is ignored) | Twilight lighting when the sun is below the horizon |
+| Sky and haze | none | Preetham sky scaled to the scene's exposure; haze colour from the same sky model; "Clear" and "Hazy" are looks, not observations |
+| Storage | Observed % stored (ANA SAR), shown in labels, colours and columns | Column height scale |
+
+The imagery and land cover show one season and do not change with the replay
+date. During the 2014–15 crisis, the lakes on the ground imagery would have
+looked very different.
+
 ## Refresh the data
 
 Python 3.10+ with the standard library only; Node 20+.
 
 ```bash
-python -I pipeline/fetch_sar_cantareira.py 1982 2026
+python -I pipeline/run_all.py --fetch
 ```
+
+This runs every download (resumable) and then every build step in order:
+reservoirs, river gauges, ANA rain, SIBH telemetric rain, then `process.py`,
+`sibh_rain.py`, `rain_alignment.py`, `audit_rain.py` and `forcing.py`. Each
+step's output is also
+written to `data/logs/run_all_<step>.log`. Without `--fetch` it only rebuilds
+from what is on disk; `--refresh` also re-fetches the most recent records;
+`--scene` re-fetches the map outlines from OpenStreetMap. It never runs the
+model scripts (see "Frozen analyses" below).
+
+The display basemap (30 m terrain, Sentinel-2 imagery, WorldCover land cover)
+does not change with new records, is not committed, and is built separately
+(the deploy workflow does this too):
 
 ```bash
-python -I pipeline/fetch_ana_series.py 3 62670000 62665000 62662000 62676000 62678150 62669900 62680000 62690000 62665100
+npm --prefix web run basemap
 ```
+
+The reservoir and ANA services are slow and time out; the fetches are
+resumable, so run again until no `FAIL` lines remain. Every download is logged
+with URL, size and SHA-256 in `data/raw/manifest.jsonl`.
+
+## Tests, build and automation
 
 ```bash
-python -I pipeline/process.py
+python -I -m unittest discover -s tests -v
 ```
+
+The tests cover the parsers and processing rules, and check the committed data:
+dates unique and sorted in every series, viewer arrays aligned, the 2015
+storage low still in place, and **no modelled series in the viewer unless that
+model was accepted**.
 
 ```bash
-npm --prefix web run scene
+npm --prefix web run build
 ```
 
-The reservoir service is slow and times out; the fetch is resumable, so run it
-again until it reports nothing new. Every download is logged with URL, size and
-SHA-256 in `data/raw/manifest.jsonl`.
+This writes a static site to `web/dist` that works from any folder or URL
+path; `npm --prefix web run preview` serves it at http://localhost:4173.
+
+GitHub Actions (`.github/workflows/`):
+
+| Workflow | When | What |
+| --- | --- | --- |
+| `ci.yml` | Every push to `main` and every pull request | Tests and the static build |
+| `refresh-data.yml` | Mondays, or by hand | `run_all.py --refresh`, tests, then opens a pull request for a person to review. It never merges. Needs Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests" |
+| `deploy-viewer.yml` | By hand only | Publishes `web/dist` to GitHub Pages (Settings → Pages → Source: GitHub Actions). On a public repository the site is public |
+
+## Frozen analyses
+
+`model.py`, `model_run3.py`, `model_run4.py` and `investigate_runoff.py` document
+experiments already made. They read `forcing_*.csv`, which now includes the
+SIBH telemetric gauges, so re-running them would not reproduce their reports.
+The inputs they used are kept: `forcing_*_v1_unaudited.csv` (run 1) and
+`forcing_*_v2_ana_only.csv` (runs 2–4 and the runoff investigation), with
+`rain_exclusions_v1_ana_only.json`, `docs/rain_audit_v1_ana_only.md` and
+`docs/forcing_report_v2_ana_only.md`. A new model run needs its own design,
+fixed before it is run.
 
 ## Layout
 
 | Path | Contents |
 | --- | --- |
-| `pipeline/` | Acquisition and processing scripts (Python, standard library) |
-| `data/raw/` | Downloads exactly as received, plus the manifest |
-| `data/processed/` | Tidy CSVs: one per reservoir and gauge, system totals, control point |
-| `docs/` | Generated reports: data quality, forcing, model validation |
+| `pipeline/` | Acquisition and processing scripts (Python, standard library); `run_all.py` runs them in order |
+| `data/raw/` | Downloads exactly as received (SIBH responses gzip-compressed), plus the manifest |
+| `data/processed/` | Tidy CSVs: one per reservoir and gauge, system totals, control point, catchment forcing |
+| `docs/` | Generated reports: data quality, rain audit, SIBH rain gauges, rain day alignment, forcing, model validation |
+| `tests/` | Unit tests and data checks (standard library `unittest`) |
 | `web/` | Three.js viewer (Vite). `web/public/data/` holds what it reads |
+| `.github/workflows/` | CI, weekly data refresh, manual viewer deploy |
 
 ## Sources
 
@@ -63,7 +148,12 @@ SHA-256 in `data/raw/manifest.jsonl`.
 | --- | --- | --- | --- |
 | Reservoir level, storage, inflow, release (daily) | ANA SAR, Cantareira module | Observed, operator-reported | None shown on the page |
 | River discharge (daily) | ANA HidroSerieHistorica web service | Observed stage, rating-curve discharge | Not stated |
-| Terrain | Copernicus DEM GLO-30 (ESA) | Satellite surface model, EGM2008 | Free with attribution |
+| Rain, conventional gauges (daily) | ANA HidroSerieHistorica web service | Observed, read at 07:00 | Not stated |
+| Rain, telemetric gauges (10-minute, fetched as hourly sums) | SP Águas SIBH public API; gauges of SP Águas, Sabesp, CEMADEN, SAISP and IAC | Observed, unconsolidated | None shown; portal footer reads "todos os direitos reservados" |
+| Air temperature (daily, for evapotranspiration) | NASA POWER (MERRA-2) | Reanalysis | Free with attribution |
+| Terrain | Copernicus DEM GLO-30 (ESA): 3 arc-seconds for delineation, 1 arc-second (30 m) for display | Satellite surface model, EGM2008 | Free with attribution |
+| Ground imagery | Sentinel-2 L2A (ESA Copernicus) via Element 84 Earth Search; August 2024 cloud-free median | Satellite, display basemap | Free and open; "Contains modified Copernicus Sentinel data 2024" |
+| Land cover | ESA WorldCover 10 m 2021 v200 | Satellite-derived classes | CC BY 4.0 |
 | Lake outlines, rivers | OpenStreetMap via Overpass | Mapped | ODbL 1.0 |
 | Operating bands | Joint Resolution ANA/DAEE 925/2017, as tabulated by Comitês PCJ | Regulation | Public |
 
@@ -86,9 +176,12 @@ Derived, and labelled as derived on screen:
 Deliberately absent, because the open data cannot support it:
 
 - **Lake extent or depth by date.** No bathymetry is public, so lake outlines
-  are fixed map outlines and storage is shown by colour and a column.
+  are fixed map outlines and storage is shown by a bar in each lake's label, and
+  in the analytical style by colour and a column.
 - **Tunnel flows and the withdrawal to São Paulo.** Not published.
 - **Sub-daily data.** ANA's public telemetry returns nothing for these gauges.
+  The state network (SIBH) has 10-minute rain, used here only as daily totals,
+  and 10-minute river data, not yet downloaded.
 - **Any simulated or forecast value.** The first inflow model failed
   validation (see below) and is withheld from the viewer.
 - **Restoration or land-use effects.** No defensible basis yet.
@@ -133,7 +226,13 @@ Still open (cannot be settled from open data):
 - **Jaguari-Jacareí shows about 599 hm³ capacity for Jan–Aug 2004**, between
   two periods at about 808. Unexplained.
 - **The Atibaia gauge record ends on 31 May 2026**; other mid-river gauges end
-  in 2022. Ten-minute state telemetry exists but was not downloaded.
+  in 2022. Ten-minute state river telemetry is public on SIBH but not yet
+  downloaded (see "Next steps").
+- **Two ANA-network rain gauges carry the wrong day on some years**
+  (`docs/rain_alignment.md`). Piracaia (2346094) is one day out on every year
+  from 2018 to 2025. Joanópolis (2246090) changes between years. Both feed the
+  catchment rain, which has **not** been corrected: that is a change to the
+  forcing and needs a decision.
 - **Band limit exceeded** by the implied export on 11 days in 2025 and 5 in
   2026. Unexplained.
 
@@ -201,7 +300,8 @@ column; the pre-audit forcing is saved as `forcing_*_v1_unaudited.csv`.
 
 **The model has not been re-run on the audited rainfall.** The validation
 table above is the pre-audit run. Coverage is also thin at the end of the
-record: Cachoeira has one gauge or none on 775 days in 2022–2025.
+record: Cachoeira has one gauge or none on 775 days in 2022–2025 (fixed by the
+SIBH telemetric gauges; see below).
 
 Reports: `docs/model_validation_report.md`, `docs/forcing_report.md`,
 `docs/rain_audit.md`.
@@ -335,14 +435,68 @@ pilot is an observed-record tool.** What would reopen modelling is new data,
 not a new criterion: sub-daily or better rainfall (state network, CEMADEN),
 the operator's measured flows, or new inflow records for a forward test.
 
+## Telemetric rain gauges (SIBH), added 16 November 2026
+
+SP Águas' SIBH portal (https://cth.daee.sp.gov.br/sibh/) has a public JSON
+API with the 10-minute records of the telemetric rain gauges of SP Águas,
+Sabesp, CEMADEN, SAISP and IAC. CEMADEN's own download is CAPTCHA-gated; this
+route is not.
+
+- `pipeline/fetch_sibh_rain.py` downloads hourly sums for the 38 gauges within
+  20 km of either catchment centroid. It leaves out ANA's gauges, radar
+  products and conventional gauges, which are already taken from ANA.
+- `pipeline/sibh_rain.py` builds daily totals by rules fixed before any
+  series was computed:
+  - A day runs 07:00 to 07:00 local time and is kept only if all 24 hours are
+    present; a missing hour is never taken as zero.
+  - Which date it carries was settled by correlation with ANA gauges. Reading
+    day won, with a median r of 0.39 against 0.25.
+  - Co-located gauges count as one site.
+
+  One rule was changed after a dry run on five gauges and before any use, and
+  the change is recorded in the script. Report: `docs/sibh_rain_report.md`.
+- 23 sites result. Sabesp's gauges at the Cachoeira and Atibainha dams are
+  nearly complete from 2010, and the SP Águas gauge above Cachoeira from 2015.
+  CEMADEN gauges lose many days to transmission gaps.
+- They go through the same neighbour audit (`audit_rain.py`), which flags 36
+  months and 1 year among them, mostly one CEMADEN gauge (Piracaia Dobrada)
+  recording dry months. It also confirms the ANA flags from before: 64 of 65
+  months, plus 9 new months and 1 new year in gauges already known to be
+  faulty.
+
+Effect on catchment rain (`docs/forcing_report.md`; the ANA-only version is kept
+as `docs/forcing_report_v2_ana_only.md`):
+
+| Catchment, period | Median gauges per day | Days with one gauge or none | Mean annual rain (audited) |
+| --- | --- | --- | --- |
+| Cachoeira 2014–2016 | 2 → 8 | 49 → 0 | 1,445 → 1,388 mm |
+| Cachoeira 2022–2025 | 1 → 9 | 775 → 0 | 1,413 → 1,625 mm |
+| Atibainha 2018–2021 | 2 → 8 | 39 → 0 | 1,202 → 1,226 mm |
+| Atibainha 2022–2025 | 2 → 13 | 31 → 0 | 1,238 → 1,411 mm |
+
+The thin coverage after 2022 is fixed. Since 2022 both catchments have had
+about 14–15% more rain than the few remaining ANA gauges recorded. That fits
+the earlier finding that Atibainha's runoff since 2017 was more than its
+measured rainfall allowed. Before 2014 nothing changes much.
+
+**The models were not re-run on this rainfall.** Runs 1–4 and the runoff
+investigation are frozen (see "Frozen analyses"). A new run would need its own
+design, fixed in advance, and should first settle the two mislabelled gauges
+(`docs/rain_alignment.md`).
+
 ## Next steps
 
 1. Send the data requests drafted in `docs/data_requests.md` (six letters in
    Portuguese with English summaries; drafted, not sent). They need a
-   Brazilian partner to send or co-sign, and a native speaker's review.
-2. Find more rain gauges for 2022 onward (CEMADEN's network has data from 2014).
-3. Ask the operator how inflow was computed before 2000 (Atibainha looks too high).
-4. Request tunnel-flow, abstraction and measured-outflow data from Sabesp and
-   Agência PCJ.
-5. Replace the terrain with ANADEM (bare earth) when a 2 GB download is
+   Brazilian partner to send or co-sign, and a native speaker's review. Part of
+   what letters 1, 2 and 5 ask for is already public on SIBH (see the note at
+   the top of that file); check it before sending.
+2. Download the SIBH flow stations: Sabesp's dam outlets, tunnel ends and
+   Paraíba do Sul transfer, the river gauges just above both dams (an inflow
+   measure independent of the reservoir balance), and their rating curves.
+3. Decide how to treat the two rain gauges with the wrong day (drop or shift
+   those gauge-years), then write the design for any new model run.
+4. Ask the operator how inflow was computed before 2000 (Atibainha looks too high).
+5. Viewer: trees and clouds after the Kelani WebTwin, and checks on laptop GPUs.
+6. Replace the terrain with ANADEM (bare earth) when a 2 GB download is
    acceptable.

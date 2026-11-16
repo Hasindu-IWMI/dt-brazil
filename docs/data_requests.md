@@ -5,6 +5,31 @@ Portuguese with an English summary. Fill in the bracketed fields, and check
 each recipient's correct channel and addressee before sending: the units
 named below are my best guess from public pages, not confirmed contacts.
 
+**Update, 16 November 2026: part of this is already public.** SP Águas' SIBH
+portal (https://cth.daee.sp.gov.br/sibh/) has an open JSON API, no login, that
+serves records the letters below ask for. Check it before sending, and trim the
+letters accordingly.
+
+- **Letter 5 (CEMADEN):** all eight named gauges are in SIBH as 10-minute
+  records since 2014–2015, and are now in the pipeline
+  (`docs/sibh_rain_report.md`). Their transmissions have gaps: CEMADEN Cachoeira
+  has 802 complete days in 11 years. The request is still worth sending, but
+  only for the complete logger records.
+- **Letter 2 (SP Águas):** item 4 (rain) is largely answered by the telemetric
+  gauges now used. Item 3 (gauges above the reservoirs) looks answered:
+  SIBH lists Cachoeira Montante (3E-122) and Atibainha Montante (3E-121). A
+  probe of 3E-121 returned complete 10-minute days in 2019. Not yet downloaded
+  or checked. Rating curves appear to be served too (`key_curves`).
+- **Letter 1 (Sabesp):** SIBH lists Sabesp flow stations at the dam outlets
+  (Barragem Cachoeira, Canal Jusante Atibainha), the tunnel ends (Túnel 5, 6
+  and 7) and the Jaguari–Atibainha transfer. Their content has not been
+  checked; items 1, 2, 4 and 7 may be partly answered.
+- **New finding for letters 3 and 4 (ANA, SGB):** the Piracaia rain gauge
+  2346094 is one day out against every nearby telemetric gauge in every year
+  from 2018 to 2025 (`docs/rain_alignment.md`): its day D holds the rain that
+  the others record on D+1. It is worth asking whether its reading-date
+  convention changed around 2016–2018.
+
 Every request cites what our own analysis of the public records found, so the
 recipient can see the request is specific and that we have done the work
 first. The supporting reports are in this folder.

@@ -1,0 +1,11 @@
+tiles MGRS-23KLQ MGRS-23KMQ | dates 2024-08-03 2024-08-08 2024-08-18 2024-08-23
+2024-08-03 MGRS-23KLQ clear pixels 13631303
+2024-08-03 MGRS-23KMQ clear pixels 0
+2024-08-08 MGRS-23KLQ clear pixels 13631264
+2024-08-08 MGRS-23KMQ clear pixels 0
+2024-08-18 MGRS-23KLQ clear pixels 13631225
+2024-08-18 MGRS-23KMQ clear pixels 0
+2024-08-23 MGRS-23KLQ clear pixels 13631145
+2024-08-23 MGRS-23KMQ clear pixels 0
+imagery 4096 x 3328 stretch 14 180 empty 0 jpeg bytes 6826981
+exit 0

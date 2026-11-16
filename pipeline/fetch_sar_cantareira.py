@@ -11,6 +11,7 @@ each reservoir-year is cached as raw HTML and skipped on the next run.
 Usage: python fetch_sar_cantareira.py [first_year] [last_year] [reservoir_code]
 """
 import datetime as dt
+import glob
 import html
 import os
 import re
@@ -87,6 +88,12 @@ def main():
                 c.write_bytes(path, data)
                 c.append_manifest({"source": "ANA SAR Cantareira", "url": url, "file": os.path.relpath(path, c.ROOT),
                                    "bytes": len(data), "sha256": c.sha256(data), "rows": len(rows)})
+                # A window still open when last fetched was saved under an earlier end date; the new
+                # file covers it, so drop the stale copy (its download stays recorded in the manifest).
+                for old in glob.glob(os.path.join(RAW_DIR, "%s_%s_*.html" % (meta["key"], a.isoformat()))):
+                    if os.path.abspath(old) != os.path.abspath(path):
+                        os.remove(old)
+                        print("replaced", os.path.basename(old), flush=True)
                 print("ok", meta["key"], a, b, len(rows), "rows", flush=True)
 
 

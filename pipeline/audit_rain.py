@@ -17,6 +17,9 @@ Checks (thresholds fixed here, before looking at any model result):
      model was run on the audited rainfall.)
 The regional median is taken over all audited gauges with enough days in
 that month or year (at least three gauges, otherwise no judgement is made).
+The audited gauges are ANA's conventional gauges and, once sibh_rain.py has
+built them, the SIBH telemetric gauges (forcing.ALL_GAUGES); the rules are
+the same for both.
 
 Outputs: docs/rain_audit.md and data/processed/rain_exclusions.json, the
 list of gauge-months and gauge-years that forcing.py leaves out.
@@ -30,7 +33,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # isolated mode drops the script folder
 import common as c  # noqa: E402
-from forcing import RAIN_GAUGES, load_rain  # noqa: E402
+from forcing import ALL_GAUGES as RAIN_GAUGES, load_rain  # noqa: E402
 
 FIRST_YEAR = 1984
 DRY_RATIO = 0.25
