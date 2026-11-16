@@ -16,14 +16,54 @@ letters accordingly.
   has 802 complete days in 11 years. The request is still worth sending, but
   only for the complete logger records.
 - **Letter 2 (SP Águas):** item 4 (rain) is largely answered by the telemetric
-  gauges now used. Item 3 (gauges above the reservoirs) looks answered:
-  SIBH lists Cachoeira Montante (3E-122) and Atibainha Montante (3E-121). A
-  probe of 3E-121 returned complete 10-minute days in 2019. Not yet downloaded
-  or checked. Rating curves appear to be served too (`key_curves`).
-- **Letter 1 (Sabesp):** SIBH lists Sabesp flow stations at the dam outlets
-  (Barragem Cachoeira, Canal Jusante Atibainha), the tunnel ends (Túnel 5, 6
-  and 7) and the Jaguari–Atibainha transfer. Their content has not been
-  checked; items 1, 2, 4 and 7 may be partly answered.
+  gauges now used. The flow stations are now downloaded and checked
+  (`docs/sibh_flow_report.md`):
+  - Item 3 (gauges above the reservoirs) is answered in part. Atibainha
+    Montante (3E-121) has stage and discharge, nearly complete from 2018;
+    Cachoeira Montante (3E-122) from 2022, with a few weeks in 2015–2021. Both
+    come into SIBH from ANA's telemetry. Still to ask: their **drainage areas**
+    (published nowhere we found), and why 3E-122 reads more than the
+    operator's inflow to the whole Cachoeira reservoir (1.11 times overall,
+    1.50 in 2025).
+  - Item 2 (rating curves) is answered only in part. SIBH publishes curves
+    for 3E-116 (2001–2016) and 3E-122 (2015–2020), none for 3E-121 or 3E-145.
+    The discharge SIBH serves for 3E-122 does not follow its published curves,
+    and 3E-121's rating changed in 2023 and 2024 (23–41% more discharge for the
+    same stage). After 2016, 3E-116's discharge comes from an expired curve.
+    Ask for the **rating histories and discharge measurements** of 3E-116,
+    3E-121, 3E-122 and 3E-145.
+  - Item 1: SIBH's Piracaia (Captação), 3E-116, probably the gauge the letter
+    calls Captação de Piracaia (62665900), has 10-minute stage from 2010 to the
+    present. The Atibaia gauge (62669900) has not been checked yet.
+- **Letter 1 (Sabesp):** checked. Trim and extend as follows.
+  - Item 1 (tunnel flows) is answered in part: Tunnel 6 and Tunnel 5 outlet
+    flows are public on SIBH (Tunnel 5 from 2014, Tunnel 6 complete from
+    2020). Still needed: **Tunnel 7** (SIBH has only the Jacareí reservoir
+    level), **Santa Inês**, and anything before 2014.
+  - Item 2 (Paraíba do Sul transfer) is not answered: SIBH's two transfer
+    stations return no data and the pumping station has only a level. From
+    the balance with the measured tunnels we estimate a median of 5–8 m³/s a
+    year in 2019–2022 and 2024–2026 and about none in 2023. Cite this and ask
+    for the measured series.
+  - Item 3 (how inflow is computed): the same balance shows that SAR's
+    Atibainha inflow does not include the Paraíba do Sul transfer. Say so;
+    the question about the method still stands.
+  - Item 4 (measured outflow) is not answered: Sabesp's stations at the dams
+    hold the reservoir level and the downstream-channel level only. Update the
+    reason given. On most of the days the Piracaia gauge reads short, the river
+    1 km below Cachoeira dam (3E-116) stands as high as usual for the reported
+    release, so the release probably did reach the river. 2022 is the
+    exception that may point at the release.
+  - Item 7: Conrado (62664000) and the SB-CA river gauges were not among the
+    stations checked.
+- **Letters 3 and 4 (ANA, SGB), gauge below release at 62665000:** add to the
+  evidence that the river level just below the dam does not drop on most
+  shortfall days. In 2025, SP Águas' telemetric gauge beside 62665000 (3E-145)
+  reads short on 13 days where 62665000 reads short on 89. Both point at
+  62665000's rating, which makes the request for its rating history
+  stronger. Letter 3, item B4 (does inflow include the Paraíba do Sul
+  water?): our evidence says no (see letter 1, item 3); keep the question as
+  a confirmation.
 - **New finding for letters 3 and 4 (ANA, SGB):** the Piracaia rain gauge
   2346094 is one day out against every nearby telemetric gauge in every year
   from 2018 to 2025 (`docs/rain_alignment.md`): its day D holds the rain that

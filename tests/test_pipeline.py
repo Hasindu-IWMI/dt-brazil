@@ -3,6 +3,7 @@
 Run from the repository root:  python -I -m unittest discover -s tests -v
 """
 import datetime as dt
+import gzip
 import json
 import math
 import os
@@ -18,10 +19,12 @@ import audit_rain  # noqa: E402
 import common as c  # noqa: E402
 import fetch_ana_series  # noqa: E402
 import fetch_sar_cantareira  # noqa: E402
+import fetch_sibh_flow  # noqa: E402
 import fetch_sibh_rain  # noqa: E402
 import forcing  # noqa: E402
 import gr4j  # noqa: E402
 import process  # noqa: E402
+import sibh_flow  # noqa: E402
 import sibh_rain  # noqa: E402
 
 
@@ -206,6 +209,180 @@ class SibhDaily(unittest.TestCase):
         self.assertEqual(groups, [["a", "b", "c"], ["d"]])  # single linkage chains a-b-c
 
 
+class SibhFlowStations(unittest.TestCase):
+    def test_describe_keeps_fixed_list_and_flags_missing(self):
+        listed = [{"id": "1397", "prefix": "3E-121 ", "alt_prefix": "724", "station_id": "6678", "station_owner": "SP ÁGUAS",
+                   "name": "Nazaré Paulista (Atibainha Montante)", "latitude": "-23.0952", "longitude": "-46.2646"},
+                  {"id": "999", "prefix": "X", "station_owner": "SABESP", "name": "Not wanted", "latitude": "-23", "longitude": "-46"}]
+        out = fetch_sibh_flow.describe(listed)
+        self.assertEqual([s["id"] for s in out], list(fetch_sibh_flow.STATIONS))  # fixed list, fixed order
+        first = out[0]
+        self.assertEqual((first["prefix"], first["group"], first["owner"]), ("3E-121", "upstream", "SP ÁGUAS"))
+        self.assertTrue(all(s.get("missing_from_list") for s in out[1:]))
+
+    def test_groups_are_known(self):
+        self.assertTrue(set(g for g, _ in fetch_sibh_flow.STATIONS.values()) <= {"upstream", "below_dam", "dam", "transfer"})
+
+
+class SibhFlowDaily(unittest.TestCase):
+    @staticmethod
+    def hours(day, levels, discharges=None, start_h=3):
+        """Hourly (level_m, discharge, readings) from 03:00 UTC (00:00 local) on `day`."""
+        t0 = dt.datetime.combine(day, dt.time(start_h))
+        discharges = discharges if discharges is not None else [None] * len(levels)
+        return {t0 + dt.timedelta(hours=i): (h, q, 6) for i, (h, q) in enumerate(zip(levels, discharges))}
+
+    def test_local_day_runs_03_to_03_utc(self):
+        self.assertEqual(sibh_flow.local_day(dt.datetime(2024, 3, 10, 2)), "2024-03-09")
+        self.assertEqual(sibh_flow.local_day(dt.datetime(2024, 3, 10, 3)), "2024-03-10")
+        self.assertEqual(sibh_flow.local_day(dt.datetime(2024, 3, 11, 2)), "2024-03-10")
+
+    def test_mean_of_valid_hours_and_min_hours(self):
+        h = self.hours(dt.date(2024, 3, 10), [1.0] * 12 + [2.0] * 12, [3.0] * 24)
+        days, stats, med = sibh_flow.daily(h)
+        self.assertEqual(days["level"], {"2024-03-10": (1.5, 24)})
+        self.assertEqual(days["discharge"], {"2024-03-10": (3.0, 24)})
+        self.assertEqual(stats["discharge"]["flat_days"], 1)  # unchanged all day: counted, not removed
+        short = self.hours(dt.date(2024, 3, 10), [1.0] * (sibh_flow.MIN_HOURS - 1))
+        days, stats, _ = sibh_flow.daily(short)
+        self.assertEqual((days["level"], stats["level"]["days_short"]), ({}, 1))
+
+    def test_invalid_hours_dropped_not_filled(self):
+        q = [2.0] * 22 + [-0.1, sibh_flow.MAX_Q_M3S + 1]
+        lv = [816.0] * 22 + [700.0, 0.0]  # 700 m: gross error at a reservoir at 816 m; 0 m: another datum
+        days, stats, med = sibh_flow.daily(self.hours(dt.date(2024, 3, 10), lv, q))
+        self.assertEqual(days["discharge"]["2024-03-10"], (2.0, 22))
+        self.assertEqual(days["level"]["2024-03-10"], (816.0, 22))
+        self.assertEqual(days["datum"]["2024-03-10"], "elevation")
+        self.assertEqual((stats["discharge"]["invalid_hours"], stats["level"]["invalid_hours"]), (2, 1))
+        self.assertEqual(stats["level"]["other_datum_hours"], 1)
+
+    def test_datum_change_keeps_both_and_short_datum_is_dropped(self):
+        h = {}
+        for i in range(40):  # 40 days of stage (about 2.8 m), then 40 days of elevation (about 791.6 m)
+            h.update(self.hours(dt.date(2022, 9, 1) + dt.timedelta(days=i), [2.8] * 24))
+            h.update(self.hours(dt.date(2022, 11, 1) + dt.timedelta(days=i), [791.6] * 24))
+        for i in range(5):   # five later days in the elevation datum just extend it
+            h.update(self.hours(dt.date(2023, 3, 1) + dt.timedelta(days=i), [791.5] * 24))
+        days, stats, med = sibh_flow.daily(h)
+        self.assertEqual(days["datum"]["2022-09-01"], "gauge")
+        self.assertEqual(days["datum"]["2022-11-01"], "elevation")
+        self.assertEqual(stats["level"]["invalid_hours"], 0)  # neither datum rejects the other
+        self.assertEqual(sibh_flow.level_kind(days["datum"]), "stage to 2022-10-10, then elevation")
+        stray = {}
+        for i in range(40):
+            stray.update(self.hours(dt.date(2024, 1, 1) + dt.timedelta(days=i), [816.0] * 24))
+        for i in range(3):
+            stray.update(self.hours(dt.date(2024, 3, 1) + dt.timedelta(days=i), [0.0] * 24))
+        days, stats, _ = sibh_flow.daily(stray)
+        self.assertNotIn("2024-03-01", days["level"])
+        self.assertEqual(stats["level"]["dropped_datum_days"], 3)
+        self.assertEqual(sibh_flow.level_kind(days["datum"]), "elevation")
+
+    def test_rating_curve_reproduces_sibh_discharge(self):
+        # 3E-116 on 10 March 2016: curve Q = 1.0 (h - 1.0)^1.38, value 137.9 cm -> read_value 0.262.
+        k = {"start": dt.datetime(2015, 12, 8), "end": dt.datetime(2017, 1, 1), "a": 1.0, "n": 1.38, "ho": 1.0,
+             "hmin": 0.0, "hmax": 2.01}
+        self.assertAlmostEqual(sibh_flow.curve_q(k, 1.379), 0.262, places=3)
+        self.assertEqual(sibh_flow.curve_q(k, 0.9), 0.0)  # below the curve's zero-flow stage
+        hourly = {dt.datetime(2016, 3, 10, 23): (1.379, 0.262, 1), dt.datetime(2016, 3, 10, 20): (1.234, 0.5, 1),
+                  dt.datetime(2018, 1, 1, 0): (1.3, 0.2, 1)}  # outside the curve's dates: not checkable
+        self.assertEqual(sibh_flow.curve_check(hourly, [k]), (2, 1))
+
+    def test_rating_by_year_shows_a_curve_change(self):
+        h = {}
+        for y, factor in ((2022, 1.0), (2023, 1.25)):
+            for i in range(600):  # each stage six times a year
+                stage = 0.5 + (i % 100) / 100.0
+                h[dt.datetime(y, 1, 1) + dt.timedelta(hours=i)] = (stage, factor * 4.0 * stage ** 2, 6)
+        stages, by = sibh_flow.rating_by_year(h)
+        self.assertAlmostEqual(stages[0], 1.0, places=6)
+        self.assertAlmostEqual(by[2023][0] / by[2022][0], 1.25, places=6)
+        self.assertEqual(sibh_flow.rating_by_year({}), (None, {}))
+
+    def test_load_hourly_parses_raw_file(self):
+        tmp = tempfile.mkdtemp()
+        old = sibh_flow.RAW_DIR
+        try:
+            sibh_flow.RAW_DIR = tmp
+            rows = {"measurements": [{"date": "2019/03/10 23", "value": 105.2, "read_value": 2.19, "qtd": "6"},
+                                     {"date": "2019/03/10 22", "value": 81646.3, "read_value": None, "qtd": "6"},
+                                     {"date": "bad", "value": 1}]}
+            c.write_bytes(os.path.join(tmp, "flow_77_2019.json.gz"), gzip.compress(json.dumps(rows).encode("utf-8")))
+            c.write_bytes(os.path.join(tmp, "flow_curves_77.json.gz"), gzip.compress(b"[]"))  # not a year file
+            h = sibh_flow.load_hourly("77")
+            self.assertEqual(h[dt.datetime(2019, 3, 10, 23)], (1.052, 2.19, 6))
+            self.assertEqual(h[dt.datetime(2019, 3, 10, 22)], (816.463, None, 6))
+            self.assertEqual(len(h), 2)
+            # the Sabesp 8-digit codes serve metres
+            metres = {"measurements": [{"date": "2024/05/21 15", "value": 817.43, "read_value": None, "qtd": "6"}]}
+            sid = sorted(sibh_flow.VALUE_IN_METRES)[0]
+            c.write_bytes(os.path.join(tmp, "flow_%s_2024.json.gz" % sid), gzip.compress(json.dumps(metres).encode("utf-8")))
+            self.assertEqual(sibh_flow.load_hourly(sid)[dt.datetime(2024, 5, 21, 15)], (817.43, None, 6))
+        finally:
+            sibh_flow.RAW_DIR = old
+            shutil.rmtree(tmp)
+
+
+class SibhFlowComparisons(unittest.TestCase):
+    def test_lag_pairs_second_series_on_later_day(self):
+        a = {"2024-01-01": 1.0, "2024-01-02": 2.0}
+        b = {"2024-01-02": 10.0, "2024-01-03": 20.0}
+        self.assertEqual(sibh_flow.paired(a, b, 1), [(1.0, 10.0), (2.0, 20.0)])
+        self.assertEqual(sibh_flow.paired(a, b, 0), [(2.0, 10.0)])
+        self.assertEqual(sibh_flow.paired(a, b, 1, 2023), [])
+
+    def test_spearman_with_ties(self):
+        self.assertEqual(sibh_flow.ranks([10, 20, 20, 30]), [1.0, 2.5, 2.5, 4.0])
+        self.assertAlmostEqual(sibh_flow.spearman([1, 2, 3, 4], [1, 4, 9, 16]), 1.0)
+        self.assertAlmostEqual(sibh_flow.spearman([1, 2, 3, 4], [4, 3, 2, 1]), -1.0)
+
+    def test_rainless_days_need_six_dry_days(self):
+        rain = {"2024-01-%02d" % d: 0.0 for d in range(1, 11)}
+        rain["2024-01-04"] = 5.0
+        self.assertEqual(sorted(sibh_flow.rainless_days(rain)), ["2024-01-10"])
+
+    def test_noise_stats_smooth_recession_vs_noisy(self):
+        days = ["2024-01-%02d" % d for d in range(1, 31)]
+        smooth = {d: 10.0 * 0.95 ** i for i, d in enumerate(days)}
+        s = sibh_flow.noise_stats(smooth, set(days[1:]))
+        self.assertEqual(s["rises"], 0.0)
+        noisy = {d: 5.0 + (0.5 if i % 2 else -0.5) for i, d in enumerate(days)}
+        n = sibh_flow.noise_stats(noisy, set(days[1:]))
+        self.assertAlmostEqual(n["rises"], 0.5, delta=0.05)
+        self.assertLess(n["r1"], -0.9)
+        self.assertAlmostEqual(n["noise"], 1.0, places=6)  # alternating +-1 changes: covariance -1
+
+    def test_shortfall_level_test_groups_by_year_and_release(self):
+        level, release, gauge = {}, {}, {}
+        for i in range(20):
+            d = (dt.date(2022, 1, 1) + dt.timedelta(days=i)).isoformat()
+            release[d] = 2.0
+            short = i % 2 == 0
+            gauge[d] = 1.0 if short else 2.2       # 1.0 is more than 0.5 below the release
+            level[d] = 0.90 if short else 1.00     # river 10 cm lower on short days
+        for i in range(10):                         # another release value, for the scale
+            d = (dt.date(2022, 3, 1) + dt.timedelta(days=i)).isoformat()
+            release[d], gauge[d], level[d] = 2.5, 2.7, 1.04
+        t = sibh_flow.shortfall_level_test(level, release, gauge)
+        self.assertEqual((t["n"], t["groups"], t["short_days"], t["groups_lower"]), (30, 1, 10, 1))
+        self.assertAlmostEqual(t["diff_m"], -0.10)
+        self.assertAlmostEqual(t["step_m"], 1.04 - 0.95)  # median level at 2.0 (0.95) to 2.5 (1.04)
+        # short days in one year are never set against other days of another year
+        level, release, gauge = {}, {}, {}
+        for year, short in ((2022, False), (2023, True)):
+            for i in range(10):
+                d = dt.date(year, 1, 1 + i).isoformat()
+                release[d], gauge[d], level[d] = 2.0, (1.0 if short else 2.2), (0.9 if short else 1.0)
+        self.assertEqual(sibh_flow.shortfall_level_test(level, release, gauge)["groups"], 0)
+
+    def test_storage_change_from_previous_day(self):
+        sar = {"2024-01-01": {"hm3": 10.0}, "2024-01-02": {"hm3": 10.864}, "2024-01-04": {"hm3": 11.0}}
+        ds = sibh_flow.storage_change(sar)
+        self.assertEqual(list(ds), ["2024-01-02"])  # no previous day for the others
+        self.assertAlmostEqual(ds["2024-01-02"], 10.0, places=2)  # 0.864 hm3/day = 10 m3/s
+
+
 class Gr4j(unittest.TestCase):
     def test_unit_hydrographs_sum_to_one(self):
         for x4 in (0.6, 1.7, 4.3):
@@ -226,7 +403,8 @@ class DataInvariants(unittest.TestCase):
     """Checks on the committed data, so a refresh cannot break them silently."""
 
     def test_processed_series_have_unique_sorted_dates(self):
-        names = [n for n in os.listdir(c.PROCESSED) if n.endswith(".csv") and n.startswith(("sar_", "ana_", "sibh_rain_", "forcing_"))]
+        names = [n for n in os.listdir(c.PROCESSED) if n.endswith(".csv")
+                 and n.startswith(("sar_", "ana_", "sibh_rain_", "sibh_flow_", "forcing_"))]
         self.assertTrue(names)
         for n in names:
             dates = [r["date"] for r in c.read_csv(os.path.join(c.PROCESSED, n))]

@@ -1,0 +1,22 @@
+ok 1397 3E-121 SP ÁGUAS Nazaré Paulista (Atibainha Montante) new hourly rows: 75794
+ok 1430 3E-122 SP ÁGUAS Piracaia (Cachoeira Montante) new hourly rows: 42407
+ok 30862 3E-116 SP ÁGUAS Piracaia (Captação) new hourly rows: 142987
+ok 832 3E-145 SP ÁGUAS Piracaia (Rio Cachoeira - Centro) new hourly rows: 39513
+ok 10 1001177 SABESP Piracaia (Barragem Cachoeira) new hourly rows: 103505
+ok 362 62666010 SABESP SB-CA-BRC Barragem Cachoeira new hourly rows: 4499
+ok 22 1000718 SABESP Piracaia (Canal Jusante Cachoeira) new hourly rows: 44250
+ok 14 1001178 SABESP Nazaré Paulista (Barragem Atibainha) new hourly rows: 147558
+ok 360 62653510 SABESP SB-CA-BRA BARRAGEM ATIBAINHA new hourly rows: 4454
+ok 20 1000721 SAISP Nazaré Paulista (Canal Jusante Atibainha) new hourly rows: 77306
+ok 12 616 SAISP Piracaia (Desemboque do Túnel - 6) new hourly rows: 72310
+ok 361 62654600 SABESP Piracaia (SB-CA-DBT6 Desemboque do Túnel 6) new hourly rows: 4636
+ok 16 746 SABESP Nazaré Paulista (Emboque do Tunel 5) new hourly rows: 68489
+ok 18 309 SABESP Nazaré Paulista (Desemboque do Tunel 5) new hourly rows: 106845
+ok 349 62344010 SABESP SB-CA-DBT5 Desemboque Túnel 5 new hourly rows: 4613
+ok 6 619 SABESP Joanópolis (Barragem Jacareí - Túnel 7 / Vargem) new hourly rows: 104345
+ok 358 62596270 SABESP SB-CA-BJC-T7 Emboque Túnel 7 new hourly rows: 4659
+ok 35414 734 SABESP Transposição Jaguari (PS) - Atibainha (SC) new hourly rows: 0
+ok 35609 1000734 SABESP Santa Isabel (Transposição Jaguari (PS) - Atibainha (SC)) new hourly rows: 0
+ok 35354 637 SABESP Santa Isabel (EEAB Paraíba do Sul - Atibainha) new hourly rows: 12286
+ok 238 58115900 SABESP Santa Isabel (SB-CA-EAB-Elevatória Paraíba do Sul) new hourly rows: 4416
+stations: data\processed\sibh_flow_stations.json

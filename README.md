@@ -73,9 +73,9 @@ python -I pipeline/run_all.py --fetch
 ```
 
 This runs every download (resumable) and then every build step in order:
-reservoirs, river gauges, ANA rain, SIBH telemetric rain, then `process.py`,
-`sibh_rain.py`, `rain_alignment.py`, `audit_rain.py` and `forcing.py`. Each
-step's output is also
+reservoirs, river gauges, ANA rain, SIBH telemetric rain, SIBH river, dam and
+tunnel stations, then `process.py`, `sibh_rain.py`, `rain_alignment.py`,
+`audit_rain.py`, `forcing.py` and `sibh_flow.py`. Each step's output is also
 written to `data/logs/run_all_<step>.log`. Without `--fetch` it only rebuilds
 from what is on disk; `--refresh` also re-fetches the most recent records;
 `--scene` re-fetches the map outlines from OpenStreetMap. It never runs the
@@ -137,7 +137,7 @@ fixed before it is run.
 | `pipeline/` | Acquisition and processing scripts (Python, standard library); `run_all.py` runs them in order |
 | `data/raw/` | Downloads exactly as received (SIBH responses gzip-compressed), plus the manifest |
 | `data/processed/` | Tidy CSVs: one per reservoir and gauge, system totals, control point, catchment forcing |
-| `docs/` | Generated reports: data quality, rain audit, SIBH rain gauges, rain day alignment, forcing, model validation |
+| `docs/` | Generated reports: data quality, rain audit, SIBH rain gauges, rain day alignment, SIBH flow stations, forcing, model validation |
 | `tests/` | Unit tests and data checks (standard library `unittest`) |
 | `web/` | Three.js viewer (Vite). `web/public/data/` holds what it reads |
 | `.github/workflows/` | CI, weekly data refresh, manual viewer deploy |
@@ -150,6 +150,7 @@ fixed before it is run.
 | River discharge (daily) | ANA HidroSerieHistorica web service | Observed stage, rating-curve discharge | Not stated |
 | Rain, conventional gauges (daily) | ANA HidroSerieHistorica web service | Observed, read at 07:00 | Not stated |
 | Rain, telemetric gauges (10-minute, fetched as hourly sums) | SP Águas SIBH public API; gauges of SP Águas, Sabesp, CEMADEN, SAISP and IAC | Observed, unconsolidated | None shown; portal footer reads "todos os direitos reservados" |
+| River stage and discharge, reservoir and channel levels, tunnel flows (10-minute, fetched as hourly means) | SP Águas SIBH public API; stations of SP Águas, Sabesp and SAISP, some fed from ANA's telemetry | Observed, unconsolidated; discharge from rating curves | As above |
 | Air temperature (daily, for evapotranspiration) | NASA POWER (MERRA-2) | Reanalysis | Free with attribution |
 | Terrain | Copernicus DEM GLO-30 (ESA): 3 arc-seconds for delineation, 1 arc-second (30 m) for display | Satellite surface model, EGM2008 | Free with attribution |
 | Ground imagery | Sentinel-2 L2A (ESA Copernicus) via Element 84 Earth Search; August 2024 cloud-free median | Satellite, display basemap | Free and open; "Contains modified Copernicus Sentinel data 2024" |
@@ -178,10 +179,17 @@ Deliberately absent, because the open data cannot support it:
 - **Lake extent or depth by date.** No bathymetry is public, so lake outlines
   are fixed map outlines and storage is shown by a bar in each lake's label, and
   in the analytical style by colour and a column.
-- **Tunnel flows and the withdrawal to São Paulo.** Not published.
+- **The withdrawal to São Paulo, Tunnel 7 and the Paraíba do Sul transfer.**
+  Not published. Tunnel 5 and Tunnel 6 flows are public on SIBH and are now in
+  the pipeline (see "River, dam and tunnel stations" below), but SIBH has only
+  levels at Tunnel 7 and at the Paraíba do Sul pumping station, and its two
+  transfer stations return no data. The tunnel flows are not yet in the
+  viewer.
+- **Measured outflow from the dams.** Sabesp's stations at both dams hold the
+  reservoir level and the level in the downstream channel, not a discharge.
 - **Sub-daily data.** ANA's public telemetry returns nothing for these gauges.
-  The state network (SIBH) has 10-minute rain, used here only as daily totals,
-  and 10-minute river data, not yet downloaded.
+  The state network (SIBH) has 10-minute rain and river data, used here only
+  as daily totals and daily means.
 - **Any simulated or forecast value.** The first inflow model failed
   validation (see below) and is withheld from the viewer.
 - **Restoration or land-use effects.** No defensible basis yet.
@@ -197,6 +205,10 @@ Deliberately absent, because the open data cannot support it:
   releases over 1984–2026 (correlation 0.90 for Cachoeira, 0.86 for Atibainha).
 - Reported percentages agree with reported volumes on every reservoir-day once
   the capacity in force at the time is used (see below).
+- SAR's reservoir level matches the 07:00 reading of Sabesp's telemetric
+  gauge at the dam, as served by SIBH, to within 5 cm on 99% of days at
+  Cachoeira (from 2015) and 98% at Atibainha (from 2010), with a median
+  difference of 0.000 m (`docs/sibh_flow_report.md`).
 
 ## Data gaps: what was fixed and what remains
 
@@ -216,18 +228,35 @@ Still open (cannot be settled from open data):
 
 - **Paiva Castro has no records for 2000–2003** (1,461 days), so system totals
   are missing for those years.
-- **Gauge below release.** The Piracaia gauge reads more than 0.5 m³/s below
-  the Cachoeira release on about 100 days a year in 2017, 2018 and 2022. A
-  one- or two-day shift does not fix it. Needs the operator's measured outflow
-  or the gauge's rating history.
+- **Gauge below release.** ANA's Piracaia gauge (62665000) reads more than
+  0.5 m³/s below the Cachoeira release on 50 days or more in 2010, 2017–2019,
+  2022 and 2025. A one- or two-day shift does not fix it. SIBH's stations
+  narrow it down (`docs/sibh_flow_report.md`, section 4):
+  - In most years the water did leave the dam. On ANA's shortfall days the
+    river 1 km below the dam (SP Águas 3E-116, a water level, so no rating
+    curve is involved) stands as high as on other days of the same year with
+    the same reported release: a median of 1 cm lower over 2010–2026 (−1.0 cm
+    in 2018, −0.5 cm in 2025), where a 0.5 m³/s step in release moves it about
+    12 cm. So the water goes missing downstream of that point, or not at all.
+    In 2025 the telemetric gauge beside ANA's (3E-145) reads short on 13 days
+    against ANA's 89, which points at ANA's record itself, most likely its
+    rating.
+  - 2022 may be different. 3E-145 also reads short that year (108 days), and
+    on its shortfall days the river below the dam was 8 cm lower. That
+    suggests less water was released than reported, but it rests on one group
+    of 102 days with the same reported release.
+
+  Still needs ANA's rating history for 62665000 and Sabesp's measured outflow
+  to settle.
 - **Capacities before 2000 differ a lot** (Atibainha 130 hm³, Paiva Castro
   27.6 hm³, against 96.25 and 7.61 today). Volumes across revisions are not
   strictly comparable; long-term storage trends should be read with care.
 - **Jaguari-Jacareí shows about 599 hm³ capacity for Jan–Aug 2004**, between
   two periods at about 808. Unexplained.
 - **The Atibaia gauge record ends on 31 May 2026**; other mid-river gauges end
-  in 2022. Ten-minute state river telemetry is public on SIBH but not yet
-  downloaded (see "Next steps").
+  in 2022. SIBH's telemetry for the river above and below the dams is now in
+  the pipeline; for the Atibaia gauge itself it is not yet (see "Next
+  steps").
 - **Two ANA-network rain gauges carry the wrong day on some years**
   (`docs/rain_alignment.md`). Piracaia (2346094) is one day out on every year
   from 2018 to 2025. Joanópolis (2246090) changes between years. Both feed the
@@ -484,16 +513,93 @@ investigation are frozen (see "Frozen analyses"). A new run would need its own
 design, fixed in advance, and should first settle the two mislabelled gauges
 (`docs/rain_alignment.md`).
 
+## River, dam and tunnel stations (SIBH), added 16 November 2026
+
+The same SIBH API serves the 10-minute records of the river, reservoir and
+tunnel stations of SP Águas, Sabesp and SAISP. Observed records only; no
+model was run.
+
+- `pipeline/fetch_sibh_flow.py` downloads hourly means for a fixed list of 21
+  station codes: the two river gauges above the reservoirs, two on the rio
+  Cachoeira below Cachoeira dam, the stations at both dams and their outlet
+  channels, the tunnel ends, and the Paraíba do Sul transfer. It also stores
+  each station's record and its published rating curves.
+- `pipeline/sibh_flow.py` builds daily means by rules fixed before any series
+  was computed: a local calendar day (UTC−3), kept if at least 18 hourly means
+  are valid, never filled. Two corrections were made after dry runs and before
+  any result was used, and both are recorded in the script: six Sabesp codes
+  serve levels in metres, not cm, and the two channel stations changed datum
+  in October 2022. Output: `data/processed/sibh_flow_<id>.csv` (level, its
+  datum and discharge per day). Report: `docs/sibh_flow_report.md`.
+
+What the stations hold:
+
+| Stations | Variable | Record |
+| --- | --- | --- |
+| Atibainha Montante (3E-121), Cachoeira Montante (3E-122), above the reservoirs | Stage and discharge | 2018 and 2022 onward, nearly complete |
+| 3E-116, 1 km below Cachoeira dam; 3E-145 in Piracaia beside ANA 62665000 | Stage and discharge | 2010 onward (discharge only to 2019) and 2022 onward |
+| Cachoeira and Atibainha dams, Tunnel 5 intake, Jacareí dam (Tunnel 7) | Reservoir level (elevation) | 2010 (Atibainha), 2015 (Cachoeira, Jacareí), 2019 (Tunnel 5 intake) onward |
+| Downstream channels of both dams | Level only | 2018 (Atibainha) and 2022 (Cachoeira) onward |
+| Tunnel 6 outlet (Cachoeira to Atibainha), Tunnel 5 outlet (Atibainha to Paiva Castro) | Stage and discharge | 2014–2015 onward (Tunnel 6 complete from 2020) |
+| Paraíba do Sul pumping station | Level only | 2024 onward |
+| Jaguari–Atibainha transfer (two codes) | Nothing | — |
+
+Six of the codes duplicate other codes' instruments, served between May 2024
+and June 2025 in metres; they agree with their twins wherever both report.
+
+What they show:
+
+- **SAR's inflow is noisy, the upstream gauges are not.** On rainless days
+  SAR's inflow rises on 45–52% of days, with successive changes cancelling: an
+  implied error of 0.5–0.8 m³/s a day. The upstream gauges rise on 18–26% of
+  those days, with an implied error under 0.1 m³/s. They follow SAR's inflow
+  at r = 0.88–0.94 on weekly means.
+- **The Cachoeira Montante gauge reads more than SAR's inflow to the whole
+  reservoir**, though it drains only part of the catchment: 1.11 times
+  overall, by year 0.91 (2022), 1.22, 1.39, 1.50 (2025) and 0.98 (2026 so
+  far). Its rating has changed by less than 6% since 2015. It sits 6–7 m above
+  the highest lake level since 2022 (Copernicus DEM, approximate), so
+  backwater from the lake is unlikely. On rainless days it reads a median of
+  2.7 m³/s against SAR's 1.2. Either the gauge reads high or SAR's
+  dry-weather inflow at Cachoeira is too low; which one is unresolved. Neither
+  gauge's drainage area is published.
+- **The Atibainha Montante gauge changed its rating in 2023 and again in
+  2024**: the same stage gives 23–41% more discharge from 2024. Its flow
+  before and after is not comparable without the rating history.
+- **SAR's Atibainha inflow does not include the Paraíba do Sul transfer.**
+  If it were the only water entering, Atibainha's balance in SAR (inflow minus
+  release minus storage change) would equal the measured Tunnel 5 outflow
+  minus the Tunnel 6 inflow. The two move together (r = 0.82, SAR one day
+  later), but the tunnels exceed the balance by a median of 5–8 m³/s in every
+  year of 2019–2022 and 2024–2026. The excess is about zero in 2015 and 2017,
+  before the link opened in 2018, and in 2023. It is most likely the transfer:
+  estimated here, not measured. This confirms, from measured flows, the
+  runoff investigation's finding above that the transfer is not counted as
+  inflow.
+- **Cachoeira's balance cannot be checked**: it needs Tunnel 7, and SIBH has
+  only the reservoir level there.
+- **Gauge below release**: see "Data gaps" above.
+
+**What this means for modelling.** The upstream gauges are close to the new
+data that could reopen modelling: an inflow measure independent of the
+reservoir balance, with far less day-to-day noise than SAR's inflow. But they
+cover parts of the catchments with unknown areas, from 2018 and 2022 only;
+one changed its rating, and the other reads above SAR's whole-reservoir
+inflow. **No model was run.** Any run on them needs its own design, fixed in
+advance.
+
 ## Next steps
 
 1. Send the data requests drafted in `docs/data_requests.md` (six letters in
    Portuguese with English summaries; drafted, not sent). They need a
    Brazilian partner to send or co-sign, and a native speaker's review. Part of
-   what letters 1, 2 and 5 ask for is already public on SIBH (see the note at
+   what letters 1, 2, 3 and 5 ask for is already public on SIBH (see the note at
    the top of that file); check it before sending.
-2. Download the SIBH flow stations: Sabesp's dam outlets, tunnel ends and
-   Paraíba do Sul transfer, the river gauges just above both dams (an inflow
-   measure independent of the reservoir balance), and their rating curves.
+2. From SIBH: download the Atibaia gauge's own telemetry (62669900). Ask SP
+   Águas for the drainage areas and rating histories of 3E-121 and 3E-122, and
+   Sabesp for Tunnel 7 and Paraíba do Sul transfer flows (the notes at the top
+   of `docs/data_requests.md` say how to trim and extend letters 1–4; the
+   letters themselves are not yet rewritten).
 3. Decide how to treat the two rain gauges with the wrong day (drop or shift
    those gauge-years), then write the design for any new model run.
 4. Ask the operator how inflow was computed before 2000 (Atibainha looks too high).
