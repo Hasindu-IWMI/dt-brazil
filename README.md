@@ -66,7 +66,7 @@ looked very different.
 
 ## Refresh the data
 
-Python 3.10+ with the standard library only; Node 20+.
+Python 3.10+ with the standard library only; Node 22 or later (CI uses 24).
 
 ```bash
 python -I pipeline/run_all.py --fetch
