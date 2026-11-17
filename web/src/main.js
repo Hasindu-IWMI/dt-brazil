@@ -14,6 +14,8 @@ import { Atmosphere } from './scene/atmosphere.js';
 import { Terrain, loadDem, LANDCOVER } from './scene/terrain.js';
 import { realisticWaterMaterial, analyticalWaterMaterial } from './scene/water.js';
 import { RecordLayers } from './scene/layers.js';
+import { BuildingLayer } from './scene/buildings.js';
+import { SOURCE_COLOURS } from './scene/buildingMaterial.js';
 
 const RULES_FROM = '2017-06-01';
 const COLUMN_M = 4500;  // display height of a full (100 %) storage column, metres
@@ -70,7 +72,8 @@ const inBox = (lon, lat) => lon >= bbox.west && lon <= bbox.east && lat >= bbox.
 
 // ---- renderer, camera, controls
 const host = $('scene');
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+// stencil: overlapping building shadows darken a pixel only once (buildingMaterial.js)
+const renderer = new THREE.WebGLRenderer({ antialias: true, stencil: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.toneMapping = THREE.NeutralToneMapping;
 host.appendChild(renderer.domElement);
@@ -92,7 +95,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(40, 1, 50, 1.5e6);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.maxPolarAngle = Math.PI * 0.49;
-controls.minDistance = 1500;
+controls.minDistance = 120; // close enough for buildings
 controls.maxDistance = 320000;
 controls.enableDamping = true;
 controls.screenSpacePanning = false;
@@ -117,17 +120,9 @@ function applyShadows() {
   $('lyr-shadow').checked = shadows;
 }
 
-// Height on the drawn mesh (bilinear between mesh vertices), so lines and pins sit on the surface you see.
+// Height on the drawn mesh (its own triangles), so lines, pins and buildings sit on the surface you see.
 function surfaceAt(lon, lat) {
-  const { W, H, dLon, dLat } = terrain;
-  const fx = ((lon - bbox.west) / dLon - 0.5) / stride;
-  const fy = ((bbox.north - lat) / dLat - 0.5) / stride;
-  const cols = Math.floor((W - 1) / stride) + 1, rows = Math.floor((H - 1) / stride) + 1;
-  if (fx < 0 || fy < 0 || fx > cols - 1 || fy > rows - 1) return terrain.elevAt(lon, lat) ?? terrain.baseElev;
-  const x0 = Math.min(cols - 2, Math.floor(fx)), y0 = Math.min(rows - 2, Math.floor(fy));
-  const tx = fx - x0, ty = fy - y0;
-  const e = (c, r) => elev[r * stride * W + c * stride];
-  return (e(x0, y0) * (1 - tx) + e(x0 + 1, y0) * tx) * (1 - ty) + (e(x0, y0 + 1) * (1 - tx) + e(x0 + 1, y0 + 1) * tx) * ty;
+  return terrain.meshAt(lon, lat) ?? terrain.elevAt(lon, lat) ?? terrain.baseElev;
 }
 
 // ---- rivers (mapped lines, on the terrain)
@@ -221,6 +216,20 @@ if (records) {
   terrain.setOverlay(records.overlayTexture());
 }
 
+// ---- 3D buildings (scene/buildings.js): streamed around the view target when the camera is close
+const buildings = new BuildingLayer({ terrain, frame, base: DATA, quality });
+const hasBuildings = await buildings.init();
+scene.add(buildings.group, buildings.shadowGroup);
+if (!hasBuildings) {
+  $('lyr-bld').checked = false;
+  $('lyr-bld').disabled = true;
+  $('lyr-bld').parentElement.title = 'Buildings not built (npm --prefix web run buildings)';
+}
+$('bld-legend').innerHTML = '<div class="muted">Building height from</div>'
+  + [2, 1, 3, 4, 0].map((k) => `<span><i style="background:${SOURCE_COLOURS[k][0]}"></i>${SOURCE_COLOURS[k][1]}</span>`).join('');
+for (const p of buildings.places) $('goto').add(new Option(p.name, `${p.lon},${p.lat}`));
+$('goto-row').hidden = !buildings.places.length;
+
 let showColumns = style === 'analytical';
 let storageT = {}; // reservoir -> fraction stored (or null) for the current date
 function placeMarkers() {
@@ -260,6 +269,8 @@ function applyStyle() {
     m.renderOrder = real ? 0 : 2;
   }
   applyShadows();
+  buildings.setStyle(style);
+  $('bld-legend').hidden = real || !hasBuildings || !$('lyr-bld').checked;
   document.querySelectorAll('#style button').forEach((b) => b.classList.toggle('on', b.dataset.style === style));
   document.body.classList.toggle('analytical', !real);
   $('lyr-columns').checked = showColumns;
@@ -273,6 +284,7 @@ function applyRelief() {
   camera.position.y *= k;
   shownExag = exag;
   world.scale.y = exag;
+  buildings.setExaggeration(exag);
   placeMarkers();
   records?.place(exag);
   $('exag').textContent = exag === 1 ? 'true scale (×1)' : `×${exag}`;
@@ -310,6 +322,16 @@ $('lyr-flows').addEventListener('change', (e) => {
 $('lyr-upcatch').addEventListener('change', (e) => terrain.setOverlay(e.target.checked && records ? records.overlayTexture() : null));
 if (!records) for (const id of ['lyr-rain', 'lyr-flows', 'lyr-upcatch']) { $(id).checked = false; $(id).disabled = true; }
 $('lyr-rivers').addEventListener('change', (e) => { rivers.visible = e.target.checked; });
+$('lyr-bld').addEventListener('change', (e) => {
+  buildings.setEnabled(e.target.checked);
+  $('bld-legend').hidden = style === 'realistic' || !e.target.checked;
+});
+$('goto').addEventListener('change', (e) => {
+  if (!e.target.value) return;
+  const [lon, lat] = e.target.value.split(',').map(Number);
+  flyTo(lon, lat);
+  e.target.value = '';
+});
 $('lyr-columns').addEventListener('change', (e) => { showColumns = e.target.checked; placeMarkers(); });
 $('lyr-lc').addEventListener('change', async (e) => {
   if (e.target.checked && !terrain.landcoverTex) {
@@ -337,12 +359,34 @@ $('view-toggle').addEventListener('click', () => setCardOpen($('view').classList
 setCardOpen(innerWidth >= 1100);
 
 function homeView() {
+  flight = null;
   const ty = surfaceAt(lon0, lat0 - 0.05) * exag;
   // oblique enough that the sky and the haze at the horizon are in view
   controls.target.set(-2000, ty, 2000);
   camera.position.set(-14000, ty + 30000, 68000);
   controls.update();
 }
+
+// Fly to a town (the "Go to" menu): keep the compass bearing, look down at about 35 degrees from 1.8 km.
+let flight = null;
+function flyTo(lon, lat, dist = 1800) {
+  const to = new THREE.Vector3(X(lon), surfaceAt(lon, lat) * exag, Z(lat));
+  const az = Math.atan2(camera.position.x - controls.target.x, camera.position.z - controls.target.z);
+  const up = 0.62;
+  const cam = to.clone().add(new THREE.Vector3(Math.sin(az) * Math.cos(up), Math.sin(up), Math.cos(az) * Math.cos(up)).multiplyScalar(dist));
+  flight = { t0: performance.now(), dur: 1800, fromT: controls.target.clone(), fromC: camera.position.clone(), toT: to, toC: cam };
+}
+function flightStep(now) {
+  const k = Math.min(1, (now - flight.t0) / flight.dur);
+  const e = k < 0.5 ? 4 * k * k * k : 1 - (-2 * k + 2) ** 3 / 2; // ease in-out
+  // travel high: the camera rises over the midpoint so the flight does not skim the hills
+  const lift = Math.sin(Math.PI * e) * 0.35 * flight.fromC.distanceTo(flight.toC);
+  controls.target.lerpVectors(flight.fromT, flight.toT, e);
+  camera.position.lerpVectors(flight.fromC, flight.toC, e);
+  camera.position.y += lift;
+  if (k >= 1) flight = null;
+}
+controls.addEventListener('start', () => { flight = null; });
 
 // ---- panel: rain, rivers above the lakes, tunnels (observed, except catchment rain, which is derived)
 function recordsPanel() {
@@ -403,7 +447,8 @@ $('model-note').textContent = verdicts.length
   ? `Inflow in m³/s. ${verdicts.join(' ')} Acceptance needed low-flow bias within ±50% in both folds. A model that failed validation is not shown.`
   : 'No model results yet.';
 $('stamp').textContent = `Records to ${ts.dates.at(-1)}. Data file built ${ts.generated_utc.slice(0, 10)}. Sources: ANA SAR; ANA HidroSerieHistorica; `
-  + 'Copernicus DEM GLO-30; contains modified Copernicus Sentinel data 2024; ESA WorldCover 2021 (CC BY 4.0); © OpenStreetMap contributors.';
+  + 'Copernicus DEM GLO-30; contains modified Copernicus Sentinel data 2024; ESA WorldCover 2021 (CC BY 4.0); © OpenStreetMap contributors; '
+  + 'Microsoft Global ML Building Footprints (ODbL); Google Open Buildings 2.5D Temporal (CC BY 4.0).';
 
 const cell = (td, v, d = 1) => {
   const s = fmt(v, d);
@@ -741,7 +786,7 @@ resize();
 applyRelief();
 applyStyle();
 homeView();
-if (import.meta.env.DEV) window.__viewer = { camera, controls, atmosphere, terrain, scene, renderer }; // debugging only
+if (import.meta.env.DEV) window.__viewer = { camera, controls, atmosphere, terrain, scene, renderer, buildings, flyTo }; // debugging only
 // the land-cover roughness cue (mapped water catches the sun) loads after the first frame
 if (imagery) terrain.loadLandcover(DATA + 'landcover.png').catch(() => {});
 
@@ -755,18 +800,34 @@ renderer.setAnimationLoop((t) => {
   }
   const dt = Math.min(0.1, (t - prevT) / 1000);
   prevT = t;
+  if (flight) flightStep(t);
   controls.update();
+  // keep the orbit centre on the ground (moving the camera with it), so zooming in to a town on a hill
+  // or in a valley ends at the town, not above or under it
+  if (!flight) {
+    const dy = (terrain.meshAtXZ(controls.target.x, controls.target.z) * exag - controls.target.y) * 0.15;
+    if (Math.abs(dy) > 0.01) { controls.target.y += dy; camera.position.y += dy; }
+  }
   // keep the camera above the ground, and the near plane as far out as the view allows
   const ground = terrain.elevAtXZ(camera.position.x, camera.position.z) * exag;
-  if (camera.position.y < ground + 120) camera.position.y = ground + 120;
-  const near = THREE.MathUtils.clamp((camera.position.y - ground) * 0.25, 20, 3000);
+  if (camera.position.y < ground + 25) camera.position.y = ground + 25;
+  const near = THREE.MathUtils.clamp((camera.position.y - ground) * 0.25, 5, 3000);
   if (Math.abs(near - camera.near) > camera.near * 0.2) { camera.near = near; camera.updateProjectionMatrix(); }
   atmosphere.update(exag, dt);
   records?.tick(t / 1000);
+  buildings.update(camera, controls.target, atmosphere.sunPos.elevation);
   renderer.render(scene, camera);
+  if (++bldFrame % 30 === 0) buildingNote();
   labels.render(scene, camera);
   if (++frameNo % 3 === 0) declutter();
 });
+
+let bldFrame = 0;
+function buildingNote() {
+  if (!hasBuildings) return;
+  const s = buildings.stats();
+  $('bld-note').textContent = !$('lyr-bld').checked ? '' : s.shown ? (s.buildings ? `${s.buildings.toLocaleString()} drawn` : 'loading…') : 'zoom in to a town';
+}
 
 // Labels: where two overlap on screen, the lower-priority one is hidden (hover still describes it).
 // Priority: reservoirs 5, measured tunnels and gauges above the lakes 4, ANA gauges 3, unmeasured tunnels 2, others 1.
@@ -783,8 +844,8 @@ function declutter() {
   }
 }
 
-// ---- hover: what a marker is, where it comes from, its value on the replayed date
-if (records) {
+// ---- hover: what a marker is, where it comes from, its value on the replayed date; else the building
+if (records || hasBuildings) {
   const ray = new THREE.Raycaster();
   const ndc = new THREE.Vector2();
   const hoverTip = $('hover-tip');
@@ -798,8 +859,8 @@ if (records) {
       const r = renderer.domElement.getBoundingClientRect();
       ndc.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
       ray.setFromCamera(ndc, camera);
-      const visible = records.pickables.filter((o) => o.visible && o.parent?.visible !== false && records.group.visible
-        && (o.userData.kind !== 'rain' || records.rainGroup.visible));
+      const visible = records ? records.pickables.filter((o) => o.visible && o.parent?.visible !== false && records.group.visible
+        && (o.userData.kind !== 'rain' || records.rainGroup.visible)) : [];
       // several sites have a rain gauge and a river gauge side by side: describe both
       const hits = ray.intersectObjects(visible, false);
       const seen = new Set();
@@ -812,7 +873,11 @@ if (records) {
         const d = records.describe(h);
         if (d) parts.push(d);
       }
-      const text = parts.length ? parts.join('<hr>') : null;
+      let text = parts.length ? parts.join('<hr>') : null;
+      if (!text && hasBuildings) {
+        const b = buildings.pick(ray.ray);
+        if (b) text = BuildingLayer.describe(b.info);
+      }
       hoverTip.hidden = !text;
       if (text) {
         hoverTip.innerHTML = text;

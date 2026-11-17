@@ -42,8 +42,11 @@
       <label><input type="checkbox" id="lyr-rivers" checked aria-label="Rivers"> Rivers</label>
       <label><input type="checkbox" id="lyr-columns" aria-label="Storage columns"> Storage columns</label>
       <label><input type="checkbox" id="lyr-lc" aria-label="Land cover 2021"> Land cover (2021)</label>
+      <label><input type="checkbox" id="lyr-bld" checked aria-label="Buildings"> Buildings <span id="bld-note" class="muted small"></span></label>
     </div>
     <div id="lc-legend" class="legend" hidden></div>
+    <div id="bld-legend" class="legend" hidden></div>
+    <label class="row" id="goto-row" hidden><span>Go to</span><select id="goto" aria-label="Go to a town"><option value="">Town…</option></select></label>
     <button id="reset" class="small-btn">Reset view</button>
   </div>
 
@@ -96,6 +99,7 @@
         <li><b>Derived on the map:</b> the teal catchments of the two gauges above the lakes, delineated from the DEM (no area is published for them).</li>
         <li><b>Not shown, because not known:</b> lake outline or level on each date (no bathymetry), Tunnel 7 and Paraíba do Sul transfer flows (grey dashed: no public record), the tunnels' true underground routes, sub-daily data.</li>
         <li><b>Display only, does not change with the date:</b> ground imagery (Sentinel-2, dry season August 2024), land cover (ESA WorldCover 2021), lake outlines (OpenStreetMap) drawn at the terrain's own lake surface, and the sky and haze. The sun is the computed sun for the replayed date at the chosen hour.</li>
+        <li><b>Buildings</b> (zoom in to a town): footprints from OpenStreetMap, else Microsoft's machine-detected footprints; heights from OSM tags, else Google's 2.5D model estimate (2023), else a 4 m placeholder. Hover a building to see which. They show today's town, not the town on the replayed date. Roof forms, windows and colours are illustrative; the Analytical style colours buildings by where their height comes from.</li>
         <li>White lines are catchment boundaries delineated from the terrain. Terrain is Copernicus GLO-30 at 30 m, a surface model (it includes forest canopy), for display only. Vertical scale: <span id="exag"></span>.</li>
       </ul>
       <p class="note" id="stamp"></p>

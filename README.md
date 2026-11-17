@@ -25,6 +25,16 @@ with the 90 m terrain and elevation colours.
 npm --prefix web run basemap
 ```
 
+The 3D buildings are built the same way: about 536,000 footprints from
+OpenStreetMap and Microsoft, heights from OSM tags and Google 2.5D. It downloads
+about 300 MB into `web/.cache/` (kept for rebuilds), reads Google's height
+rasters in place, takes 30–60 minutes and writes about 15 MB of tiles. Without
+them the viewer runs with no buildings.
+
+```bash
+npm --prefix web run buildings
+```
+
 ```bash
 npm --prefix web run dev
 ```
@@ -41,7 +51,9 @@ The card at the top left switches between two styles:
   observed storage, and storage columns.
 
 The card also sets the vertical scale (true scale to ×4), haze and layers,
-including ESA WorldCover land cover. URL options: `?style=analytical`,
+including ESA WorldCover land cover and 3D buildings. Buildings appear when you
+zoom in to a town (closer than about 9 km); "Go to" flies to one. Hover a
+building to see where its footprint and height come from. URL options: `?style=analytical`,
 `?relief=2`, `?hour=16.5`, `?haze=hazy`, `?quality=high|medium|low` (mesh
 density; chosen from the GPU by default).
 
@@ -59,6 +71,7 @@ data first, display second, and every display assumption labelled.
 | Sun | Solar position for the window centre, replayed date, chosen hour (UTC−3; the daylight-saving hour before 2019 is ignored) | Twilight lighting when the sun is below the horizon |
 | Sky and haze | none | Preetham sky scaled to the scene's exposure; haze colour from the same sky model; "Clear" and "Hazy" are looks, not observations |
 | Storage | Observed % stored (ANA SAR), shown in labels, colours and columns | Column height scale |
+| Buildings | Footprints: OpenStreetMap, else Microsoft ML footprints where no OSM building overlaps. Height: OSM `height`, else `building:levels` × 3 m, else Google Open Buildings 2.5D 2023 (a model estimate: median of the 2 m pixels in the footprint), else a 4 m placeholder. Counts per source: `web/public/data/buildings.json` | Roof form (hipped, gabled, shallow shed or flat with a parapet; the ridge is never above the data height), windows, doors, paint, roof material (ceramic tile, metal, fibre-cement, concrete) and weathering are procedural. Bases sit on the drawn terrain, which is a 30 m surface model. Shadows are baked on the ground from the current sun. The Analytical style colours buildings by height source instead. Buildings are today's, not the replayed date's |
 | Rain, rivers, tunnels | Audited daily rain at each gauge; daily discharge at the SIBH river gauges and tunnel outlets; the DEM catchments of the two gauges above the lakes (teal) | Column height and ring size scales; **tunnel routes are schematic arcs** between the known ends (a station, or else the nearest shore of the connected reservoir) |
 
 The imagery and land cover show one season and do not change with the replay
@@ -83,12 +96,21 @@ from what is on disk; `--refresh` also re-fetches the most recent records;
 model scripts (see "Frozen analyses" below).
 
 The display basemap (30 m terrain, Sentinel-2 imagery, WorldCover land cover)
-does not change with new records, is not committed, and is built separately
-(the deploy workflow does this too):
+and the 3D buildings do not change with new records, are not committed, and
+are built separately (the deploy workflow does this too):
 
 ```bash
 npm --prefix web run basemap
 ```
+
+```bash
+npm --prefix web run buildings
+```
+
+The building step caches its downloads in `web/.cache/buildings/`; add
+`-- --refresh` to fetch them again. Overpass refuses queries when it is busy;
+the step retries, and can simply be run again (fetched OSM blocks are kept).
+`-- --no-osm` builds from the Microsoft footprints alone.
 
 The reservoir and ANA services are slow and time out; the fetches are
 resumable, so run again until no `FAIL` lines remain. Every download is logged
@@ -157,6 +179,8 @@ fixed before it is run.
 | Ground imagery | Sentinel-2 L2A (ESA Copernicus) via Element 84 Earth Search; August 2024 cloud-free median | Satellite, display basemap | Free and open; "Contains modified Copernicus Sentinel data 2024" |
 | Land cover | ESA WorldCover 10 m 2021 v200 | Satellite-derived classes | CC BY 4.0 |
 | Lake outlines, rivers | OpenStreetMap via Overpass | Mapped | ODbL 1.0 |
+| Building footprints | OpenStreetMap via Overpass; Microsoft Global ML Building Footprints where OSM has none | Mapped; machine-detected from imagery | ODbL 1.0 |
+| Building heights | OSM `height` and `building:levels` tags; Google Open Buildings 2.5D Temporal v1, 2023 | Mapped; model estimate from Sentinel-2 | ODbL 1.0; CC BY 4.0 |
 | Operating bands | Joint Resolution ANA/DAEE 925/2017, as tabulated by Comitês PCJ | Regulation | Public |
 
 ## What is and is not here

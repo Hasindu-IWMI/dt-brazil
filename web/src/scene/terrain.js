@@ -41,7 +41,7 @@ export const LANDCOVER = {
 export class Terrain {
   constructor({ elev, meta, frame, stride, imagery, anisotropy }) {
     const { width: W, height: H, bbox } = meta;
-    Object.assign(this, { elev, W, H, bbox, frame });
+    Object.assign(this, { elev, W, H, bbox, frame, stride });
     this.dLon = (bbox.east - bbox.west) / W;
     this.dLat = (bbox.north - bbox.south) / H;
     this.group = new THREE.Group();
@@ -313,6 +313,38 @@ export class Terrain {
   /** Elevation under a scene point (x, z), or the base level outside the window. */
   elevAtXZ(x, z) {
     return this.elevAt(this.frame.lon(x), this.frame.lat(z)) ?? this.baseElev;
+  }
+
+  /**
+   * Height of the mesh as drawn (vertices every `stride` cells, each cell split along its NE-SW
+   * diagonal like the index buffer above) at a geographic point; null outside the mesh. Lines, pins and
+   * buildings use it so they sit on the surface you see; buildingMaterial.js does the same on the GPU.
+   */
+  meshAt(lon, lat) {
+    const { W, H, bbox, elev, stride } = this;
+    const cols = Math.floor((W - 1) / stride) + 1, rows = Math.floor((H - 1) / stride) + 1;
+    const fx = ((lon - bbox.west) / this.dLon - 0.5) / stride;
+    const fy = ((bbox.north - lat) / this.dLat - 0.5) / stride;
+    if (!(fx >= 0 && fy >= 0 && fx <= cols - 1 && fy <= rows - 1)) return null;
+    const ci = Math.min(cols - 2, Math.floor(fx)), ri = Math.min(rows - 2, Math.floor(fy));
+    const tx = fx - ci, ty = fy - ri;
+    const e = (c, r) => elev[r * stride * W + c * stride];
+    const a = e(ci, ri), b = e(ci + 1, ri), d = e(ci, ri + 1), f = e(ci + 1, ri + 1);
+    return tx + ty <= 1 ? a + (b - a) * tx + (d - a) * ty : f + (d - f) * (1 - tx) + (b - f) * (1 - ty);
+  }
+
+  /** meshAt for a scene point (x, z); the base level outside the window. */
+  meshAtXZ(x, z) {
+    return this.meshAt(this.frame.lon(x), this.frame.lat(z)) ?? this.baseElev;
+  }
+
+  /** The mesh's vertex heights (rows north to south), for a GPU copy of the drawn surface. */
+  meshGrid() {
+    const { W, H, elev, stride } = this;
+    const cols = Math.floor((W - 1) / stride) + 1, rows = Math.floor((H - 1) / stride) + 1;
+    const heights = new Float32Array(cols * rows);
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) heights[r * cols + c] = elev[r * stride * W + c * stride];
+    return { cols, rows, stride, heights };
   }
 
   /** Median DEM height inside a polygon (geographic ring), sampled on a coarse grid. */
