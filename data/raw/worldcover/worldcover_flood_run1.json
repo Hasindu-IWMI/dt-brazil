@@ -1,0 +1,97 @@
+{
+ "source": "ESA WorldCover 10 m 2021 v200 (CC BY 4.0)",
+ "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_S24W048_Map.tif",
+ "crs": "EPSG:4326",
+ "width": 1920,
+ "height": 1442,
+ "rowOrder": "north to south",
+ "west": -46.66,
+ "north": -23.039916666666667,
+ "pixel_deg": 8.333333333333333e-05,
+ "tiles": [
+  {
+   "tile": [
+    15,
+    23
+   ],
+   "bytes": 88509,
+   "sha256": "15387fe7c6dd4fb6fa4a1edf47a0daf858712161b7b14058c00fac79c8ac765c"
+  },
+  {
+   "tile": [
+    16,
+    23
+   ],
+   "bytes": 78396,
+   "sha256": "563efe3e0936ae0e763f9a37def749b5bc7a71938057b4c5db6d0a239835594e"
+  },
+  {
+   "tile": [
+    17,
+    23
+   ],
+   "bytes": 90278,
+   "sha256": "62b6866fbd5ba62bbfebd4bea04fce90066dee447193ab5cfbb457fa2553a4c0"
+  },
+  {
+   "tile": [
+    15,
+    24
+   ],
+   "bytes": 94033,
+   "sha256": "1f303b6a505f6de91a0950d9163d78a059e225bf03d350f62d21bba9828238ce"
+  },
+  {
+   "tile": [
+    16,
+    24
+   ],
+   "bytes": 85673,
+   "sha256": "0372a4807fd6c3500141eedf280648312fc505bb840608ca4cd2a9f782203e0c"
+  },
+  {
+   "tile": [
+    17,
+    24
+   ],
+   "bytes": 79856,
+   "sha256": "d298431fa9ebdefe373641fdb105689216cc12a288eab6abf06a52a4682e44cd"
+  },
+  {
+   "tile": [
+    15,
+    25
+   ],
+   "bytes": 82505,
+   "sha256": "4693ccbd326d7395e86cb827f3d688e73fa9f1a028c2b24d748d0a5e3295ce7b"
+  },
+  {
+   "tile": [
+    16,
+    25
+   ],
+   "bytes": 88514,
+   "sha256": "599019367658d33fa77bda8f2c82ed4fb7d31b159562c8763b1df2dbaa68560e"
+  },
+  {
+   "tile": [
+    17,
+    25
+   ],
+   "bytes": 42399,
+   "sha256": "79d983a720671f5634ed74b7724638df2ff1ba3cb17cebc23f1203da12b3e028"
+  }
+ ],
+ "class_counts": {
+  "10": 1182743,
+  "20": 9,
+  "30": 931013,
+  "40": 218446,
+  "50": 391053,
+  "60": 21926,
+  "80": 23430,
+  "90": 20
+ },
+ "sha256_window": "5d7e5019e6bc7bf3af66f8ad15d31ed7d8fea5a60a04fc75592a23432b20efb8",
+ "attribution": "\u00a9 ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium"
+}

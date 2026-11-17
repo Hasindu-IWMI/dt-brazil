@@ -13,6 +13,12 @@ array from its first date; null is a day without a record (or one the audit excl
                   "schematic". The underground alignments are not in the data used.
   catchments      cell masks (row runs on the 3 arc-second delineation grid) for draping
                   catchments on the terrain
+  flood           Atibaia town: the daily highest level at SP Águas' gauge 3E-063 with its
+                  official alarm levels, and at ANA 62671200 above the Salto Grande plant;
+                  the floods since 2015 (DERIVED: days reaching the overflow level); and the
+                  Geological Survey of Brazil's 2012 risk sectors (official mapped areas).
+                  Observed and official records only: no modelled water (flood run 1 stopped
+                  before its test; see the README).
 
 Usage: python viewer_layers.py
 """
@@ -95,8 +101,12 @@ def main():
                "catchment_rain": "DERIVED: inverse-distance-squared mean of the audited gauges within 20 km of each catchment centroid (pipeline/forcing.py, pipeline/upstream_catchments.py).",
                "flow_stations": "Observed daily mean discharge (m3/s) from SIBH telemetry (pipeline/sibh_flow.py); rating curves are not checkable from open data.",
                "tunnels": "Routes are schematic: an end is a measuring station where one exists, otherwise the nearest shore of the connected reservoir. Underground alignments are not in the data used.",
-               "catchments": "Delineated from Copernicus GLO-30 at 3 arc-seconds (pipeline/delineate.py)."},
-           "rain_sites": [], "catchment_rain": {}, "flow_stations": [], "tunnels": [], "catchments": {}}
+               "catchments": "Delineated from Copernicus GLO-30 at 3 arc-seconds (pipeline/delineate.py).",
+               "flood": "Observed daily highest level (cm, each gauge's own zero) from SIBH hourly means (pipeline/flood_gauges.py); "
+                        "SP Águas' alarm levels for 3E-063 from its SIBH station record; floods DERIVED as days reaching the "
+                        "overflow level; risk sectors as published by the Geological Survey of Brazil (CPRM) in 2012 "
+                        "(pipeline/cprm_risk.py). No modelled water."},
+           "rain_sites": [], "catchment_rain": {}, "flow_stations": [], "tunnels": [], "catchments": {}, "flood": None}
 
     for code, (name, lat, lon) in fo.ALL_GAUGES.items():
         first, mm = contiguous(fo.load_rain(code, excl), dates, 1)
@@ -153,11 +163,37 @@ def main():
                "role": "upstream" if name in UPSTREAM.values() else "dam" if name.endswith("_dam") else "gauge"}
         for name, v in cats["catchments"].items() if name in labels}}
 
+    fg_path = os.path.join(c.PROCESSED, "flood_gauges.json")
+    risk_path = os.path.join(c.PROCESSED, "cprm_risk_atibaia.json")
+    if os.path.exists(fg_path):
+        fg = json.load(open(fg_path, encoding="utf-8"))
+
+        def gauge(code, label, role):
+            """Daily highest level (cm) as a contiguous series; daily mean discharge as its own series, if any."""
+            m = fg["stations"][code]
+            rows = c.read_csv(os.path.join(c.PROCESSED, "flood_daily_%s.csv" % code))
+            first, mx = contiguous({r["date"]: num(r["max_cm"]) for r in rows}, dates, 1)
+            q_first, q = contiguous({r["date"]: num(r["q_m3s"]) for r in rows}, dates, 2)
+            rec = {"code": code, "label": label, "role": role, "name": m["name"], "lat": m["lat"], "lon": m["lon"],
+                   "levels_cm": m["levels_cm"], "first": first, "max_cm": mx}
+            if q_first is not None:
+                rec.update({"q_first": q_first, "q": q})
+            return rec
+        town = gauge("3E-063", "Rio Atibaia, Atibaia town (3E-063)", "town")
+        out["flood"] = {"town": town,
+                        "downstream": gauge("62671200", "Rio Atibaia above the Salto Grande plant (ANA 62671200)", "downstream"),
+                        "events_rule": fg["events_rule"], "events": fg["events"], "day_rule": fg["day_rule"]}
+        if os.path.exists(risk_path):
+            risk = json.load(open(risk_path, encoding="utf-8"))
+            out["flood"]["risk"] = {"source": risk["source"], "meaning": risk["meaning"], "sectors": risk["sectors"]}
+
     with open(os.path.join(WEB, "layers.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
     size = os.path.getsize(os.path.join(WEB, "layers.json"))
-    print("layers.json: %d rain sites, %d flow stations, %d tunnels, %d catchments, %.1f MB" % (
-        len(out["rain_sites"]), len(out["flow_stations"]), len(out["tunnels"]), len(out["catchments"]["masks"]), size / 1e6))
+    print("layers.json: %d rain sites, %d flow stations, %d tunnels, %d catchments, flood: %s, %.1f MB" % (
+        len(out["rain_sites"]), len(out["flow_stations"]), len(out["tunnels"]), len(out["catchments"]["masks"]),
+        "%d floods, %d risk sectors" % (len(out["flood"]["events"]), len(out["flood"].get("risk", {}).get("sectors", [])))
+        if out["flood"] else "none", size / 1e6))
 
 
 if __name__ == "__main__":

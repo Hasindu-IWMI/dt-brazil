@@ -31,6 +31,16 @@ export function realisticWaterMaterial() {
   }), { normal: RIPPLE, key: 'water' });
 }
 
+/** Modelled flood water (scene/floodwater.js): the lakes' ripples and sky reflection, tinted and
+ * faded by the modelled depth through RGBA vertex colours. */
+export function floodWaterMaterial() {
+  return withAtmosphere(new THREE.MeshStandardMaterial({
+    color: 0xffffff, vertexColors: true, transparent: true, depthWrite: false, side: THREE.DoubleSide,
+    roughness: 0.1, metalness: 0, envMapIntensity: 0.8,
+    polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -8,
+  }), { normal: RIPPLE, key: 'flood' });
+}
+
 /** Analytical style: flat fill coloured by observed storage, drawn over the terrain. */
 export function analyticalWaterMaterial(color) {
   return new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.92, depthTest: false });

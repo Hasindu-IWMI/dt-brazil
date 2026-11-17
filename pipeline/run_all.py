@@ -15,6 +15,9 @@ continues with what is on disk; a failed build step stops the run.
   fetch  fetch_sibh_rain.py [--refresh]             hourly rain, SIBH telemetric gauges
   fetch  fetch_sibh_flow.py [--refresh]             hourly level and discharge, SIBH river,
                                                     dam and tunnel stations
+  fetch  fetch_flood_stations.py [--refresh]        hourly level at Atibaia town (3E-063) and
+                                                    above the Salto Grande plant (62671200)
+  fetch  fetch_cprm_risk.py                         CPRM's 2012 risk sectors for Atibaia (once)
   build  process.py      reservoir and gauge tables, data quality report, viewer JSON
   build  sibh_rain.py    daily series from the telemetric gauges
   build  rain_alignment.py  day labelling of each ANA rain gauge (report only)
@@ -24,7 +27,9 @@ continues with what is on disk; a failed build step stops the run.
                          the reservoir records (report only; uses the forcing rain)
   build  upstream_catchments.py  checks and runoff of the gauges above the lakes on their
                          DEM catchments (report only)
-  build  viewer_layers.py  rain, river and tunnel records for the viewer (layers.json)
+  build  cprm_risk.py    the risk sectors as JSON
+  build  flood_gauges.py daily river level at Atibaia town and the floods since 2015
+  build  viewer_layers.py  rain, river, tunnel and flood records for the viewer (layers.json)
 
 Deliberately NOT run: delineate.py and the terrain tools (one-off; their
 inputs are fixed), and the frozen analyses model.py, model_run3.py,
@@ -60,7 +65,9 @@ def steps(fetch, refresh, scene):
               ("fetch", "ana_discharge", py + [os.path.join(HERE, "fetch_ana_series.py"), "3"] + DISCHARGE),
               ("fetch", "ana_rain", py + [os.path.join(HERE, "fetch_ana_series.py"), "2"] + list(RAIN_GAUGES)),
               ("fetch", "sibh_rain", py + [os.path.join(HERE, "fetch_sibh_rain.py")] + (["--refresh"] if refresh else [])),
-              ("fetch", "sibh_flow", py + [os.path.join(HERE, "fetch_sibh_flow.py")] + (["--refresh"] if refresh else []))]
+              ("fetch", "sibh_flow", py + [os.path.join(HERE, "fetch_sibh_flow.py")] + (["--refresh"] if refresh else [])),
+              ("fetch", "flood_stations", py + [os.path.join(HERE, "fetch_flood_stations.py")] + (["--refresh"] if refresh else [])),
+              ("fetch", "cprm_risk", py + [os.path.join(HERE, "fetch_cprm_risk.py")])]
     s += [("build", "process", py + [os.path.join(HERE, "process.py")]),
           ("build", "sibh_rain", py + [os.path.join(HERE, "sibh_rain.py")]),
           ("build", "rain_alignment", py + [os.path.join(HERE, "rain_alignment.py")]),
@@ -68,6 +75,8 @@ def steps(fetch, refresh, scene):
           ("build", "forcing", py + [os.path.join(HERE, "forcing.py")]),
           ("build", "sibh_flow", py + [os.path.join(HERE, "sibh_flow.py")]),
           ("build", "upstream_catchments", py + [os.path.join(HERE, "upstream_catchments.py")]),
+          ("build", "cprm_risk", py + [os.path.join(HERE, "cprm_risk.py")]),
+          ("build", "flood_gauges", py + [os.path.join(HERE, "flood_gauges.py")]),
           ("build", "viewer_layers", py + [os.path.join(HERE, "viewer_layers.py")])]
     if scene:
         npm = shutil.which("npm") or "npm"

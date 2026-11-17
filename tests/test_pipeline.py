@@ -29,6 +29,12 @@ import sibh_rain  # noqa: E402
 import upstream_catchments  # noqa: E402
 import viewer_layers  # noqa: E402
 
+try:  # the flood water converter needs numpy and pyproj; the CI runner has the standard library only
+    import numpy as np  # noqa: E402
+    import flood_water_viewer as fwv  # noqa: E402
+except ImportError:
+    np = fwv = None
+
 
 class Common(unittest.TestCase):
     def test_fnum_decimal_comma_and_junk(self):
@@ -476,11 +482,123 @@ class DataInvariants(unittest.TestCase):
             for end in (t["a"], t["b"]):
                 self.assertIn(end["is"], ("station", "schematic"))
 
+    def test_viewer_flood_layer_is_observed_and_follows_its_rules(self):
+        web = os.path.join(ROOT, "web", "public", "data")
+        with open(os.path.join(web, "timeseries.json"), encoding="utf-8") as f:
+            dates = json.load(f)["dates"]
+        with open(os.path.join(web, "layers.json"), encoding="utf-8") as f:
+            fl = json.load(f)["flood"]
+        # observed records, official areas and derived floods only: no modelled water or radar maps
+        self.assertLessEqual(set(fl), {"town", "downstream", "events_rule", "events", "day_rule", "risk"})
+        pos = {d: k for k, d in enumerate(dates)}
+        for g in (fl["town"], fl["downstream"]):
+            self.assertIn(g["first"], pos)
+            self.assertLessEqual(pos[g["first"]] + len(g["max_cm"]), len(dates))
+            self.assertTrue(all(v is None or 0 < v <= 1000 for v in g["max_cm"]), g["code"])  # the fault cap
+        over = fl["town"]["levels_cm"]["extravasation"]
+        self.assertEqual(over, 301)
+        prev = None
+        for e in fl["events"]:
+            self.assertGreaterEqual(e["peak_cm"], over)
+            self.assertTrue(e["first"] <= e["peak_date"] <= e["last"], e)
+            if prev:  # floods less than 10 days apart are joined
+                gap = (dt.date.fromisoformat(e["first"]) - dt.date.fromisoformat(prev["last"])).days
+                self.assertGreaterEqual(gap, 10)
+            prev = e
+        for s in fl["risk"]["sectors"]:
+            self.assertIn(s["grade"], ("Alto", "Muito Alto"))
+            for ring in s["rings"]:
+                self.assertGreaterEqual(len(ring), 4)
+
     def test_storage_never_below_documented_minimum(self):
         with open(os.path.join(ROOT, "web", "public", "data", "timeseries.json"), encoding="utf-8") as f:
             pct = [p for p in json.load(f)["system"]["pct"] if p is not None]
         self.assertAlmostEqual(min(pct), -23.3, delta=0.1)  # 2 Feb 2015, the 2014-15 crisis low
         self.assertTrue(all(not math.isnan(p) for p in pct))
+
+
+class FloodWater(unittest.TestCase):
+    """Modelled flood water reaches the published viewer only from a run that passed its test."""
+
+    def test_published_water_comes_only_from_a_run_that_passed(self):
+        pub = os.path.join(ROOT, "web", "public")
+        for dirpath, _, files in os.walk(pub):
+            for f in files:
+                if not f.startswith("flood_water"):
+                    continue
+                with open(os.path.join(dirpath, f), encoding="utf-8") as fh:
+                    d = json.load(fh)
+                self.assertIs(d.get("accepted"), True, f)
+                self.assertTrue(d["status"].startswith("tested"), f)
+                verdict = d["status"].split("(", 1)[1].rstrip(")")
+                with open(os.path.join(ROOT, verdict), encoding="utf-8") as fh:
+                    self.assertIs(json.load(fh).get("passed"), True, verdict)
+
+    def test_viewer_loads_untested_water_only_in_development(self):
+        with open(os.path.join(ROOT, "web", "src", "main.js"), encoding="utf-8") as f:
+            main = f.read()
+        self.assertIn("const floodTest = import.meta.env.DEV && params.has('floodtest');", main)
+        self.assertIn("waterData.accepted === true || floodTest", main)
+        with open(os.path.join(ROOT, ".gitignore"), encoding="utf-8") as f:
+            self.assertIn("web/dev-data/", f.read().split())
+
+    @unittest.skipUnless(fwv, "numpy and pyproj are not installed")
+    def test_publishing_needs_a_verdict_that_says_passed(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            v = os.path.join(tmp, "verdict.json")
+            self.assertFalse(fwv.publish_allowed(None))
+            self.assertFalse(fwv.publish_allowed(v))  # missing
+            for bad in ({"passed": False}, {"passed": "yes"}, {"passed": 1}, {}):
+                with open(v, "w", encoding="utf-8") as f:
+                    json.dump(bad, f)
+                self.assertFalse(fwv.publish_allowed(v), bad)
+            with open(v, "w", encoding="utf-8") as f:
+                json.dump({"passed": True}, f)
+            self.assertTrue(fwv.publish_allowed(v))
+            # the script itself refuses, and writes nothing, without --test or a passed verdict
+            head = "ncols 3\nnrows 3\nxllcorner 340000\nyllcorner 7444000\ncellsize 20\nNODATA_value -9999\n"
+            for name, val in (("dem.asc", "750"), ("d.wd", "1")):
+                with open(os.path.join(tmp, name), "w", encoding="ascii") as f:
+                    f.write(head + ("\n".join(" ".join([val] * 3) for _ in range(3))) + "\n")
+            with open(os.path.join(tmp, "run.par"), "w", encoding="ascii") as f:
+                f.write("DEMfile dem.asc\nfpfric 0.035\n")
+            existed = os.path.exists(fwv.PUBLISHED)
+            import subprocess
+            r = subprocess.run([sys.executable, "-I", os.path.join(ROOT, "pipeline", "flood_water_viewer.py"), "--run", tmp, "--depth", "d.wd"],
+                               capture_output=True, text=True)
+            self.assertNotEqual(r.returncode, 0)
+            self.assertIn("refused", r.stderr)
+            self.assertEqual(os.path.exists(fwv.PUBLISHED), existed)
+        finally:
+            shutil.rmtree(tmp)
+
+    @unittest.skipUnless(fwv, "numpy and pyproj are not installed")
+    def test_derived_velocity_runs_down_the_water_surface(self):
+        cell, n, slope = 20.0, 0.035, 0.002
+        depth = np.ones((5, 6))
+        depth[:, 0] = 0  # a dry column
+        wse = 750 + slope * cell * np.arange(6)[None, :].repeat(5, 0)  # rises to the east
+        vx, vy = fwv.derived_velocity(depth, wse, n, cell)
+        self.assertTrue(np.all(vx[:, 2:5] < 0))  # flows west, down the surface
+        self.assertTrue(np.allclose(vy[:, 2:5], 0))
+        self.assertTrue(np.allclose(-vx[:, 2:5], math.sqrt(slope) / n, rtol=1e-6))
+        self.assertTrue(np.all(vx[:, 0] == 0) and np.all(vy[:, 0] == 0))
+
+    @unittest.skipUnless(fwv, "numpy and pyproj are not installed")
+    def test_geographic_grid_keeps_depth_and_turns_velocity_to_true_north(self):
+        head = {"cellsize": 20.0, "xllcorner": 340000.0, "yllcorner": 7444000.0}
+        depth = np.full((30, 30), 1.5)
+        vx = np.zeros((30, 30))
+        vy = np.ones((30, 30))  # 1 m/s to grid north
+        grid, d, u, v = fwv.to_lonlat_grid(depth, vx, vy, head)
+        self.assertEqual(grid["rows"], "north first")
+        self.assertTrue(-46.7 < grid["west"] < grid["east"] < -46.4 and -23.2 < grid["south"] < grid["north"] < -23.0)
+        inner = d[3:-3, 3:-3]
+        self.assertTrue(np.allclose(inner, 1.5))
+        speed = np.hypot(u, v)[3:-3, 3:-3]
+        self.assertTrue(np.allclose(speed, 1.0, atol=1e-9))
+        self.assertTrue(np.all(np.abs(u[3:-3, 3:-3]) < 0.03))  # grid and true north differ by under 1 degree here
 
 
 if __name__ == "__main__":

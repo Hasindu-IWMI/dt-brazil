@@ -151,6 +151,11 @@ export class Terrain {
     blank.needsUpdate = true;
     this.overlay = { value: blank };
     this.overlayOn = { value: 0 };
+    // detail overlay: a sharper RGBA texture on a sub-window (box = u0, v0, u1, v1 in the window's uv),
+    // e.g. the flood risk sectors of one town, mixed in over the window-wide overlay
+    this.detail = { value: blank };
+    this.detailBox = { value: new THREE.Vector4(0, 0, 1, 1) };
+    this.detailOn = { value: 0 };
     const EDGE = /* glsl */ `
       #ifdef USE_MAP
       {
@@ -159,6 +164,11 @@ export class Terrain {
         diffuseColor.rgb = mix(diffuseColor.rgb, uEdgeCol, k);
         vec4 ov = texture2D(tOverlay, vMapUv);
         diffuseColor.rgb = mix(diffuseColor.rgb, ov.rgb, ov.a * uOverlayOn);
+        vec2 du = (vMapUv - uDetailBox.xy) / (uDetailBox.zw - uDetailBox.xy);
+        if (uDetailOn > 0.5 && du.x >= 0.0 && du.x <= 1.0 && du.y >= 0.0 && du.y <= 1.0) {
+          vec4 dv = texture2D(tDetail, du);
+          diffuseColor.rgb = mix(diffuseColor.rgb, dv.rgb, dv.a);
+        }
       }
       #endif`;
     this.surface = withAtmosphere(new THREE.MeshStandardMaterial({
@@ -171,7 +181,11 @@ export class Terrain {
       shader.uniforms.uEdgeOn = this.edgeOn;
       shader.uniforms.tOverlay = this.overlay;
       shader.uniforms.uOverlayOn = this.overlayOn;
+      shader.uniforms.tDetail = this.detail;
+      shader.uniforms.uDetailBox = this.detailBox;
+      shader.uniforms.uDetailOn = this.detailOn;
       shader.fragmentShader = 'uniform vec3 uEdgeCol;\nuniform float uEdgeOn;\nuniform sampler2D tOverlay;\nuniform float uOverlayOn;\n'
+        + 'uniform sampler2D tDetail;\nuniform vec4 uDetailBox;\nuniform float uDetailOn;\n'
         + shader.fragmentShader.replace('#include <map_fragment>', '#include <map_fragment>\n' + EDGE);
     };
     this.skirtMat = withAtmosphere(new THREE.MeshStandardMaterial({ color: 0x4a4a35, roughness: 1, side: THREE.DoubleSide }), { key: 'skirt' });
@@ -281,6 +295,17 @@ export class Terrain {
   setOverlay(tex) {
     if (tex) this.overlay.value = tex;
     this.overlayOn.value = tex ? 1 : 0;
+  }
+
+  /** Drape a sharper RGBA texture on a sub-window {west, south, east, north} (north up); null removes it. */
+  setDetailOverlay(tex, box) {
+    if (tex) {
+      const { bbox } = this;
+      const u = (lon) => (lon - bbox.west) / (bbox.east - bbox.west), v = (lat) => (lat - bbox.south) / (bbox.north - bbox.south);
+      this.detail.value = tex;
+      this.detailBox.value.set(u(box.west), v(box.south), u(box.east), v(box.north));
+    }
+    this.detailOn.value = tex ? 1 : 0;
   }
 
   setStyle(style) { this.style = style; this.apply(); }

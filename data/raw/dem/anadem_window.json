@@ -1,0 +1,87 @@
+{
+ "source": "ANADEM v1 (ANA / UFRGS), zone 23K, via https://www.ufrgs.br/hge/download-anadem/",
+ "url": "https://metadados.snirh.gov.br/files/anadem_v1_tiles/anadem_v1_23K.tif",
+ "file_bytes": 2045901471,
+ "etag": "\"19de630db974ee521bb1e75906913177\"",
+ "last_modified": "Wed, 20 Aug 2025 18:45:11 GMT",
+ "kind": "digital TERRAIN model (vegetation bias removed from Copernicus GLO-30)",
+ "crs": "EPSG:4326",
+ "verticalDatum": "as ANADEM v1 (EGM2008, from Copernicus GLO-30)",
+ "units": "m",
+ "pixel_deg": 0.00026949458523585647,
+ "width": 818,
+ "height": 557,
+ "rowOrder": "north to south",
+ "dtype": "float32 little-endian",
+ "bbox": {
+  "west": -46.7001776863511,
+  "east": -46.47973111562816,
+  "north": -23.029929275915354,
+  "south": -23.180037759891725
+ },
+ "requested": {
+  "west": -46.7,
+  "east": -46.48,
+  "south": -23.18,
+  "north": -23.03
+ },
+ "nodata_cells": 0,
+ "min_m": 721.6599731445312,
+ "max_m": 1395.56005859375,
+ "tiles": [
+  {
+   "tile": [
+    9,
+    49
+   ],
+   "offset": 1938302515,
+   "bytes": 643277,
+   "sha256": "38ebdc5d00375ad716b4c7d529b9026c15640acb7d2ae4649f4f5b0fd1136ac7"
+  },
+  {
+   "tile": [
+    10,
+    49
+   ],
+   "offset": 1938945800,
+   "bytes": 657215,
+   "sha256": "6039e521e94c6ad492da204d18c4c505944bb3c7175ec03134b4fb586596136d"
+  },
+  {
+   "tile": [
+    11,
+    49
+   ],
+   "offset": 1939603023,
+   "bytes": 677165,
+   "sha256": "b6aaf7c1dadce9adb3b1e3c66caa832ef8e4b56b3283270acb6dc1f83f800bc2"
+  },
+  {
+   "tile": [
+    9,
+    50
+   ],
+   "offset": 1955199726,
+   "bytes": 659040,
+   "sha256": "82ef28d3c284218a23a0026e5b23904745a7f41f169e8c046db0948385e48005"
+  },
+  {
+   "tile": [
+    10,
+    50
+   ],
+   "offset": 1955858774,
+   "bytes": 715436,
+   "sha256": "e0d964901df486cac55b7ab7176eed2c7d66490c47bade0f19819b990c0707ab"
+  },
+  {
+   "tile": [
+    11,
+    50
+   ],
+   "offset": 1956574218,
+   "bytes": 657804,
+   "sha256": "bccad8eec503901006d4477ad8f4ef926e98dea965b6834b77da024bc04a596b"
+  }
+ ]
+}

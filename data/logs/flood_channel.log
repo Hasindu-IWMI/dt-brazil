@@ -1,0 +1,17 @@
+Sentinel-2 window (UTM 23S): 336191-341772 E, 7442673-7444590 N
+stations: 36, with a width: 0
+tributary  26.5 km2 at  1722 m below the gauge (moved 97 m onto the line)
+tributary 106.7 km2 at  3587 m below the gauge (moved 59 m onto the line)
+tributary   8.1 km2 at  6691 m below the gauge (moved 68 m onto the line)
+tributary  42.6 km2 at  7158 m below the gauge (moved 108 m onto the line)
+tributary   3.7 km2 at  7419 m below the gauge (moved 293 m onto the line)
+highest NDWI within 10 m of the line, by station: median -0.56, max -0.03 (water needs > 0)
+WIDTH RULE FAILED: fewer than half the stations have a width.
+approved change (17 November 2026): OSM width tag, 11 m on ways [589992966, 589992967, 683621553]
+width source: OSM width tag (11 m), approved after the Sentinel-2 rule failed
+stations without a Sentinel-2 width: 36 of 36
+bank, raw: 740.2-747.5 m
+bank, running minimum top 747.07, at the gauge 741.57, end 740.19 m; raw minus it: median +2.22 (p10 +0.44, p90 +3.76)
+bank, isotonic        top 747.11, at the gauge 744.85, end 742.19 m; raw minus it: median +0.05 (p10 -1.66, p90 +1.24)
+bank rule feeding the model: isotonic
+pixels with fewer than two clear scenes in the window: 0 of 107328

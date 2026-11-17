@@ -6,8 +6,9 @@ only and currently does one thing: **replay observed daily records in 3D, with
 a small set of clearly labelled derived diagnostics.**
 
 It is not a digital twin. Inflow models were built and tested four times and
-none passed validation, so nothing modelled is shown; there is no forecast and
-no live feed.
+none passed validation. A flood model of Atibaia town was built and stopped at
+its data check, before any model test. So nothing modelled is shown; there is
+no forecast and no live feed.
 See "What is and is not here" below.
 
 ## Run it
@@ -72,7 +73,8 @@ data first, display second, and every display assumption labelled.
 | Sky and haze | none | Preetham sky scaled to the scene's exposure; haze colour from the same sky model; "Clear" and "Hazy" are looks, not observations |
 | Storage | Observed % stored (ANA SAR), shown in labels, colours and columns | Column height scale |
 | Buildings | Footprints: OpenStreetMap, else Microsoft ML footprints where no OSM building overlaps. Height: OSM `height`, else `building:levels` × 3 m, else Google Open Buildings 2.5D 2023 (a model estimate: median of the 2 m pixels in the footprint), else a 4 m placeholder. Counts per source: `web/public/data/buildings.json` | Roof form (hipped, gabled, shallow shed or flat with a parapet; the ridge is never above the data height), windows, doors, paint, roof material (ceramic tile, metal, fibre-cement, concrete) and weathering are procedural. Bases sit on the drawn terrain, which is a 30 m surface model. Shadows are baked on the ground from the current sun. The Analytical style colours buildings by height source instead. Buildings are today's, not the replayed date's |
-| Rain, rivers, tunnels | Audited daily rain at each gauge; daily discharge at the SIBH river gauges and tunnel outlets; the DEM catchments of the two gauges above the lakes (teal) | Column height and ring size scales; **tunnel routes are schematic arcs** between the known ends (a station, or else the nearest shore of the connected reservoir) |
+| Rain, rivers, tunnels | Audited daily rain at each gauge; daily discharge at the SIBH river gauges and tunnel outlets; the DEM catchments of the two gauges above the lakes (teal); the direction of each mapped river (OpenStreetMap draws waterways downstream) | Flat symbols of a fixed size on screen: dot area ∝ rain (capped at 80 mm), ring area ∝ discharge (capped at 55 m³/s); flow particles drift downstream across each river's width (Rio Atibaia 11 m from its OSM width tag, a nominal 12 m elsewhere, never under 7 px on screen), faster mid-channel, at a display rate that is **not a velocity**; the mapped river lines are a separate layer, off by default; **tunnel routes are schematic arcs** between the known ends (a station, or else the nearest shore of the connected reservoir) |
+| Floods, Atibaia town | The highest hourly river level each day at SP Águas' gauge 3E-063, on its own zero, and SP Águas' official alarm levels there (attention 2.40 m, alert 2.61 m, emergency 2.80 m, overflow 3.01 m); the level 4 km downstream (ANA 62671200); the Geological Survey of Brazil's risk sectors of 2012 | A flat diamond at the gauge in the colour of the alarm level reached, pulsing from the attention level up; its label carries a level bar marked with the alarm levels. ANA's gauge 62670000, 77 m away, is the white dot. The diamond has a fixed size and is **not a flood extent**. Risk sectors are painted on the terrain by type (river flood blue, flash flood teal, landslide brown; stronger for very high risk). No modelled water |
 
 The imagery and land cover show one season and do not change with the replay
 date. During the 2014–15 crisis, the lakes on the ground imagery would have
@@ -88,8 +90,10 @@ python -I pipeline/run_all.py --fetch
 
 This runs every download (resumable) and then every build step in order:
 reservoirs, river gauges, ANA rain, SIBH telemetric rain, SIBH river, dam and
-tunnel stations, then `process.py`, `sibh_rain.py`, `rain_alignment.py`,
-`audit_rain.py`, `forcing.py` and `sibh_flow.py`. Each step's output is also
+tunnel stations, the two flood stations at Atibaia town, CPRM's risk sectors
+(once), then `process.py`, `sibh_rain.py`, `rain_alignment.py`,
+`audit_rain.py`, `forcing.py`, `sibh_flow.py`, `upstream_catchments.py`,
+`cprm_risk.py`, `flood_gauges.py` and `viewer_layers.py`. Each step's output is also
 written to `data/logs/run_all_<step>.log`. Without `--fetch` it only rebuilds
 from what is on disk; `--refresh` also re-fetches the most recent records;
 `--scene` re-fetches the map outlines from OpenStreetMap. It never runs the
@@ -153,6 +157,22 @@ The inputs they used are kept: `forcing_*_v1_unaudited.csv` (run 1) and
 `docs/forcing_report_v2_ana_only.md`. A new model run needs its own design,
 fixed before it is run.
 
+The flood run (see "Flood model of Atibaia town, run 1" below) is kept the
+same way. Its scripts are not part of `run_all.py`.
+- **Standard-library scripts:** `fetch_flood_stations.py`,
+  `fetch_s1_passes.py`, `flood_passes.py`, `fetch_anadem_window.py`,
+  `fetch_flood_landcover.py`, `flood_terrain.py`, `flood_channel.py`, and the
+  reader `cogread.py` they share.
+- **Scripts that need the `atibaia-sfincs` conda environment**
+  (`envs/flood-sfincs.yml`): `flood_build_model.py` (SFINCS, set aside),
+  `flood_sfincs_smoke.py`, `flood_lisflood_build.py`, `flood_benchmark.py` and
+  `flood_radar_maps.py`. On Windows, take any other GIS stack (OSGeo4W) off
+  PATH first; see the environment file.
+- **Docker images:** LISFLOOD-FP runs from `atibaia/lisflood-fp:8.2`, built
+  from `envs/lisflood-fp.Dockerfile`; SFINCS from Deltares' image. The radar
+  maps have been made, so re-running any of this would no longer be a blind
+  test.
+
 ## Layout
 
 | Path | Contents |
@@ -162,6 +182,8 @@ fixed before it is run.
 | `data/processed/` | Tidy CSVs: one per reservoir and gauge, system totals, control point, catchment forcing |
 | `docs/` | Generated reports: data quality, rain audit, SIBH rain gauges, rain day alignment, SIBH flow stations, forcing, model validation |
 | `tests/` | Unit tests and data checks (standard library `unittest`) |
+| `envs/` | The conda environment (with lock files) and the LISFLOOD-FP Dockerfile used by the flood run |
+| `models/` | Model folders written by the flood-run scripts. Not committed: rebuilt by the scripts; results that matter are in `docs/` and `data/processed/` |
 | `web/` | Three.js viewer (Vite). `web/public/data/` holds what it reads |
 | `.github/workflows/` | CI, weekly data refresh, manual viewer deploy |
 
@@ -182,11 +204,21 @@ fixed before it is run.
 | Building footprints | OpenStreetMap via Overpass; Microsoft Global ML Building Footprints where OSM has none | Mapped; machine-detected from imagery | ODbL 1.0 |
 | Building heights | OSM `height` and `building:levels` tags; Google Open Buildings 2.5D Temporal v1, 2023 | Mapped; model estimate from Sentinel-2 | ODbL 1.0; CC BY 4.0 |
 | Operating bands | Joint Resolution ANA/DAEE 925/2017, as tabulated by Comitês PCJ | Regulation | Public |
+| Bare-earth terrain (flood run) | ANADEM v1 (ANA / UFRGS; Laipelt et al. 2024), zone 23K, a window read by byte ranges | Terrain model derived from Copernicus GLO-30 | Public |
+| Radar backscatter (flood run) | Sentinel-1 RTC, VV, via Microsoft Planetary Computer (`sentinel-1-rtc`) | Satellite, terrain-corrected | CC BY 4.0; contains modified Copernicus Sentinel data |
+| River width (flood run) | OpenStreetMap `width` tag on the Rio Atibaia (Sentinel-2 bands B03/B08 were tried first) | Mapped | ODbL 1.0 |
+| Flood and landslide risk sectors, Atibaia | Serviço Geológico do Brasil (CPRM), "Ação emergencial para delimitação de áreas em alto e muito alto risco a inundações e movimentos de massa: Atibaia, São Paulo", November 2012; RIGEO doc/20208, GIS file `sig_atibaia_sp_risco.zip` only | Official mapped areas from a field survey; not flood extents; not updated since 2012 | Public repository; licence not checked |
 
 ## What is and is not here
 
 Observed and shown as-is: reservoir level, useful volume, inflow and release;
-river flow at four gauges. Gaps are shown as "no data" and never filled.
+river flow at four gauges; the river level at Atibaia town (SP Águas 3E-063)
+and 4 km downstream (ANA 62671200), each day's highest hourly reading. Gaps
+are shown as "no data" and never filled. At 62671200, hourly readings above
+10 m are dropped as faults (four days read 45 to 460 m); December 2015 there
+reads 5 to 9 m while the town gauge stays below 3.2 m, which is unexplained
+and kept. Official, as published: SP Águas' alarm levels at 3E-063 and the
+Geological Survey of Brazil's 2012 risk sectors.
 
 Derived, and labelled as derived on screen:
 
@@ -198,6 +230,13 @@ Derived, and labelled as derived on screen:
   evaporation and measurement error. It is not a measurement.
 - Local inflow = flow at the Atibaia gauge − releases from Cachoeira and
   Atibainha, same day.
+- Floods at Atibaia town = runs of days whose highest hourly level at 3E-063
+  reaches the overflow level (3.01 m), joined when less than 10 days apart:
+  47 from January 2015 to 16 November 2026. The flood check
+  (`docs/flood_option_check.md`) counted days by their mean level, so it
+  found fewer (30 floods since October 2014). The last flood, peaking on
+  14 November 2026, is after the viewer's last date, which the reservoir
+  record sets.
 
 Deliberately absent, because the open data cannot support it:
 
@@ -208,16 +247,48 @@ Deliberately absent, because the open data cannot support it:
   Not published. Tunnel 5 and Tunnel 6 flows are public on SIBH and are now in
   the pipeline (see "River, dam and tunnel stations" below), but SIBH has only
   levels at Tunnel 7 and at the Paraíba do Sul pumping station, and its two
-  transfer stations return no data. The tunnel flows are not yet in the
-  viewer.
+  transfer stations return no data. The viewer shows Tunnels 6 and 5.
 - **Measured outflow from the dams.** Sabesp's stations at both dams hold the
   reservoir level and the level in the downstream channel, not a discharge.
 - **Sub-daily data.** ANA's public telemetry returns nothing for these gauges.
   The state network (SIBH) has 10-minute rain and river data, used here only
   as daily totals and daily means.
-- **Any simulated or forecast value.** The first inflow model failed
-  validation (see below) and is withheld from the viewer.
+- **Any simulated or forecast value.** The inflow models failed validation,
+  and the flood model stopped before its test (both below), so neither is
+  shown. The Sentinel-1 flood maps made for the flood test are not shown
+  either: the design allowed that only if its data check passed.
+- **How far the water spread on any day in Atibaia.** Nothing here measures
+  it: the gauge gives a level at one point, the risk sectors are where people
+  were at risk in 2012, and the flood model, which would have drawn extents,
+  stopped before its test. Modelled water will be shown only if a second flood
+  run passes a test designed before it is run. The display for it is built
+  (below), but has nothing tested to show.
+
 - **Restoration or land-use effects.** No defensible basis yet.
+
+### Modelled flood water in the viewer (built, nothing to show yet)
+
+The viewer can draw a flood run's water: the wet cells draped 1 m over the
+drawn terrain, coloured by depth (light shallow, dark deep, with the lakes'
+ripples and sky reflection), and particles carried by the modelled velocity,
+coloured by speed (white slow, yellow, orange 1.5 m/s and faster) and sped up
+to be visible (the legend gives the factor). Hovering gives the depth, speed
+and direction at a point. While water is shown, the risk sectors are drawn as
+dashed outlines, since both are blue.
+
+`pipeline/flood_water_viewer.py` converts LISFLOOD-FP grids (UTM 23S) to the
+viewer's lon/lat grid. It writes the published file
+(`web/public/data/flood_water.json`) **only for a run whose verdict file says
+it passed its test**, and refuses otherwise; the viewer, in turn, shows a
+published file only if it says `accepted: true`. Untested output can be
+written with `--test` to `web/dev-data/` (git-ignored, never built) and seen
+only in the development server with `?floodtest=1`, under a red TEST RENDER
+banner. The display was checked that way on flood run 1's steady 15 m³/s
+LISFLOOD-FP test run (in-bank, not a flood: 1.02 km² wet, mostly still water
+in hollows, the over-flooding run 2 must fix). That run saved no velocities,
+so the check used a velocity derived from the modelled water-surface slope
+(Manning's equation); **flood run 2 must save the model's own velocities**
+(LISFLOOD-FP writes them when asked) for the particles to show modelled flow.
 
 ## Checks already passed
 
@@ -279,9 +350,20 @@ Still open (cannot be settled from open data):
 - **Jaguari-Jacareí shows about 599 hm³ capacity for Jan–Aug 2004**, between
   two periods at about 808. Unexplained.
 - **The Atibaia gauge record ends on 31 May 2026**; other mid-river gauges end
-  in 2022. SIBH's telemetry for the river above and below the dams is now in
-  the pipeline; for the Atibaia gauge itself it is not yet (see "Next
-  steps").
+  in 2022. SIBH's telemetry for the river above and below the dams is in the
+  pipeline. At the Atibaia gauge's own site, SP Águas' telemetric station
+  3E-063 (110 m from ANA's) is now fetched hourly from 2015 for the flood run
+  (`pipeline/fetch_flood_stations.py`). It is not yet in the daily series or
+  the viewer. ANA's telemetric code there (62669900) returns no records for
+  those years.
+- **ANA's daily record at Atibaia (62670000) holds spurious high days.** On
+  13–17 January 2021 it gives 89–110 m³/s, where 3E-063 at the same site
+  recorded 20–30 m³/s and the station 4 km downstream 23–41 m³/s. The same
+  happens on 4 February 2023 (103 against 38) and 5–6 January 2019 (85 and 82
+  against 24 and 22). ANA's yearly volume is 24–25% above the telemetric
+  record in 2021 and 2022. The frozen runoff investigation's "independent
+  area" uses this record, so part of its post-2017 excess may come from these
+  days (`docs/flood_option_check.md`, section 1).
 - **Two ANA-network rain gauges carry the wrong day on some years**
   (`docs/rain_alignment.md`). Piracaia (2346094) is one day out on every year
   from 2018 to 2025. Joanópolis (2246090) changes between years. Both feed the
@@ -643,13 +725,81 @@ catchment against 1,912 mm on the dam catchment) should be checked before any
 use. **No model was run.**
 
 The viewer shows all of this on the terrain: the two catchments draped in
-teal, rain columns at every gauge, discharge rings at the river gauges and
+teal, rain dots at every gauge, discharge rings at the river gauges and
 tunnel outlets, and the tunnels as schematic arcs. Tunnels 6 and 5 carry
 particles that follow their measured flow; Tunnel 7 and the Paraíba do Sul
 transfer are grey and dashed, because no flow record is public. There is a
 panel section and four chart options (catchment rain; each gauge against the
 operator's inflow; the measured tunnels). Hovering over any marker says what
 it is, where it comes from and its value on the replayed date.
+
+## Flood model of Atibaia town, run 1: stopped at the data check (17 November 2026)
+
+**Why Atibaia town.** The river does flood there. The Geological Survey of
+Brazil mapped flood-risk sectors in Atibaia in 2012, and studies tie the
+floods to building on the river's natural floodplain. SP Águas' telemetric
+gauge in town (3E-063) has an official overflow level of 301 cm. Since
+October 2014 the daily mean stage has been above it on 275 days, in 30
+floods; the highest was 417 cm on 8 June 2016. That check is
+`docs/flood_option_check.md`.
+
+**The design** (`docs/model_design_flood_run1.md`, approved before any code)
+was a test of flood extent, not depth. The model was driven by the measured
+flow at 3E-063 and run through about 7 km of river to ANA's station above
+the Salto Grande plant. Its maps of open water on open ground were to be
+scored against Sentinel-1 radar at the passes taken during floods. To be
+accepted it had to beat a map made from the terrain alone. The radar maps
+were to be made blind, by a fixed rule, before any model map existed. A
+data check came first: the radar's flooded area had to rise with the river
+level.
+
+**Changes along the way.** Each was approved by the project lead before any
+model or radar map existed, and each is recorded in the design's addendum:
+- **Gaps in the downstream level:** up to 3 hours are bridged, longer gaps
+  drop the pass. That leaves 13 passes, at 3.24–3.59 m on the town gauge.
+- **Channel width: 11 m, from OpenStreetMap.** Sentinel-2 at 10 m could not
+  see the river at any of 36 transects.
+- **Bank height: an unbiased least-squares fit that never rises
+  downstream.** The first reading, a running minimum, sat 2.2 m low.
+- **Model: LISFLOOD-FP 8.2 in place of SFINCS.** SFINCS could not carry the
+  river in its 11 m channel. With only the channel open, 15 m³/s stood
+  5.2–8.6 m deep on 25, 10 and 5 m grids, against about 2 m by Manning's
+  equation. Calibrating roughness could not fix it. LISFLOOD-FP's subgrid
+  channel passed the same test, at 2.00 m against 2.16 m.
+- **LISFLOOD-FP's setup** (20 m cells, buildings, inflows), and a new tie
+  for the downstream station's datum.
+
+**What was built:**
+- **Pre-run checks** (`docs/flood_run1_passes.md`): the ANADEM bare-earth
+  terrain window and river profile, tributary inflow points, and a 20 m
+  LISFLOOD-FP model of the reach.
+- **Steady test:** steady after 10 days at 15 m³/s.
+- **Channel roughness:** n = 0.020, calibrated to SP Águas' rating with an
+  RMSE of 0.19 m.
+- **Scoring:** a mask of 1.64 km² of open ground, and the terrain-only
+  benchmark.
+
+**The data check failed.** By the fixed rule, the radar sees 0.010–0.036 km²
+of open water on the scored ground at every one of the 13 passes, 0.6–2.2%
+of it. A pass needed at least 0.1 km² to be scored, so none was scored, and
+by the design's rules the run stops with no model test. Nothing is shown.
+
+**What it says, beyond the rules:**
+- **The radar and the terrain disagree.** At 0.2–0.6 m above the overflow
+  level, the radar sees no open water spread over the open valley floor,
+  whereas the terrain says the floor should flood. The terrain-only map
+  wets about 60% of the scored ground at the same passes, and the model
+  already wets 0.85 km² at 15 m³/s.
+- **The data cannot say why.** The floods may stay near the channel, under
+  trees or in streets, all excluded from scoring. The radar may miss flooded
+  grass. The 05:30 passes come after most peaks. ANADEM may put the valley
+  floor too low.
+- **Either way,** a flood model on ANADEM would show far more open water
+  than the radar does.
+
+The first hydraulic design, for the Cachoeira dam to Piracaia reach
+(`docs/model_design_hydraulic_run1.md`), was drafted and never run: that
+reach stayed in its channel throughout its record.
 
 ## Next steps
 
@@ -670,5 +820,20 @@ it is, where it comes from and its value on the replayed date.
    judged against, with the rating change at 3E-121 handled explicitly.
 4. Ask the operator how inflow was computed before 2000 (Atibainha looks too high).
 5. Viewer: trees and clouds after the Kelani WebTwin, and checks on laptop GPUs.
-6. Replace the terrain with ANADEM (bare earth) when a 2 GB download is
-   acceptable.
+6. Replace the viewer's terrain with ANADEM (bare earth). No 2 GB download
+   is needed: the zone file is tiled and served with byte-range support, and
+   `pipeline/fetch_anadem_window.py` reads just a window (4 MB for the flood
+   reach).
+7. Floods: what would make a second flood run worth designing.
+   - **Ground heights for Atibaia town:** lidar or survey from the
+     municipality, the state cartographic institute, or CPFL's licensing
+     surveys for the Salto Grande plant. This matters more than any model
+     setting.
+   - **River cross-sections and rating histories** at 3E-063 (letter 2 in
+     `docs/data_requests.md`), and CPFL's pond levels.
+   - **A different observation.** Water levels along the reach, flooded
+     vegetation, or the evening Stripmap passes, which would need their own
+     processing.
+
+   A new run must be designed knowing that the radar showed little open
+   water at these stages, so it cannot be blind to that.

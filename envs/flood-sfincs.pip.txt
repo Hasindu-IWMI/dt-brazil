@@ -1,0 +1,16 @@
+﻿# Packages installed from PyPI into the atibaia-sfincs environment (recorded 17 November 2026).
+# Everything else comes from conda-forge: envs/flood-sfincs.lock.txt
+beautifulsoup4==4.15.0
+cht-tide==0.1.2
+contextily==1.7.1
+geoalchemy2==0.21.0
+geographiclib==2.1
+geopy==2.5.0
+hydromt-sfincs==2.0.0
+libpysal==4.15.1
+pointpats==2.6.0
+psycopg==3.3.9
+psycopg-binary==3.3.9
+pyarrow==26.0.1
+soupsieve==4.1.1
+sqlalchemy==2.1.9

@@ -1,0 +1,100 @@
+{
+ "id": "S2A_23KLQ_20240803_0_L2A",
+ "datetime": "2024-08-03T13:18:44.465000Z",
+ "boa_offset_applied": true,
+ "bands": {
+  "B03": {
+   "file": "S2A_23KLQ_20240803_0_L2A_B03.u16",
+   "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/23/K/LQ/2024/8/S2A_23KLQ_20240803_0_L2A/B03.tif",
+   "width": 559,
+   "height": 192,
+   "x0": 336190.0,
+   "y0": 7444590.0,
+   "res": 10.0,
+   "scale": 0.0001,
+   "offset": -0.1,
+   "nodata": 0,
+   "tiles": [
+    {
+     "tile": [
+      3,
+      5
+     ],
+     "bytes": 1501728,
+     "sha256": "4d1f2bb1d4278b9d8240ddc03762c3eb631f155be391546b6433e0b4b50bda6e"
+    },
+    {
+     "tile": [
+      4,
+      5
+     ],
+     "bytes": 1484026,
+     "sha256": "91cb69c59ee7b7652a6d6ee8dc0583c9ff9a446930e54cb4b4c1bc4af8e0f40b"
+    }
+   ],
+   "sha256_window": "6b0e7383e8c538c19e1180b4473562ba51230136676b970122bbe0187d050635"
+  },
+  "B08": {
+   "file": "S2A_23KLQ_20240803_0_L2A_B08.u16",
+   "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/23/K/LQ/2024/8/S2A_23KLQ_20240803_0_L2A/B08.tif",
+   "width": 559,
+   "height": 192,
+   "x0": 336190.0,
+   "y0": 7444590.0,
+   "res": 10.0,
+   "scale": 0.0001,
+   "offset": -0.1,
+   "nodata": 0,
+   "tiles": [
+    {
+     "tile": [
+      3,
+      5
+     ],
+     "bytes": 1637683,
+     "sha256": "9f18fe0783186c3f25608e07bde4124640276c1fc9081118f733d52857662a62"
+    },
+    {
+     "tile": [
+      4,
+      5
+     ],
+     "bytes": 1639527,
+     "sha256": "287dbb59f3d8f6661efc13e4405f35e8b2a0b39aea8d487a1f2e05bcc2f37e06"
+    }
+   ],
+   "sha256_window": "717ca64d02e0d6dc649dd07959e239b40555819e65cec08acf749afbec687a9a"
+  },
+  "SCL": {
+   "file": "S2A_23KLQ_20240803_0_L2A_SCL.u8",
+   "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/23/K/LQ/2024/8/S2A_23KLQ_20240803_0_L2A/SCL.tif",
+   "width": 280,
+   "height": 97,
+   "x0": 336180.0,
+   "y0": 7444600.0,
+   "res": 20.0,
+   "scale": null,
+   "offset": null,
+   "nodata": 0,
+   "tiles": [
+    {
+     "tile": [
+      3,
+      5
+     ],
+     "bytes": 28177,
+     "sha256": "7a49bcf763506ec67e0c08652662c18665b17299ac185413c5ff8b3a0bee1107"
+    },
+    {
+     "tile": [
+      4,
+      5
+     ],
+     "bytes": 26111,
+     "sha256": "83daed51e06c0352f2f96968714ecf60ddb34b5e03ab33a9ec219b5149bafe02"
+    }
+   ],
+   "sha256_window": "0fa865f21b92ef5a512ac87722595bd60b8e4fe15c23e6727f60aff4f5274f76"
+  }
+ }
+}

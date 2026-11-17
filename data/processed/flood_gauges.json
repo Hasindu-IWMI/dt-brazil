@@ -1,0 +1,410 @@
+{
+ "source": "SP Águas SIBH public API: hourly means of 10-minute readings (pipeline/fetch_flood_stations.py)",
+ "day_rule": "local calendar day (UTC-3), kept if at least 18 hourly means are valid; never filled",
+ "stations": {
+  "3E-063": {
+   "sibh_id": "30863",
+   "name": "Atibaia (Rio Atibaia - Av. São João)",
+   "lat": -23.106111,
+   "lon": -46.556389,
+   "levels_cm": {
+    "attention": 239.9,
+    "alert": 261.0,
+    "emergency": 279.9,
+    "extravasation": 301.0
+   },
+   "days": 4257,
+   "first": "2015-01-01",
+   "last": "2026-11-16"
+  },
+  "62671200": {
+   "sibh_id": "14585",
+   "name": "Atibaia (PCH Salto Grande Montante)",
+   "lat": -23.1058,
+   "lon": -46.5958,
+   "levels_cm": {},
+   "days": 3625,
+   "first": "2015-03-01",
+   "last": "2026-11-16"
+  }
+ },
+ "events_rule": "DERIVED: days whose highest hourly level at 3E-063 reaches the overflow level (301 cm), joined when less than 10 days apart",
+ "events": [
+  {
+   "first": "2015-02-17",
+   "last": "2015-02-21",
+   "days_above": 5,
+   "peak_date": "2015-02-19",
+   "peak_cm": 340.8,
+   "peak_q_m3s": 30.06
+  },
+  {
+   "first": "2015-03-12",
+   "last": "2015-03-12",
+   "days_above": 1,
+   "peak_date": "2015-03-12",
+   "peak_cm": 301.5,
+   "peak_q_m3s": 19.49
+  },
+  {
+   "first": "2015-12-07",
+   "last": "2015-12-09",
+   "days_above": 3,
+   "peak_date": "2015-12-08",
+   "peak_cm": 318.8,
+   "peak_q_m3s": 18.97
+  },
+  {
+   "first": "2016-01-15",
+   "last": "2016-01-29",
+   "days_above": 9,
+   "peak_date": "2016-01-17",
+   "peak_cm": 385.4,
+   "peak_q_m3s": 40.06
+  },
+  {
+   "first": "2016-02-21",
+   "last": "2016-03-15",
+   "days_above": 23,
+   "peak_date": "2016-03-12",
+   "peak_cm": 363.2,
+   "peak_q_m3s": 29.76
+  },
+  {
+   "first": "2016-06-05",
+   "last": "2016-06-12",
+   "days_above": 8,
+   "peak_date": "2016-06-08",
+   "peak_cm": 420.7,
+   "peak_q_m3s": 53.15
+  },
+  {
+   "first": "2017-01-11",
+   "last": "2017-01-30",
+   "days_above": 20,
+   "peak_date": "2017-01-22",
+   "peak_cm": 402.8,
+   "peak_q_m3s": 42.87
+  },
+  {
+   "first": "2017-03-07",
+   "last": "2017-03-09",
+   "days_above": 3,
+   "peak_date": "2017-03-08",
+   "peak_cm": 323.5,
+   "peak_q_m3s": 22.71
+  },
+  {
+   "first": "2017-11-19",
+   "last": "2017-11-22",
+   "days_above": 4,
+   "peak_date": "2017-11-20",
+   "peak_cm": 311.6,
+   "peak_q_m3s": 21.09
+  },
+  {
+   "first": "2018-01-30",
+   "last": "2018-02-03",
+   "days_above": 5,
+   "peak_date": "2018-02-01",
+   "peak_cm": 342.8,
+   "peak_q_m3s": 25.43
+  },
+  {
+   "first": "2018-03-02",
+   "last": "2018-03-06",
+   "days_above": 5,
+   "peak_date": "2018-03-04",
+   "peak_cm": 333.6,
+   "peak_q_m3s": 24.11
+  },
+  {
+   "first": "2018-12-01",
+   "last": "2018-12-03",
+   "days_above": 3,
+   "peak_date": "2018-12-02",
+   "peak_cm": 308.0,
+   "peak_q_m3s": 20.57
+  },
+  {
+   "first": "2019-01-04",
+   "last": "2019-01-07",
+   "days_above": 4,
+   "peak_date": "2019-01-04",
+   "peak_cm": 337.0,
+   "peak_q_m3s": 13.32
+  },
+  {
+   "first": "2019-03-01",
+   "last": "2019-03-08",
+   "days_above": 8,
+   "peak_date": "2019-03-04",
+   "peak_cm": 347.6,
+   "peak_q_m3s": 26.56
+  },
+  {
+   "first": "2019-07-05",
+   "last": "2019-07-08",
+   "days_above": 4,
+   "peak_date": "2019-07-06",
+   "peak_cm": 308.1,
+   "peak_q_m3s": 20.64
+  },
+  {
+   "first": "2020-01-03",
+   "last": "2020-01-06",
+   "days_above": 4,
+   "peak_date": "2020-01-04",
+   "peak_cm": 328.0,
+   "peak_q_m3s": 20.33
+  },
+  {
+   "first": "2020-02-04",
+   "last": "2020-03-03",
+   "days_above": 22,
+   "peak_date": "2020-02-26",
+   "peak_cm": 363.8,
+   "peak_q_m3s": 30.64
+  },
+  {
+   "first": "2021-01-12",
+   "last": "2021-01-19",
+   "days_above": 8,
+   "peak_date": "2021-01-14",
+   "peak_cm": 362.7,
+   "peak_q_m3s": 29.88
+  },
+  {
+   "first": "2021-03-07",
+   "last": "2021-03-11",
+   "days_above": 5,
+   "peak_date": "2021-03-09",
+   "peak_cm": 337.6,
+   "peak_q_m3s": 23.15
+  },
+  {
+   "first": "2021-12-18",
+   "last": "2021-12-18",
+   "days_above": 1,
+   "peak_date": "2021-12-18",
+   "peak_cm": 301.3,
+   "peak_q_m3s": 16.61
+  },
+  {
+   "first": "2022-01-30",
+   "last": "2022-02-05",
+   "days_above": 7,
+   "peak_date": "2022-02-01",
+   "peak_cm": 371.7,
+   "peak_q_m3s": 34.39
+  },
+  {
+   "first": "2022-03-14",
+   "last": "2022-03-15",
+   "days_above": 2,
+   "peak_date": "2022-03-14",
+   "peak_cm": 318.6,
+   "peak_q_m3s": 14.04
+  },
+  {
+   "first": "2022-11-24",
+   "last": "2022-11-27",
+   "days_above": 4,
+   "peak_date": "2022-11-26",
+   "peak_cm": 325.7,
+   "peak_q_m3s": 19.69
+  },
+  {
+   "first": "2022-12-07",
+   "last": "2022-12-09",
+   "days_above": 3,
+   "peak_date": "2022-12-08",
+   "peak_cm": 318.0,
+   "peak_q_m3s": 18.26
+  },
+  {
+   "first": "2022-12-28",
+   "last": "2023-01-09",
+   "days_above": 13,
+   "peak_date": "2022-12-30",
+   "peak_cm": 367.9,
+   "peak_q_m3s": 32.1
+  },
+  {
+   "first": "2023-01-20",
+   "last": "2023-01-21",
+   "days_above": 2,
+   "peak_date": "2023-01-20",
+   "peak_cm": 306.3,
+   "peak_q_m3s": 15.95
+  },
+  {
+   "first": "2023-02-01",
+   "last": "2023-02-13",
+   "days_above": 10,
+   "peak_date": "2023-02-04",
+   "peak_cm": 382.7,
+   "peak_q_m3s": 38.18
+  },
+  {
+   "first": "2023-02-24",
+   "last": "2023-02-26",
+   "days_above": 3,
+   "peak_date": "2023-02-25",
+   "peak_cm": 322.8,
+   "peak_q_m3s": 18.67
+  },
+  {
+   "first": "2023-03-12",
+   "last": "2023-03-17",
+   "days_above": 6,
+   "peak_date": "2023-03-15",
+   "peak_cm": 326.3,
+   "peak_q_m3s": 19.98
+  },
+  {
+   "first": "2023-10-01",
+   "last": "2023-10-13",
+   "days_above": 12,
+   "peak_date": "2023-10-10",
+   "peak_cm": 348.5,
+   "peak_q_m3s": 26.79
+  },
+  {
+   "first": "2023-11-28",
+   "last": "2023-12-03",
+   "days_above": 6,
+   "peak_date": "2023-11-30",
+   "peak_cm": 337.8,
+   "peak_q_m3s": 23.3
+  },
+  {
+   "first": "2024-01-21",
+   "last": "2024-01-26",
+   "days_above": 6,
+   "peak_date": "2024-01-23",
+   "peak_cm": 329.1,
+   "peak_q_m3s": 19.84
+  },
+  {
+   "first": "2024-02-22",
+   "last": "2024-02-27",
+   "days_above": 6,
+   "peak_date": "2024-02-25",
+   "peak_cm": 351.6,
+   "peak_q_m3s": 27.38
+  },
+  {
+   "first": "2024-10-24",
+   "last": "2024-10-27",
+   "days_above": 4,
+   "peak_date": "2024-10-26",
+   "peak_cm": 322.5,
+   "peak_q_m3s": 18.96
+  },
+  {
+   "first": "2024-11-06",
+   "last": "2024-11-11",
+   "days_above": 6,
+   "peak_date": "2024-11-09",
+   "peak_cm": 325.3,
+   "peak_q_m3s": 18.36
+  },
+  {
+   "first": "2024-12-03",
+   "last": "2024-12-05",
+   "days_above": 3,
+   "peak_date": "2024-12-05",
+   "peak_cm": 305.7,
+   "peak_q_m3s": 16.19
+  },
+  {
+   "first": "2024-12-21",
+   "last": "2025-01-02",
+   "days_above": 13,
+   "peak_date": "2024-12-28",
+   "peak_cm": 388.1,
+   "peak_q_m3s": 37.11
+  },
+  {
+   "first": "2025-02-01",
+   "last": "2025-02-07",
+   "days_above": 7,
+   "peak_date": "2025-02-06",
+   "peak_cm": 336.5,
+   "peak_q_m3s": 20.66
+  },
+  {
+   "first": "2025-02-20",
+   "last": "2025-02-22",
+   "days_above": 3,
+   "peak_date": "2025-02-21",
+   "peak_cm": 315.8,
+   "peak_q_m3s": 17.31
+  },
+  {
+   "first": "2025-04-03",
+   "last": "2025-04-04",
+   "days_above": 2,
+   "peak_date": "2025-04-03",
+   "peak_cm": 310.7,
+   "peak_q_m3s": 15.64
+  },
+  {
+   "first": "2025-12-10",
+   "last": "2025-12-14",
+   "days_above": 4,
+   "peak_date": "2025-12-11",
+   "peak_cm": 305.0,
+   "peak_q_m3s": 16.2
+  },
+  {
+   "first": "2026-01-18",
+   "last": "2026-01-20",
+   "days_above": 3,
+   "peak_date": "2026-01-19",
+   "peak_cm": 315.7,
+   "peak_q_m3s": 17.25
+  },
+  {
+   "first": "2026-01-30",
+   "last": "2026-03-23",
+   "days_above": 40,
+   "peak_date": "2026-02-11",
+   "peak_cm": 389.0,
+   "peak_q_m3s": 38.1
+  },
+  {
+   "first": "2026-06-24",
+   "last": "2026-06-28",
+   "days_above": 5,
+   "peak_date": "2026-06-26",
+   "peak_cm": 321.0,
+   "peak_q_m3s": 17.88
+  },
+  {
+   "first": "2026-09-02",
+   "last": "2026-09-18",
+   "days_above": 10,
+   "peak_date": "2026-09-14",
+   "peak_cm": 379.0,
+   "peak_q_m3s": 34.46
+  },
+  {
+   "first": "2026-10-13",
+   "last": "2026-10-30",
+   "days_above": 11,
+   "peak_date": "2026-10-26",
+   "peak_cm": 353.4,
+   "peak_q_m3s": 25.42
+  },
+  {
+   "first": "2026-11-14",
+   "last": "2026-11-15",
+   "days_above": 2,
+   "peak_date": "2026-11-14",
+   "peak_cm": 307.5,
+   "peak_q_m3s": 16.2
+  }
+ ]
+}

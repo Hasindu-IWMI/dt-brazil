@@ -1,9 +1,10 @@
 // Rain, river and tunnel records drawn on the terrain (data: public/data/layers.json, built by
 // pipeline/viewer_layers.py). Encodings, all for the replayed date:
-//   rain gauges   a column per gauge, height proportional to that day's audited rain (observed);
-//                 a grey base where the gauge has no record that day
-//   flow stations a ring whose AREA is proportional to the day's mean discharge (observed),
-//                 with a slow ripple; grey and small when there is no record
+//   rain gauges   a dot per gauge whose AREA on screen is proportional to that day's audited rain
+//                 (observed), darker blue for more; small and pale on a dry day, grey with no record
+//   flow stations a ring whose AREA on screen is proportional to the day's mean discharge
+//                 (observed), with a slow pulse; grey and small when there is no record
+//   Rain dots and flow rings are flat symbols of a fixed size on screen (scene/symbols.js).
 //   tunnels       an arc between the two ends. Measured tunnels carry particles whose number
 //                 and speed follow the measured flow; the others are grey and dashed. Arcs are
 //                 deliberately schematic: the underground alignments are not in the data.
@@ -11,14 +12,19 @@
 //                 tint (see Terrain.setOverlay)
 import * as THREE from 'three';
 import { CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { Symbols, SHAPE, pinLabel } from './symbols.js';
 
 export const COLORS = {
   rainLo: new THREE.Color(0xbfe1ff), rainHi: new THREE.Color(0x1f5fbf), noRecord: new THREE.Color(0x77756d),
   upstream: new THREE.Color(0x2bb3a3), below_dam: new THREE.Color(0x6fb2ff), tunnel: new THREE.Color(0xb48cff),
   overlay: [43, 179, 163],
 };
-const RAIN_M_PER_MM = 25; // column height (display scale)
-const RING_M_PER_SQRT_Q = 380; // ring radius = k * sqrt(Q): ring AREA is proportional to discharge
+// symbol diameters in CSS pixels: diameter = k * sqrt(value), so AREA is proportional to the value
+// (between a floor, so a small value stays visible, and a cap)
+const RAIN_PX_PER_SQRT_MM = 4.5; // 80 mm reaches the 40 px cap
+const RING_PX_PER_SQRT_Q = 6.5; // 55 m3/s reaches the 48 px cap
+const rainPx = (mm) => Math.min(40, Math.max(7, RAIN_PX_PER_SQRT_MM * Math.sqrt(mm)));
+const ringPx = (q) => Math.min(48, Math.max(9, RING_PX_PER_SQRT_Q * Math.sqrt(Math.max(q, 0))));
 
 const dayIndex = (dates, iso) => dates.indexOf(iso);
 /** value of a contiguous series {first, values} on dates[i], or null */
@@ -43,32 +49,13 @@ export class RecordLayers {
     this.index = 0;
     this.pickables = [];
 
-    // ---- rain gauges: instanced columns and bases
+    // ---- rain gauges: one dot each
     this.sites = data.rain_sites.filter((s) => inBox(s.lon, s.lat));
-    const col = new THREE.CylinderGeometry(1, 1, 1, 14).translate(0, 0.5, 0);
-    this.rainCols = new THREE.InstancedMesh(col, new THREE.MeshStandardMaterial({ roughness: 0.35, metalness: 0, transparent: true, opacity: 0.8, emissive: 0x0b2a55, emissiveIntensity: 0.6 }), this.sites.length);
-    this.rainBase = new THREE.InstancedMesh(new THREE.CylinderGeometry(1, 1, 1, 18).translate(0, 0.5, 0),
-      new THREE.MeshStandardMaterial({ roughness: 0.6 }), this.sites.length);
-    for (const m of [this.rainCols, this.rainBase]) {
-      m.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
-      m.frustumCulled = false;
-      m.userData.kind = 'rain';
-      this.rainGroup.add(m);
-      this.pickables.push(m);
-    }
+    this.rain = new Symbols(this.sites.length, { order: 6 });
+    this.rainGroup.add(this.rain.group);
 
-    // ---- flow stations: ring + ripple + pole (+ label for river gauges)
+    // ---- flow stations: a ring each, pulsing while there is a record (+ a label for river gauges)
     this.stations = data.flow_stations.filter((s) => inBox(s.lon, s.lat)).map((s) => {
-      const color = COLORS[s.role];
-      const ring = new THREE.Mesh(new THREE.RingGeometry(0.72, 1, 48).rotateX(-Math.PI / 2),
-        new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.75, side: THREE.DoubleSide, depthWrite: false }));
-      const ripple = new THREE.Mesh(new THREE.RingGeometry(0.94, 1, 48).rotateX(-Math.PI / 2),
-        new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.5, side: THREE.DoubleSide, depthWrite: false }));
-      const pole = new THREE.Mesh(new THREE.CylinderGeometry(55, 55, 700, 10).translate(0, 350, 0), new THREE.MeshStandardMaterial({ color }));
-      ring.renderOrder = ripple.renderOrder = 3;
-      pole.userData = { kind: 'flow', station: s };
-      this.pickables.push(pole);
-      this.flowGroup.add(ring, ripple, pole);
       let label = null;
       if (s.role !== 'tunnel') {
         const el = document.createElement('div');
@@ -77,8 +64,10 @@ export class RecordLayers {
         label = new CSS2DObject(el);
         this.flowGroup.add(label);
       }
-      return { s, ring, ripple, pole, label, phase: Math.random() };
+      return { s, label };
     });
+    this.flow = new Symbols(this.stations.length, { pulse: true, order: 7 });
+    this.flowGroup.add(this.flow.group);
 
     // ---- tunnels
     this.tunnels = data.tunnels.map((t) => {
@@ -99,18 +88,12 @@ export class RecordLayers {
   place(exag) {
     this.exag = exag;
     const { X, Z } = this.frame;
-    const m = new THREE.Matrix4();
-    this.sites.forEach((s, k) => {
-      s._p = new THREE.Vector3(X(s.lon), this.surfaceAt(s.lon, s.lat) * exag, Z(s.lat));
-      m.compose(s._p, new THREE.Quaternion(), new THREE.Vector3(190, 30, 190));
-      this.rainBase.setMatrixAt(k, m);
+    this.sites.forEach((s, k) => this.rain.setPos(k, X(s.lon), this.surfaceAt(s.lon, s.lat) * exag + 2, Z(s.lat)));
+    this.stations.forEach((st, k) => {
+      const y = this.surfaceAt(st.s.lon, st.s.lat) * exag + 2;
+      this.flow.setPos(k, X(st.s.lon), y, Z(st.s.lat));
+      st.label?.position.set(X(st.s.lon), y, Z(st.s.lat));
     });
-    this.rainBase.instanceMatrix.needsUpdate = true;
-    for (const st of this.stations) {
-      const y = this.surfaceAt(st.s.lon, st.s.lat) * exag + 25;
-      for (const o of [st.ring, st.ripple, st.pole]) o.position.set(X(st.s.lon), y, Z(st.s.lat));
-      st.label?.position.set(X(st.s.lon), y + 1250, Z(st.s.lat));
-    }
     for (const o of this.tunnels) {
       o.group.clear();
       o.group.add(o.label);
@@ -163,35 +146,27 @@ export class RecordLayers {
   /** Update every encoding to dates[i]. */
   show(i) {
     this.index = i;
-    const m = new THREE.Matrix4();
     const c = new THREE.Color();
     this.sites.forEach((s, k) => {
       const v = this.rainOn(s, i);
-      const h = v ? Math.max(1, v * RAIN_M_PER_MM) : 0.001;
-      m.compose(s._p.clone().setY(s._p.y + 30), new THREE.Quaternion(), new THREE.Vector3(v ? 115 : 0.001, h, v ? 115 : 0.001));
-      this.rainCols.setMatrixAt(k, m);
-      this.rainCols.setColorAt(k, c.copy(COLORS.rainLo).lerp(COLORS.rainHi, Math.min(1, (v ?? 0) / 60)));
-      this.rainBase.setColorAt(k, v === null ? COLORS.noRecord : c.set(0xe9f3ff));
+      if (v === null) this.rain.set(k, { size: 7, color: COLORS.noRecord, alpha: 0.9 });
+      else if (v <= 0) this.rain.set(k, { size: 7, color: 0xe9f3ff });
+      else this.rain.set(k, { size: rainPx(v), color: c.copy(COLORS.rainLo).lerp(COLORS.rainHi, Math.min(1, v / 60)), alpha: 0.85 });
     });
-    this.rainCols.instanceMatrix.needsUpdate = true;
-    this.rainCols.instanceColor.needsUpdate = true;
-    this.rainBase.instanceColor.needsUpdate = true;
-    this.rainCols.computeBoundingSphere(); // for picking: heights change every day
-    this.rainBase.computeBoundingSphere();
-    for (const st of this.stations) {
+    this.rain.commit();
+    this.stations.forEach((st, k) => {
       const q = this.flowOn(st.s, i);
-      const r = q === null ? 160 : Math.max(120, RING_M_PER_SQRT_Q * Math.sqrt(Math.max(q, 0)));
-      st.radius = r;
       st.q = q;
-      st.ring.scale.setScalar(r);
-      st.ring.material.color.copy(q === null ? COLORS.noRecord : COLORS[st.s.role]);
-      st.ripple.visible = q !== null;
+      st.px = q === null ? 9 : ringPx(q);
+      this.flow.set(k, { size: st.px, color: q === null ? COLORS.noRecord : COLORS[st.s.role], shape: SHAPE.ring, pulse: q === null ? 0 : 0.35 });
       if (st.label) {
+        pinLabel(st.label, st.px);
         const depth = q !== null && st.s.area_km2 ? ` · ${(q * 86.4 / st.s.area_km2).toFixed(1)} mm/day` : '';
         const name = st.s.label.replace(/ \(.*\)$/, '');
         st.label.element.innerHTML = `<b>${st.s.code}</b> <span>${name}</span><br><span>${q === null ? 'no record this day' : q.toFixed(2) + ' m³/s' + depth}</span>`;
       }
-    }
+    });
+    this.flow.commit();
     for (const o of this.tunnels) {
       const q = o.t.station ? this.flowOn(this.station(o.t.station), i) : null;
       o.q = q;
@@ -199,14 +174,8 @@ export class RecordLayers {
     }
   }
 
-  /** Per-frame animation: ripples and tunnel particles. */
+  /** Per-frame animation: tunnel particles (the symbols pulse on the GPU). */
   tick(t) {
-    for (const st of this.stations) {
-      if (!st.ripple.visible) continue;
-      const f = (t * 0.35 + st.phase) % 1;
-      st.ripple.scale.setScalar(st.radius * (1 + 0.6 * f));
-      st.ripple.material.opacity = 0.55 * (1 - f);
-    }
     for (const o of this.tunnels) {
       if (!o.points) continue;
       const q = o.q ?? 0;
@@ -222,23 +191,28 @@ export class RecordLayers {
     }
   }
 
-  /** Text for the hover tip, or null. */
+  /** Rain dots and flow rings under a screen point: [{dpx, pos, text}] (see Symbols.hits). */
+  symbolHits(ndc, camera, w, h) {
+    const out = [];
+    if (!this.group.visible) return out;
+    for (const hh of this.rain.hits(ndc, camera, w, h)) out.push({ ...hh, text: this.describeRain(this.sites[hh.k]) });
+    for (const hh of this.flow.hits(ndc, camera, w, h)) out.push({ ...hh, text: this.describeFlow(this.stations[hh.k].s) });
+    return out;
+  }
+  describeRain(s) {
+    const v = this.rainOn(s, this.index);
+    return `<b>${s.name}</b><br>${s.operator} · ${s.kind} gauge<br>${this.dates[this.index]}: ${v === null ? 'no record (or excluded by the audit)' : v.toFixed(1) + ' mm'}<br><i>observed, audited · day = 24 h to 07:00</i>`;
+  }
+  describeFlow(s) {
+    const q = this.flowOn(s, this.index);
+    return `<b>${s.label}</b><br>SIBH ${s.code} · ${s.role.replace('_', ' ')}<br>${this.dates[this.index]}: ${q === null ? 'no record' : q.toFixed(2) + ' m³/s, daily mean'}`
+      + (s.area_km2 ? `<br>catchment ${s.area_km2} km² from the DEM (other snap rule ${s.max_rule_area_km2} km²)` : '')
+      + '<br><i>observed; discharge from a rating curve</i>';
+  }
+
+  /** Text for the hover tip over a tunnel, or null. */
   describe(hit) {
-    const i = this.index;
-    const date = this.dates[i];
     const o = hit.object;
-    if (o === this.rainCols || o === this.rainBase) {
-      const s = this.sites[hit.instanceId];
-      const v = this.rainOn(s, i);
-      return `<b>${s.name}</b><br>${s.operator} · ${s.kind} gauge<br>${date}: ${v === null ? 'no record (or excluded by the audit)' : v.toFixed(1) + ' mm'}<br><i>observed, audited · day = 24 h to 07:00</i>`;
-    }
-    if (o.userData.kind === 'flow') {
-      const s = o.userData.station;
-      const q = this.flowOn(s, i);
-      return `<b>${s.label}</b><br>SIBH ${s.code} · ${s.role.replace('_', ' ')}<br>${date}: ${q === null ? 'no record' : q.toFixed(2) + ' m³/s, daily mean'}`
-        + (s.area_km2 ? `<br>catchment ${s.area_km2} km² from the DEM (other snap rule ${s.max_rule_area_km2} km²)` : '')
-        + '<br><i>observed; discharge from a rating curve</i>';
-    }
     if (o.userData.kind === 'tunnel') {
       const t = o.userData.tunnel;
       return `<b>${t.name}</b>: ${t.from} → ${t.to}<br>${t.note}<br><i>route drawn schematically; the underground alignment is not in the data</i>`;

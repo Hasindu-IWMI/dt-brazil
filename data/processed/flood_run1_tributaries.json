@@ -1,0 +1,60 @@
+{
+ "rule": "junctions on the 90 m flow path of the delineation DEM (>= 2 km2), moved to the nearest point of the OSM line of the Rio Atibaia",
+ "points": [
+  {
+   "area_km2": 26.5,
+   "dem_lat": -23.10958,
+   "dem_lon": -46.56708,
+   "m_from_gauge": 1722,
+   "lat": -23.108872,
+   "lon": -46.566524,
+   "utm23s_e": 339575.4,
+   "utm23s_n": 7443567.2,
+   "moved_m": 97
+  },
+  {
+   "area_km2": 106.7,
+   "dem_lat": -23.11458,
+   "dem_lon": -46.57875,
+   "m_from_gauge": 3587,
+   "lat": -23.114063,
+   "lon": -46.578876,
+   "utm23s_e": 338316.4,
+   "utm23s_n": 7442978.8,
+   "moved_m": 59
+  },
+  {
+   "area_km2": 8.1,
+   "dem_lat": -23.10458,
+   "dem_lon": -46.59125,
+   "m_from_gauge": 6691,
+   "lat": -23.104798,
+   "lon": -46.591871,
+   "utm23s_e": 336974.2,
+   "utm23s_n": 7443990.2,
+   "moved_m": 68
+  },
+  {
+   "area_km2": 42.6,
+   "dem_lat": -23.10625,
+   "dem_lon": -46.59375,
+   "m_from_gauge": 7158,
+   "lat": -23.10541,
+   "lon": -46.594279,
+   "utm23s_e": 336728.3,
+   "utm23s_n": 7443919.7,
+   "moved_m": 108
+  },
+  {
+   "area_km2": 3.7,
+   "dem_lat": -23.10875,
+   "dem_lon": -46.59708,
+   "m_from_gauge": 7419,
+   "lat": -23.10614,
+   "lon": -46.596606,
+   "utm23s_e": 336490.8,
+   "utm23s_n": 7443836.3,
+   "moved_m": 293
+  }
+ ]
+}

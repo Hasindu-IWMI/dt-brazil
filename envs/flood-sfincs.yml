@@ -1,0 +1,50 @@
+# Environment for building the SFINCS model of flood run 1 (docs/model_design_flood_run1.md).
+# Used only to build the model (subgrid tables, input files) with HydroMT-SFINCS; the rest of the
+# pipeline stays standard-library Python and the existing Node tools.
+#
+# HydroMT-SFINCS v2.0.0 is the version recommended by the SFINCS v2.5.0 release notes. It is on
+# PyPI only (released 2 November 2026); conda-forge stops at 1.2.2. So the geospatial stack comes
+# from conda-forge and v2.0.0 from pip. The exact solved versions are recorded in
+# envs/flood-sfincs.lock.txt after creation.
+#
+# Create:  conda env create -f envs/flood-sfincs.yml
+#
+# Windows: if another GIS stack is on PATH (here C:\OSGeo4W\bin), its geos_c.dll is loaded instead of
+# the environment's and `import shapely` fails with "DLL load failed ... procedure could not be found".
+# Remove it from PATH for the process only, e.g. in PowerShell before `conda run`:
+#   $env:PATH = ($env:PATH -split ';' | ? { $_ -notmatch 'OSGeo4W' }) -join ';'
+# SFINCS itself runs from the official Docker image deltares/sfincs-cpu:sfincs-v2.5.0-Hautacam,
+# pinned by digest in the design's pre-run addendum.
+name: atibaia-sfincs
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.12
+  - hydromt=1.4.1
+  - pyflwdir=0.6.0
+  - xugrid=0.15.3
+  - geopandas=1.2.0
+  - mapbox_earcut=2.1.0
+  - rasterio
+  - gdal
+  - xarray
+  - netcdf4
+  - numba
+  - scipy
+  - shapely
+  - pyproj
+  - pillow
+  - affine
+  - pandas
+  - boto3
+  - toml
+  # imported by hydromt_sfincs 2.0.0 but not declared in its package metadata (found 17 Nov 2026):
+  # IPython at import time (plots.py), datashader by the quadtree overlays. cartopy is only used by a
+  # basemap plotting function and is left out.
+  - ipython
+  - datashader
+  - pip
+  - pip:
+      - hydromt-sfincs==2.0.0
+      - cht-tide==0.1.2

@@ -39,7 +39,10 @@
       <label><input type="checkbox" id="lyr-upcatch" checked aria-label="Gauge catchments from the DEM"> Gauge catchments (DEM)</label>
       <label><input type="checkbox" id="lyr-rain" checked aria-label="Rain gauges"> Rain gauges (that day)</label>
       <label><input type="checkbox" id="lyr-flows" checked aria-label="River and tunnel flows"> River and tunnel flows</label>
-      <label><input type="checkbox" id="lyr-rivers" checked aria-label="Rivers"> Rivers</label>
+      <label><input type="checkbox" id="lyr-particles" checked aria-label="Flow particles on the rivers and on modelled flood water"> Flow particles</label>
+      <label><input type="checkbox" id="lyr-rivers" aria-label="River lines (mapped centrelines)"> River lines</label>
+      <label><input type="checkbox" id="lyr-flood" checked aria-label="Floods: Atibaia town gauge and official risk areas"> Floods: Atibaia gauge, risk areas</label>
+      <label><input type="checkbox" id="lyr-water" checked aria-label="Modelled flood water, from tested flood runs only"> Modelled flood water</label>
       <label><input type="checkbox" id="lyr-columns" aria-label="Storage columns"> Storage columns</label>
       <label><input type="checkbox" id="lyr-lc" aria-label="Land cover 2021"> Land cover (2021)</label>
       <label><input type="checkbox" id="lyr-bld" checked aria-label="Buildings"> Buildings <span id="bld-note" class="muted small"></span></label>
@@ -81,6 +84,27 @@
         Rivers and tunnels: SIBH telemetry, daily means. mm/day uses each gauge's catchment area derived from the DEM
         (teal on the map). Tunnel routes on the map are schematic.</p>
     </section>
+    <section id="flood-sec">
+      <h2>Floods: Atibaia town</h2>
+      <div id="flood-body" class="rec"></div>
+      <div class="flood-nav">
+        <button id="flood-prev" class="small-btn" aria-label="Previous flood" title="Go to the previous flood peak">◀ Previous</button>
+        <span id="flood-count" class="muted small"></span>
+        <button id="flood-next" class="small-btn" aria-label="Next flood" title="Go to the next flood peak">Next ▶</button>
+      </div>
+      <div id="risk-body" class="rec"></div>
+      <button id="flood-goto" class="small-btn">Go to the town gauge</button>
+      <div id="water-legend" class="water-legend" hidden></div>
+      <p class="note">River level: SP Águas telemetric gauge 3E-063 (Av. São João), highest hourly reading each day, on the gauge's own
+        zero, against SP Águas' official alarm levels. On the map: a diamond in the colour of the level reached, pulsing from the
+        attention level up, with the level drawn in its label. Flow particles drift down the rivers, across their width, in the direction
+        they flow (as mapped); their speed is a display rate, not a velocity.
+        Floods (pink ticks under the date slider) are derived: days at or over the overflow level, joined when under 10 days apart.
+        Coloured areas are the Geological Survey of Brazil's risk sectors of 2012: official mapped areas, not flood extents.
+        <span id="water-note">No modelled water is shown: no flood run has passed its test yet (flood run 1 stopped at its data
+        check; see the README). Water depth and velocity will be drawn here, with particles carried by the modelled flow, only from a
+        run that passes.</span></p>
+    </section>
     <section>
       <h2>Inflow model <span class="tag">modelled</span></h2>
       <table id="model-table">
@@ -95,7 +119,9 @@
         <li><b>Observed:</b> reservoir level, storage, inflow, release (ANA SAR); river flow (ANA gauges).</li>
         <li><b>Modelled:</b> reservoir inflow from rain and temperature (GR4J). Shown only where the model passed its validation test; see the validation report.</li>
         <li><b>Derived:</b> system storage, operating band, implied export, local inflow. Formulas are in the data-quality report.</li>
-        <li><b>Observed on the map:</b> rain at each gauge that day (columns; grey base = no record), daily discharge at river gauges and tunnel outlets (ring area ∝ flow), Tunnels 6 and 5 (particles ∝ measured flow).</li>
+        <li><b>Observed on the map:</b> rain at each gauge that day (dot area ∝ rain; grey = no record), daily discharge at river gauges and tunnel outlets (ring area ∝ flow), ANA's river gauges (white dots), Tunnels 6 and 5 (particles ∝ measured flow). Symbols keep their size on screen at any zoom.</li>
+        <li><b>Flow particles:</b> drift downstream across the width of each river, in the direction OpenStreetMap draws it (Rio Atibaia 11 m wide from its OSM width tag; a nominal 12 m elsewhere; never under 7 px on screen). Their speed, and the faster middle, are drawn for display, not measured. On modelled flood water (shown only from a tested run) the particles follow the model's velocity instead. The mapped river lines are a separate layer, off by default.</li>
+        <li><b>Floods in Atibaia town:</b> the river level at SP Águas' town gauge each day (observed), its official alarm levels, the floods since 2015 (derived from that level) and the official 2012 risk sectors (CPRM). Not shown, because not tested: how far the water spread on any day.</li>
         <li><b>Derived on the map:</b> the teal catchments of the two gauges above the lakes, delineated from the DEM (no area is published for them).</li>
         <li><b>Not shown, because not known:</b> lake outline or level on each date (no bathymetry), Tunnel 7 and Paraíba do Sul transfer flows (grey dashed: no public record), the tunnels' true underground routes, sub-daily data.</li>
         <li><b>Display only, does not change with the date:</b> ground imagery (Sentinel-2, dry season August 2024), land cover (ESA WorldCover 2021), lake outlines (OpenStreetMap) drawn at the terrain's own lake surface, and the sky and haze. The sun is the computed sun for the replayed date at the chosen hour.</li>
@@ -123,7 +149,10 @@
         <option value="7" selected>7 days per step</option>
         <option value="30">30 days per step</option>
       </select>
-      <input id="slider" type="range" min="0" max="0" value="0" aria-label="Date">
+      <div id="slider-wrap">
+        <input id="slider" type="range" min="0" max="0" value="0" aria-label="Date">
+        <div id="flood-ticks" aria-hidden="true" title="Floods at Atibaia town (peak days)"></div>
+      </div>
     </div>
   </footer>
 

@@ -28,6 +28,10 @@ web/public/data/landcover.png
 web/public/data/buildings/
 web/.cache/
 
+# SFINCS model folders for flood run 1 (docs/model_design_flood_run1.md): rebuilt by the pipeline
+# scripts that write them; their NetCDF outputs are large. Results that matter are written to docs/.
+models/
+
 # Console logs rewritten on every pipeline run (data/logs/*fetch*.log and model-run logs stay tracked)
 data/logs/run_all_*.log
 
@@ -42,3 +46,5 @@ data/logs/run_all_*.log
 .DS_Store
 Thumbs.db
 desktop.ini
+# untested model output for checking displays in the dev server only (pipeline/flood_water_viewer.py --test)
+web/dev-data/

@@ -14,7 +14,11 @@ import { Atmosphere } from './scene/atmosphere.js';
 import { Terrain, loadDem, LANDCOVER } from './scene/terrain.js';
 import { realisticWaterMaterial, analyticalWaterMaterial } from './scene/water.js';
 import { RecordLayers } from './scene/layers.js';
+import { FloodLayer, LEVELS, RISK_STYLE, statusOf } from './scene/floods.js';
 import { BuildingLayer } from './scene/buildings.js';
+import { Symbols, SYMBOL_UNIFORMS, pinLabel } from './scene/symbols.js';
+import { RiverFlow } from './scene/riverflow.js';
+import { FloodWater, SPEED_STOPS } from './scene/floodwater.js';
 import { SOURCE_COLOURS } from './scene/buildingMaterial.js';
 
 const RULES_FROM = '2017-06-01';
@@ -76,6 +80,7 @@ const host = $('scene');
 const renderer = new THREE.WebGLRenderer({ antialias: true, stencil: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.toneMapping = THREE.NeutralToneMapping;
+SYMBOL_UNIFORMS.uPx.value = renderer.getPixelRatio();
 host.appendChild(renderer.domElement);
 // Mesh density by GPU class (?quality=high|medium|low overrides): the surface mesh is 3.4 M
 // triangles at 60 m spacing, which integrated and mobile GPUs draw slowly. Relief shading uses
@@ -125,20 +130,22 @@ function surfaceAt(lon, lat) {
   return terrain.meshAt(lon, lat) ?? terrain.elevAt(lon, lat) ?? terrain.baseElev;
 }
 
-// ---- rivers (mapped lines, on the terrain)
-const riverMat = new THREE.LineBasicMaterial({ color: 0x7fb4ee, transparent: true, opacity: 0.85 });
+// ---- rivers (mapped lines, on the terrain), with streaks moving downstream (scene/riverflow.js)
+const riverFlow = new RiverFlow();
 const rivers = new THREE.Group();
 for (const r of vectors.rivers) {
   if (!RIVERS.includes(r.name)) continue;
   let pts = [];
-  const flush = () => { if (pts.length > 1) rivers.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), riverMat)); pts = []; };
+  const flush = () => { if (pts.length > 1) rivers.add(riverFlow.line(pts, r.name)); pts = []; };
   for (const [lon, lat] of r.line) {
     if (!inBox(lon, lat)) { flush(); continue; }
     pts.push(new THREE.Vector3(X(lon), surfaceAt(lon, lat) + 12, Z(lat)));
   }
   flush();
 }
-world.add(rivers);
+const riverParticles = riverFlow.buildParticles(); // a layer of its own: the lines are off by default
+world.add(rivers, riverParticles);
+rivers.visible = false;
 
 // ---- catchment boundaries delineated from the terrain (pipeline/delineate.py)
 const catchMat = new THREE.LineBasicMaterial({ color: 0xf0efec, transparent: true, opacity: 0.75 });
@@ -194,26 +201,55 @@ for (const [key, r] of Object.entries(reservoirs)) {
   r.key = key;
 }
 
-// ---- gauges
+// ---- ANA river gauges: a white dot each (grey on a day without a record)
+const GAUGE_PX = 11;
 const gauges = {};
-for (const code of SCENE_GAUGES) {
+const gaugeCodes = SCENE_GAUGES.filter((code) => { const g = ts.gauges[code]; return g && g.lat != null && inBox(g.lon, g.lat); });
+const gaugeDots = new Symbols(gaugeCodes.length, { order: 9 });
+markers.add(gaugeDots.group);
+gaugeCodes.forEach((code, k) => {
   const g = ts.gauges[code];
-  if (!g || g.lat == null || !inBox(g.lon, g.lat)) continue;
-  const pin = new THREE.Mesh(new THREE.ConeGeometry(260, 900, 16), new THREE.MeshLambertMaterial({ color: 0xf0efec }));
-  pin.rotation.x = Math.PI;
   const el = document.createElement('div');
   el.className = 'label';
   el.dataset.prio = '3';
   const label = new CSS2DObject(el);
-  markers.add(pin, label);
-  gauges[code] = { pin, el, label, x: X(g.lon), z: Z(g.lat), h: surfaceAt(g.lon, g.lat) };
-}
+  pinLabel(label, GAUGE_PX);
+  markers.add(label);
+  gauges[code] = { k, code, el, label, x: X(g.lon), z: Z(g.lat), h: surfaceAt(g.lon, g.lat) };
+});
 
 // ---- rain, river and tunnel records on the terrain (scene/layers.js)
 const records = layerData ? new RecordLayers({ data: layerData, dates: ts.dates, frame, surfaceAt, inBox }) : null;
 if (records) {
   markers.add(records.group);
   terrain.setOverlay(records.overlayTexture());
+}
+
+// ---- floods in Atibaia town (scene/floods.js): the observed town gauge against its official alarm
+// levels, and CPRM's official risk sectors. No modelled water: flood run 1 stopped before its test.
+const floodData = layerData?.flood && inBox(layerData.flood.town.lon, layerData.flood.town.lat) ? layerData.flood : null;
+const floods = floodData ? new FloodLayer({ data: floodData, dates: ts.dates, frame, surfaceAt }) : null;
+const riskTex = floods ? floods.riskTexture(quality === 'high' ? 4096 : 2048) : null;
+let riskOutline = null; // the sectors as outlines only, made when modelled water first shows (water is blue too)
+if (floods) markers.add(floods.group);
+if (riskTex) terrain.setDetailOverlay(riskTex.tex, riskTex.box);
+
+// ---- modelled flood water (scene/floodwater.js): ONLY from a flood run that passed its test (the
+// published file says accepted: true). An untested file is loaded only by the development server
+// (?floodtest=1, from web/dev-data/, which the build does not copy), under a TEST RENDER banner.
+const floodTest = import.meta.env.DEV && params.has('floodtest');
+const waterData = floodTest
+  ? await fetch(`${import.meta.env.BASE_URL}dev-data/flood_water_test.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null)
+  : await json('flood_water.json');
+const water = waterData?.grid && (waterData.accepted === true || floodTest) ? new FloodWater({ data: waterData, frame, surfaceAt, test: floodTest }) : null;
+if (water) world.add(water.group);
+if (floodTest) {
+  const b = document.createElement('div');
+  b.className = 'test-banner';
+  b.innerHTML = water
+    ? `<b>TEST RENDER</b> · ${waterData.run}${waterData.frames[0]?.label ? ' (' + waterData.frames[0].label + ')' : ''}: untested, for checking the display only; never published.<br>Velocity ${waterData.velocity.split(':')[0]}.`
+    : '<b>TEST RENDER</b> · no test file: run pipeline/flood_water_viewer.py --test first';
+  host.appendChild(b);
 }
 
 // ---- 3D buildings (scene/buildings.js): streamed around the view target when the camera is close
@@ -246,9 +282,10 @@ function placeMarkers() {
     r.label.position.set(r.x, base + (showColumns ? COLUMN_M + 700 : 900), r.z);
   }
   for (const g of Object.values(gauges)) {
-    g.pin.position.set(g.x, g.h * exag + 450, g.z);
-    g.label.position.set(g.x, g.h * exag + 1500, g.z);
+    gaugeDots.setPos(g.k, g.x, g.h * exag + 2, g.z);
+    g.label.position.set(g.x, g.h * exag + 2, g.z);
   }
+  gaugeDots.commit();
 }
 
 // ---- view: style, sun, relief, haze, layers
@@ -261,8 +298,8 @@ function applyStyle() {
   scene.background = real ? null : new THREE.Color(0x111110);
   atmosphere.setEnabled(real);
   terrain.setStyle(style);
-  riverMat.color.set(real ? 0xa9d6f5 : 0x7fb4ee);
-  riverMat.opacity = real ? 0.55 : 0.85;
+  riverFlow.setLook(real ? 0x8fc4ec : 0x7fb4ee);
+  water?.setStyle(real);
   catchMat.opacity = real ? 0.6 : 0.75;
   for (const r of Object.values(reservoirs)) for (const m of r.meshes) {
     m.material = real ? waterMat : r.analMat;
@@ -287,6 +324,7 @@ function applyRelief() {
   buildings.setExaggeration(exag);
   placeMarkers();
   records?.place(exag);
+  floods?.place(exag);
   $('exag').textContent = exag === 1 ? 'true scale (×1)' : `×${exag}`;
 }
 function sunText() {
@@ -322,6 +360,23 @@ $('lyr-flows').addEventListener('change', (e) => {
 $('lyr-upcatch').addEventListener('change', (e) => terrain.setOverlay(e.target.checked && records ? records.overlayTexture() : null));
 if (!records) for (const id of ['lyr-rain', 'lyr-flows', 'lyr-upcatch']) { $(id).checked = false; $(id).disabled = true; }
 $('lyr-rivers').addEventListener('change', (e) => { rivers.visible = e.target.checked; });
+$('lyr-particles').addEventListener('change', (e) => {
+  riverParticles.visible = e.target.checked;
+  if (water) water.points.visible = e.target.checked;
+});
+$('lyr-flood').addEventListener('change', (e) => {
+  if (!floods) return;
+  floods.group.visible = e.target.checked;
+  floods.riskOn = e.target.checked;
+  riskOverlay();
+});
+if (!floods) { $('lyr-flood').checked = false; $('lyr-flood').disabled = true; }
+$('lyr-water').addEventListener('change', () => show(index));
+if (!water) {
+  $('lyr-water').checked = false;
+  $('lyr-water').disabled = true;
+  $('lyr-water').parentElement.title = 'No flood run has passed its test yet, so no modelled water is shown';
+}
 $('lyr-bld').addEventListener('change', (e) => {
   buildings.setEnabled(e.target.checked);
   $('bld-legend').hidden = style === 'realistic' || !e.target.checked;
@@ -412,6 +467,67 @@ function recordsPanel() {
     <table><thead><tr><th>Tunnels and transfers</th><th>m³/s</th></tr></thead><tbody>${tunnels}</tbody></table>`;
 }
 
+// ---- panel: floods in Atibaia town (observed gauge; floods derived from it; official risk sectors)
+const cap = (t) => t[0].toUpperCase() + t.slice(1);
+function floodPanel() {
+  const i = index;
+  const lv = floodData.town.levels_cm;
+  const cm = floods.levelOn(i);
+  const st = statusOf(cm, lv);
+  const q = floods.flowOn(i);
+  const dn = floods.downstreamOn(i);
+  const m = (v) => (v / 100).toFixed(2);
+  const ev = floods.eventOn(i);
+  const gap = cm === null ? null : cm - lv.extravasation;
+  const status = st === null ? 'No record this day'
+    : st.key === 'extravasation' ? `Overflow: ${m(gap)} m over the overflow level`
+      : `${cap(st.name)}: ${m(-gap)} m under the overflow level`;
+  const levels = LEVELS.filter((l) => lv[l.key] !== undefined).map((l) =>
+    `<tr${st?.key === l.key ? ' class="on"' : ''}><td><i class="sw" style="background:${l.color}"></i>${cap(l.name)}</td><td>${m(lv[l.key])}</td></tr>`).join('');
+  $('flood-prev').disabled = floods.eventFrom(i, -1) === null;
+  $('flood-next').disabled = floods.eventFrom(i, 1) === null;
+  $('flood-body').innerHTML = `
+    <div class="kv"><span>Town gauge 3E-063, highest level that day</span><b>${cm === null ? 'no record' : m(cm) + ' m'}</b></div>
+    <div class="flood-status" style="--c:${st ? st.color : '#77756d'}">${status}</div>
+    <div class="kv"><span>Mean flow that day (SP Águas rating)</span><b>${q === null ? '–' : q.toFixed(1) + ' m³/s'}</b></div>
+    <div class="kv"><span>4 km downstream (ANA 62671200), highest level</span><b>${dn === null ? 'no record' : m(dn) + ' m'}</b></div>
+    <table><thead><tr><th>Official alarm levels at 3E-063 (SP Águas)</th><th>m</th></tr></thead><tbody>${levels}</tbody></table>
+    <div class="kv derived"><span>Flood on this day <i>derived</i></span><b>${ev ? `peak ${m(ev.peak_cm)} m` : 'none'}</b></div>`
+    + (ev ? `<div class="muted small">${ev.first} to ${ev.last}: ${ev.days_above} day${ev.days_above > 1 ? 's' : ''} at or over the overflow
+      level; peak on ${ev.peak_date}</div>` : '');
+}
+
+// ---- the risk sectors on the terrain: filled, or outlines only while modelled water is shown
+let riskShown = riskTex?.tex;
+function riskOverlay() {
+  if (!riskTex) return;
+  let tex = null;
+  if ($('lyr-flood').checked) {
+    if (water?.group.visible) tex = (riskOutline ??= floods.riskTexture(quality === 'high' ? 4096 : 2048, false)).tex;
+    else tex = riskTex.tex;
+  }
+  if (tex !== riskShown) { terrain.setDetailOverlay(tex, riskTex.box); riskShown = tex; }
+}
+
+// ---- legend of the modelled flood water (depth colours, particle speed colours, the display speed-up)
+function waterLegend() {
+  const el = $('water-legend');
+  const on = water && water.group.visible;
+  el.hidden = !on;
+  if (!on) return;
+  const ramp = (stops) => `linear-gradient(90deg, ${stops.join(', ')})`;
+  el.innerHTML = `<div><b>Modelled flood water</b>${water.test ? ' <span class="test-tag">TEST RENDER</span>' : ''}</div>`
+    + `<div>Depth</div><div class="ramp" style="background:${ramp(['#6cbbe3', '#0c3c84'])}"></div><div class="ends"><span>0</span><span>3 m and more</span></div>`
+    + `<div>Particles: speed of the modelled flow</div><div class="ramp" style="background:${ramp(SPEED_STOPS.map((s) => s[1]))}"></div>`
+    + `<div class="ends"><span>0</span><span>0.5</span><span>1.5 m/s</span></div>`
+    + `<div class="muted small">Particles move about ${Math.round(water.speedUp ?? 0)} times faster than the water at this zoom. ${waterData.run}; ${waterData.status}.</div>`;
+}
+if (water) {
+  $('water-note').textContent = water.test
+    ? 'TEST RENDER of untested model output (development only): it is not a flood and is never published.'
+    : `Modelled water: ${waterData.run}, ${waterData.status}. Velocity: ${waterData.velocity}.`;
+}
+
 // ---- panel tables
 const resBody = document.querySelector('#res-table tbody');
 const resRows = {};
@@ -447,6 +563,7 @@ $('model-note').textContent = verdicts.length
   ? `Inflow in m³/s. ${verdicts.join(' ')} Acceptance needed low-flow bias within ±50% in both folds. A model that failed validation is not shown.`
   : 'No model results yet.';
 $('stamp').textContent = `Records to ${ts.dates.at(-1)}. Data file built ${ts.generated_utc.slice(0, 10)}. Sources: ANA SAR; ANA HidroSerieHistorica; `
+  + 'SP Águas SIBH telemetry; Serviço Geológico do Brasil (CPRM) risk sectors, Atibaia, 2012; '
   + 'Copernicus DEM GLO-30; contains modified Copernicus Sentinel data 2024; ESA WorldCover 2021 (CC BY 4.0); © OpenStreetMap contributors; '
   + 'Microsoft Global ML Building Footprints (ODbL); Google Open Buildings 2.5D Temporal (CC BY 4.0).';
 
@@ -546,6 +663,54 @@ if (records) {
       { name: 'Tunnel 5 (Atibainha → Paiva Castro)', color: TEAL, data: flow7('18'), win: true }],
   };
 }
+if (floods) {
+  const onDates = (g) => { // a contiguous gauge series in cm -> metres on the viewer's dates
+    const a = new Array(N).fill(null);
+    const o = ts.dates.indexOf(g.first);
+    if (o >= 0) g.max_cm.forEach((v, k) => { if (o + k < N) a[o + k] = v === null ? null : v / 100; });
+    return a;
+  };
+  const lv = floodData.town.levels_cm;
+  const spans = floodData.events.map((e) => [ts.dates.indexOf(e.first), ts.dates.indexOf(e.last)]).filter(([a, b]) => a >= 0 && b >= 0);
+  charts.flood = {
+    title: 'Atibaia town (3E-063): highest river level each day, m', windowed: true, unit: ' m', digits: 2, step: 1, spans,
+    sub: '· SP Águas gauge, own zero · dashed: official alarm levels · shaded: floods (derived)',
+    series: [{ name: 'Town gauge 3E-063', color: OBS, data: onDates(floodData.town) }],
+    lines: LEVELS.filter((l) => lv[l.key] !== undefined)
+      .map((l) => ({ v: lv[l.key] / 100, color: l.color, name: cap(l.name), label: l.key === 'extravasation' })),
+  };
+  charts.floodDown = {
+    title: 'Rio Atibaia 4 km below the town (ANA 62671200): highest level each day, m', windowed: true, unit: ' m', digits: 2, step: 2, spans,
+    sub: "· the station's own zero, not the town gauge's · no alarm levels published · readings over 10 m dropped as faults",
+    series: [{ name: 'ANA 62671200', color: TEAL, data: onDates(floodData.downstream) }],
+  };
+
+  const by = {};
+  for (const s of floodData.risk?.sectors ?? []) {
+    const b = (by[s.type] ??= { n: 0, homes: 0, people: 0 });
+    b.n++; b.homes += s.homes ?? 0; b.people += s.people ?? 0;
+  }
+  $('risk-body').innerHTML = Object.keys(by).length
+    ? '<table><thead><tr><th>Official risk sectors (CPRM, 2012)</th><th>Sectors</th><th>Homes</th><th>People</th></tr></thead><tbody>'
+      + Object.entries(by).map(([t, b]) => `<tr><td><i class="sw" style="background:rgb(${RISK_STYLE[t]?.rgb ?? [200, 200, 200]})"></i>`
+        + `${cap(RISK_STYLE[t]?.en ?? t)}</td><td>${b.n}</td><td>${b.homes}</td><td>${b.people}</td></tr>`).join('') + '</tbody></table>'
+    : '';
+  const later = floodData.events.filter((e) => e.peak_date > ts.dates.at(-1));
+  $('flood-count').textContent = `${floodData.events.length} floods since ${floodData.town.first.slice(0, 4)}`;
+  if (later.length) { // the gauge record runs past the reservoir record that sets the viewer's dates
+    $('flood-count').title = `${later.length} of them peaked after ${ts.dates.at(-1)}, the last replayed day: ${later.map((e) => e.peak_date).join(', ')}`;
+    $('flood-count').textContent += ` (${later.length} after the last day)`;
+  }
+  $('flood-prev').addEventListener('click', () => { const k = floods.eventFrom(index, -1); if (k !== null) show(k); });
+  $('flood-next').addEventListener('click', () => { const k = floods.eventFrom(index, 1); if (k !== null) show(k); });
+  $('flood-goto').addEventListener('click', () => flyTo(floodData.town.lon, floodData.town.lat, 2600));
+  // the floods' peak days, marked along the date slider
+  $('flood-ticks').innerHTML = floodData.events.map((e) => {
+    const k = ts.dates.indexOf(e.peak_date);
+    return k < 0 ? '' : `<i style="left:${((100 * k) / (N - 1)).toFixed(3)}%"></i>`;
+  }).join('');
+}
+$('flood-sec').hidden = !floods;
 const pick = $('chart-pick');
 for (const [k, c] of Object.entries(charts)) pick.add(new Option(c.title, k));
 let chart = charts.storage;
@@ -567,10 +732,10 @@ function useChart(k) {
   if (chart.bands) { yMin = Math.min(0, Math.floor(Math.min(...all) / 10) * 10); yMax = 100; }
   else { yMin = 0; yMax = Math.ceil(Math.max(...all) / 5) * 5; }
   $('chart-sub').textContent = chart.sub;
-  $('legend').innerHTML = chart.series.length > 1
+  $('legend').innerHTML = (chart.series.length > 1
     ? chart.series.map((sr) => `<span><i style="border-color:${sr.color}"></i>${sr.name}</span>`).join('')
       + (chart.band ? `<span><i class="band" style="background:${MOD}"></i>Ensemble range</span>` : '')
-    : '';
+    : '') + (chart.lines ?? []).map((l) => `<span><i class="dash" style="border-color:${l.color}"></i>${l.name}</span>`).join('');
 }
 useChart('storage');
 let cw = 0;
@@ -590,7 +755,7 @@ function drawChart(cur, hover) {
   ctx.clearRect(0, 0, cw, ch);
   ctx.font = '11px system-ui, sans-serif';
   ctx.textBaseline = 'middle';
-  const stepY = chart.bands ? 20 : Math.max(5, Math.ceil(yMax / 5 / 5) * 5);
+  const stepY = chart.step ?? (chart.bands ? 20 : Math.max(5, Math.ceil(yMax / 5 / 5) * 5));
   for (let v = Math.ceil(yMin / stepY) * stepY; v <= yMax; v += stepY) {
     ctx.strokeStyle = v === 0 ? '#5a5a55' : '#2c2c2a';
     ctx.lineWidth = 1;
@@ -610,6 +775,27 @@ function drawChart(cur, hover) {
       ctx.fillText(`${b.min_pct}%`, cw - PAD.r + 5, py(b.min_pct));
     }
     ctx.setLineDash([]);
+  }
+  if (chart.lines) { // official levels: dashed, in their colours; only the top one labelled (they are 0.2 m apart)
+    ctx.setLineDash([4, 4]);
+    ctx.lineWidth = 1;
+    for (const l of chart.lines) {
+      ctx.strokeStyle = l.color;
+      ctx.beginPath(); ctx.moveTo(PAD.l, py(l.v)); ctx.lineTo(cw - PAD.r, py(l.v)); ctx.stroke();
+      if (!l.label) continue;
+      ctx.fillStyle = l.color;
+      ctx.textAlign = 'left';
+      ctx.fillText(l.v.toFixed(2), cw - PAD.r + 4, py(l.v));
+    }
+    ctx.setLineDash([]);
+  }
+  if (chart.spans) { // derived flood periods
+    ctx.fillStyle = '#c2185b40';
+    for (const [a, b] of chart.spans) {
+      if (b < i0) continue;
+      const xa = px(Math.max(a, i0)) - 1;
+      ctx.fillRect(xa, PAD.t, Math.max(2, px(b) + 1 - xa), ch - PAD.t - PAD.b);
+    }
   }
   ctx.textAlign = 'center';
   ctx.fillStyle = '#8f8e85';
@@ -676,6 +862,7 @@ function show(i) {
   index = Math.max(0, Math.min(N - 1, i));
   slider.value = String(index);
   $('date').textContent = ts.dates[index];
+  $('hover-tip').hidden = true; // its values were for the previous date
   if (ts.dates[index] !== lastSunDay) { // the sun follows the replayed date (display only)
     lastSunDay = ts.dates[index];
     atmosphere.set({ time: sunTime(ts.dates[index]), haze });
@@ -712,13 +899,21 @@ function show(i) {
   }
   placeMarkers();
   if (records) { records.show(index); recordsPanel(); }
+  if (floods) { floods.show(index); floodPanel(); }
+  if (water) {
+    water.setFrame(water.frameFor(ts.dates[index]));
+    if (!$('lyr-water').checked) water.group.visible = false;
+  }
+  riskOverlay();
   for (const [code, g] of Object.entries(ts.gauges)) {
     cell(gaugeRows[code][2], g.flow[index], 2);
     if (gauges[code]) {
       const f = g.flow[index];
       gauges[code].el.innerHTML = `<b>${SHORT[code]}</b><br><span>${f === null ? 'no data' : fmt(f, 2) + ' m³/s'}</span>`;
+      gaugeDots.set(gauges[code].k, { size: GAUGE_PX, color: f === null ? 0x77756d : 0xf0efec });
     }
   }
+  gaugeDots.commit();
   for (const [name, m] of Object.entries(ts.model ?? {})) {
     const td = modelRows[name];
     cell(td[1], ts.reservoirs[MODEL_RES[name]].inflow[index], 1);
@@ -763,7 +958,7 @@ canvas.addEventListener('pointermove', (e) => {
   const v = chart.series[0].data[hoverIndex];
   tip.hidden = false;
   tip.textContent = `${ts.dates[hoverIndex]} · ` + chart.series.map((sr) =>
-    `${chart.series.length > 1 ? sr.name + ' ' : ''}${sr.data[hoverIndex] === null ? 'no data' : sr.data[hoverIndex].toFixed(1) + chart.unit}`).join(' · ');
+    `${chart.series.length > 1 ? sr.name + ' ' : ''}${sr.data[hoverIndex] === null ? 'no data' : sr.data[hoverIndex].toFixed(chart.digits ?? 1) + chart.unit}`).join(' · ');
   tip.style.left = `${Math.max(110, Math.min(cw - 110, px(hoverIndex)))}px`;
   tip.style.top = `${canvas.offsetTop + (v === null ? PAD.t + 20 : py(Math.min(v, yMax)))}px`;
   drawChart(index, hoverIndex);
@@ -777,6 +972,7 @@ function resize() {
   const h = host.clientHeight;
   renderer.setSize(w, h);
   labels.setSize(w, h);
+  riverFlow.setResolution(w, h);
   camera.aspect = w / h;
   camera.updateProjectionMatrix();
   drawChart(index, hoverIndex);
@@ -786,7 +982,7 @@ resize();
 applyRelief();
 applyStyle();
 homeView();
-if (import.meta.env.DEV) window.__viewer = { camera, controls, atmosphere, terrain, scene, renderer, buildings, flyTo }; // debugging only
+if (import.meta.env.DEV) window.__viewer = { camera, controls, atmosphere, terrain, scene, renderer, buildings, flyTo, riverFlow, water }; // debugging only
 // the land-cover roughness cue (mapped water catches the sun) loads after the first frame
 if (imagery) terrain.loadLandcover(DATA + 'landcover.png').catch(() => {});
 
@@ -814,7 +1010,14 @@ renderer.setAnimationLoop((t) => {
   const near = THREE.MathUtils.clamp((camera.position.y - ground) * 0.25, 5, 3000);
   if (Math.abs(near - camera.near) > camera.near * 0.2) { camera.near = near; camera.updateProjectionMatrix(); }
   atmosphere.update(exag, dt);
+  SYMBOL_UNIFORMS.uTime.value = t / 1000;
+  const camDist = camera.position.distanceTo(controls.target);
+  const mPerPx = (camDist * 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2))) / Math.max(1, host.clientHeight);
+  riverFlow.tick(dt, controls.target, camDist, mPerPx, water?.group.visible ? (x, z) => water.wetAtXZ(x, z) : null);
+  water?.tick(dt, camDist);
+  if (water && frameNo % 30 === 0) waterLegend();
   records?.tick(t / 1000);
+  if (frameNo % 6 === 0) for (const sy of symbolSets) sy.occlude(hiddenByTerrain);
   buildings.update(camera, controls.target, atmosphere.sunPos.elevation);
   renderer.render(scene, camera);
   if (++bldFrame % 30 === 0) buildingNote();
@@ -845,7 +1048,53 @@ function declutter() {
 }
 
 // ---- hover: what a marker is, where it comes from, its value on the replayed date; else the building
-if (records || hasBuildings) {
+// Ground point under a ray: march to the drawn surface (heights from the mesh, times the relief), then bisect.
+function groundHit(r) {
+  const p = r.origin.clone();
+  let t = 0;
+  let step = 0;
+  for (let k = 0; k < 400 && t < 4e5; k++) {
+    const h = p.y - terrain.meshAtXZ(p.x, p.z) * exag;
+    if (h <= 0) {
+      let lo = t - step;
+      let hi = t;
+      for (let b = 0; b < 12; b++) {
+        const mid = (lo + hi) / 2;
+        r.at(mid, p);
+        if (p.y - terrain.meshAtXZ(p.x, p.z) * exag > 0) lo = mid; else hi = mid;
+      }
+      return r.at(hi, p);
+    }
+    step = Math.max(3, h * 0.5);
+    t += step;
+    r.at(t, p);
+  }
+  return null;
+}
+
+// Is a symbol on the ground at p hidden from the camera by the terrain? (march the sight line)
+const symbolSets = [gaugeDots, records?.rain, records?.flow, floods?.gauge].filter(Boolean);
+function hiddenByTerrain(p) {
+  const c = camera.position;
+  const q = new THREE.Vector3();
+  for (let k = 1; k < 64; k++) {
+    const f = k / 64;
+    if (f > 0.97) break; // the last stretch is the slope the symbol stands on
+    q.lerpVectors(c, p, f);
+    if (q.y < terrain.meshAtXZ(q.x, q.z) * exag - 2) return true;
+  }
+  return false;
+}
+function gaugeHits(ndc, w, h) {
+  return gaugeDots.hits(ndc, camera, w, h).map((hh) => {
+    const code = gaugeCodes[hh.k];
+    const f = ts.gauges[code].flow[index];
+    return { ...hh, text: `<b>${ts.gauges[code].name}</b><br>ANA river gauge ${code}<br>${ts.dates[index]}: `
+      + `${f === null ? 'no record' : fmt(f, 2) + ' m³/s, daily mean'}<br><i>observed; discharge from ANA's rating curve</i>` };
+  });
+}
+
+{
   const ray = new THREE.Raycaster();
   const ndc = new THREE.Vector2();
   const hoverTip = $('hover-tip');
@@ -859,24 +1108,28 @@ if (records || hasBuildings) {
       const r = renderer.domElement.getBoundingClientRect();
       ndc.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
       ray.setFromCamera(ndc, camera);
-      const visible = records ? records.pickables.filter((o) => o.visible && o.parent?.visible !== false && records.group.visible
-        && (o.userData.kind !== 'rain' || records.rainGroup.visible)) : [];
-      // several sites have a rain gauge and a river gauge side by side: describe both
-      const hits = ray.intersectObjects(visible, false);
-      const seen = new Set();
-      const parts = [];
-      for (const h of hits) {
-        if (h.distance > hits[0].distance + 1500 || parts.length === 2) break;
-        const key = h.object.uuid + ':' + (h.instanceId ?? '');
-        if (seen.has(key)) continue;
-        seen.add(key);
-        const d = records.describe(h);
+      // flat symbols, tested on screen: several sites have a rain gauge and a river gauge side by side,
+      // so up to two are described, nearest first
+      const syms = [...(records ? records.symbolHits(ndc, camera, r.width, r.height) : []),
+        ...(floods ? floods.symbolHits(ndc, camera, r.width, r.height) : []), ...gaugeHits(ndc, r.width, r.height)]
+        .sort((a, b) => a.dpx - b.dpx); // symbols hidden by a hill are already off (occlude)
+      const parts = syms.slice(0, 2).map((hh) => hh.text);
+      if (!parts.length && records && records.tunnelGroup.visible && records.group.visible) { // tunnels: meshes
+        const hit = ray.intersectObjects(records.pickables.filter((o) => o.visible), false)[0];
+        const d = hit ? records.describe(hit) : null;
         if (d) parts.push(d);
       }
       let text = parts.length ? parts.join('<hr>') : null;
-      if (!text && hasBuildings) {
-        const b = buildings.pick(ray.ray);
-        if (b) text = BuildingLayer.describe(b.info);
+      if (!text) { // a building and/or the official risk sector it stands in
+        const more = [];
+        const b = hasBuildings ? buildings.pick(ray.ray) : null;
+        if (b) more.push(BuildingLayer.describe(b.info));
+        const g = floods?.riskOn || water?.group.visible ? groundHit(ray.ray) : null;
+        const wet = g && water ? water.describeAt(frame.lon(g.x), frame.lat(g.z)) : null;
+        if (wet) more.push(wet);
+        const sec = g && floods ? floods.riskAt(frame.lon(g.x), frame.lat(g.z)) : null;
+        if (sec) more.push(floods.describeRisk(sec));
+        text = more.length ? more.join('<hr>') : null;
       }
       hoverTip.hidden = !text;
       if (text) {

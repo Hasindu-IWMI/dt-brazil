@@ -1,0 +1,118 @@
+{
+ "made": "before any radar map or model output existed",
+ "grid": {
+  "epsg": 32723,
+  "res_m": 10.0,
+  "x0": 336470.0,
+  "y1": 7445410.0,
+  "width": 521,
+  "height": 443
+ },
+ "H_bank_m": 1.51,
+ "H_both_banks_m": [
+  1.66,
+  1.51
+ ],
+ "domain_km2": 8.692,
+ "scored_km2": 1.638,
+ "excluded_km2_by_rule": {
+  "channel": 0.377,
+  "buildings_20m": 3.673,
+  "built_up": 3.121,
+  "tree_cover": 3.515,
+  "slope_over_10": 0.328
+ },
+ "passes": [
+  {
+   "pass": "2016-01-20T08:30",
+   "stage_m": 3.273,
+   "threshold_m": 1.773,
+   "wet_km2_domain": 3.77,
+   "wet_km2_scored": 0.986
+  },
+  {
+   "pass": "2016-02-25T08:30",
+   "stage_m": 3.392,
+   "threshold_m": 1.892,
+   "wet_km2_domain": 3.872,
+   "wet_km2_scored": 1.001
+  },
+  {
+   "pass": "2017-01-14T08:30",
+   "stage_m": 3.243,
+   "threshold_m": 1.743,
+   "wet_km2_domain": 3.745,
+   "wet_km2_scored": 0.984
+  },
+  {
+   "pass": "2017-01-26T08:30",
+   "stage_m": 3.46,
+   "threshold_m": 1.96,
+   "wet_km2_domain": 3.929,
+   "wet_km2_scored": 1.006
+  },
+  {
+   "pass": "2018-02-02T08:30",
+   "stage_m": 3.365,
+   "threshold_m": 1.865,
+   "wet_km2_domain": 3.849,
+   "wet_km2_scored": 0.999
+  },
+  {
+   "pass": "2018-03-04T08:30",
+   "stage_m": 3.332,
+   "threshold_m": 1.832,
+   "wet_km2_domain": 3.821,
+   "wet_km2_scored": 0.994
+  },
+  {
+   "pass": "2019-03-05T08:31",
+   "stage_m": 3.451,
+   "threshold_m": 1.951,
+   "wet_km2_domain": 3.922,
+   "wet_km2_scored": 1.005
+  },
+  {
+   "pass": "2020-02-28T08:31",
+   "stage_m": 3.586,
+   "threshold_m": 2.086,
+   "wet_km2_domain": 4.031,
+   "wet_km2_scored": 1.018
+  },
+  {
+   "pass": "2021-01-17T08:31",
+   "stage_m": 3.402,
+   "threshold_m": 1.902,
+   "wet_km2_domain": 3.882,
+   "wet_km2_scored": 1.002
+  },
+  {
+   "pass": "2024-12-27T08:31",
+   "stage_m": 3.261,
+   "threshold_m": 1.761,
+   "wet_km2_domain": 3.759,
+   "wet_km2_scored": 0.985
+  },
+  {
+   "pass": "2026-02-02T08:30",
+   "stage_m": 3.248,
+   "threshold_m": 1.749,
+   "wet_km2_domain": 3.749,
+   "wet_km2_scored": 0.984
+  },
+  {
+   "pass": "2026-02-14T08:30",
+   "stage_m": 3.495,
+   "threshold_m": 1.995,
+   "wet_km2_domain": 3.958,
+   "wet_km2_scored": 1.01
+  },
+  {
+   "pass": "2026-02-26T08:30",
+   "stage_m": 3.245,
+   "threshold_m": 1.745,
+   "wet_km2_domain": 3.746,
+   "wet_km2_scored": 0.984
+  }
+ ]
+}
