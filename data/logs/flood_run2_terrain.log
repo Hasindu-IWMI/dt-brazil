@@ -1,0 +1,41 @@
+﻿python.exe : Warning 3: Cannot find gdalvrt.xsd (GDAL_DATA is not defined)
+At line:1 char:447
++ ...  -join ';'; & "C:\Users\H.Ramanayake\AppData\Local\miniconda3\envs\at ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning 3: Cann...is not defined):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Warning 3: Cannot find header.dxf (GDAL_DATA is not defined)
+C:\Users\H.Ramanayake\AppData\Local\miniconda3\envs\atibaia-sfincs\Lib\site-packages\pyogrio\core.py:38: 
+RuntimeWarning: Could not detect GDAL data files. Set GDAL_DATA environment variable to the correct path.
+  _init_gdal_data()
+{
+ "design": "docs/model_design_flood_run2.md",
+ "check": "pre-run check 3",
+ "domain_cells": 21172,
+ "channel_cells": 566,
+ "building_cells": 2559,
+ "mapped_water": {
+  "cells": 154,
+  "km2": 0.062,
+  "worldcover_cells": 154,
+  "osm_cells": 0
+ },
+ "change_2": {
+  "cells": 4403,
+  "km2": 1.761,
+  "median_raise_m": 1.09,
+  "p90_raise_m": 2.18
+ },
+ "run1_ground_depressions": {
+  "shallow_km2": 0.448,
+  "deep_km2": 2.114,
+  "count": 222
+ }
+}
+change 3: {'depressions_filled': 196, 'filled_km2': 1.714, 'cells_raised': 4275, 'median_raise_m': 0.42, 'deep_depressions_kept': 10, 'kept_km2': 0.428}
+Q  5.0: stage 1.78 m, error +0.208 m (calibration +0.208), floodplain over 10 cm 0.0000 km2
+Q 10.0: stage 2.15 m, error -0.007 m (calibration -0.007), floodplain over 10 cm 0.0000 km2
+Q 15.0: stage 2.46 m, error -0.253 m (calibration -0.253), floodplain over 10 cm 0.0272 km2
+CHECK 3 PASSED
+exit 0

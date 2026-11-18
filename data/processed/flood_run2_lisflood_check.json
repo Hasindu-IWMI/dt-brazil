@@ -1,0 +1,226 @@
+{
+ "design": "docs/model_design_flood_run2.md",
+ "check": "pre-run check 2",
+ "n_channel": 0.02,
+ "case": "run 1's synthetic smoke channel (flood_lisflood_smoke.py)",
+ "outputs_asked": [
+  "voutput",
+  "SGCvoutput",
+  "qoutput",
+  "hazard"
+ ],
+ "A_grids": {
+  "Fwidth": {
+   "rows_cols": [
+    50,
+    150
+   ],
+   "nonzero": 299,
+   "abs_max": 11.0
+  },
+  "Qcx": {
+   "rows_cols": [
+    50,
+    151
+   ],
+   "nonzero": 151,
+   "abs_max": 15.0
+  },
+  "Qcy": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 149,
+   "abs_max": 15.0
+  },
+  "Qx": {
+   "rows_cols": [
+    50,
+    151
+   ],
+   "nonzero": 2,
+   "abs_max": 7.516
+  },
+  "Qy": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "SGCVc": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "SGCVx": {
+   "rows_cols": [
+    51,
+    151
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "SGCVy": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "Vx": {
+   "rows_cols": [
+    50,
+    151
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "Vy": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "wd": {
+   "rows_cols": [
+    50,
+    150
+   ],
+   "nonzero": 299,
+   "abs_max": 1.481
+  },
+  "wdfp": {
+   "rows_cols": [
+    50,
+    150
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  }
+ },
+ "A_channel_velocity_grid_empty": true,
+ "A_middle_half": {
+  "cells": 150,
+  "median_channel_discharge_m3s": 15.0,
+  "median_depth_m": 1.43,
+  "median_velocity_by_rule_ms": 0.954,
+  "Q_over_w_d_ms": 0.954
+ },
+ "A_passed": true,
+ "C_grids": {
+  "Fwidth": {
+   "rows_cols": [
+    50,
+    150
+   ],
+   "nonzero": 299,
+   "abs_max": 11.0
+  },
+  "Qcx": {
+   "rows_cols": [
+    50,
+    151
+   ],
+   "nonzero": 151,
+   "abs_max": 37.331
+  },
+  "Qcy": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 149,
+   "abs_max": 37.943
+  },
+  "Qx": {
+   "rows_cols": [
+    50,
+    151
+   ],
+   "nonzero": 6063,
+   "abs_max": 16.323
+  },
+  "Qy": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 5893,
+   "abs_max": 0.952
+  },
+  "SGCVc": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "SGCVx": {
+   "rows_cols": [
+    51,
+    151
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "SGCVy": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 0,
+   "abs_max": 0.0
+  },
+  "Vx": {
+   "rows_cols": [
+    50,
+    151
+   ],
+   "nonzero": 6083,
+   "abs_max": 0.265
+  },
+  "Vy": {
+   "rows_cols": [
+    51,
+    150
+   ],
+   "nonzero": 5813,
+   "abs_max": 0.291
+  },
+  "wd": {
+   "rows_cols": [
+    50,
+    150
+   ],
+   "nonzero": 6173,
+   "abs_max": 2.273
+  },
+  "wdfp": {
+   "rows_cols": [
+    50,
+    150
+   ],
+   "nonzero": 6089,
+   "abs_max": 0.163
+  }
+ },
+ "C_floodplain_faces_checked": 5618,
+ "C_median_V_h_dx_over_Q": 0.998,
+ "C_passed": true,
+ "B_channel_cells": 299,
+ "B_inflow_cell_diff_m": 0.068,
+ "B_other_cells_max_diff_m": 0.0,
+ "B_floodplain_max_depth_m": 0.0,
+ "B_passed": true,
+ "passed": true
+}

@@ -1,0 +1,64 @@
+{
+ "design": "docs/model_design_flood_run2.md",
+ "check": "pre-run check 4",
+ "run1_dry_median_scenes": 110,
+ "run1_dry_median_db_on_mask": -8.87,
+ "open_water_cells": 113,
+ "scenes": [
+  {
+   "orbit": 46,
+   "polarisation": "HH",
+   "scene": "S1A_S3_GRDH_1SDH_20160107T213519_20160107T213542_009393_00D9A0",
+   "stage_cm": 174.3,
+   "valid_cells": 230803,
+   "median_db_on_mask": -7.14,
+   "open_water_median_db": -10.66,
+   "reservoir_interior_median_db": -14.71,
+   "reservoir_share_below_-15db": 0.394,
+   "shift_east_m": 43.1,
+   "shift_north_m": -7.9,
+   "shift_m": 43.8,
+   "peak_correlation": 0.076,
+   "shift_vs_buildings_east_m": 1.4,
+   "shift_vs_buildings_north_m": -2.0,
+   "shift_vs_buildings_m": 2.4,
+   "buildings_correlation": 0.255,
+   "passed_as_written": false,
+   "passed": false
+  },
+  {
+   "orbit": 119,
+   "polarisation": "VV",
+   "scene": "S1A_S6_GRDH_1SDV_20160324T214324_20160324T214353_010516_00F9EF",
+   "stage_cm": 197.6,
+   "valid_cells": 230803,
+   "median_db_on_mask": -9.16,
+   "open_water_median_db": -14.62,
+   "reservoir_interior_median_db": -17.99,
+   "reservoir_share_below_-15db": 0.964,
+   "shift_east_m": 42.1,
+   "shift_north_m": -8.4,
+   "shift_m": 42.9,
+   "peak_correlation": 0.081,
+   "shift_vs_buildings_east_m": 1.4,
+   "shift_vs_buildings_north_m": -3.0,
+   "shift_vs_buildings_m": 3.3,
+   "buildings_correlation": 0.191,
+   "passed_as_written": false,
+   "passed": false
+  }
+ ],
+ "reservoir": {
+  "osm": "way/31880069",
+  "cells": 10145,
+  "interior_cells": 8757
+ },
+ "passed": true,
+ "decision": {
+  "date": "2026-11-18",
+  "by": "project lead",
+  "accepted": true,
+  "geolocation_reference": "mapped buildings (optical geometry); run 1's orbit-53 sentinel-1-rtc median is itself about 43 m west of them",
+  "hh_open_water": "accepted on two later dry HH scenes: -17.6 dB (2019-03-16) and -16.8 dB (2026-01-08)"
+ }
+}

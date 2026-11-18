@@ -1,0 +1,177 @@
+{
+ "design": "docs/model_design_flood_run2.md",
+ "check": "pre-run check 3",
+ "domain_cells": 21172,
+ "channel_cells": 566,
+ "building_cells": 2559,
+ "mapped_water": {
+  "cells": 154,
+  "km2": 0.062,
+  "worldcover_cells": 154,
+  "osm_cells": 0
+ },
+ "change_2": {
+  "cells": 4403,
+  "km2": 1.761,
+  "median_raise_m": 1.09,
+  "p90_raise_m": 2.18
+ },
+ "change_3": {
+  "depressions_filled": 196,
+  "filled_km2": 1.714,
+  "cells_raised": 4275,
+  "median_raise_m": 0.42,
+  "deep_depressions_kept": 10,
+  "kept_km2": 0.428,
+  "kept": [
+   {
+    "cells": 403,
+    "area_km2": 0.1612,
+    "max_depth_m": 1.93,
+    "spill_m": 741.43,
+    "water_cells": 119,
+    "centre_cell_col_row": [
+     27,
+     96
+    ]
+   },
+   {
+    "cells": 151,
+    "area_km2": 0.0604,
+    "max_depth_m": 2.05,
+    "spill_m": 744.81,
+    "water_cells": 0,
+    "centre_cell_col_row": [
+     95,
+     169
+    ]
+   },
+   {
+    "cells": 117,
+    "area_km2": 0.0468,
+    "max_depth_m": 2.91,
+    "spill_m": 744.92,
+    "water_cells": 1,
+    "centre_cell_col_row": [
+     45,
+     138
+    ]
+   },
+   {
+    "cells": 105,
+    "area_km2": 0.042,
+    "max_depth_m": 1.52,
+    "spill_m": 745.78,
+    "water_cells": 0,
+    "centre_cell_col_row": [
+     99,
+     202
+    ]
+   },
+   {
+    "cells": 100,
+    "area_km2": 0.04,
+    "max_depth_m": 1.53,
+    "spill_m": 750.96,
+    "water_cells": 0,
+    "centre_cell_col_row": [
+     215,
+     164
+    ]
+   },
+   {
+    "cells": 79,
+    "area_km2": 0.0316,
+    "max_depth_m": 3.89,
+    "spill_m": 752.53,
+    "water_cells": 0,
+    "centre_cell_col_row": [
+     90,
+     43
+    ]
+   },
+   {
+    "cells": 45,
+    "area_km2": 0.018,
+    "max_depth_m": 2.12,
+    "spill_m": 744.17,
+    "water_cells": 0,
+    "centre_cell_col_row": [
+     52,
+     73
+    ]
+   },
+   {
+    "cells": 40,
+    "area_km2": 0.016,
+    "max_depth_m": 1.56,
+    "spill_m": 752.77,
+    "water_cells": 0,
+    "centre_cell_col_row": [
+     93,
+     23
+    ]
+   },
+   {
+    "cells": 29,
+    "area_km2": 0.0116,
+    "max_depth_m": 1.58,
+    "spill_m": 745.83,
+    "water_cells": 0,
+    "centre_cell_col_row": [
+     112,
+     85
+    ]
+   },
+   {
+    "cells": 1,
+    "area_km2": 0.0004,
+    "max_depth_m": 1.55,
+    "spill_m": 742.16,
+    "water_cells": 1,
+    "centre_cell_col_row": [
+     60,
+     105
+    ]
+   }
+  ]
+ },
+ "run1_ground_depressions": {
+  "shallow_km2": 0.448,
+  "deep_km2": 2.114,
+  "count": 222
+ },
+ "steady": [
+  {
+   "q_m3s": 5.0,
+   "stage_m": 1.776,
+   "error_m": 0.208,
+   "calibration_error_m": 0.208,
+   "difference_m": 0.0,
+   "floodplain_wet_km2": 0.0,
+   "q_out_m3s": 5.0,
+   "max_2h_change_cm": 0.0
+  },
+  {
+   "q_m3s": 10.0,
+   "stage_m": 2.146,
+   "error_m": -0.007,
+   "calibration_error_m": -0.007,
+   "difference_m": -0.0,
+   "floodplain_wet_km2": 0.0,
+   "q_out_m3s": 10.0,
+   "max_2h_change_cm": 0.0
+  },
+  {
+   "q_m3s": 15.0,
+   "stage_m": 2.459,
+   "error_m": -0.253,
+   "calibration_error_m": -0.253,
+   "difference_m": -0.0,
+   "floodplain_wet_km2": 0.0272,
+   "q_out_m3s": 15.0,
+   "max_2h_change_cm": 0.0
+  }
+ ],
+ "passed": true
+}

@@ -1,0 +1,31 @@
+# Conda environment `atibaia-sar` for flood run 2's Stripmap radar processing (pipeline/flood_sm_maps.py;
+# docs/model_design_flood_run2.md, pre-run check 4). Created 18 November 2026 from conda-forge, then four
+# pins from PyPI that the processing needs (found in check 4):
+#   setuptools<81       xarray-sentinel imports pkg_resources, removed from setuptools 81
+#   xmlschema==3.4.5    with xmlschema 4, xarray-sentinel's annotation queries return nothing
+#   pandas==2.2.3       sarsen and xarray-sentinel were written for pandas 2 (plus pytz, tzdata)
+#   xarray-sentinel==0.9.7, sarsen==0.9.6   the first versions that read Sentinel-1C files (s1c-...)
+# Exact versions: envs/flood-sar.lock.txt (conda list --explicit) and envs/flood-sar.pip-freeze.txt.
+# Recreate:
+#   conda env create -f envs/flood-sar.yml
+name: atibaia-sar
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - rasterio
+  - rioxarray
+  - dask
+  - adlfs
+  - fsspec
+  - scipy
+  - pip
+  - pip:
+      - setuptools==80.10.2
+      - xmlschema==3.4.5
+      - elementpath==4.8.0
+      - pandas==2.2.3
+      - pytz
+      - tzdata
+      - xarray-sentinel==0.9.7
+      - sarsen==0.9.6

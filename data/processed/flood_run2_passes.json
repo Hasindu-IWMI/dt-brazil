@@ -1,0 +1,2260 @@
+{
+ "design": "docs/model_design_flood_run2.md",
+ "check": "pre-run check 1",
+ "built": "2026-11-18",
+ "peaks": "option-check",
+ "scored_by_peak_list": {
+  "option-check": 21,
+  "project": 19,
+  "none": 25
+ },
+ "scenes_in_catalogue": 1047,
+ "duplicate_entries_dropped": 58,
+ "orbits": [
+  [
+   46,
+   [
+    "HH",
+    "HV"
+   ],
+   "S3"
+  ],
+  [
+   46,
+   [
+    "VV",
+    "VH"
+   ],
+   "S3"
+  ],
+  [
+   119,
+   [
+    "VV",
+    "VH"
+   ],
+   "S6"
+  ]
+ ],
+ "rules": {
+  "score_min_cm": 321.0,
+  "overflow_cm": 301.0,
+  "dry_max_cm": 240.0,
+  "window_days": [
+   -2,
+   6
+  ],
+  "start_search_h": 336,
+  "max_gap_h": 3,
+  "reference_days": 60,
+  "reference_cap": 8,
+  "min_references": 3
+ },
+ "passes": [
+  {
+   "pass": "2016-01-19T21:35Z",
+   "item": "S1A_S3_GRDH_1SDH_20160119T213518_20160119T213542_009568_00DEA9",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "DOWNLINK",
+   "peak_option_check": "2016-01-17",
+   "peak_project": "2016-01-17",
+   "stage_cm": 340.7,
+   "flow_m3s": 24.8,
+   "event_start": "2016-01-15T09:00Z",
+   "event_days": 4.5,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160107T213519_20160107T213542_009393_00D9A0",
+     "time": "2016-01-07T21:35Z",
+     "stage_cm": 174.3
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160131T213518_20160131T213542_009743_00E3CD",
+     "time": "2016-01-31T21:35Z",
+     "stage_cm": 225.3
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20151226T213519_20151226T213543_009218_00D4A0",
+     "time": "2015-12-26T21:35Z",
+     "stage_cm": 237.1
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160212T213518_20160212T213541_009918_00E8DF",
+     "time": "2016-02-12T21:35Z",
+     "stage_cm": 209.2
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20151214T213519_20151214T213543_009043_00CFA9",
+     "time": "2015-12-14T21:35Z",
+     "stage_cm": 180.7
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20151202T213520_20151202T213544_008868_00CACF",
+     "time": "2015-12-02T21:35Z",
+     "stage_cm": 170.9
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20151120T213520_20151120T213544_008693_00C5E8",
+     "time": "2015-11-20T21:35Z",
+     "stage_cm": 180.9
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160319T213518_20160319T213542_010443_00F7E4",
+     "time": "2016-03-19T21:35Z",
+     "stage_cm": 215.0
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2016-03-07T21:35Z",
+   "item": "S1A_S3_GRDH_1SDH_20160307T213518_20160307T213541_010268_00F2EC",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": null,
+   "peak_project": null,
+   "stage_cm": 329.7,
+   "flow_m3s": 21.4,
+   "event_start": "2016-03-01T14:00Z",
+   "event_days": 6.3,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160319T213518_20160319T213542_010443_00F7E4",
+     "time": "2016-03-19T21:35Z",
+     "stage_cm": 215.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160331T213518_20160331T213542_010618_00FCE6",
+     "time": "2016-03-31T21:35Z",
+     "stage_cm": 184.6
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160212T213518_20160212T213541_009918_00E8DF",
+     "time": "2016-02-12T21:35Z",
+     "stage_cm": 209.2
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160131T213518_20160131T213542_009743_00E3CD",
+     "time": "2016-01-31T21:35Z",
+     "stage_cm": 225.3
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160412T213519_20160412T213543_010793_010224",
+     "time": "2016-04-12T21:35Z",
+     "stage_cm": 163.7
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160424T213519_20160424T213543_010968_01077B",
+     "time": "2016-04-24T21:35Z",
+     "stage_cm": 155.2
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160107T213519_20160107T213542_009393_00D9A0",
+     "time": "2016-01-07T21:35Z",
+     "stage_cm": 174.3
+    }
+   ],
+   "scored": false,
+   "why_not": "not within 2 days before to 6 after a flood peak (option-check list)",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": true
+   }
+  },
+  {
+   "pass": "2016-03-12T21:43Z",
+   "item": "S1A_S6_GRDH_1SDV_20160312T214324_20160312T214352_010341_00F512",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2016-03-12",
+   "peak_project": "2016-03-12",
+   "stage_cm": 350.1,
+   "flow_m3s": 27.8,
+   "event_start": "2016-03-01T14:00Z",
+   "event_days": 11.3,
+   "gap_62671200_h": 1,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S6_GRDH_1SDV_20160324T214324_20160324T214353_010516_00F9EF",
+     "time": "2016-03-24T21:43Z",
+     "stage_cm": 197.6
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20160217T214323_20160217T214352_009991_00EB02",
+     "time": "2016-02-17T21:43Z",
+     "stage_cm": 232.7
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20160405T214324_20160405T214353_010691_00FF0E",
+     "time": "2016-04-05T21:43Z",
+     "stage_cm": 171.7
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20160205T214324_20160205T214353_009816_00E5D8",
+     "time": "2016-02-05T21:43Z",
+     "stage_cm": 173.6
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20160417T214325_20160417T214354_010866_01044B",
+     "time": "2016-04-17T21:43Z",
+     "stage_cm": 156.3
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20160124T214324_20160124T214353_009641_00E0CE",
+     "time": "2016-01-24T21:43Z",
+     "stage_cm": 194.2
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20160429T214325_20160429T214354_011041_0109C4",
+     "time": "2016-04-29T21:43Z",
+     "stage_cm": 155.7
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20160511T214326_20160511T214355_011216_010F4B",
+     "time": "2016-05-11T21:43Z",
+     "stage_cm": 152.0
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2016-06-11T21:35Z",
+   "item": "S1A_S3_GRDH_1SDH_20160611T213522_20160611T213546_011668_011DD5",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2016-06-08",
+   "peak_project": "2016-06-08",
+   "stage_cm": 327.5,
+   "flow_m3s": 20.8,
+   "event_start": "2016-06-05T03:00Z",
+   "event_days": 6.8,
+   "gap_62671200_h": 163,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160530T213521_20160530T213545_011493_01185E",
+     "time": "2016-05-30T21:35Z",
+     "stage_cm": 168.6
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160705T213524_20160705T213547_012018_0128F4",
+     "time": "2016-07-05T21:35Z",
+     "stage_cm": 170.7
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160518T213521_20160518T213544_011318_0112A4",
+     "time": "2016-05-18T21:35Z",
+     "stage_cm": 178.9
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160717T213524_20160717T213548_012193_012EB6",
+     "time": "2016-07-17T21:35Z",
+     "stage_cm": 162.4
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160424T213519_20160424T213543_010968_01077B",
+     "time": "2016-04-24T21:35Z",
+     "stage_cm": 155.2
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20160729T213525_20160729T213548_012368_01346B",
+     "time": "2016-07-29T21:35Z",
+     "stage_cm": 154.0
+    }
+   ],
+   "scored": false,
+   "why_not": "62671200 level missing for 163 consecutive hours",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2017-01-12T21:43Z",
+   "item": "S1B_S6_GRDH_1SDV_20170112T214248_20170112T214317_003820_00691D",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2017-01-13",
+   "peak_project": null,
+   "stage_cm": 342.7,
+   "flow_m3s": 25.4,
+   "event_start": "2017-01-11T02:00Z",
+   "event_days": 1.8,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S6_GRDH_1SDV_20170106T214330_20170106T214359_014716_017F36",
+     "time": "2017-01-06T21:43Z",
+     "stage_cm": 149.1
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20161231T214249_20161231T214318_003645_006405",
+     "time": "2016-12-31T21:43Z",
+     "stage_cm": 147.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20161225T214332_20161225T214400_014541_0179E2",
+     "time": "2016-12-25T21:43Z",
+     "stage_cm": 186.0
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20161219T214250_20161219T214319_003470_005EE1",
+     "time": "2016-12-19T21:43Z",
+     "stage_cm": 159.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20161213T214332_20161213T214401_014366_017478",
+     "time": "2016-12-13T21:43Z",
+     "stage_cm": 232.2
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20170211T214329_20170211T214358_015241_018F74",
+     "time": "2017-02-11T21:43Z",
+     "stage_cm": 190.0
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20161207T214250_20161207T214319_003295_0059F7",
+     "time": "2016-12-07T21:43Z",
+     "stage_cm": 176.8
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20170217T214247_20170217T214316_004345_0078D2",
+     "time": "2017-02-17T21:43Z",
+     "stage_cm": 166.8
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": false,
+    "none": true
+   }
+  },
+  {
+   "pass": "2017-01-18T21:43Z",
+   "item": "S1A_S6_GRDH_1SDV_20170118T214330_20170118T214358_014891_0184AB",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2017-01-13",
+   "peak_project": null,
+   "stage_cm": 342.4,
+   "flow_m3s": 25.3,
+   "event_start": "2017-01-16T16:00Z",
+   "event_days": 2.2,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S6_GRDH_1SDV_20170106T214330_20170106T214359_014716_017F36",
+     "time": "2017-01-06T21:43Z",
+     "stage_cm": 149.1
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20161231T214249_20161231T214318_003645_006405",
+     "time": "2016-12-31T21:43Z",
+     "stage_cm": 147.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20161225T214332_20161225T214400_014541_0179E2",
+     "time": "2016-12-25T21:43Z",
+     "stage_cm": 186.0
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20170211T214329_20170211T214358_015241_018F74",
+     "time": "2017-02-11T21:43Z",
+     "stage_cm": 190.0
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20170217T214247_20170217T214316_004345_0078D2",
+     "time": "2017-02-17T21:43Z",
+     "stage_cm": 166.8
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20161219T214250_20161219T214319_003470_005EE1",
+     "time": "2016-12-19T21:43Z",
+     "stage_cm": 159.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20161213T214332_20161213T214401_014366_017478",
+     "time": "2016-12-13T21:43Z",
+     "stage_cm": 232.2
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20170223T214329_20170223T214358_015416_0194DD",
+     "time": "2017-02-23T21:43Z",
+     "stage_cm": 157.4
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": false,
+    "none": true
+   }
+  },
+  {
+   "pass": "2017-01-19T21:34Z",
+   "item": "S1B_S3_GRDH_1SDH_20170119T213442_20170119T213506_003922_006C27",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2017-01-13",
+   "peak_project": null,
+   "stage_cm": 337.3,
+   "flow_m3s": 23.7,
+   "event_start": "2017-01-16T16:00Z",
+   "event_days": 3.2,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170107T213442_20170107T213506_003747_006708",
+     "time": "2017-01-07T21:34Z",
+     "stage_cm": 158.4
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170101T213525_20170101T213548_014643_017CFF",
+     "time": "2017-01-01T21:35Z",
+     "stage_cm": 146.0
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20161226T213444_20161226T213508_003572_0061D1",
+     "time": "2016-12-26T21:34Z",
+     "stage_cm": 222.0
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170212T213441_20170212T213505_004272_007696",
+     "time": "2017-02-12T21:34Z",
+     "stage_cm": 183.9
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20161220T213526_20161220T213550_014468_017797",
+     "time": "2016-12-20T21:35Z",
+     "stage_cm": 156.5
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170218T213523_20170218T213547_015343_019298",
+     "time": "2017-02-18T21:35Z",
+     "stage_cm": 182.2
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20161214T213444_20161214T213508_003397_005CD8",
+     "time": "2016-12-14T21:34Z",
+     "stage_cm": 214.8
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170224T213441_20170224T213505_004447_007BD5",
+     "time": "2017-02-24T21:34Z",
+     "stage_cm": 175.3
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": false,
+    "none": true
+   }
+  },
+  {
+   "pass": "2017-01-24T21:43Z",
+   "item": "S1B_S6_GRDH_1SDV_20170124T214248_20170124T214316_003995_006E5F",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2017-01-23",
+   "peak_project": "2017-01-22",
+   "stage_cm": 361.2,
+   "flow_m3s": 31.6,
+   "event_start": "2017-01-16T16:00Z",
+   "event_days": 8.2,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S6_GRDH_1SDV_20170106T214330_20170106T214359_014716_017F36",
+     "time": "2017-01-06T21:43Z",
+     "stage_cm": 149.1
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20170211T214329_20170211T214358_015241_018F74",
+     "time": "2017-02-11T21:43Z",
+     "stage_cm": 190.0
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20161231T214249_20161231T214318_003645_006405",
+     "time": "2016-12-31T21:43Z",
+     "stage_cm": 147.8
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20170217T214247_20170217T214316_004345_0078D2",
+     "time": "2017-02-17T21:43Z",
+     "stage_cm": 166.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20161225T214332_20161225T214400_014541_0179E2",
+     "time": "2016-12-25T21:43Z",
+     "stage_cm": 186.0
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20170223T214329_20170223T214358_015416_0194DD",
+     "time": "2017-02-23T21:43Z",
+     "stage_cm": 157.4
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20161219T214250_20161219T214319_003470_005EE1",
+     "time": "2016-12-19T21:43Z",
+     "stage_cm": 159.8
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20170301T214247_20170301T214316_004520_007DF3",
+     "time": "2017-03-01T21:43Z",
+     "stage_cm": 191.0
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2017-01-25T21:35Z",
+   "item": "S1A_S3_GRDH_1SDH_20170125T213524_20170125T213548_014993_0187BF",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2017-01-23",
+   "peak_project": "2017-01-22",
+   "stage_cm": 347.3,
+   "flow_m3s": 26.9,
+   "event_start": "2017-01-16T16:00Z",
+   "event_days": 9.2,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170212T213441_20170212T213505_004272_007696",
+     "time": "2017-02-12T21:34Z",
+     "stage_cm": 183.9
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170107T213442_20170107T213506_003747_006708",
+     "time": "2017-01-07T21:34Z",
+     "stage_cm": 158.4
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170218T213523_20170218T213547_015343_019298",
+     "time": "2017-02-18T21:35Z",
+     "stage_cm": 182.2
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170101T213525_20170101T213548_014643_017CFF",
+     "time": "2017-01-01T21:35Z",
+     "stage_cm": 146.0
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170224T213441_20170224T213505_004447_007BD5",
+     "time": "2017-02-24T21:34Z",
+     "stage_cm": 175.3
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20161226T213444_20161226T213508_003572_0061D1",
+     "time": "2016-12-26T21:34Z",
+     "stage_cm": 222.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20161220T213526_20161220T213550_014468_017797",
+     "time": "2016-12-20T21:35Z",
+     "stage_cm": 156.5
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170302T213523_20170302T213547_015518_0197E8",
+     "time": "2017-03-02T21:35Z",
+     "stage_cm": 181.3
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2017-03-08T21:34Z",
+   "item": "S1B_S3_GRDH_1SDH_20170308T213441_20170308T213505_004622_0080F2",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": null,
+   "peak_project": "2017-03-08",
+   "stage_cm": 322.5,
+   "flow_m3s": 22.8,
+   "event_start": "2017-03-07T16:00Z",
+   "event_days": 1.2,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170302T213523_20170302T213547_015518_0197E8",
+     "time": "2017-03-02T21:35Z",
+     "stage_cm": 181.3
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170314T213524_20170314T213547_015693_019D36",
+     "time": "2017-03-14T21:35Z",
+     "stage_cm": 180.6
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170224T213441_20170224T213505_004447_007BD5",
+     "time": "2017-02-24T21:34Z",
+     "stage_cm": 175.3
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170320T213442_20170320T213505_004797_008611",
+     "time": "2017-03-20T21:34Z",
+     "stage_cm": 184.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170218T213523_20170218T213547_015343_019298",
+     "time": "2017-02-18T21:35Z",
+     "stage_cm": 182.2
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20170326T213524_20170326T213547_015868_01A265",
+     "time": "2017-03-26T21:35Z",
+     "stage_cm": 159.3
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170212T213441_20170212T213505_004272_007696",
+     "time": "2017-02-12T21:34Z",
+     "stage_cm": 183.9
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20170401T213442_20170401T213506_004972_008B1C",
+     "time": "2017-04-01T21:34Z",
+     "stage_cm": 159.0
+    }
+   ],
+   "scored": false,
+   "why_not": "not within 2 days before to 6 after a flood peak (option-check list)",
+   "qualifies": {
+    "option-check": false,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2018-02-01T21:35Z",
+   "item": "S1A_S3_GRDH_1SDH_20180201T213530_20180201T213554_020418_022E62",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2018-02-01",
+   "peak_project": "2018-02-01",
+   "stage_cm": 340.2,
+   "flow_m3s": 25.3,
+   "event_start": "2018-01-30T09:00Z",
+   "event_days": 2.5,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1B_S3_GRDH_1SDH_20180207T213448_20180207T213512_009522_011238",
+     "time": "2018-02-07T21:35Z",
+     "stage_cm": 172.3
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20180219T213448_20180219T213512_009697_0117F1",
+     "time": "2018-02-19T21:35Z",
+     "stage_cm": 223.8
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20180114T213449_20180114T213513_009172_0106BE",
+     "time": "2018-01-14T21:35Z",
+     "stage_cm": 218.2
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20180225T213530_20180225T213554_020768_023995",
+     "time": "2018-02-25T21:35Z",
+     "stage_cm": 157.7
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20180102T213449_20180102T213513_008997_01010C",
+     "time": "2018-01-02T21:35Z",
+     "stage_cm": 194.5
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20171227T213531_20171227T213555_019893_021DC1",
+     "time": "2017-12-27T21:35Z",
+     "stage_cm": 174.3
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20180309T213530_20180309T213554_020943_023F18",
+     "time": "2018-03-09T21:35Z",
+     "stage_cm": 190.2
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20171221T213450_20171221T213513_008822_00FB5F",
+     "time": "2017-12-21T21:35Z",
+     "stage_cm": 222.2
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2018-03-03T21:35Z",
+   "item": "S1B_S3_GRDH_1SDH_20180303T213448_20180303T213512_009872_011DC5",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2018-03-04",
+   "peak_project": "2018-03-04",
+   "stage_cm": 330.2,
+   "flow_m3s": 23.9,
+   "event_start": "2018-03-03T00:00Z",
+   "event_days": 0.9,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20180225T213530_20180225T213554_020768_023995",
+     "time": "2018-02-25T21:35Z",
+     "stage_cm": 157.7
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20180309T213530_20180309T213554_020943_023F18",
+     "time": "2018-03-09T21:35Z",
+     "stage_cm": 190.2
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20180219T213448_20180219T213512_009697_0117F1",
+     "time": "2018-02-19T21:35Z",
+     "stage_cm": 223.8
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20180207T213448_20180207T213512_009522_011238",
+     "time": "2018-02-07T21:35Z",
+     "stage_cm": 172.3
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20180327T213448_20180327T213513_010222_01293D",
+     "time": "2018-03-27T21:35Z",
+     "stage_cm": 182.9
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20180402T213530_20180402T213555_021293_024A31",
+     "time": "2018-04-02T21:35Z",
+     "stage_cm": 192.6
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20180408T213449_20180408T213513_010397_012EF5",
+     "time": "2018-04-08T21:35Z",
+     "stage_cm": 160.3
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20180414T213531_20180414T213555_021468_024FA2",
+     "time": "2018-04-14T21:35Z",
+     "stage_cm": 161.3
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2019-03-03T21:43Z",
+   "item": "S1B_S6_GRDH_1SDV_20190303T214300_20190303T214329_015195_01C6CB",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2019-03-04",
+   "peak_project": "2019-03-04",
+   "stage_cm": 338.3,
+   "flow_m3s": 25.0,
+   "event_start": "2019-03-01T17:00Z",
+   "event_days": 2.2,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1B_S6_GRDH_1SDV_20190219T214300_20190219T214329_015020_01C112",
+     "time": "2019-02-19T21:43Z",
+     "stage_cm": 231.5
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20190315T214300_20190315T214329_015370_01CC7B",
+     "time": "2019-03-15T21:43Z",
+     "stage_cm": 229.1
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20190213T214342_20190213T214411_025916_02E2D3",
+     "time": "2019-02-13T21:43Z",
+     "stage_cm": 180.0
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20190321T214342_20190321T214411_026441_02F5D5",
+     "time": "2019-03-21T21:43Z",
+     "stage_cm": 197.6
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20190327T214301_20190327T214330_015545_01D23E",
+     "time": "2019-03-27T21:43Z",
+     "stage_cm": 169.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20190201T214343_20190201T214411_025741_02DCA0",
+     "time": "2019-02-01T21:43Z",
+     "stage_cm": 155.4
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20190402T214343_20190402T214411_026616_02FC4C",
+     "time": "2019-04-02T21:43Z",
+     "stage_cm": 181.1
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20190408T214301_20190408T214330_015720_01D800",
+     "time": "2019-04-08T21:43Z",
+     "stage_cm": 236.2
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2019-03-04T21:35Z",
+   "item": "S1A_S3_GRDH_1SDH_20190304T213536_20190304T213601_026193_02ECB3",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2019-03-04",
+   "peak_project": "2019-03-04",
+   "stage_cm": 345.4,
+   "flow_m3s": 26.3,
+   "event_start": "2019-03-01T17:00Z",
+   "event_days": 3.2,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20190316T213536_20190316T213601_026368_02F31F",
+     "time": "2019-03-16T21:35Z",
+     "stage_cm": 211.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20190220T213536_20190220T213601_026018_02E668",
+     "time": "2019-02-20T21:35Z",
+     "stage_cm": 197.2
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20190322T213455_20190322T213519_015472_01CFB7",
+     "time": "2019-03-22T21:35Z",
+     "stage_cm": 190.0
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20190214T213455_20190214T213519_014947_01BE8C",
+     "time": "2019-02-14T21:35Z",
+     "stage_cm": 177.4
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20190328T213537_20190328T213601_026543_02F987",
+     "time": "2019-03-28T21:35Z",
+     "stage_cm": 170.9
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20190202T213455_20190202T213519_014772_01B8D5",
+     "time": "2019-02-02T21:35Z",
+     "stage_cm": 153.3
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20190415T213455_20190415T213520_015822_01DB51",
+     "time": "2019-04-15T21:35Z",
+     "stage_cm": 216.9
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20190121T213455_20190121T213520_014597_01B32E",
+     "time": "2019-01-21T21:35Z",
+     "stage_cm": 193.8
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2020-01-04T21:35Z",
+   "item": "S1B_S3_GRDH_1SDH_20200104T213502_20200104T213526_019672_0252F0",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": null,
+   "peak_project": "2020-01-04",
+   "stage_cm": 323.8,
+   "flow_m3s": 19.9,
+   "event_start": "2020-01-03T12:00Z",
+   "event_days": 1.4,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20191229T213544_20191229T213609_030568_038058",
+     "time": "2019-12-29T21:35Z",
+     "stage_cm": 168.5
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20191223T213503_20191223T213527_019497_024D5F",
+     "time": "2019-12-23T21:35Z",
+     "stage_cm": 226.6
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200116T213502_20200116T213526_019847_02587F",
+     "time": "2020-01-16T21:35Z",
+     "stage_cm": 186.5
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20191217T213545_20191217T213609_030393_037A55",
+     "time": "2019-12-17T21:35Z",
+     "stage_cm": 158.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200122T213543_20200122T213608_030918_038C8D",
+     "time": "2020-01-22T21:35Z",
+     "stage_cm": 182.1
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20191211T213503_20191211T213528_019322_0247D0",
+     "time": "2019-12-11T21:35Z",
+     "stage_cm": 207.3
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200209T213501_20200209T213525_020197_0263D0",
+     "time": "2020-02-09T21:35Z",
+     "stage_cm": 236.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20191123T213546_20191123T213610_030043_036E39",
+     "time": "2019-11-23T21:35Z",
+     "stage_cm": 202.5
+    }
+   ],
+   "scored": false,
+   "why_not": "not within 2 days before to 6 after a flood peak (option-check list)",
+   "qualifies": {
+    "option-check": false,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2020-02-21T21:35Z",
+   "item": "S1B_S3_GRDH_1SDH_20200221T213501_20200221T213525_020372_02696A",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": null,
+   "peak_project": null,
+   "stage_cm": 325.8,
+   "flow_m3s": 20.3,
+   "event_start": "2020-02-21T14:00Z",
+   "event_days": 0.3,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200209T213501_20200209T213525_020197_0263D0",
+     "time": "2020-02-09T21:35Z",
+     "stage_cm": 236.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200310T213543_20200310T213607_031618_03A4D7",
+     "time": "2020-03-10T21:35Z",
+     "stage_cm": 189.6
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200316T213501_20200316T213525_020722_027490",
+     "time": "2020-03-16T21:35Z",
+     "stage_cm": 215.9
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200122T213543_20200122T213608_030918_038C8D",
+     "time": "2020-01-22T21:35Z",
+     "stage_cm": 182.1
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200322T213543_20200322T213607_031793_03AAFD",
+     "time": "2020-03-22T21:35Z",
+     "stage_cm": 224.5
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200116T213502_20200116T213526_019847_02587F",
+     "time": "2020-01-16T21:35Z",
+     "stage_cm": 186.5
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200328T213501_20200328T213525_020897_027A14",
+     "time": "2020-03-28T21:35Z",
+     "stage_cm": 189.1
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200403T213543_20200403T213607_031968_03B125",
+     "time": "2020-04-03T21:35Z",
+     "stage_cm": 199.3
+    }
+   ],
+   "scored": false,
+   "why_not": "not within 2 days before to 6 after a flood peak (option-check list)",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": true
+   }
+  },
+  {
+   "pass": "2020-02-26T21:43Z",
+   "item": "S1B_S6_GRDH_1SDV_20200226T214306_20200226T214335_020445_026BD4",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2020-02-27",
+   "peak_project": "2020-02-26",
+   "stage_cm": 355.8,
+   "flow_m3s": 29.7,
+   "event_start": "2020-02-24T16:00Z",
+   "event_days": 2.2,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1B_S6_GRDH_1SDV_20200309T214307_20200309T214335_020620_027164",
+     "time": "2020-03-09T21:43Z",
+     "stage_cm": 196.6
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20200315T214349_20200315T214417_031691_03A772",
+     "time": "2020-03-15T21:44Z",
+     "stage_cm": 193.3
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20200202T214307_20200202T214336_020095_026090",
+     "time": "2020-02-02T21:43Z",
+     "stage_cm": 221.2
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20200321T214307_20200321T214336_020795_0276EE",
+     "time": "2020-03-21T21:43Z",
+     "stage_cm": 229.4
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20200127T214349_20200127T214418_030991_038F37",
+     "time": "2020-01-27T21:44Z",
+     "stage_cm": 186.6
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20200327T214349_20200327T214418_031866_03AD9B",
+     "time": "2020-03-27T21:44Z",
+     "stage_cm": 190.7
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20200121T214307_20200121T214336_019920_025AE8",
+     "time": "2020-01-21T21:43Z",
+     "stage_cm": 182.2
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20200402T214307_20200402T214336_020970_027C74",
+     "time": "2020-04-02T21:43Z",
+     "stage_cm": 201.1
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2020-02-27T21:35Z",
+   "item": "S1A_S3_GRDH_1SDH_20200227T213542_20200227T213607_031443_039EC2",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2020-02-27",
+   "peak_project": "2020-02-26",
+   "stage_cm": 359.7,
+   "flow_m3s": 31.0,
+   "event_start": "2020-02-24T16:00Z",
+   "event_days": 3.2,
+   "gap_62671200_h": 1,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200310T213543_20200310T213607_031618_03A4D7",
+     "time": "2020-03-10T21:35Z",
+     "stage_cm": 189.6
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200316T213501_20200316T213525_020722_027490",
+     "time": "2020-03-16T21:35Z",
+     "stage_cm": 215.9
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200209T213501_20200209T213525_020197_0263D0",
+     "time": "2020-02-09T21:35Z",
+     "stage_cm": 236.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200322T213543_20200322T213607_031793_03AAFD",
+     "time": "2020-03-22T21:35Z",
+     "stage_cm": 224.5
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200328T213501_20200328T213525_020897_027A14",
+     "time": "2020-03-28T21:35Z",
+     "stage_cm": 189.1
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200122T213543_20200122T213608_030918_038C8D",
+     "time": "2020-01-22T21:35Z",
+     "stage_cm": 182.1
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20200403T213543_20200403T213607_031968_03B125",
+     "time": "2020-04-03T21:35Z",
+     "stage_cm": 199.3
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20200409T213501_20200409T213526_021072_027FA0",
+     "time": "2020-04-09T21:35Z",
+     "stage_cm": 191.1
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2021-01-15T21:43Z",
+   "item": "S1B_S6_GRDH_1SDV_20210115T214314_20210115T214342_025170_02FF37",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1B",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2021-01-15",
+   "peak_project": "2021-01-14",
+   "stage_cm": 351.4,
+   "flow_m3s": 28.3,
+   "event_start": "2021-01-12T22:00Z",
+   "event_days": 3.0,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S6_GRDH_1SDV_20210109T214356_20210109T214425_036066_043A29",
+     "time": "2021-01-09T21:44Z",
+     "stage_cm": 224.5
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20210121T214355_20210121T214424_036241_044046",
+     "time": "2021-01-21T21:44Z",
+     "stage_cm": 220.4
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210103T214314_20210103T214343_024995_02F995",
+     "time": "2021-01-03T21:43Z",
+     "stage_cm": 202.6
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210127T214313_20210127T214342_025345_0304CA",
+     "time": "2021-01-27T21:43Z",
+     "stage_cm": 239.1
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20210202T214355_20210202T214424_036416_044655",
+     "time": "2021-02-02T21:44Z",
+     "stage_cm": 193.8
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20201222T214315_20201222T214343_024820_02F3FB",
+     "time": "2020-12-22T21:43Z",
+     "stage_cm": 201.0
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20201216T214357_20201216T214426_035716_042DFD",
+     "time": "2020-12-16T21:44Z",
+     "stage_cm": 213.0
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210220T214312_20210220T214341_025695_03102C",
+     "time": "2021-02-20T21:43Z",
+     "stage_cm": 177.6
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2021-01-16T21:36Z",
+   "item": "S1A_S3_GRDH_1SDH_20210116T213550_20210116T213614_036168_043DA4",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2021-01-15",
+   "peak_project": "2021-01-14",
+   "stage_cm": 345.3,
+   "flow_m3s": 26.3,
+   "event_start": "2021-01-12T22:00Z",
+   "event_days": 4.0,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1B_S3_GRDH_1SDH_20210122T213507_20210122T213532_025272_03026B",
+     "time": "2021-01-22T21:35Z",
+     "stage_cm": 193.4
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20210110T213508_20210110T213532_025097_02FCD0",
+     "time": "2021-01-10T21:35Z",
+     "stage_cm": 238.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20210128T213549_20210128T213613_036343_0443BB",
+     "time": "2021-01-28T21:36Z",
+     "stage_cm": 231.8
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20210104T213550_20210104T213614_035993_04377F",
+     "time": "2021-01-04T21:36Z",
+     "stage_cm": 209.8
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20210203T213507_20210203T213531_025447_030804",
+     "time": "2021-02-03T21:35Z",
+     "stage_cm": 210.8
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20201223T213551_20201223T213615_035818_04316D",
+     "time": "2020-12-23T21:36Z",
+     "stage_cm": 203.6
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20201217T213509_20201217T213533_024747_02F18A",
+     "time": "2020-12-17T21:35Z",
+     "stage_cm": 194.7
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20201211T213551_20201211T213616_035643_042B63",
+     "time": "2020-12-11T21:36Z",
+     "stage_cm": 238.0
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2021-03-10T21:44Z",
+   "item": "S1A_S6_GRDH_1SDV_20210310T214354_20210310T214423_036941_0458A2",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "PREORB",
+   "peak_option_check": "2021-03-09",
+   "peak_project": "2021-03-09",
+   "stage_cm": 322.6,
+   "flow_m3s": 19.4,
+   "event_start": "2021-03-07T20:00Z",
+   "event_days": 3.0,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210316T214312_20210316T214341_026045_031B8F",
+     "time": "2021-03-16T21:43Z",
+     "stage_cm": 223.6
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210304T214312_20210304T214341_025870_0315E4",
+     "time": "2021-03-04T21:43Z",
+     "stage_cm": 215.9
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210328T214313_20210328T214342_026220_03211C",
+     "time": "2021-03-28T21:43Z",
+     "stage_cm": 214.2
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210220T214312_20210220T214341_025695_03102C",
+     "time": "2021-02-20T21:43Z",
+     "stage_cm": 177.6
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210409T214313_20210409T214342_026395_0326A5",
+     "time": "2021-04-09T21:43Z",
+     "stage_cm": 224.6
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20210202T214355_20210202T214424_036416_044655",
+     "time": "2021-02-02T21:44Z",
+     "stage_cm": 193.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20210415T214355_20210415T214424_037466_046AC6",
+     "time": "2021-04-15T21:44Z",
+     "stage_cm": 228.7
+    },
+    {
+     "item": "S1B_S6_GRDH_1SDV_20210421T214314_20210421T214343_026570_032C49",
+     "time": "2021-04-21T21:43Z",
+     "stage_cm": 238.1
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2022-02-04T21:36Z",
+   "item": "S1A_S3_GRDH_1SDH_20220204T213554_20220204T213619_041768_04F880",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "PREORB",
+   "peak_option_check": "2022-02-02",
+   "peak_project": "2022-02-01",
+   "stage_cm": 330.1,
+   "flow_m3s": 21.6,
+   "event_start": "2022-01-30T10:00Z",
+   "event_days": 5.5,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20220123T213555_20220123T213619_041593_04F28A",
+     "time": "2022-01-23T21:36Z",
+     "stage_cm": 168.9
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20220216T213554_20220216T213618_041943_04FEA9",
+     "time": "2022-02-16T21:36Z",
+     "stage_cm": 189.9
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20220111T213555_20220111T213620_041418_04ECC4",
+     "time": "2022-01-11T21:36Z",
+     "stage_cm": 217.7
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20220228T213554_20220228T213618_042118_0504A8",
+     "time": "2022-02-28T21:36Z",
+     "stage_cm": 195.7
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20220312T213554_20220312T213618_042293_050A9B",
+     "time": "2022-03-12T21:36Z",
+     "stage_cm": 212.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20220324T213555_20220324T213619_042468_05108D",
+     "time": "2022-03-24T21:36Z",
+     "stage_cm": 185.8
+    },
+    {
+     "item": "S1B_S3_GRDH_1SDH_20211212T213515_20211212T213539_029997_0394D1",
+     "time": "2021-12-12T21:35Z",
+     "stage_cm": 219.3
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20211206T213557_20211206T213621_040893_04DB17",
+     "time": "2021-12-06T21:36Z",
+     "stage_cm": 224.1
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2022-12-30T21:44Z",
+   "item": "S1A_S6_GRDH_1SDV_20221230T214408_20221230T214436_046566_059499",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2022-12-30",
+   "peak_project": "2022-12-30",
+   "stage_cm": 359.9,
+   "flow_m3s": 31.1,
+   "event_start": "2022-12-28T11:00Z",
+   "event_days": 2.4,
+   "gap_62671200_h": 12,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S6_GRDH_1SDV_20221218T214408_20221218T214437_046391_058EB4",
+     "time": "2022-12-18T21:44Z",
+     "stage_cm": 221.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230111T214406_20230111T214435_046741_059A83",
+     "time": "2023-01-11T21:44Z",
+     "stage_cm": 236.7
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230123T214407_20230123T214436_046916_05A06B",
+     "time": "2023-01-23T21:44Z",
+     "stage_cm": 221.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20221112T214409_20221112T214438_045866_057CD5",
+     "time": "2022-11-12T21:44Z",
+     "stage_cm": 239.5
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230216T214406_20230216T214434_047266_05AC24",
+     "time": "2023-02-16T21:44Z",
+     "stage_cm": 211.9
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230228T214406_20230228T214435_047441_05B217",
+     "time": "2023-02-28T21:44Z",
+     "stage_cm": 228.5
+    }
+   ],
+   "scored": false,
+   "why_not": "62671200 level missing for 12 consecutive hours",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2023-01-06T21:36Z",
+   "item": "S1A_S3_GRDH_1SDH_20230106T213601_20230106T213626_046668_0597FC",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": null,
+   "peak_project": null,
+   "stage_cm": 357.8,
+   "flow_m3s": 30.4,
+   "event_start": "2023-01-04T21:00Z",
+   "event_days": 2.0,
+   "gap_62671200_h": 25,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S3_GRDH_1SDH_20221225T213602_20221225T213626_046493_05921C",
+     "time": "2022-12-25T21:36Z",
+     "stage_cm": 211.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20230130T213601_20230130T213625_047018_05A3CF",
+     "time": "2023-01-30T21:36Z",
+     "stage_cm": 222.6
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20221201T213603_20221201T213627_046143_058626",
+     "time": "2022-12-01T21:36Z",
+     "stage_cm": 236.4
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20221119T213604_20221119T213628_045968_058033",
+     "time": "2022-11-19T21:36Z",
+     "stage_cm": 218.3
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20230307T213600_20230307T213624_047543_05B584",
+     "time": "2023-03-07T21:36Z",
+     "stage_cm": 227.2
+    }
+   ],
+   "scored": false,
+   "why_not": "62671200 level missing for 25 consecutive hours",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2023-02-04T21:44Z",
+   "item": "S1A_S6_GRDH_1SDV_20230204T214406_20230204T214435_047091_05A640",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "SENTINEL-1A",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2023-02-04",
+   "peak_project": "2023-02-04",
+   "stage_cm": 376.7,
+   "flow_m3s": 37.2,
+   "event_start": "2023-02-02T00:00Z",
+   "event_days": 2.9,
+   "gap_62671200_h": 46,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230216T214406_20230216T214434_047266_05AC24",
+     "time": "2023-02-16T21:44Z",
+     "stage_cm": 211.9
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230123T214407_20230123T214436_046916_05A06B",
+     "time": "2023-01-23T21:44Z",
+     "stage_cm": 221.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230228T214406_20230228T214435_047441_05B217",
+     "time": "2023-02-28T21:44Z",
+     "stage_cm": 228.5
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230111T214406_20230111T214435_046741_059A83",
+     "time": "2023-01-11T21:44Z",
+     "stage_cm": 236.7
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20221218T214408_20221218T214437_046391_058EB4",
+     "time": "2022-12-18T21:44Z",
+     "stage_cm": 221.8
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230324T214406_20230324T214435_047791_05BDE7",
+     "time": "2023-03-24T21:44Z",
+     "stage_cm": 186.0
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20230405T214406_20230405T214435_047966_05C3CF",
+     "time": "2023-04-05T21:44Z",
+     "stage_cm": 173.9
+    }
+   ],
+   "scored": false,
+   "why_not": "62671200 level missing for 46 consecutive hours",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2025-02-05T21:44Z",
+   "item": "S1A_S6_GRDH_1SDV_20250205T214403_20250205T214431_057766_071F53",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "sentinel-1a",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2025-02-06",
+   "peak_project": "2025-02-06",
+   "stage_cm": 333.6,
+   "flow_m3s": 20.9,
+   "event_start": "2025-02-01T05:00Z",
+   "event_days": 4.7,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1A_S6_GRDH_1SDV_20250124T214403_20250124T214432_057591_071869",
+     "time": "2025-01-24T21:44Z",
+     "stage_cm": 214.0
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20250112T214406_20250112T214435_057416_071173",
+     "time": "2025-01-12T21:44Z",
+     "stage_cm": 184.1
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20250301T214402_20250301T214430_058116_072D7D",
+     "time": "2025-03-01T21:44Z",
+     "stage_cm": 189.1
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20250313T214404_20250313T214433_058291_073495",
+     "time": "2025-03-13T21:44Z",
+     "stage_cm": 217.3
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20241219T214408_20241219T214437_057066_0703A5",
+     "time": "2024-12-19T21:44Z",
+     "stage_cm": 216.5
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20250325T214402_20250325T214430_058466_073B76",
+     "time": "2025-03-25T21:44Z",
+     "stage_cm": 231.2
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2026-02-01T21:35Z",
+   "item": "S1C_S3_GRDH_1SDH_20260201T213449_20260201T213515_006167_00C611",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "sentinel-1c",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2026-02-01",
+   "peak_project": null,
+   "stage_cm": 331.3,
+   "flow_m3s": 20.3,
+   "event_start": "2026-01-30T02:00Z",
+   "event_days": 2.8,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1C_S3_GRDH_1SDH_20260108T213449_20260108T213516_005817_00BA49",
+     "time": "2026-01-08T21:35Z",
+     "stage_cm": 205.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20260102T213550_20260102T213615_062593_07D87F",
+     "time": "2026-01-02T21:36Z",
+     "stage_cm": 211.7
+    },
+    {
+     "item": "S1C_S3_GRDH_1SDH_20251227T213450_20251227T213516_005642_00B43E",
+     "time": "2025-12-27T21:35Z",
+     "stage_cm": 227.8
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20251221T213552_20251221T213616_062418_07D1BA",
+     "time": "2025-12-21T21:36Z",
+     "stage_cm": 174.7
+    },
+    {
+     "item": "S1C_S3_GRDH_1SDH_20251203T213451_20251203T213518_005292_00A833",
+     "time": "2025-12-03T21:35Z",
+     "stage_cm": 225.0
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": false,
+    "none": true
+   }
+  },
+  {
+   "pass": "2026-02-12T21:44Z",
+   "item": "S1A_S6_GRDH_1SDV_20260212T214353_20260212T214422_063191_07EED4",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "sentinel-1a",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2026-02-11",
+   "peak_project": "2026-02-11",
+   "stage_cm": 377.2,
+   "flow_m3s": 34.6,
+   "event_start": "2026-02-07T23:00Z",
+   "event_days": 4.9,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260101T214255_20260101T214322_005715_00B6BD",
+     "time": "2026-01-01T21:43Z",
+     "stage_cm": 198.3
+    },
+    {
+     "item": "S1A_S6_GRDH_1SDV_20251226T214357_20251226T214426_062491_07D496",
+     "time": "2025-12-26T21:44Z",
+     "stage_cm": 222.5
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20251220T214256_20251220T214322_005540_00B0B7",
+     "time": "2025-12-20T21:43Z",
+     "stage_cm": 183.7
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2026-02-13T21:35Z",
+   "item": "S1C_S3_GRDH_1SDH_20260213T213448_20260213T213515_006342_00CC13",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "sentinel-1c",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2026-02-11",
+   "peak_project": "2026-02-11",
+   "stage_cm": 357.7,
+   "flow_m3s": 28.1,
+   "event_start": "2026-02-07T23:00Z",
+   "event_days": 5.9,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1C_S3_GRDH_1SDH_20260108T213449_20260108T213516_005817_00BA49",
+     "time": "2026-01-08T21:35Z",
+     "stage_cm": 205.0
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20260102T213550_20260102T213615_062593_07D87F",
+     "time": "2026-01-02T21:36Z",
+     "stage_cm": 211.7
+    },
+    {
+     "item": "S1C_S3_GRDH_1SDH_20251227T213450_20251227T213516_005642_00B43E",
+     "time": "2025-12-27T21:35Z",
+     "stage_cm": 227.8
+    },
+    {
+     "item": "S1A_S3_GRDH_1SDH_20251221T213552_20251221T213616_062418_07D1BA",
+     "time": "2025-12-21T21:36Z",
+     "stage_cm": 174.7
+    }
+   ],
+   "scored": true,
+   "why_not": "",
+   "qualifies": {
+    "option-check": true,
+    "project": true,
+    "none": true
+   }
+  },
+  {
+   "pass": "2026-03-14T21:43Z",
+   "item": "S1C_S6_GRDH_1SDV_20260314T214254_20260314T214320_006765_00DABE",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "sentinel-1c",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2026-03-14",
+   "peak_project": null,
+   "stage_cm": 355.7,
+   "flow_m3s": 27.5,
+   "event_start": "2026-03-12T06:00Z",
+   "event_days": 2.6,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [],
+   "scored": false,
+   "why_not": "fewer than 3 dry references",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2026-03-15T21:35Z",
+   "item": "S1A_S3_GRDH_1SDH_20260315T213547_20260315T213611_063643_07FFFE",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "sentinel-1a",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2026-03-14",
+   "peak_project": null,
+   "stage_cm": 346.8,
+   "flow_m3s": 24.8,
+   "event_start": "2026-03-12T06:00Z",
+   "event_days": 3.6,
+   "gap_62671200_h": 5,
+   "gap_3E063_flow_h": 0,
+   "references": [],
+   "scored": false,
+   "why_not": "62671200 level missing for 5 consecutive hours",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2026-03-20T21:44Z",
+   "item": "S1A_S6_GRDH_1SDV_20260320T214353_20260320T214422_063716_0802AE",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "sentinel-1a",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2026-03-14",
+   "peak_project": null,
+   "stage_cm": 330.6,
+   "flow_m3s": 20.1,
+   "event_start": "2026-03-19T21:00Z",
+   "event_days": 1.0,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [],
+   "scored": false,
+   "why_not": "fewer than 3 dry references",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2026-03-21T21:35Z",
+   "item": "S1C_S3_GRDH_1SDH_20260321T213448_20260321T213515_006867_00DE2C",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "sentinel-1c",
+   "orbit_source": "RESORB",
+   "peak_option_check": null,
+   "peak_project": null,
+   "stage_cm": 333.4,
+   "flow_m3s": 20.9,
+   "event_start": "2026-03-19T21:00Z",
+   "event_days": 2.0,
+   "gap_62671200_h": 0,
+   "gap_3E063_flow_h": 0,
+   "references": [],
+   "scored": false,
+   "why_not": "fewer than 3 dry references",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2026-09-11T21:43Z",
+   "item": "S1D_S6_GRDH_1SDV_20260911T214314_20260911T214340_004535_0086F5",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "sentinel-1d",
+   "orbit_source": "RESORB",
+   "peak_option_check": null,
+   "peak_project": null,
+   "stage_cm": 334.2,
+   "flow_m3s": 21.1,
+   "event_start": "2026-09-11T06:00Z",
+   "event_days": 0.6,
+   "gap_62671200_h": 8,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1D_S6_GRDH_1SDV_20260830T214313_20260830T214339_004360_0080DE",
+     "time": "2026-08-30T21:43Z",
+     "stage_cm": 234.5
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260929T214300_20260929T214327_009667_0133F4",
+     "time": "2026-09-29T21:43Z",
+     "stage_cm": 231.7
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260824T214300_20260824T214326_009142_01227E",
+     "time": "2026-08-24T21:43Z",
+     "stage_cm": 220.6
+    },
+    {
+     "item": "S1D_S6_GRDH_1SDV_20260818T214312_20260818T214339_004185_007AAE",
+     "time": "2026-08-18T21:43Z",
+     "stage_cm": 221.9
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260812T214259_20260812T214325_008967_011CAF",
+     "time": "2026-08-12T21:43Z",
+     "stage_cm": 224.7
+    },
+    {
+     "item": "S1D_S6_GRDH_1SDV_20260806T214312_20260806T214338_004010_0074A8",
+     "time": "2026-08-06T21:43Z",
+     "stage_cm": 226.6
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260731T214258_20260731T214325_008792_0116DD",
+     "time": "2026-07-31T21:43Z",
+     "stage_cm": 222.7
+    },
+    {
+     "item": "S1D_S6_GRDH_1SDV_20260725T214312_20260725T214338_003835_006E95",
+     "time": "2026-07-25T21:43Z",
+     "stage_cm": 229.2
+    }
+   ],
+   "scored": false,
+   "why_not": "62671200 level missing for 8 consecutive hours",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2026-09-12T21:35Z",
+   "item": "S1C_S3_GRDH_1SDH_20260912T213455_20260912T213521_009419_012BC1",
+   "orbit": 46,
+   "beam": "S3",
+   "pols": [
+    "HH",
+    "HV"
+   ],
+   "platform": "sentinel-1c",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2026-09-14",
+   "peak_project": "2026-09-14",
+   "stage_cm": 372.4,
+   "flow_m3s": 32.9,
+   "event_start": "2026-09-11T06:00Z",
+   "event_days": 1.6,
+   "gap_62671200_h": 8,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1C_S3_GRDH_1SDH_20260924T213455_20260924T213521_009594_01317F",
+     "time": "2026-09-24T21:35Z",
+     "stage_cm": 231.0
+    },
+    {
+     "item": "S1D_S3_GRDH_1SDH_20260825T213507_20260825T213533_004287_007E50",
+     "time": "2026-08-25T21:35Z",
+     "stage_cm": 222.1
+    },
+    {
+     "item": "S1C_S3_GRDH_1SDH_20260819T213454_20260819T213520_009069_01200C",
+     "time": "2026-08-19T21:35Z",
+     "stage_cm": 221.4
+    },
+    {
+     "item": "S1D_S3_GRDH_1SDH_20260813T213507_20260813T213533_004112_007832",
+     "time": "2026-08-13T21:35Z",
+     "stage_cm": 223.2
+    },
+    {
+     "item": "S1C_S3_GRDH_1SDH_20260807T213453_20260807T213519_008894_011A4B",
+     "time": "2026-08-07T21:35Z",
+     "stage_cm": 228.6
+    },
+    {
+     "item": "S1D_S3_GRDH_1SDH_20260801T213506_20260801T213532_003937_007221",
+     "time": "2026-08-01T21:35Z",
+     "stage_cm": 219.8
+    },
+    {
+     "item": "S1C_S3_GRDH_1SDH_20260726T213453_20260726T213519_008719_011479",
+     "time": "2026-07-26T21:35Z",
+     "stage_cm": 228.1
+    },
+    {
+     "item": "S1D_S3_GRDH_1SDH_20260720T213505_20260720T213532_003762_006C0F",
+     "time": "2026-07-20T21:35Z",
+     "stage_cm": 237.4
+    }
+   ],
+   "scored": false,
+   "why_not": "62671200 level missing for 8 consecutive hours",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  },
+  {
+   "pass": "2026-09-17T21:43Z",
+   "item": "S1C_S6_GRDH_1SDV_20260917T214300_20260917T214326_009492_012E2E",
+   "orbit": 119,
+   "beam": "S6",
+   "pols": [
+    "VV",
+    "VH"
+   ],
+   "platform": "sentinel-1c",
+   "orbit_source": "RESORB",
+   "peak_option_check": "2026-09-14",
+   "peak_project": "2026-09-14",
+   "stage_cm": 328.3,
+   "flow_m3s": 19.5,
+   "event_start": "2026-09-11T06:00Z",
+   "event_days": 6.6,
+   "gap_62671200_h": 8,
+   "gap_3E063_flow_h": 0,
+   "references": [
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260929T214300_20260929T214327_009667_0133F4",
+     "time": "2026-09-29T21:43Z",
+     "stage_cm": 231.7
+    },
+    {
+     "item": "S1D_S6_GRDH_1SDV_20260830T214313_20260830T214339_004360_0080DE",
+     "time": "2026-08-30T21:43Z",
+     "stage_cm": 234.5
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260824T214300_20260824T214326_009142_01227E",
+     "time": "2026-08-24T21:43Z",
+     "stage_cm": 220.6
+    },
+    {
+     "item": "S1D_S6_GRDH_1SDV_20260818T214312_20260818T214339_004185_007AAE",
+     "time": "2026-08-18T21:43Z",
+     "stage_cm": 221.9
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260812T214259_20260812T214325_008967_011CAF",
+     "time": "2026-08-12T21:43Z",
+     "stage_cm": 224.7
+    },
+    {
+     "item": "S1D_S6_GRDH_1SDV_20260806T214312_20260806T214338_004010_0074A8",
+     "time": "2026-08-06T21:43Z",
+     "stage_cm": 226.6
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20261104T214300_20261104T214326_010192_014597",
+     "time": "2026-11-04T21:43Z",
+     "stage_cm": 223.8
+    },
+    {
+     "item": "S1C_S6_GRDH_1SDV_20260731T214258_20260731T214325_008792_0116DD",
+     "time": "2026-07-31T21:43Z",
+     "stage_cm": 222.7
+    }
+   ],
+   "scored": false,
+   "why_not": "62671200 level missing for 8 consecutive hours",
+   "qualifies": {
+    "option-check": false,
+    "project": false,
+    "none": false
+   }
+  }
+ ]
+}

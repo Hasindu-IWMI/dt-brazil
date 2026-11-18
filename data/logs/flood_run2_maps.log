@@ -1,0 +1,18 @@
+﻿scenes: 144 in all, 142 to process
+  10/142
+  20/142
+  30/142
+  40/142
+  50/142
+  60/142
+  70/142
+  80/142
+  90/142
+  100/142
+  110/142
+  120/142
+  130/142
+  140/142
+{"G1_passes_at_or_over_1000_pixels": 0, "G1_needed": 4, "G1_passed": false, "G2_spearman_stage_vs_flooded": 0.08, "G2_needed": 0.5, "G2_passed": false, "passed": false}
+CHECK 6: data gate FAILED (run 2 ends: no extent test, nothing modelled shown)
+exit 0
