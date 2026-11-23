@@ -58,13 +58,13 @@
     "dam_ratio": 0.16
    },
    "2026": {
-    "days": 319,
-    "rain_mm": 1747,
-    "runoff_mm": 569,
-    "ratio": 0.33,
-    "dam_days": 317,
-    "dam_rain_mm": 1713,
-    "dam_runoff_mm": 430,
+    "days": 326,
+    "rain_mm": 1837,
+    "runoff_mm": 589,
+    "ratio": 0.32,
+    "dam_days": 326,
+    "dam_rain_mm": 1788,
+    "dam_runoff_mm": 449,
     "dam_ratio": 0.25
    }
   }
@@ -182,14 +182,14 @@
     "dam_ratio": 0.24
    },
    "2026": {
-    "days": 318,
-    "rain_mm": 1668,
-    "runoff_mm": 700,
+    "days": 325,
+    "rain_mm": 1710,
+    "runoff_mm": 716,
     "ratio": 0.42,
-    "dam_days": 316,
-    "dam_rain_mm": 1666,
-    "dam_runoff_mm": 466,
-    "dam_ratio": 0.28
+    "dam_days": 325,
+    "dam_rain_mm": 1707,
+    "dam_runoff_mm": 489,
+    "dam_ratio": 0.29
    }
   }
  }

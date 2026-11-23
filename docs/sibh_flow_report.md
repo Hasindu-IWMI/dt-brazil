@@ -1,6 +1,6 @@
 # River, dam and transfer stations from SIBH
 
-Generated 2026-11-16 11:10 UTC by `pipeline/sibh_flow.py` from hourly means downloaded by `pipeline/fetch_sibh_flow.py` (SP Águas SIBH public API, retrieved 2026-11-16). Observed records only: no model is run and no model output is used. SIBH's telemetric records are unconsolidated.
+Generated 2026-11-23 23:09 UTC by `pipeline/sibh_flow.py` from hourly means downloaded by `pipeline/fetch_sibh_flow.py` (SP Águas SIBH public API, retrieved 2026-11-23). Observed records only: no model is run and no model output is used. SIBH's telemetric records are unconsolidated.
 
 A day is the local calendar day (UTC-3) and is kept for a variable if at least 18 of its 24 hourly means are valid; the daily value is their mean. Levels more than 50 m from the station's median in the same datum, and discharges below 0 or above 1000 m3/s, are rejected; nothing else is filtered or filled. Rules: docstring of `pipeline/sibh_flow.py`.
 
@@ -10,26 +10,26 @@ A day is the local calendar day (UTC-3) and is kept for a variable if at least 1
 
 | SIBH id | Code | Operator | Name | Group | Feed | Level | Median level (m) | Days with level | Days with discharge | Rating curves published | Hours the curve reproduces | Flat days (level / discharge) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1397 | 3E-121 | SP ÁGUAS | Nazaré Paulista (Atibainha Montante) | upstream | WS-ANA | stage | 0.87 | 3155 | 3154 | 0 | not checkable | 0 / 0 |
-| 1430 | 3E-122 | SP ÁGUAS | Piracaia (Cachoeira Montante) | upstream | WS-ANA | stage | 0.74 | 1760 | 1760 | 7 | 111 of 1434 | 0 / 0 |
-| 30862 | 3E-116 | SP ÁGUAS | Piracaia (Captação) | below_dam | WS-SAISP | stage | 1.83 | 5871 | 3435 | 23 | 33774 of 41120 | 3 / 3 |
-| 832 | 3E-145 | SP ÁGUAS | Piracaia (Rio Cachoeira - Centro) | below_dam |  | stage | 1.12 | 1642 | 1636 | 0 | not checkable | 0 / 0 |
-| 10 | 1001177 | SABESP | Piracaia (Barragem Cachoeira) | dam |  | elevation | 816.00 | 4308 | 0 | 0 | not checkable | 0 / 0 |
+| 1397 | 3E-121 | SP ÁGUAS | Nazaré Paulista (Atibainha Montante) | upstream | WS-ANA | stage | 0.87 | 3163 | 3162 | 0 | not checkable | 0 / 0 |
+| 1430 | 3E-122 | SP ÁGUAS | Piracaia (Cachoeira Montante) | upstream | WS-ANA | stage | 0.75 | 1768 | 1768 | 7 | 111 of 1434 | 0 / 0 |
+| 30862 | 3E-116 | SP ÁGUAS | Piracaia (Captação) | below_dam | WS-SAISP | stage | 1.83 | 5879 | 3435 | 23 | 33774 of 41120 | 3 / 3 |
+| 832 | 3E-145 | SP ÁGUAS | Piracaia (Rio Cachoeira - Centro) | below_dam |  | stage | 1.12 | 1650 | 1644 | 0 | not checkable | 0 / 0 |
+| 10 | 1001177 | SABESP | Piracaia (Barragem Cachoeira) | dam |  | elevation | 816.00 | 4315 | 0 | 0 | not checkable | 0 / 0 |
 | 362 | 62666010 | SABESP | SB-CA-BRC Barragem Cachoeira | dam |  | elevation | 815.69 | 179 | 0 | 0 | not checkable | 1 / 0 |
-| 22 | 1000718 | SABESP | Piracaia (Canal Jusante Cachoeira) | dam |  | stage to 2022-10-30, then elevation | 791.90 | 1839 | 0 | 0 | not checkable | 0 / 0 |
-| 14 | 1001178 | SABESP | Nazaré Paulista (Barragem Atibainha) | dam |  | elevation | 783.64 | 6141 | 0 | 0 | not checkable | 86 / 0 |
+| 22 | 1000718 | SABESP | Piracaia (Canal Jusante Cachoeira) | dam |  | stage to 2022-10-30, then elevation | 791.90 | 1847 | 0 | 0 | not checkable | 0 / 0 |
+| 14 | 1001178 | SABESP | Nazaré Paulista (Barragem Atibainha) | dam |  | elevation | 783.64 | 6149 | 0 | 0 | not checkable | 86 / 0 |
 | 360 | 62653510 | SABESP | SB-CA-BRA BARRAGEM ATIBAINHA | dam |  | elevation | 783.20 | 176 | 0 | 0 | not checkable | 9 / 0 |
-| 20 | 1000721 | SAISP | Nazaré Paulista (Canal Jusante Atibainha) | dam |  | stage to 2022-10-30, then elevation | 759.00 | 3218 | 0 | 0 | not checkable | 0 / 0 |
-| 12 | 616 | SAISP | Piracaia (Desemboque do Túnel - 6) | transfer |  | stage | 0.88 | 3008 | 2954 | 0 | not checkable | 0 / 0 |
+| 20 | 1000721 | SAISP | Nazaré Paulista (Canal Jusante Atibainha) | dam |  | stage to 2022-10-30, then elevation | 759.00 | 3226 | 0 | 0 | not checkable | 0 / 0 |
+| 12 | 616 | SAISP | Piracaia (Desemboque do Túnel - 6) | transfer |  | stage | 0.88 | 3016 | 2962 | 0 | not checkable | 0 / 0 |
 | 361 | 62654600 | SABESP | Piracaia (SB-CA-DBT6 Desemboque do Túnel 6) | transfer |  | stage | 1.05 | 184 | 184 | 0 | not checkable | 66 / 0 |
-| 16 | 746 | SABESP | Nazaré Paulista (Emboque do Tunel 5) | transfer |  | elevation | 783.18 | 2853 | 0 | 0 | not checkable | 0 / 0 |
-| 18 | 309 | SABESP | Nazaré Paulista (Desemboque do Tunel 5) | transfer |  | stage | 0.94 | 4453 | 4445 | 0 | not checkable | 1 / 0 |
+| 16 | 746 | SABESP | Nazaré Paulista (Emboque do Tunel 5) | transfer |  | elevation | 783.19 | 2861 | 0 | 0 | not checkable | 0 / 0 |
+| 18 | 309 | SABESP | Nazaré Paulista (Desemboque do Tunel 5) | transfer |  | stage | 0.94 | 4461 | 4453 | 0 | not checkable | 1 / 0 |
 | 349 | 62344010 | SABESP | SB-CA-DBT5 Desemboque Túnel 5 | transfer |  | stage | 1.06 | 184 | 184 | 0 | not checkable | 0 / 0 |
-| 6 | 619 | SABESP | Joanópolis (Barragem Jacareí - Túnel 7 / Vargem) | transfer |  | elevation | 834.03 | 4346 | 0 | 0 | not checkable | 28 / 0 |
+| 6 | 619 | SABESP | Joanópolis (Barragem Jacareí - Túnel 7 / Vargem) | transfer |  | elevation | 834.04 | 4354 | 0 | 0 | not checkable | 28 / 0 |
 | 358 | 62596270 | SABESP | SB-CA-BJC-T7 Emboque Túnel 7 | transfer |  | elevation | 837.71 | 187 | 0 | 0 | not checkable | 1 / 0 |
 | 35414 | 734 | SABESP | Transposição Jaguari (PS) - Atibainha (SC) | transfer |  | none |  | 0 | 0 | 0 | not checkable | 0 / 0 |
 | 35609 | 1000734 | SABESP | Santa Isabel (Transposição Jaguari (PS) - Atibainha (SC)) | transfer |  | none |  | 0 | 0 | 0 | not checkable | 0 / 0 |
-| 35354 | 637 | SABESP | Santa Isabel (EEAB Paraíba do Sul - Atibainha) | transfer |  | elevation | 617.00 | 508 | 0 | 0 | not checkable | 0 / 0 |
+| 35354 | 637 | SABESP | Santa Isabel (EEAB Paraíba do Sul - Atibainha) | transfer |  | elevation | 617.05 | 516 | 0 | 0 | not checkable | 0 / 0 |
 | 238 | 58115900 | SABESP | Santa Isabel (SB-CA-EAB-Elevatória Paraíba do Sul) | transfer |  | elevation | 620.79 | 175 | 0 | 0 | not checkable | 0 / 0 |
 
 Feed is the station record's `data_source` in SIBH (WS-ANA: taken from ANA's web service; blank: not stated).
@@ -44,20 +44,20 @@ Discharge SIBH gives at two fixed stages of each station, its median and 90th-pe
 
 | Station | Stage (m) | 2010 | 2011 | 2012 | 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | 0.87 |  |  |  |  |  |  |  |  | 1.70 | 1.70 | 1.70 | 1.70 | 1.71 | 1.90 | 2.09 | 2.09 | 2.11 |
-| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | 1.26 |  |  |  |  |  |  |  |  | 2.79 | 2.80 | 2.80 | 2.80 | 2.80 | 2.81 | 3.94 | 3.93 | 3.95 |
-| 1430 3E-122 (Piracaia (Cachoeira Montante)) | 0.74 |  |  |  |  |  | 3.47 |  |  |  |  |  |  | 3.61 | 3.61 | 3.62 | 3.62 | 3.60 |
-| 1430 3E-122 (Piracaia (Cachoeira Montante)) | 1.22 |  |  |  |  |  |  | 8.70 |  | 9.19 |  |  | 8.63 | 9.11 | 9.11 | 9.14 | 9.08 | 9.10 |
+| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | 0.87 |  |  |  |  |  |  |  |  | 1.70 | 1.70 | 1.70 | 1.70 | 1.71 | 1.91 | 2.10 | 2.10 | 2.11 |
+| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | 1.26 |  |  |  |  |  |  |  |  | 2.79 | 2.80 | 2.80 | 2.80 | 2.80 | 2.81 | 3.95 | 3.93 | 3.95 |
+| 1430 3E-122 (Piracaia (Cachoeira Montante)) | 0.74 |  |  |  |  |  | 3.48 |  |  |  |  |  |  | 3.62 | 3.62 | 3.63 | 3.63 | 3.63 |
+| 1430 3E-122 (Piracaia (Cachoeira Montante)) | 1.22 |  |  |  |  |  |  | 8.71 |  | 9.19 |  |  | 8.68 | 9.14 | 9.16 | 9.18 | 9.16 | 9.15 |
 | 30862 3E-116 (Piracaia (Captação)) | 1.67 | 2.39 | 2.39 | 1.69 | 1.68 | 1.68 | 1.04 | 0.57 | 0.57 | 0.57 | 0.57 |  |  |  |  |  |  |  |
 | 30862 3E-116 (Piracaia (Captação)) | 2.37 |  |  |  |  |  | 2.24 | 1.81 | 1.81 | 1.81 | 1.81 |  |  |  |  |  |  |  |
-| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 1.12 |  |  |  |  |  |  |  |  | 2.31 |  |  | 4.18 | 4.17 | 4.20 | 4.19 | 4.20 | 4.09 |
-| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 1.27 |  |  |  |  |  |  |  |  |  |  |  | 5.42 | 5.33 | 5.34 | 5.32 | 5.29 | 5.29 |
-| 12 616 (Piracaia (Desemboque do Túnel - 6)) | 0.88 |  |  |  |  |  | 15.50 |  |  |  | 15.40 | 15.70 | 15.72 | 15.55 | 15.58 | 15.55 | 15.49 | 15.42 |
-| 12 616 (Piracaia (Desemboque do Túnel - 6)) | 1.20 |  |  |  |  |  |  |  | 26.59 |  |  | 26.03 |  |  | 26.10 | 26.01 | 26.14 | 25.88 |
+| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 1.12 |  |  |  |  |  |  |  |  | 2.31 |  |  | 4.18 | 4.16 | 4.19 | 4.16 | 4.18 | 4.06 |
+| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 1.27 |  |  |  |  |  |  |  |  |  |  |  | 5.42 | 5.33 | 5.34 | 5.32 | 5.29 | 5.28 |
+| 12 616 (Piracaia (Desemboque do Túnel - 6)) | 0.88 |  |  |  |  |  | 15.48 |  |  |  | 15.39 | 15.67 | 15.70 | 15.49 | 15.55 | 15.46 | 15.47 | 15.41 |
+| 12 616 (Piracaia (Desemboque do Túnel - 6)) | 1.20 |  |  |  |  |  |  |  | 26.59 |  |  | 26.03 |  |  | 26.10 | 26.01 | 26.13 | 25.88 |
 | 361 62654600 (Piracaia (SB-CA-DBT6 Desemboque do Túnel 6)) | 1.05 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 20.73 |  |  |
 | 361 62654600 (Piracaia (SB-CA-DBT6 Desemboque do Túnel 6)) | 1.13 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 23.23 | 23.39 |  |
-| 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | 0.94 |  |  |  |  | 20.31 |  | 20.31 | 20.11 | 20.34 | 20.31 | 20.38 | 20.29 | 20.25 | 20.33 | 20.41 | 20.31 | 20.35 |
-| 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | 1.10 |  |  |  |  |  |  | 27.42 | 27.06 | 27.02 | 27.03 | 27.20 | 27.06 |  | 27.27 | 27.26 | 27.35 | 27.40 |
+| 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | 0.94 |  |  |  |  | 20.31 | 20.03 | 20.31 | 20.11 | 20.34 | 20.31 | 20.38 | 20.28 | 20.25 | 20.33 | 20.41 | 20.30 | 20.35 |
+| 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | 1.10 |  |  |  |  |  |  | 27.42 | 27.07 | 27.02 | 27.03 | 27.27 | 27.06 |  | 27.27 | 27.26 | 27.36 | 27.39 |
 | 349 62344010 (SB-CA-DBT5 Desemboque Túnel 5) | 1.06 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 25.74 | 25.63 |  |
 | 349 62344010 (SB-CA-DBT5 Desemboque Túnel 5) | 1.17 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 30.73 | 30.59 |  |
 
@@ -65,13 +65,13 @@ Discharge SIBH gives at two fixed stages of each station, its median and 90th-pe
 
 | Station | 2010 | 2011 | 2012 | 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 285 | 365 | 366 | 364 | 362 | 364 | 366 | 364 | 318 |
-| 1430 3E-122 (Piracaia (Cachoeira Montante)) | 0 | 0 | 0 | 0 | 0 | 14 | 15 | 0 | 30 | 0 | 0 | 24 | 363 | 365 | 270 | 360 | 319 |
+| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 285 | 365 | 366 | 364 | 362 | 364 | 366 | 364 | 326 |
+| 1430 3E-122 (Piracaia (Cachoeira Montante)) | 0 | 0 | 0 | 0 | 0 | 14 | 15 | 0 | 30 | 0 | 0 | 24 | 363 | 365 | 270 | 360 | 327 |
 | 30862 3E-116 (Piracaia (Captação)) | 314 | 312 | 272 | 357 | 365 | 365 | 362 | 364 | 360 | 356 | 8 | 0 | 0 | 0 | 0 | 0 | 0 |
-| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 23 | 0 | 0 | 24 | 365 | 365 | 183 | 358 | 318 |
-| 12 616 (Piracaia (Desemboque do Túnel - 6)) | 0 | 0 | 0 | 0 | 0 | 201 | 0 | 136 | 0 | 130 | 353 | 364 | 362 | 364 | 364 | 361 | 319 |
+| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 23 | 0 | 0 | 24 | 365 | 365 | 183 | 358 | 326 |
+| 12 616 (Piracaia (Desemboque do Túnel - 6)) | 0 | 0 | 0 | 0 | 0 | 201 | 0 | 136 | 0 | 130 | 353 | 364 | 362 | 364 | 364 | 361 | 327 |
 | 361 62654600 (Piracaia (SB-CA-DBT6 Desemboque do Túnel 6)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 172 | 12 | 0 |
-| 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | 0 | 0 | 0 | 0 | 130 | 360 | 366 | 363 | 365 | 365 | 363 | 359 | 364 | 365 | 362 | 364 | 319 |
+| 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | 0 | 0 | 0 | 0 | 130 | 360 | 366 | 363 | 365 | 365 | 363 | 359 | 364 | 365 | 362 | 364 | 327 |
 | 349 62344010 (SB-CA-DBT5 Desemboque Túnel 5) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 172 | 12 | 0 |
 
 No discharge on any kept day: 10 1001177 (Piracaia (Barragem Cachoeira)); 362 62666010 (SB-CA-BRC Barragem Cachoeira); 22 1000718 (Piracaia (Canal Jusante Cachoeira)); 14 1001178 (Nazaré Paulista (Barragem Atibainha)); 360 62653510 (SB-CA-BRA BARRAGEM ATIBAINHA); 20 1000721 (Nazaré Paulista (Canal Jusante Atibainha)); 16 746 (Nazaré Paulista (Emboque do Tunel 5)); 6 619 (Joanópolis (Barragem Jacareí - Túnel 7 / Vargem)); 358 62596270 (SB-CA-BJC-T7 Emboque Túnel 7); 35414 734 (Transposição Jaguari (PS) - Atibainha (SC)); 35609 1000734 (Santa Isabel (Transposição Jaguari (PS) - Atibainha (SC))); 35354 637 (Santa Isabel (EEAB Paraíba do Sul - Atibainha)); 238 58115900 (Santa Isabel (SB-CA-EAB-Elevatória Paraíba do Sul)).
@@ -80,24 +80,24 @@ No discharge on any kept day: 10 1001177 (Piracaia (Barragem Cachoeira)); 362 62
 
 | Station | 2010 | 2011 | 2012 | 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 285 | 365 | 366 | 364 | 363 | 364 | 366 | 364 | 318 |
-| 1430 3E-122 (Piracaia (Cachoeira Montante)) | 0 | 0 | 0 | 0 | 0 | 14 | 15 | 0 | 30 | 0 | 0 | 24 | 363 | 365 | 270 | 360 | 319 |
-| 30862 3E-116 (Piracaia (Captação)) | 314 | 312 | 272 | 357 | 365 | 365 | 362 | 364 | 360 | 356 | 359 | 362 | 362 | 350 | 354 | 341 | 316 |
-| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 28 | 0 | 0 | 24 | 365 | 365 | 183 | 358 | 319 |
-| 10 1001177 (Piracaia (Barragem Cachoeira)) | 15 | 0 | 0 | 15 | 0 | 364 | 366 | 364 | 365 | 365 | 366 | 364 | 362 | 357 | 327 | 359 | 319 |
+| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 285 | 365 | 366 | 364 | 363 | 364 | 366 | 364 | 326 |
+| 1430 3E-122 (Piracaia (Cachoeira Montante)) | 0 | 0 | 0 | 0 | 0 | 14 | 15 | 0 | 30 | 0 | 0 | 24 | 363 | 365 | 270 | 360 | 327 |
+| 30862 3E-116 (Piracaia (Captação)) | 314 | 312 | 272 | 357 | 365 | 365 | 362 | 364 | 360 | 356 | 359 | 362 | 362 | 350 | 354 | 341 | 324 |
+| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 28 | 0 | 0 | 24 | 365 | 365 | 183 | 358 | 327 |
+| 10 1001177 (Piracaia (Barragem Cachoeira)) | 15 | 0 | 0 | 15 | 0 | 364 | 366 | 364 | 365 | 365 | 366 | 364 | 362 | 357 | 327 | 359 | 326 |
 | 362 62666010 (SB-CA-BRC Barragem Cachoeira) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 168 | 11 | 0 |
-| 22 1000718 (Piracaia (Canal Jusante Cachoeira)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 30 | 0 | 0 | 24 | 364 | 365 | 358 | 364 | 319 |
-| 14 1001178 (Nazaré Paulista (Barragem Atibainha)) | 359 | 359 | 361 | 365 | 365 | 365 | 366 | 364 | 365 | 365 | 366 | 365 | 365 | 363 | 364 | 365 | 319 |
+| 22 1000718 (Piracaia (Canal Jusante Cachoeira)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 30 | 0 | 0 | 24 | 364 | 365 | 358 | 364 | 327 |
+| 14 1001178 (Nazaré Paulista (Barragem Atibainha)) | 359 | 359 | 361 | 365 | 365 | 365 | 366 | 364 | 365 | 365 | 366 | 365 | 365 | 363 | 364 | 365 | 327 |
 | 360 62653510 (SB-CA-BRA BARRAGEM ATIBAINHA) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 168 | 8 | 0 |
-| 20 1000721 (Nazaré Paulista (Canal Jusante Atibainha)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 348 | 365 | 366 | 362 | 364 | 365 | 364 | 365 | 319 |
-| 12 616 (Piracaia (Desemboque do Túnel - 6)) | 0 | 0 | 0 | 0 | 0 | 251 | 0 | 136 | 0 | 130 | 353 | 365 | 363 | 364 | 366 | 361 | 319 |
+| 20 1000721 (Nazaré Paulista (Canal Jusante Atibainha)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 348 | 365 | 366 | 362 | 364 | 365 | 364 | 365 | 327 |
+| 12 616 (Piracaia (Desemboque do Túnel - 6)) | 0 | 0 | 0 | 0 | 0 | 251 | 0 | 136 | 0 | 130 | 353 | 365 | 363 | 364 | 366 | 361 | 327 |
 | 361 62654600 (Piracaia (SB-CA-DBT6 Desemboque do Túnel 6)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 172 | 12 | 0 |
-| 16 746 (Nazaré Paulista (Emboque do Tunel 5)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 343 | 366 | 365 | 365 | 365 | 366 | 365 | 318 |
-| 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | 0 | 0 | 0 | 0 | 131 | 362 | 366 | 363 | 365 | 365 | 365 | 359 | 365 | 365 | 364 | 364 | 319 |
+| 16 746 (Nazaré Paulista (Emboque do Tunel 5)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 343 | 366 | 365 | 365 | 365 | 366 | 365 | 326 |
+| 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | 0 | 0 | 0 | 0 | 131 | 362 | 366 | 363 | 365 | 365 | 365 | 359 | 365 | 365 | 364 | 364 | 327 |
 | 349 62344010 (SB-CA-DBT5 Desemboque Túnel 5) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 172 | 12 | 0 |
-| 6 619 (Joanópolis (Barragem Jacareí - Túnel 7 / Vargem)) | 0 | 0 | 0 | 0 | 14 | 363 | 366 | 365 | 364 | 365 | 366 | 363 | 365 | 365 | 366 | 365 | 319 |
+| 6 619 (Joanópolis (Barragem Jacareí - Túnel 7 / Vargem)) | 0 | 0 | 0 | 0 | 14 | 363 | 366 | 365 | 364 | 365 | 366 | 363 | 365 | 365 | 366 | 365 | 327 |
 | 358 62596270 (SB-CA-BJC-T7 Emboque Túnel 7) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 175 | 12 | 0 |
-| 35354 637 (Santa Isabel (EEAB Paraíba do Sul - Atibainha)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 198 | 310 |
+| 35354 637 (Santa Isabel (EEAB Paraíba do Sul - Atibainha)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 198 | 318 |
 | 238 58115900 (Santa Isabel (SB-CA-EAB-Elevatória Paraíba do Sul)) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 163 | 12 | 0 |
 
 No level on any kept day: 35414 734 (Transposição Jaguari (PS) - Atibainha (SC)); 35609 1000734 (Santa Isabel (Transposição Jaguari (PS) - Atibainha (SC))).
@@ -108,15 +108,15 @@ SAR's inflow is the operator's figure, computed from the reservoir balance. The 
 
 | Gauge | Reservoir | Days compared | Gauge mean (m3/s) | SAR inflow mean (m3/s) | Ratio | r, SAR day D-1 | r, same day | r, SAR day D+1 | r, 7-day means |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | atibainha | 3152 | 2.28 | 3.34 | 0.68 | 0.53 | 0.76 | 0.59 | 0.88 |
-| 1430 3E-122 (Piracaia (Cachoeira Montante)) | cachoeira | 1758 | 4.97 | 4.49 | 1.11 | 0.68 | 0.88 | 0.84 | 0.94 |
+| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | atibainha | 3162 | 2.28 | 3.36 | 0.68 | 0.53 | 0.76 | 0.59 | 0.88 |
+| 1430 3E-122 (Piracaia (Cachoeira Montante)) | cachoeira | 1768 | 5.00 | 4.53 | 1.10 | 0.68 | 0.88 | 0.84 | 0.94 |
 
 Ratio of gauge to SAR inflow by year (sums over days both have):
 
 | Gauge | Reservoir | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | atibainha |  |  |  | 0.83 (285) | 0.61 (365) | 0.75 (366) | 0.77 (364) | 0.56 (362) | 0.60 (364) | 0.81 (366) | 0.81 (364) | 0.61 (316) |
-| 1430 3E-122 (Piracaia (Cachoeira Montante)) | cachoeira |  |  |  | 1.07 (30) |  |  |  | 0.91 (363) | 1.22 (365) | 1.39 (270) | 1.50 (360) | 0.98 (317) |
+| 1397 3E-121 (Nazaré Paulista (Atibainha Montante)) | atibainha |  |  |  | 0.83 (285) | 0.61 (365) | 0.75 (366) | 0.77 (364) | 0.56 (362) | 0.60 (364) | 0.81 (366) | 0.81 (364) | 0.60 (326) |
+| 1430 3E-122 (Piracaia (Cachoeira Montante)) | cachoeira |  |  |  | 1.07 (30) |  |  |  | 0.91 (363) | 1.22 (365) | 1.39 (270) | 1.50 (360) | 0.98 (327) |
 
 ### Noise on rainless days
 
@@ -136,7 +136,7 @@ ANA gauge 62665000 (Piracaia, 431 km2) reads more than 0.5 m3/s below Cachoeira'
 | Pair | Days compared | Mean of first (m3/s) | Mean of second (m3/s) | Median first minus second | r, same day | r, second shifted D+1 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 30862 3E-116 (Piracaia (Captação)) vs SAR release, Cachoeira | 3435 | 1.48 | 1.54 | 0.19 | 0.80 | 0.80 |
-| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) vs SAR release, Cachoeira | 1634 | 3.78 | 3.23 | 0.35 | 0.91 | 0.87 |
+| 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) vs SAR release, Cachoeira | 1644 | 3.77 | 3.21 | 0.36 | 0.91 | 0.87 |
 | 30862 3E-116 (Piracaia (Captação)) vs ANA 62665000 Piracaia | 3435 | 1.48 | 2.53 | -1.12 | 0.49 | 0.49 |
 | 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) vs ANA 62665000 Piracaia | 1430 | 3.79 | 3.88 | -0.05 | 0.80 | 0.73 |
 | ANA 62665000 Piracaia vs SAR release, Cachoeira | 14843 | 3.86 | 2.75 | 0.95 | 0.90 | 0.89 |
@@ -160,7 +160,7 @@ Same-day comparison. Each cell: shortfall days / days compared.
 | 2023 | 43 / 326 |  | 4 / 365 | 4 of 43 ANA-short days (326 days) |
 | 2024 | 15 / 366 |  | 1 / 183 | 1 of 12 ANA-short days (183 days) |
 | 2025 | 89 / 365 |  | 13 / 358 | 12 of 87 ANA-short days (358 days) |
-| 2026 | 20 / 151 |  | 18 / 316 | 11 of 20 ANA-short days (151 days) |
+| 2026 | 20 / 151 |  | 18 / 326 | 11 of 20 ANA-short days (151 days) |
 
 ### Water level below the dam on shortfall days
 
@@ -171,9 +171,9 @@ A water level needs no rating curve. Stations 22 and 20 read the channel just be
 | 22 1000718 (Piracaia (Canal Jusante Cachoeira)), stage | ANA 62665000 | 372 | 0.94 | 0.68 | 4 | 88 | 0.0 | 2 of 4 | 2.8 |
 | 22 1000718 (Piracaia (Canal Jusante Cachoeira)), stage | 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 342 | 0.93 | 0.85 | 1 | 105 | -0.2 | 1 of 1 | 2.8 |
 | 22 1000718 (Piracaia (Canal Jusante Cachoeira)), elevation | ANA 62665000 | 1260 | 0.95 | 0.76 | 12 | 124 | -0.2 | 7 of 12 | 4.4 |
-| 22 1000718 (Piracaia (Canal Jusante Cachoeira)), elevation | 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 1275 | 0.95 | 0.90 | 2 | 10 | -2.0 | 2 of 2 | 4.4 |
+| 22 1000718 (Piracaia (Canal Jusante Cachoeira)), elevation | 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 1285 | 0.95 | 0.90 | 2 | 10 | -2.0 | 2 of 2 | 4.4 |
 | 30862 3E-116 (Piracaia (Captação)), stage | ANA 62665000 | 5667 | 0.81 | 0.51 | 36 | 445 | -1.2 | 26 of 36 | 12.2 |
-| 30862 3E-116 (Piracaia (Captação)), stage | 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 1582 | 0.92 | 0.94 | 3 | 112 | -8.1 | 3 of 3 | 9.3 |
+| 30862 3E-116 (Piracaia (Captação)), stage | 832 3E-145 (Piracaia (Rio Cachoeira - Centro)) | 1592 | 0.92 | 0.94 | 3 | 112 | -8.1 | 3 of 3 | 9.3 |
 | 832 3E-145 (Piracaia (Rio Cachoeira - Centro)), stage | ANA 62665000 | 1435 | 0.90 | 0.82 | 16 | 211 | -0.9 | 10 of 16 | 3.8 |
 | 20 1000721 (Nazaré Paulista (Canal Jusante Atibainha)), stage | ANA 62662000 | 1739 | 0.95 | 0.86 | 11 | 195 | -7.4 | 9 of 11 | 5.1 |
 | 20 1000721 (Nazaré Paulista (Canal Jusante Atibainha)), elevation | ANA 62662000 | 61 | 0.86 | 0.71 | 0 | 0 |  | 0 of 0 |  |
@@ -207,12 +207,12 @@ SAR gives one level per reservoir per day. Compared here with the station's mean
 
 | Station | Reservoir | Days compared | Median station minus SAR, 07:00 (m) | Within 5 cm, 07:00 | Median station minus SAR, daily mean (m) | Within 5 cm, daily mean |
 | --- | --- | --- | --- | --- | --- | --- |
-| 10 1001177 (Piracaia (Barragem Cachoeira)) | cachoeira | 4310 | 0.000 | 99% | 0.000 | 94% |
+| 10 1001177 (Piracaia (Barragem Cachoeira)) | cachoeira | 4320 | 0.000 | 99% | 0.000 | 94% |
 | 362 62666010 (SB-CA-BRC Barragem Cachoeira) | cachoeira | 189 | 0.000 | 99% | 0.001 | 90% |
-| 14 1001178 (Nazaré Paulista (Barragem Atibainha)) | atibainha | 6146 | -0.000 | 98% | -0.000 | 98% |
+| 14 1001178 (Nazaré Paulista (Barragem Atibainha)) | atibainha | 6156 | -0.000 | 98% | -0.000 | 98% |
 | 360 62653510 (SB-CA-BRA BARRAGEM ATIBAINHA) | atibainha | 189 | 0.000 | 100% | 0.000 | 100% |
-| 16 746 (Nazaré Paulista (Emboque do Tunel 5)) | atibainha | 2851 | -0.124 | 8% | -0.118 | 8% |
-| 6 619 (Joanópolis (Barragem Jacareí - Túnel 7 / Vargem)) | jaguari_jacarei | 4344 | -0.009 | 54% | -0.009 | 54% |
+| 16 746 (Nazaré Paulista (Emboque do Tunel 5)) | atibainha | 2861 | -0.124 | 8% | -0.118 | 8% |
+| 6 619 (Joanópolis (Barragem Jacareí - Túnel 7 / Vargem)) | jaguari_jacarei | 4354 | -0.009 | 54% | -0.009 | 54% |
 | 358 62596270 (SB-CA-BJC-T7 Emboque Túnel 7) | jaguari_jacarei | 197 | -0.092 | 9% | -0.100 | 7% |
 
 ## 6. Tunnel flows against the reservoir balance
@@ -221,11 +221,11 @@ For each reservoir SAR's records imply a net outflow that is neither the reporte
 
 | Balance residual | Measured | SAR shift used | Days compared | Residual mean (m3/s) | Measured mean (m3/s) | Median residual minus measured | Days within 1 m3/s | r, SAR day D-1 | r, same day | r, SAR day D+1 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Cachoeira | 12 616 (Piracaia (Desemboque do Túnel - 6)) | +0 day | 2952 | 0.67 | 15.85 | -16.01 | 18% | 0.01 | 0.03 | 0.01 |
+| Cachoeira | 12 616 (Piracaia (Desemboque do Túnel - 6)) | +0 day | 2962 | 0.70 | 15.83 | -15.99 | 19% | 0.00 | 0.03 | 0.01 |
 | Cachoeira | 361 62654600 (Piracaia (SB-CA-DBT6 Desemboque do Túnel 6)) | +0 day | 184 | -2.38 | 19.08 | -23.74 | 9% | 0.17 | 0.25 | 0.22 |
-| Atibainha | 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | +1 day | 4442 | 1.08 | 19.90 | -19.87 | 2% | -0.02 | 0.14 | 0.17 |
+| Atibainha | 18 309 (Nazaré Paulista (Desemboque do Tunel 5)) | +1 day | 4452 | 1.10 | 19.90 | -19.82 | 2% | -0.02 | 0.14 | 0.18 |
 | Atibainha | 349 62344010 (SB-CA-DBT5 Desemboque Túnel 5) | +1 day | 184 | -1.66 | 25.21 | -28.28 | 0% | -0.05 | 0.22 | 0.28 |
-| Atibainha | 309 minus 616 | +1 day | 2939 | 0.41 | 4.85 | -5.26 | 21% | 0.49 | 0.72 | 0.82 |
+| Atibainha | 309 minus 616 | +1 day | 2949 | 0.44 | 4.87 | -5.23 | 21% | 0.49 | 0.72 | 0.82 |
 | Atibainha | 309 minus 62654600 | +1 day | 183 | -1.65 | 6.13 | -7.68 | 1% | 0.28 | 0.71 | 0.93 |
 | Atibainha | 62344010 minus 616 | +1 day | 184 | -1.66 | 6.12 | -7.70 | 1% | 0.28 | 0.71 | 0.93 |
 | Atibainha | 62344010 minus 62654600 | +1 day | 183 | -1.65 | 6.13 | -7.68 | 1% | 0.28 | 0.71 | 0.93 |
@@ -247,7 +247,7 @@ Atibainha: Tunnel 5 minus Tunnel 6 (309 minus 616), minus SAR's residual. If SAR
 | 2023 | 364 | -0.02 | -0.16 | 364 | 16.75 | 16.33 |
 | 2024 | 362 | 6.02 | 4.76 | 364 | 26.69 | 21.79 |
 | 2025 | 361 | 6.44 | 6.12 | 361 | 25.08 | 20.55 |
-| 2026 | 316 | 7.69 | 7.67 | 316 | 1.43 | 8.91 |
+| 2026 | 326 | 7.67 | 7.46 | 326 | 1.16 | 8.64 |
 
 ## 7. Sites recorded under two codes
 

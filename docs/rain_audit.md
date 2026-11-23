@@ -1,6 +1,6 @@
 # Rain gauge audit
 
-Generated 2026-11-16 11:10 UTC by `pipeline/audit_rain.py`. Gauges are judged only against each other; no model output is used.
+Generated 2026-11-23 23:09 UTC by `pipeline/audit_rain.py`. Gauges are judged only against each other; no model output is used.
 
 Rules: at least 25 days reported, total under 25% of the regional median, median at least 50 mm (dry-record month); at least 330 days reported, ratio to the regional median under 70% or over 140% of the gauge's own median ratio (anomalous year).
 
@@ -95,7 +95,7 @@ Count of flagged months per year (only years with at least one flag are listed).
 | 2023 | 1196 |  | (327 days) | 1453 |  | (321 days) |  | 1527 | (253 days) | (7 days) |  | (304 days) |  | 1667 | (297 days) | (325 days) | (263 days) | 1493 |  |  | 1595 |  | 999 | (284 days) | 2342 |  |  | (199 days) |  |  | 2479 |  | 1527 |
 | 2024 | 897 |  |  |  |  | 1031 |  | 1333 | 1184 | (72 days) | (239 days) | (239 days) |  | (146 days) | (230 days) | (226 days) |  | 1463 | (225 days) | (210 days) | 1403 | (56 days) | (226 days) | (290 days) | (156 days) | (228 days) |  | (289 days) | (236 days) |  | (275 days) | (135 days) | 1258 |
 | 2025 | 886 |  |  |  |  | 1063 |  | 1181 | 1228 | (18 days) | 1201 | (201 days) |  |  | 1256 | 1024 |  | 1052 | (208 days) | 917 | 1203 | 942 | 913 | 1378 | (115 days) | 1002 | (193 days) | (302 days) | (325 days) | (69 days) | (213 days) | (303 days) | 1058 |
-| 2026 | (150 days) |  |  |  |  | (76 days) |  | (212 days) | (212 days) |  | (319 days) | (241 days) |  |  | (317 days) | (319 days) | (12 days) | (319 days) | (203 days) | (262 days) | (319 days) | (318 days) | (316 days) | (319 days) |  | (317 days) | (308 days) | (88 days) | (311 days) | (311 days) | (242 days) | (306 days) | too few gauges |
+| 2026 | (150 days) |  |  |  |  | (76 days) |  | (212 days) | (212 days) |  | (326 days) | (244 days) |  |  | (324 days) | (326 days) | (12 days) | (326 days) | (207 days) | (266 days) | (326 days) | (325 days) | (323 days) | (326 days) |  | (324 days) | (315 days) | (93 days) | (315 days) | (317 days) | (242 days) | (310 days) | too few gauges |
 
 ## Coverage: gauges reporting at least 330 days, by year
 

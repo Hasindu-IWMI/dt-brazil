@@ -1,6 +1,6 @@
 # Forcing report
 
-Generated 2026-11-16 11:10 UTC by `pipeline/forcing.py`.
+Generated 2026-11-23 23:09 UTC by `pipeline/forcing.py`.
 
 Catchment rain uses the audited gauge records: 109 gauge-months and 22 gauge-years excluded by `audit_rain.py`. The unaudited value is kept beside it.
 
@@ -27,35 +27,35 @@ Catchment rain uses the audited gauge records: 109 gauge-months and 22 gauge-yea
 | 2246174 | Joanópolis (ANA) | 2013-06-01 | 2026-07-31 | 4771 | 1369 (11 years) |
 | 2346446 | Nazaré Paulista (ANA) | 2014-07-24 | 2026-07-31 | 4102 | 1212 (6 years) |
 | SIBH-1132 | CACHOEIRA (CEMADEN, telemetric) | 2015-01-02 | 2025-02-27 | 802 | 1631 (1 years) |
-| SIBH-13 | Piracaia (Desemboque do Túnel - 6) (SABESP, telemetric) | 2014-12-18 | 2026-11-15 | 916 | no complete year |
-| SIBH-27832 | Joanópolis (03- Ribeirão da Correnteza) (CEMADEN, telemetric) | 2015-04-01 | 2026-11-15 | 2027 | no complete year |
+| SIBH-13 | Piracaia (Desemboque do Túnel - 6) (SABESP, telemetric) | 2014-12-18 | 2026-11-23 | 923 | no complete year |
+| SIBH-27832 | Joanópolis (03- Ribeirão da Correnteza) (CEMADEN, telemetric) | 2015-04-01 | 2026-11-23 | 2030 | no complete year |
 | SIBH-1449 | JOANOPOLIS02 (CEMADEN, telemetric) | 2015-01-02 | 2020-10-15 | 779 | no complete year |
 | SIBH-33857 | Rio Atibainha - Montante Atibainha (SAISP, telemetric) | 2022-01-02 | 2024-05-28 | 866 | 1667 (1 years) |
-| SIBH-1398 | Nazaré Paulista (Atibainha Montante) (SP ÁGUAS, telemetric) | 2018-03-22 | 2026-11-15 | 1593 | no complete year |
-| SIBH-1431 | Piracaia (Cachoeira Montante) (SP ÁGUAS, telemetric) | 2015-06-14 | 2026-11-15 | 3916 | 1126 (3 years) |
+| SIBH-1398 | Nazaré Paulista (Atibainha Montante) (SP ÁGUAS, telemetric) | 2018-03-22 | 2026-11-23 | 1600 | no complete year |
+| SIBH-1431 | Piracaia (Cachoeira Montante) (SP ÁGUAS, telemetric) | 2015-06-14 | 2026-11-23 | 3923 | 1126 (3 years) |
 | SIBH-1202 | CENTRO (CEMADEN, telemetric) | 2015-01-02 | 2026-09-27 | 2701 | 1900 (1 years) |
-| SIBH-11 | Piracaia (Barragem Cachoeira) (SABESP, telemetric) | 2010-01-02 | 2026-11-15 | 6130 | 1413 (16 years) |
-| SIBH-27081 | Piracaia (Caras) (CEMADEN, telemetric) | 2015-01-02 | 2026-11-15 | 2062 | no complete year |
-| SIBH-33477 | Piracaia - SP (IAC, telemetric) | 2024-05-07 | 2026-11-14 | 723 | no complete year |
-| SIBH-15 | Nazaré Paulista (Barragem Atibainha) (SABESP, telemetric) | 2010-01-02 | 2026-11-15 | 6100 | 1321 (13 years) |
-| SIBH-831 | Piracaia (Rio Cachoeira - Centro) (SAISP, telemetric) | 2018-02-08 | 2026-11-15 | 777 | no complete year |
-| SIBH-33279 | Nazaré Paulista (Mascate) (SP ÁGUAS, telemetric) | 2010-01-02 | 2026-11-15 | 1643 | no complete year |
-| SIBH-5 | Joanópolis (Barragem Jacareí) (SABESP, telemetric) | 2010-01-02 | 2026-11-15 | 1719 | 1378 (1 years) |
+| SIBH-11 | Piracaia (Barragem Cachoeira) (SABESP, telemetric) | 2010-01-02 | 2026-11-23 | 6137 | 1413 (16 years) |
+| SIBH-27081 | Piracaia (Caras) (CEMADEN, telemetric) | 2015-01-02 | 2026-11-19 | 2066 | no complete year |
+| SIBH-33477 | Piracaia - SP (IAC, telemetric) | 2024-05-07 | 2026-11-19 | 727 | no complete year |
+| SIBH-15 | Nazaré Paulista (Barragem Atibainha) (SABESP, telemetric) | 2010-01-02 | 2026-11-23 | 6107 | 1321 (13 years) |
+| SIBH-831 | Piracaia (Rio Cachoeira - Centro) (SAISP, telemetric) | 2018-02-08 | 2026-11-23 | 784 | no complete year |
+| SIBH-33279 | Nazaré Paulista (Mascate) (SP ÁGUAS, telemetric) | 2010-01-02 | 2026-11-23 | 1650 | no complete year |
+| SIBH-5 | Joanópolis (Barragem Jacareí) (SABESP, telemetric) | 2010-01-02 | 2026-11-23 | 1726 | 1378 (1 years) |
 | SIBH-27826 | POLICIA MILITAR (CEMADEN, telemetric) | 2015-08-02 | 2025-07-07 | 2355 | 2342 (1 years) |
-| SIBH-17 | Nazaré Paulista (Emboque do Tunel 5) (SABESP, telemetric) | 2019-01-24 | 2026-11-15 | 943 | 1002 (1 years) |
-| SIBH-35353 | Santa Isabel (EEAB Paraíba do Sul - Atibainha) (SABESP, telemetric) | 2025-06-17 | 2026-11-15 | 473 | no complete year |
-| SIBH-1080 | Piracaia (Dobrada) (CEMADEN, telemetric) | 2015-01-02 | 2026-11-15 | 2139 | 1507 (1 years) |
-| SIBH-33364 | Bom Jesus dos Perdões - SP (IAC, telemetric) | 2024-05-07 | 2026-11-15 | 872 | no complete year |
-| SIBH-35494 | Santa Isabel (Captação Represa do Jaguari) (SABESP, telemetric) | 2025-10-22 | 2026-11-15 | 380 | no complete year |
+| SIBH-17 | Nazaré Paulista (Emboque do Tunel 5) (SABESP, telemetric) | 2019-01-24 | 2026-11-23 | 950 | 1002 (1 years) |
+| SIBH-35353 | Santa Isabel (EEAB Paraíba do Sul - Atibainha) (SABESP, telemetric) | 2025-06-17 | 2026-11-23 | 480 | no complete year |
+| SIBH-1080 | Piracaia (Dobrada) (CEMADEN, telemetric) | 2015-01-02 | 2026-11-23 | 2144 | 1507 (1 years) |
+| SIBH-33364 | Bom Jesus dos Perdões - SP (IAC, telemetric) | 2024-05-07 | 2026-11-19 | 876 | no complete year |
+| SIBH-35494 | Santa Isabel (Captação Represa do Jaguari) (SABESP, telemetric) | 2025-10-22 | 2026-11-22 | 386 | no complete year |
 | SIBH-27056 | Bom Jesus dos Perdões (Centro) (CEMADEN, telemetric) | 2015-10-23 | 2026-11-10 | 2875 | no complete year |
-| SIBH-771 | Extrema - SP (IAC, telemetric) | 2024-06-28 | 2026-11-15 | 744 | no complete year |
+| SIBH-771 | Extrema - SP (IAC, telemetric) | 2024-06-28 | 2026-11-19 | 748 | no complete year |
 
 ## Catchment: cachoeira_dam
 
 - Centroid -22.9598, -46.1845; delineated area 397.0 km2 (published 392.0).
 - Gauges within 20 km of the centroid: SIBH-1132 CACHOEIRA (CEMADEN, telemetric) (0.9 km), SIBH-27832 Joanópolis (03- Ribeirão da Correnteza) (CEMADEN, telemetric) (3.5 km), 2246174 Joanópolis (ANA) (3.9 km), SIBH-1449 JOANOPOLIS02 (CEMADEN, telemetric) (4.2 km), SIBH-1431 Piracaia (Cachoeira Montante) (SP ÁGUAS, telemetric) (7.6 km), 2246099 Fazenda Bonfim (8.7 km), 2246090 Joanópolis (8.9 km), SIBH-1202 CENTRO (CEMADEN, telemetric) (9.5 km), SIBH-27081 Piracaia (Caras) (CEMADEN, telemetric) (11.2 km), SIBH-5 Joanópolis (Barragem Jacareí) (SABESP, telemetric) (15.0 km), 2346334 Crioulos (16.7 km), SIBH-1398 Nazaré Paulista (Atibainha Montante) (SP ÁGUAS, telemetric) (17.1 km), SIBH-11 Piracaia (Barragem Cachoeira) (SABESP, telemetric) (17.1 km), SIBH-33857 Rio Atibainha - Montante Atibainha (SAISP, telemetric) (18.2 km), SIBH-771 Extrema - SP (IAC, telemetric) (19.2 km), SIBH-13 Piracaia (Desemboque do Túnel - 6) (SABESP, telemetric) (19.5 km), SIBH-1080 Piracaia (Dobrada) (CEMADEN, telemetric) (19.5 km), 2346004 Piracaia (SP Águas) (19.7 km).
-- Days with no gauge reporting: 1 of 16756.
-- Days with no temperature: 9.
+- Days with no gauge reporting: 1 of 16763.
+- Days with no temperature: 16.
 
 | Period | Median gauges per day | Days with one gauge or none | Mean annual rain, audited (mm) | Before the audit (mm) | Mean annual PET (mm) |
 | --- | --- | --- | --- | --- | --- |
@@ -71,8 +71,8 @@ Catchment rain uses the audited gauge records: 109 gauge-months and 22 gauge-yea
 
 - Centroid -23.1391, -46.2868; delineated area 313.2 km2 (published 312.0).
 - Gauges within 20 km of the centroid: SIBH-13 Piracaia (Desemboque do Túnel - 6) (SABESP, telemetric) (3.4 km), SIBH-33857 Rio Atibainha - Montante Atibainha (SAISP, telemetric) (4.3 km), SIBH-1398 Nazaré Paulista (Atibainha Montante) (SP ÁGUAS, telemetric) (5.4 km), 2346352 Ribeirão Acima (6.8 km), 2346334 Crioulos (8.1 km), SIBH-11 Piracaia (Barragem Cachoeira) (SABESP, telemetric) (10.3 km), 2346446 Nazaré Paulista (ANA) (10.5 km), SIBH-33477 Piracaia - SP (IAC, telemetric) (11.3 km), SIBH-15 Nazaré Paulista (Barragem Atibainha) (SABESP, telemetric) (11.5 km), 2346004 Piracaia (SP Águas) (11.8 km), SIBH-831 Piracaia (Rio Cachoeira - Centro) (SAISP, telemetric) (12.3 km), SIBH-27081 Piracaia (Caras) (CEMADEN, telemetric) (12.4 km), 2346094 Piracaia (ANA) (12.5 km), 2346010 Nazaré Paulista (SP Águas) (12.6 km), 2346005 Batatuba (13.1 km), SIBH-33279 Nazaré Paulista (Mascate) (SP ÁGUAS, telemetric) (13.6 km), SIBH-27826 POLICIA MILITAR (CEMADEN, telemetric) (15.4 km), SIBH-1431 Piracaia (Cachoeira Montante) (SP ÁGUAS, telemetric) (15.4 km), SIBH-17 Nazaré Paulista (Emboque do Tunel 5) (SABESP, telemetric) (15.8 km), SIBH-35353 Santa Isabel (EEAB Paraíba do Sul - Atibainha) (SABESP, telemetric) (15.9 km), SIBH-1080 Piracaia (Dobrada) (CEMADEN, telemetric) (16.5 km), SIBH-33364 Bom Jesus dos Perdões - SP (IAC, telemetric) (16.7 km), SIBH-35494 Santa Isabel (Captação Represa do Jaguari) (SABESP, telemetric) (17.9 km), SIBH-27056 Bom Jesus dos Perdões (Centro) (CEMADEN, telemetric) (18.3 km), SIBH-5 Joanópolis (Barragem Jacareí) (SABESP, telemetric) (19.1 km), 2346017 Morro Grande (19.4 km).
-- Days with no gauge reporting: 1 of 16756.
-- Days with no temperature: 9.
+- Days with no gauge reporting: 1 of 16763.
+- Days with no temperature: 16.
 
 | Period | Median gauges per day | Days with one gauge or none | Mean annual rain, audited (mm) | Before the audit (mm) | Mean annual PET (mm) |
 | --- | --- | --- | --- | --- | --- |

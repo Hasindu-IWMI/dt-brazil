@@ -17332,7 +17332,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica222" msdata:rowOrder="221">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>62.8</Maxima>
@@ -17410,7 +17410,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica223" msdata:rowOrder="222">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>62.8</Maxima>
@@ -17488,7 +17488,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica224" msdata:rowOrder="223">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.5</Maxima>
@@ -17566,7 +17566,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica225" msdata:rowOrder="224">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.5</Maxima>
@@ -17644,7 +17644,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica226" msdata:rowOrder="225">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>7.1</Maxima>
@@ -17722,7 +17722,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica227" msdata:rowOrder="226">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>7.1</Maxima>
@@ -17956,7 +17956,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica230" msdata:rowOrder="229">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>5.9</Maxima>
@@ -18034,7 +18034,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica231" msdata:rowOrder="230">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>5.9</Maxima>
@@ -18112,7 +18112,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica232" msdata:rowOrder="231">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>21.1</Maxima>
@@ -18190,7 +18190,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica233" msdata:rowOrder="232">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>21.1</Maxima>
@@ -18268,7 +18268,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica234" msdata:rowOrder="233">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>14.8</Maxima>
@@ -18346,7 +18346,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica235" msdata:rowOrder="234">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>14.8</Maxima>
@@ -18424,7 +18424,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica236" msdata:rowOrder="235">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>15.2</Maxima>
@@ -18502,7 +18502,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica237" msdata:rowOrder="236">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>15.2</Maxima>
@@ -18580,7 +18580,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica238" msdata:rowOrder="237">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>31.1</Maxima>
@@ -18658,7 +18658,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica239" msdata:rowOrder="238">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>31.1</Maxima>
@@ -18736,7 +18736,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica240" msdata:rowOrder="239">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>54.4</Maxima>
@@ -18814,7 +18814,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica241" msdata:rowOrder="240">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>54.4</Maxima>
@@ -18892,7 +18892,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica242" msdata:rowOrder="241">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>82.9</Maxima>
@@ -18970,7 +18970,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica243" msdata:rowOrder="242">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>82.9</Maxima>
@@ -19048,7 +19048,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica244" msdata:rowOrder="243">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2006-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>61.1</Maxima>
@@ -19126,7 +19126,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica245" msdata:rowOrder="244">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2006-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>61.1</Maxima>
@@ -19204,7 +19204,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica246" msdata:rowOrder="245">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2005-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>45</Maxima>
@@ -19282,7 +19282,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica247" msdata:rowOrder="246">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2005-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>45</Maxima>
@@ -19360,7 +19360,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica248" msdata:rowOrder="247">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2005-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>37.9</Maxima>
@@ -19438,7 +19438,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica249" msdata:rowOrder="248">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2005-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>37.9</Maxima>
@@ -19516,7 +19516,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica250" msdata:rowOrder="249">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2005-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>48.3</Maxima>
@@ -19594,7 +19594,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica251" msdata:rowOrder="250">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2005-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>48.3</Maxima>
@@ -19828,7 +19828,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica254" msdata:rowOrder="253">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2005-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>8.9</Maxima>
@@ -19906,7 +19906,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica255" msdata:rowOrder="254">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2005-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>8.9</Maxima>
@@ -19984,7 +19984,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica256" msdata:rowOrder="255">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2005-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>19.3</Maxima>
@@ -20062,7 +20062,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica257" msdata:rowOrder="256">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2005-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>19.3</Maxima>
@@ -20764,7 +20764,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica266" msdata:rowOrder="265">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2005-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>28.8</Maxima>
@@ -20842,7 +20842,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica267" msdata:rowOrder="266">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2005-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>28.8</Maxima>
@@ -21076,7 +21076,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica270" msdata:rowOrder="269">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2004-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>44.2</Maxima>
@@ -21154,7 +21154,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica271" msdata:rowOrder="270">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2004-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>44.2</Maxima>
@@ -21232,7 +21232,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica272" msdata:rowOrder="271">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2004-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>94.5</Maxima>
@@ -21310,7 +21310,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica273" msdata:rowOrder="272">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2004-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>94.5</Maxima>
@@ -21388,7 +21388,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica274" msdata:rowOrder="273">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2004-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.8</Maxima>
@@ -21466,7 +21466,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica275" msdata:rowOrder="274">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2004-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.8</Maxima>
@@ -21544,7 +21544,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica276" msdata:rowOrder="275">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2004-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>19</Maxima>
@@ -21622,7 +21622,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica277" msdata:rowOrder="276">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2004-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>19</Maxima>
@@ -21700,7 +21700,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica278" msdata:rowOrder="277">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2004-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>0.1</Maxima>
@@ -21778,7 +21778,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica279" msdata:rowOrder="278">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2004-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>0.1</Maxima>
@@ -21856,7 +21856,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica280" msdata:rowOrder="279">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>2004-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>31.9</Maxima>
@@ -21934,7 +21934,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica281" msdata:rowOrder="280">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>2004-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>31.9</Maxima>
@@ -62104,7 +62104,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica796" msdata:rowOrder="795">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1982-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.4</Maxima>
@@ -62182,7 +62182,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica797" msdata:rowOrder="796">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1982-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.4</Maxima>
@@ -62260,7 +62260,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica798" msdata:rowOrder="797">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1982-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>35.8</Maxima>
@@ -62338,7 +62338,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica799" msdata:rowOrder="798">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1982-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>35.8</Maxima>
@@ -62416,7 +62416,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica800" msdata:rowOrder="799">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1982-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>28.1</Maxima>
@@ -62494,7 +62494,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica801" msdata:rowOrder="800">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1982-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>28.1</Maxima>
@@ -62572,7 +62572,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica802" msdata:rowOrder="801">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1982-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>36.2</Maxima>
@@ -62650,7 +62650,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica803" msdata:rowOrder="802">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1982-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>36.2</Maxima>
@@ -62728,7 +62728,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica804" msdata:rowOrder="803">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1982-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>70.6</Maxima>
@@ -62806,7 +62806,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica805" msdata:rowOrder="804">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1982-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>70.6</Maxima>
@@ -62884,7 +62884,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica806" msdata:rowOrder="805">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>32.6</Maxima>
@@ -62962,7 +62962,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica807" msdata:rowOrder="806">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>32.6</Maxima>
@@ -63040,7 +63040,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica808" msdata:rowOrder="807">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.2</Maxima>
@@ -63118,7 +63118,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica809" msdata:rowOrder="808">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.2</Maxima>
@@ -63196,7 +63196,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica810" msdata:rowOrder="809">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>49.8</Maxima>
@@ -63274,7 +63274,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica811" msdata:rowOrder="810">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>49.8</Maxima>
@@ -63352,7 +63352,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica812" msdata:rowOrder="811">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>7</Maxima>
@@ -63430,7 +63430,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica813" msdata:rowOrder="812">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>7</Maxima>
@@ -63508,7 +63508,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica814" msdata:rowOrder="813">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>2.4</Maxima>
@@ -63586,7 +63586,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica815" msdata:rowOrder="814">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>2.4</Maxima>
@@ -63664,7 +63664,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica816" msdata:rowOrder="815">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>8.8</Maxima>
@@ -63742,7 +63742,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica817" msdata:rowOrder="816">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>8.8</Maxima>
@@ -63820,7 +63820,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica818" msdata:rowOrder="817">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>35.6</Maxima>
@@ -63898,7 +63898,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica819" msdata:rowOrder="818">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>35.6</Maxima>
@@ -63976,7 +63976,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica820" msdata:rowOrder="819">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>15</Maxima>
@@ -64054,7 +64054,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica821" msdata:rowOrder="820">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>15</Maxima>
@@ -64132,7 +64132,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica822" msdata:rowOrder="821">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>14.2</Maxima>
@@ -64210,7 +64210,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica823" msdata:rowOrder="822">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>14.2</Maxima>
@@ -64288,7 +64288,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica824" msdata:rowOrder="823">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.2</Maxima>
@@ -64366,7 +64366,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica825" msdata:rowOrder="824">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.2</Maxima>
@@ -64444,7 +64444,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica826" msdata:rowOrder="825">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>45</Maxima>
@@ -64522,7 +64522,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica827" msdata:rowOrder="826">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>45</Maxima>
@@ -64600,7 +64600,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica828" msdata:rowOrder="827">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1981-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>47.6</Maxima>
@@ -64678,7 +64678,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica829" msdata:rowOrder="828">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1981-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>47.6</Maxima>
@@ -64756,7 +64756,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica830" msdata:rowOrder="829">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>43.4</Maxima>
@@ -64834,7 +64834,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica831" msdata:rowOrder="830">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>43.4</Maxima>
@@ -64912,7 +64912,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica832" msdata:rowOrder="831">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>85.8</Maxima>
@@ -64990,7 +64990,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica833" msdata:rowOrder="832">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>85.8</Maxima>
@@ -65068,7 +65068,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica834" msdata:rowOrder="833">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.8</Maxima>
@@ -65146,7 +65146,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica835" msdata:rowOrder="834">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.8</Maxima>
@@ -65224,7 +65224,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica836" msdata:rowOrder="835">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>23.8</Maxima>
@@ -65302,7 +65302,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica837" msdata:rowOrder="836">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>23.8</Maxima>
@@ -65380,7 +65380,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica838" msdata:rowOrder="837">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.8</Maxima>
@@ -65458,7 +65458,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica839" msdata:rowOrder="838">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.8</Maxima>
@@ -65536,7 +65536,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica840" msdata:rowOrder="839">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>5.3</Maxima>
@@ -65614,7 +65614,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica841" msdata:rowOrder="840">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>5.3</Maxima>
@@ -65692,7 +65692,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica842" msdata:rowOrder="841">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.4</Maxima>
@@ -65770,7 +65770,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica843" msdata:rowOrder="842">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.4</Maxima>
@@ -65848,7 +65848,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica844" msdata:rowOrder="843">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>8.2</Maxima>
@@ -65926,7 +65926,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica845" msdata:rowOrder="844">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>8.2</Maxima>
@@ -66004,7 +66004,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica846" msdata:rowOrder="845">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>41</Maxima>
@@ -66082,7 +66082,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica847" msdata:rowOrder="846">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>41</Maxima>
@@ -66160,7 +66160,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica848" msdata:rowOrder="847">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>22.6</Maxima>
@@ -66238,7 +66238,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica849" msdata:rowOrder="848">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>22.6</Maxima>
@@ -66316,7 +66316,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica850" msdata:rowOrder="849">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>31.2</Maxima>
@@ -66394,7 +66394,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica851" msdata:rowOrder="850">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>31.2</Maxima>
@@ -66472,7 +66472,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica852" msdata:rowOrder="851">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1980-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>66.6</Maxima>
@@ -66550,7 +66550,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica853" msdata:rowOrder="852">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1980-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>66.6</Maxima>
@@ -66628,7 +66628,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica854" msdata:rowOrder="853">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>25.6</Maxima>
@@ -66706,7 +66706,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica855" msdata:rowOrder="854">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>25.6</Maxima>
@@ -66784,7 +66784,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica856" msdata:rowOrder="855">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>33.8</Maxima>
@@ -66862,7 +66862,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica857" msdata:rowOrder="856">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>33.8</Maxima>
@@ -66940,7 +66940,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica858" msdata:rowOrder="857">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.6</Maxima>
@@ -67018,7 +67018,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica859" msdata:rowOrder="858">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.6</Maxima>
@@ -67096,7 +67096,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica860" msdata:rowOrder="859">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>26.4</Maxima>
@@ -67174,7 +67174,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica861" msdata:rowOrder="860">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>26.4</Maxima>
@@ -67252,7 +67252,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica862" msdata:rowOrder="861">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>27.4</Maxima>
@@ -67330,7 +67330,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica863" msdata:rowOrder="862">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>27.4</Maxima>
@@ -67408,7 +67408,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica864" msdata:rowOrder="863">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>22.6</Maxima>
@@ -67486,7 +67486,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica865" msdata:rowOrder="864">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>22.6</Maxima>
@@ -67564,7 +67564,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica866" msdata:rowOrder="865">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>3.2</Maxima>
@@ -67642,7 +67642,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica867" msdata:rowOrder="866">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>3.2</Maxima>
@@ -67720,7 +67720,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica868" msdata:rowOrder="867">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>23.4</Maxima>
@@ -67798,7 +67798,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica869" msdata:rowOrder="868">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>23.4</Maxima>
@@ -67876,7 +67876,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica870" msdata:rowOrder="869">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>36.2</Maxima>
@@ -67954,7 +67954,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica871" msdata:rowOrder="870">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>36.2</Maxima>
@@ -68032,7 +68032,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica872" msdata:rowOrder="871">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>49.2</Maxima>
@@ -68110,7 +68110,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica873" msdata:rowOrder="872">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>49.2</Maxima>
@@ -68188,7 +68188,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica874" msdata:rowOrder="873">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>22.4</Maxima>
@@ -68266,7 +68266,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica875" msdata:rowOrder="874">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>22.4</Maxima>
@@ -68344,7 +68344,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica876" msdata:rowOrder="875">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1979-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>45.2</Maxima>
@@ -68422,7 +68422,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica877" msdata:rowOrder="876">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1979-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>45.2</Maxima>
@@ -68500,7 +68500,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica878" msdata:rowOrder="877">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.4</Maxima>
@@ -68578,7 +68578,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica879" msdata:rowOrder="878">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.4</Maxima>
@@ -68656,7 +68656,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica880" msdata:rowOrder="879">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>63.6</Maxima>
@@ -68734,7 +68734,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica881" msdata:rowOrder="880">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>63.6</Maxima>
@@ -68812,7 +68812,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica882" msdata:rowOrder="881">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.6</Maxima>
@@ -68890,7 +68890,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica883" msdata:rowOrder="882">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.6</Maxima>
@@ -68968,7 +68968,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica884" msdata:rowOrder="883">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.2</Maxima>
@@ -69046,7 +69046,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica885" msdata:rowOrder="884">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.2</Maxima>
@@ -69124,7 +69124,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica886" msdata:rowOrder="885">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>2.3</Maxima>
@@ -69202,7 +69202,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica887" msdata:rowOrder="886">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>2.3</Maxima>
@@ -69280,7 +69280,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica888" msdata:rowOrder="887">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.8</Maxima>
@@ -69358,7 +69358,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica889" msdata:rowOrder="888">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.8</Maxima>
@@ -69436,7 +69436,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica890" msdata:rowOrder="889">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>58</Maxima>
@@ -69514,7 +69514,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica891" msdata:rowOrder="890">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>58</Maxima>
@@ -69592,7 +69592,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica892" msdata:rowOrder="891">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>43.4</Maxima>
@@ -69670,7 +69670,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica893" msdata:rowOrder="892">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>43.4</Maxima>
@@ -69748,7 +69748,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica894" msdata:rowOrder="893">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>8.9</Maxima>
@@ -69826,7 +69826,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica895" msdata:rowOrder="894">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>8.9</Maxima>
@@ -69904,7 +69904,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica896" msdata:rowOrder="895">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.6</Maxima>
@@ -69982,7 +69982,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica897" msdata:rowOrder="896">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.6</Maxima>
@@ -70060,7 +70060,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica898" msdata:rowOrder="897">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.5</Maxima>
@@ -70138,7 +70138,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica899" msdata:rowOrder="898">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.5</Maxima>
@@ -70216,7 +70216,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica900" msdata:rowOrder="899">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1978-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>38.4</Maxima>
@@ -70294,7 +70294,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica901" msdata:rowOrder="900">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1978-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>38.4</Maxima>
@@ -70372,7 +70372,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica902" msdata:rowOrder="901">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>54.8</Maxima>
@@ -70450,7 +70450,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica903" msdata:rowOrder="902">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>54.8</Maxima>
@@ -70528,7 +70528,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica904" msdata:rowOrder="903">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>61.4</Maxima>
@@ -70606,7 +70606,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica905" msdata:rowOrder="904">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>61.4</Maxima>
@@ -70684,7 +70684,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica906" msdata:rowOrder="905">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50</Maxima>
@@ -70762,7 +70762,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica907" msdata:rowOrder="906">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50</Maxima>
@@ -70840,7 +70840,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica908" msdata:rowOrder="907">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>35.2</Maxima>
@@ -70918,7 +70918,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica909" msdata:rowOrder="908">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>35.2</Maxima>
@@ -70996,7 +70996,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica910" msdata:rowOrder="909">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.4</Maxima>
@@ -71074,7 +71074,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica911" msdata:rowOrder="910">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.4</Maxima>
@@ -71152,7 +71152,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica912" msdata:rowOrder="911">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>2.5</Maxima>
@@ -71230,7 +71230,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica913" msdata:rowOrder="912">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>2.5</Maxima>
@@ -71308,7 +71308,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica914" msdata:rowOrder="913">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>25.2</Maxima>
@@ -71386,7 +71386,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica915" msdata:rowOrder="914">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>25.2</Maxima>
@@ -71464,7 +71464,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica916" msdata:rowOrder="915">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.8</Maxima>
@@ -71542,7 +71542,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica917" msdata:rowOrder="916">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.8</Maxima>
@@ -71620,7 +71620,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica918" msdata:rowOrder="917">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>44.6</Maxima>
@@ -71698,7 +71698,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica919" msdata:rowOrder="918">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>44.6</Maxima>
@@ -71776,7 +71776,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica920" msdata:rowOrder="919">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.5</Maxima>
@@ -71854,7 +71854,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica921" msdata:rowOrder="920">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>46.5</Maxima>
@@ -71932,7 +71932,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica922" msdata:rowOrder="921">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>79.6</Maxima>
@@ -72010,7 +72010,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica923" msdata:rowOrder="922">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>79.6</Maxima>
@@ -72088,7 +72088,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica924" msdata:rowOrder="923">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1977-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>42.8</Maxima>
@@ -72166,7 +72166,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica925" msdata:rowOrder="924">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1977-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>42.8</Maxima>
@@ -72244,7 +72244,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica926" msdata:rowOrder="925">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>79.8</Maxima>
@@ -72322,7 +72322,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica927" msdata:rowOrder="926">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>79.8</Maxima>
@@ -72400,7 +72400,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica928" msdata:rowOrder="927">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>36.8</Maxima>
@@ -72478,7 +72478,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica929" msdata:rowOrder="928">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>36.8</Maxima>
@@ -72556,7 +72556,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica930" msdata:rowOrder="929">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>44.8</Maxima>
@@ -72634,7 +72634,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica931" msdata:rowOrder="930">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>44.8</Maxima>
@@ -72712,7 +72712,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica932" msdata:rowOrder="931">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>70.6</Maxima>
@@ -72790,7 +72790,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica933" msdata:rowOrder="932">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>70.6</Maxima>
@@ -72868,7 +72868,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica934" msdata:rowOrder="933">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>35.6</Maxima>
@@ -72946,7 +72946,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica935" msdata:rowOrder="934">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>35.6</Maxima>
@@ -73024,7 +73024,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica936" msdata:rowOrder="935">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>73.8</Maxima>
@@ -73102,7 +73102,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica937" msdata:rowOrder="936">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>73.8</Maxima>
@@ -73180,7 +73180,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica938" msdata:rowOrder="937">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50.6</Maxima>
@@ -73258,7 +73258,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica939" msdata:rowOrder="938">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50.6</Maxima>
@@ -73336,7 +73336,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica940" msdata:rowOrder="939">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>64.8</Maxima>
@@ -73414,7 +73414,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica941" msdata:rowOrder="940">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>64.8</Maxima>
@@ -73492,7 +73492,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica942" msdata:rowOrder="941">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>42.4</Maxima>
@@ -73570,7 +73570,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica943" msdata:rowOrder="942">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>42.4</Maxima>
@@ -73648,7 +73648,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica944" msdata:rowOrder="943">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>30.4</Maxima>
@@ -73726,7 +73726,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica945" msdata:rowOrder="944">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>30.4</Maxima>
@@ -73804,7 +73804,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica946" msdata:rowOrder="945">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50.6</Maxima>
@@ -73882,7 +73882,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica947" msdata:rowOrder="946">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50.6</Maxima>
@@ -73960,7 +73960,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica948" msdata:rowOrder="947">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1976-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>42.6</Maxima>
@@ -74038,7 +74038,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica949" msdata:rowOrder="948">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1976-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>42.6</Maxima>
@@ -74116,7 +74116,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica950" msdata:rowOrder="949">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>123.6</Maxima>
@@ -74126,7 +74126,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>9.8</Chuva01>
         <Chuva02>26.2</Chuva02>
@@ -74194,7 +74194,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica951" msdata:rowOrder="950">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>123.6</Maxima>
@@ -74204,7 +74204,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>9.8</Chuva01>
         <Chuva02>26.2</Chuva02>
@@ -74272,7 +74272,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica952" msdata:rowOrder="951">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>79.8</Maxima>
@@ -74282,7 +74282,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>1.7</Chuva01>
         <Chuva02>3.4</Chuva02>
@@ -74350,7 +74350,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica953" msdata:rowOrder="952">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>79.8</Maxima>
@@ -74360,7 +74360,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>1.7</Chuva01>
         <Chuva02>3.4</Chuva02>
@@ -74428,7 +74428,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica954" msdata:rowOrder="953">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>96.4</Maxima>
@@ -74438,7 +74438,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -74506,7 +74506,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica955" msdata:rowOrder="954">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>96.4</Maxima>
@@ -74516,7 +74516,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -74584,7 +74584,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica956" msdata:rowOrder="955">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>7.9</Maxima>
@@ -74594,7 +74594,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -74662,7 +74662,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica957" msdata:rowOrder="956">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>7.9</Maxima>
@@ -74672,7 +74672,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -74740,7 +74740,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica958" msdata:rowOrder="957">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>0</Maxima>
@@ -74750,7 +74750,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -74818,7 +74818,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica959" msdata:rowOrder="958">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>0</Maxima>
@@ -74828,7 +74828,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -74896,7 +74896,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica960" msdata:rowOrder="959">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>17.7</Maxima>
@@ -74906,7 +74906,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -74974,7 +74974,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica961" msdata:rowOrder="960">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>17.7</Maxima>
@@ -74984,7 +74984,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -75052,7 +75052,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica962" msdata:rowOrder="961">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>0.6</Maxima>
@@ -75062,7 +75062,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -75130,7 +75130,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica963" msdata:rowOrder="962">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>0.6</Maxima>
@@ -75140,7 +75140,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -75208,7 +75208,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica964" msdata:rowOrder="963">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>20.8</Maxima>
@@ -75218,7 +75218,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -75286,7 +75286,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica965" msdata:rowOrder="964">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>20.8</Maxima>
@@ -75296,7 +75296,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -75364,7 +75364,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica966" msdata:rowOrder="965">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.2</Maxima>
@@ -75374,7 +75374,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnual>1253.4</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -75442,7 +75442,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica967" msdata:rowOrder="966">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.2</Maxima>
@@ -75452,7 +75452,7 @@
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
         <Chuva01>0</Chuva01>
         <Chuva02>0</Chuva02>
@@ -75520,6 +75520,84 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica968" msdata:rowOrder="967">
         <EstacaoCodigo>2346095</EstacaoCodigo>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>1975-03-01 00:00:00</DataHora>
+        <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
+        <Maxima>19.8</Maxima>
+        <Total>51.3</Total>
+        <DiaMaxima>21</DiaMaxima>
+        <NumDiasDeChuva>8</NumDiasDeChuva>
+        <MaximaStatus>1</MaximaStatus>
+        <TotalStatus>1</TotalStatus>
+        <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
+        <TotalAnual>1383.9</TotalAnual>
+        <TotalAnualStatus>1</TotalAnualStatus>
+        <Chuva01>0</Chuva01>
+        <Chuva02>0</Chuva02>
+        <Chuva03>0</Chuva03>
+        <Chuva04>0</Chuva04>
+        <Chuva05>0</Chuva05>
+        <Chuva06>0</Chuva06>
+        <Chuva07>0</Chuva07>
+        <Chuva08>3</Chuva08>
+        <Chuva09>1.6</Chuva09>
+        <Chuva10>0</Chuva10>
+        <Chuva11>0</Chuva11>
+        <Chuva12>0</Chuva12>
+        <Chuva13>0</Chuva13>
+        <Chuva14>0</Chuva14>
+        <Chuva15>0</Chuva15>
+        <Chuva16>0.8</Chuva16>
+        <Chuva17>0</Chuva17>
+        <Chuva18>0</Chuva18>
+        <Chuva19>0</Chuva19>
+        <Chuva20>0</Chuva20>
+        <Chuva21>19.8</Chuva21>
+        <Chuva22>0</Chuva22>
+        <Chuva23>0</Chuva23>
+        <Chuva24>9.7</Chuva24>
+        <Chuva25>1.5</Chuva25>
+        <Chuva26>0</Chuva26>
+        <Chuva27>0</Chuva27>
+        <Chuva28>0</Chuva28>
+        <Chuva29>0</Chuva29>
+        <Chuva30>0.3</Chuva30>
+        <Chuva31>14.6</Chuva31>
+        <Chuva01Status>1</Chuva01Status>
+        <Chuva02Status>1</Chuva02Status>
+        <Chuva03Status>1</Chuva03Status>
+        <Chuva04Status>1</Chuva04Status>
+        <Chuva05Status>1</Chuva05Status>
+        <Chuva06Status>1</Chuva06Status>
+        <Chuva07Status>1</Chuva07Status>
+        <Chuva08Status>1</Chuva08Status>
+        <Chuva09Status>1</Chuva09Status>
+        <Chuva10Status>1</Chuva10Status>
+        <Chuva11Status>1</Chuva11Status>
+        <Chuva12Status>1</Chuva12Status>
+        <Chuva13Status>1</Chuva13Status>
+        <Chuva14Status>1</Chuva14Status>
+        <Chuva15Status>1</Chuva15Status>
+        <Chuva16Status>1</Chuva16Status>
+        <Chuva17Status>1</Chuva17Status>
+        <Chuva18Status>1</Chuva18Status>
+        <Chuva19Status>1</Chuva19Status>
+        <Chuva20Status>1</Chuva20Status>
+        <Chuva21Status>1</Chuva21Status>
+        <Chuva22Status>1</Chuva22Status>
+        <Chuva23Status>1</Chuva23Status>
+        <Chuva24Status>1</Chuva24Status>
+        <Chuva25Status>1</Chuva25Status>
+        <Chuva26Status>1</Chuva26Status>
+        <Chuva27Status>1</Chuva27Status>
+        <Chuva28Status>1</Chuva28Status>
+        <Chuva29Status>1</Chuva29Status>
+        <Chuva30Status>1</Chuva30Status>
+        <Chuva31Status>1</Chuva31Status>
+        <DataIns />
+      </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica969" msdata:rowOrder="968">
+        <EstacaoCodigo>2346095</EstacaoCodigo>
         <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
@@ -75596,163 +75674,7 @@
         <Chuva31Status>1</Chuva31Status>
         <DataIns />
       </SerieHistorica>
-      <SerieHistorica diffgr:id="SerieHistorica969" msdata:rowOrder="968">
-        <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
-        <DataHora>1975-03-01 00:00:00</DataHora>
-        <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
-        <Maxima>19.8</Maxima>
-        <Total>51.3</Total>
-        <DiaMaxima>21</DiaMaxima>
-        <NumDiasDeChuva>8</NumDiasDeChuva>
-        <MaximaStatus>1</MaximaStatus>
-        <TotalStatus>1</TotalStatus>
-        <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
-        <TotalAnualStatus>1</TotalAnualStatus>
-        <Chuva01>0</Chuva01>
-        <Chuva02>0</Chuva02>
-        <Chuva03>0</Chuva03>
-        <Chuva04>0</Chuva04>
-        <Chuva05>0</Chuva05>
-        <Chuva06>0</Chuva06>
-        <Chuva07>0</Chuva07>
-        <Chuva08>3</Chuva08>
-        <Chuva09>1.6</Chuva09>
-        <Chuva10>0</Chuva10>
-        <Chuva11>0</Chuva11>
-        <Chuva12>0</Chuva12>
-        <Chuva13>0</Chuva13>
-        <Chuva14>0</Chuva14>
-        <Chuva15>0</Chuva15>
-        <Chuva16>0.8</Chuva16>
-        <Chuva17>0</Chuva17>
-        <Chuva18>0</Chuva18>
-        <Chuva19>0</Chuva19>
-        <Chuva20>0</Chuva20>
-        <Chuva21>19.8</Chuva21>
-        <Chuva22>0</Chuva22>
-        <Chuva23>0</Chuva23>
-        <Chuva24>9.7</Chuva24>
-        <Chuva25>1.5</Chuva25>
-        <Chuva26>0</Chuva26>
-        <Chuva27>0</Chuva27>
-        <Chuva28>0</Chuva28>
-        <Chuva29>0</Chuva29>
-        <Chuva30>0.3</Chuva30>
-        <Chuva31>14.6</Chuva31>
-        <Chuva01Status>1</Chuva01Status>
-        <Chuva02Status>1</Chuva02Status>
-        <Chuva03Status>1</Chuva03Status>
-        <Chuva04Status>1</Chuva04Status>
-        <Chuva05Status>1</Chuva05Status>
-        <Chuva06Status>1</Chuva06Status>
-        <Chuva07Status>1</Chuva07Status>
-        <Chuva08Status>1</Chuva08Status>
-        <Chuva09Status>1</Chuva09Status>
-        <Chuva10Status>1</Chuva10Status>
-        <Chuva11Status>1</Chuva11Status>
-        <Chuva12Status>1</Chuva12Status>
-        <Chuva13Status>1</Chuva13Status>
-        <Chuva14Status>1</Chuva14Status>
-        <Chuva15Status>1</Chuva15Status>
-        <Chuva16Status>1</Chuva16Status>
-        <Chuva17Status>1</Chuva17Status>
-        <Chuva18Status>1</Chuva18Status>
-        <Chuva19Status>1</Chuva19Status>
-        <Chuva20Status>1</Chuva20Status>
-        <Chuva21Status>1</Chuva21Status>
-        <Chuva22Status>1</Chuva22Status>
-        <Chuva23Status>1</Chuva23Status>
-        <Chuva24Status>1</Chuva24Status>
-        <Chuva25Status>1</Chuva25Status>
-        <Chuva26Status>1</Chuva26Status>
-        <Chuva27Status>1</Chuva27Status>
-        <Chuva28Status>1</Chuva28Status>
-        <Chuva29Status>1</Chuva29Status>
-        <Chuva30Status>1</Chuva30Status>
-        <Chuva31Status>1</Chuva31Status>
-        <DataIns />
-      </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica970" msdata:rowOrder="969">
-        <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
-        <DataHora>1975-02-01 00:00:00</DataHora>
-        <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
-        <Maxima>85</Maxima>
-        <Total>455.3</Total>
-        <DiaMaxima>21</DiaMaxima>
-        <NumDiasDeChuva>20</NumDiasDeChuva>
-        <MaximaStatus>1</MaximaStatus>
-        <TotalStatus>1</TotalStatus>
-        <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1383.9</TotalAnual>
-        <TotalAnualStatus>1</TotalAnualStatus>
-        <Chuva01>11.8</Chuva01>
-        <Chuva02>7.4</Chuva02>
-        <Chuva03>9.6</Chuva03>
-        <Chuva04>9</Chuva04>
-        <Chuva05>61.2</Chuva05>
-        <Chuva06>24.8</Chuva06>
-        <Chuva07>0</Chuva07>
-        <Chuva08>18.6</Chuva08>
-        <Chuva09>8.8</Chuva09>
-        <Chuva10>26</Chuva10>
-        <Chuva11>0</Chuva11>
-        <Chuva12>0</Chuva12>
-        <Chuva13>0</Chuva13>
-        <Chuva14>0</Chuva14>
-        <Chuva15>5.6</Chuva15>
-        <Chuva16>0</Chuva16>
-        <Chuva17>0</Chuva17>
-        <Chuva18>0</Chuva18>
-        <Chuva19>8.4</Chuva19>
-        <Chuva20>27.6</Chuva20>
-        <Chuva21>85</Chuva21>
-        <Chuva22>16.4</Chuva22>
-        <Chuva23>10.5</Chuva23>
-        <Chuva24>1.1</Chuva24>
-        <Chuva25>0.2</Chuva25>
-        <Chuva26>5.1</Chuva26>
-        <Chuva27>58.2</Chuva27>
-        <Chuva28>60</Chuva28>
-        <Chuva29 />
-        <Chuva30 />
-        <Chuva31 />
-        <Chuva01Status>1</Chuva01Status>
-        <Chuva02Status>1</Chuva02Status>
-        <Chuva03Status>1</Chuva03Status>
-        <Chuva04Status>1</Chuva04Status>
-        <Chuva05Status>1</Chuva05Status>
-        <Chuva06Status>1</Chuva06Status>
-        <Chuva07Status>1</Chuva07Status>
-        <Chuva08Status>1</Chuva08Status>
-        <Chuva09Status>1</Chuva09Status>
-        <Chuva10Status>1</Chuva10Status>
-        <Chuva11Status>1</Chuva11Status>
-        <Chuva12Status>1</Chuva12Status>
-        <Chuva13Status>1</Chuva13Status>
-        <Chuva14Status>1</Chuva14Status>
-        <Chuva15Status>1</Chuva15Status>
-        <Chuva16Status>1</Chuva16Status>
-        <Chuva17Status>1</Chuva17Status>
-        <Chuva18Status>1</Chuva18Status>
-        <Chuva19Status>1</Chuva19Status>
-        <Chuva20Status>1</Chuva20Status>
-        <Chuva21Status>1</Chuva21Status>
-        <Chuva22Status>1</Chuva22Status>
-        <Chuva23Status>1</Chuva23Status>
-        <Chuva24Status>1</Chuva24Status>
-        <Chuva25Status>1</Chuva25Status>
-        <Chuva26Status>1</Chuva26Status>
-        <Chuva27Status>1</Chuva27Status>
-        <Chuva28Status>1</Chuva28Status>
-        <Chuva29Status>0</Chuva29Status>
-        <Chuva30Status>0</Chuva30Status>
-        <Chuva31Status>0</Chuva31Status>
-        <DataIns />
-      </SerieHistorica>
-      <SerieHistorica diffgr:id="SerieHistorica971" msdata:rowOrder="970">
         <EstacaoCodigo>2346095</EstacaoCodigo>
         <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1975-02-01 00:00:00</DataHora>
@@ -75830,51 +75752,51 @@
         <Chuva31Status>0</Chuva31Status>
         <DataIns />
       </SerieHistorica>
-      <SerieHistorica diffgr:id="SerieHistorica972" msdata:rowOrder="971">
+      <SerieHistorica diffgr:id="SerieHistorica971" msdata:rowOrder="970">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
-        <DataHora>1975-01-01 00:00:00</DataHora>
+        <NivelConsistencia>1</NivelConsistencia>
+        <DataHora>1975-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
-        <Maxima>31.8</Maxima>
-        <Total>126.4</Total>
-        <DiaMaxima>1</DiaMaxima>
-        <NumDiasDeChuva>11</NumDiasDeChuva>
+        <Maxima>85</Maxima>
+        <Total>455.3</Total>
+        <DiaMaxima>21</DiaMaxima>
+        <NumDiasDeChuva>20</NumDiasDeChuva>
         <MaximaStatus>1</MaximaStatus>
         <TotalStatus>1</TotalStatus>
         <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
-        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnual>1383.9</TotalAnual>
         <TotalAnualStatus>1</TotalAnualStatus>
-        <Chuva01>31.8</Chuva01>
-        <Chuva02>8.8</Chuva02>
-        <Chuva03>0</Chuva03>
-        <Chuva04>0</Chuva04>
-        <Chuva05>0</Chuva05>
-        <Chuva06>0</Chuva06>
-        <Chuva07>4.9</Chuva07>
-        <Chuva08>0</Chuva08>
-        <Chuva09>0</Chuva09>
-        <Chuva10>24.6</Chuva10>
-        <Chuva11>2.4</Chuva11>
-        <Chuva12>3.8</Chuva12>
-        <Chuva13>9</Chuva13>
-        <Chuva14>30.8</Chuva14>
-        <Chuva15>5.7</Chuva15>
+        <Chuva01>11.8</Chuva01>
+        <Chuva02>7.4</Chuva02>
+        <Chuva03>9.6</Chuva03>
+        <Chuva04>9</Chuva04>
+        <Chuva05>61.2</Chuva05>
+        <Chuva06>24.8</Chuva06>
+        <Chuva07>0</Chuva07>
+        <Chuva08>18.6</Chuva08>
+        <Chuva09>8.8</Chuva09>
+        <Chuva10>26</Chuva10>
+        <Chuva11>0</Chuva11>
+        <Chuva12>0</Chuva12>
+        <Chuva13>0</Chuva13>
+        <Chuva14>0</Chuva14>
+        <Chuva15>5.6</Chuva15>
         <Chuva16>0</Chuva16>
         <Chuva17>0</Chuva17>
         <Chuva18>0</Chuva18>
-        <Chuva19>1.8</Chuva19>
-        <Chuva20>0</Chuva20>
-        <Chuva21>0</Chuva21>
-        <Chuva22>0</Chuva22>
-        <Chuva23>0</Chuva23>
-        <Chuva24>0</Chuva24>
-        <Chuva25>0</Chuva25>
-        <Chuva26>0</Chuva26>
-        <Chuva27>0</Chuva27>
-        <Chuva28>0</Chuva28>
-        <Chuva29>0</Chuva29>
-        <Chuva30>0</Chuva30>
-        <Chuva31>2.8</Chuva31>
+        <Chuva19>8.4</Chuva19>
+        <Chuva20>27.6</Chuva20>
+        <Chuva21>85</Chuva21>
+        <Chuva22>16.4</Chuva22>
+        <Chuva23>10.5</Chuva23>
+        <Chuva24>1.1</Chuva24>
+        <Chuva25>0.2</Chuva25>
+        <Chuva26>5.1</Chuva26>
+        <Chuva27>58.2</Chuva27>
+        <Chuva28>60</Chuva28>
+        <Chuva29 />
+        <Chuva30 />
+        <Chuva31 />
         <Chuva01Status>1</Chuva01Status>
         <Chuva02Status>1</Chuva02Status>
         <Chuva03Status>1</Chuva03Status>
@@ -75903,12 +75825,12 @@
         <Chuva26Status>1</Chuva26Status>
         <Chuva27Status>1</Chuva27Status>
         <Chuva28Status>1</Chuva28Status>
-        <Chuva29Status>1</Chuva29Status>
-        <Chuva30Status>1</Chuva30Status>
-        <Chuva31Status>1</Chuva31Status>
+        <Chuva29Status>0</Chuva29Status>
+        <Chuva30Status>0</Chuva30Status>
+        <Chuva31Status>0</Chuva31Status>
         <DataIns />
       </SerieHistorica>
-      <SerieHistorica diffgr:id="SerieHistorica973" msdata:rowOrder="972">
+      <SerieHistorica diffgr:id="SerieHistorica972" msdata:rowOrder="971">
         <EstacaoCodigo>2346095</EstacaoCodigo>
         <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1975-01-01 00:00:00</DataHora>
@@ -75986,9 +75908,87 @@
         <Chuva31Status>1</Chuva31Status>
         <DataIns />
       </SerieHistorica>
+      <SerieHistorica diffgr:id="SerieHistorica973" msdata:rowOrder="972">
+        <EstacaoCodigo>2346095</EstacaoCodigo>
+        <NivelConsistencia>2</NivelConsistencia>
+        <DataHora>1975-01-01 00:00:00</DataHora>
+        <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
+        <Maxima>31.8</Maxima>
+        <Total>126.4</Total>
+        <DiaMaxima>1</DiaMaxima>
+        <NumDiasDeChuva>11</NumDiasDeChuva>
+        <MaximaStatus>1</MaximaStatus>
+        <TotalStatus>1</TotalStatus>
+        <NumDiasDeChuvaStatus>0</NumDiasDeChuvaStatus>
+        <TotalAnual>1253.4</TotalAnual>
+        <TotalAnualStatus>1</TotalAnualStatus>
+        <Chuva01>31.8</Chuva01>
+        <Chuva02>8.8</Chuva02>
+        <Chuva03>0</Chuva03>
+        <Chuva04>0</Chuva04>
+        <Chuva05>0</Chuva05>
+        <Chuva06>0</Chuva06>
+        <Chuva07>4.9</Chuva07>
+        <Chuva08>0</Chuva08>
+        <Chuva09>0</Chuva09>
+        <Chuva10>24.6</Chuva10>
+        <Chuva11>2.4</Chuva11>
+        <Chuva12>3.8</Chuva12>
+        <Chuva13>9</Chuva13>
+        <Chuva14>30.8</Chuva14>
+        <Chuva15>5.7</Chuva15>
+        <Chuva16>0</Chuva16>
+        <Chuva17>0</Chuva17>
+        <Chuva18>0</Chuva18>
+        <Chuva19>1.8</Chuva19>
+        <Chuva20>0</Chuva20>
+        <Chuva21>0</Chuva21>
+        <Chuva22>0</Chuva22>
+        <Chuva23>0</Chuva23>
+        <Chuva24>0</Chuva24>
+        <Chuva25>0</Chuva25>
+        <Chuva26>0</Chuva26>
+        <Chuva27>0</Chuva27>
+        <Chuva28>0</Chuva28>
+        <Chuva29>0</Chuva29>
+        <Chuva30>0</Chuva30>
+        <Chuva31>2.8</Chuva31>
+        <Chuva01Status>1</Chuva01Status>
+        <Chuva02Status>1</Chuva02Status>
+        <Chuva03Status>1</Chuva03Status>
+        <Chuva04Status>1</Chuva04Status>
+        <Chuva05Status>1</Chuva05Status>
+        <Chuva06Status>1</Chuva06Status>
+        <Chuva07Status>1</Chuva07Status>
+        <Chuva08Status>1</Chuva08Status>
+        <Chuva09Status>1</Chuva09Status>
+        <Chuva10Status>1</Chuva10Status>
+        <Chuva11Status>1</Chuva11Status>
+        <Chuva12Status>1</Chuva12Status>
+        <Chuva13Status>1</Chuva13Status>
+        <Chuva14Status>1</Chuva14Status>
+        <Chuva15Status>1</Chuva15Status>
+        <Chuva16Status>1</Chuva16Status>
+        <Chuva17Status>1</Chuva17Status>
+        <Chuva18Status>1</Chuva18Status>
+        <Chuva19Status>1</Chuva19Status>
+        <Chuva20Status>1</Chuva20Status>
+        <Chuva21Status>1</Chuva21Status>
+        <Chuva22Status>1</Chuva22Status>
+        <Chuva23Status>1</Chuva23Status>
+        <Chuva24Status>1</Chuva24Status>
+        <Chuva25Status>1</Chuva25Status>
+        <Chuva26Status>1</Chuva26Status>
+        <Chuva27Status>1</Chuva27Status>
+        <Chuva28Status>1</Chuva28Status>
+        <Chuva29Status>1</Chuva29Status>
+        <Chuva30Status>1</Chuva30Status>
+        <Chuva31Status>1</Chuva31Status>
+        <DataIns />
+      </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica974" msdata:rowOrder="973">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1974-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>43.6</Maxima>
@@ -76066,7 +76066,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica975" msdata:rowOrder="974">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1974-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>43.6</Maxima>
@@ -76144,7 +76144,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica976" msdata:rowOrder="975">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1974-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>73.8</Maxima>
@@ -76222,7 +76222,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica977" msdata:rowOrder="976">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1974-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>73.8</Maxima>
@@ -76300,7 +76300,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica978" msdata:rowOrder="977">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1974-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>37</Maxima>
@@ -76378,7 +76378,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica979" msdata:rowOrder="978">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1974-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>37</Maxima>
@@ -76456,7 +76456,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica980" msdata:rowOrder="979">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1974-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>36.6</Maxima>
@@ -76534,7 +76534,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica981" msdata:rowOrder="980">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1974-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>36.6</Maxima>
@@ -85504,7 +85504,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1096" msdata:rowOrder="1095">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>32.2</Maxima>
@@ -85582,7 +85582,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1097" msdata:rowOrder="1096">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>32.2</Maxima>
@@ -85660,7 +85660,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1098" msdata:rowOrder="1097">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>61.4</Maxima>
@@ -85738,7 +85738,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1099" msdata:rowOrder="1098">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>61.4</Maxima>
@@ -85816,7 +85816,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1100" msdata:rowOrder="1099">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.8</Maxima>
@@ -85894,7 +85894,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1101" msdata:rowOrder="1100">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.8</Maxima>
@@ -85972,7 +85972,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1102" msdata:rowOrder="1101">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>14.5</Maxima>
@@ -86050,7 +86050,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1103" msdata:rowOrder="1102">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>14.5</Maxima>
@@ -86128,7 +86128,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1104" msdata:rowOrder="1103">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>3.2</Maxima>
@@ -86206,7 +86206,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1105" msdata:rowOrder="1104">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>3.2</Maxima>
@@ -86284,7 +86284,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1106" msdata:rowOrder="1105">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>23.6</Maxima>
@@ -86362,7 +86362,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1107" msdata:rowOrder="1106">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>23.6</Maxima>
@@ -86440,7 +86440,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1108" msdata:rowOrder="1107">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>40.3</Maxima>
@@ -86518,7 +86518,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1109" msdata:rowOrder="1108">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>40.3</Maxima>
@@ -86596,7 +86596,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1110" msdata:rowOrder="1109">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>73.6</Maxima>
@@ -86674,7 +86674,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1111" msdata:rowOrder="1110">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>73.6</Maxima>
@@ -86752,7 +86752,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1112" msdata:rowOrder="1111">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>27.5</Maxima>
@@ -86830,7 +86830,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1113" msdata:rowOrder="1112">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>27.5</Maxima>
@@ -86908,7 +86908,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1114" msdata:rowOrder="1113">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.8</Maxima>
@@ -86986,7 +86986,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1115" msdata:rowOrder="1114">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.8</Maxima>
@@ -87064,7 +87064,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1116" msdata:rowOrder="1115">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1969-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>37.6</Maxima>
@@ -87142,7 +87142,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1117" msdata:rowOrder="1116">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1969-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>37.6</Maxima>
@@ -87220,7 +87220,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1118" msdata:rowOrder="1117">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>57.8</Maxima>
@@ -87298,7 +87298,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1119" msdata:rowOrder="1118">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>57.8</Maxima>
@@ -87376,7 +87376,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1120" msdata:rowOrder="1119">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50.2</Maxima>
@@ -87454,7 +87454,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1121" msdata:rowOrder="1120">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50.2</Maxima>
@@ -87532,7 +87532,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1122" msdata:rowOrder="1121">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>27.3</Maxima>
@@ -87610,7 +87610,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1123" msdata:rowOrder="1122">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>27.3</Maxima>
@@ -87688,7 +87688,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1124" msdata:rowOrder="1123">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.2</Maxima>
@@ -87766,7 +87766,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1125" msdata:rowOrder="1124">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>10.2</Maxima>
@@ -87844,7 +87844,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1126" msdata:rowOrder="1125">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>22.4</Maxima>
@@ -87922,7 +87922,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1127" msdata:rowOrder="1126">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>22.4</Maxima>
@@ -88000,7 +88000,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1128" msdata:rowOrder="1127">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>2.4</Maxima>
@@ -88078,7 +88078,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1129" msdata:rowOrder="1128">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>2.4</Maxima>
@@ -88156,7 +88156,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1130" msdata:rowOrder="1129">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>20</Maxima>
@@ -88234,7 +88234,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1131" msdata:rowOrder="1130">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>20</Maxima>
@@ -88312,7 +88312,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1132" msdata:rowOrder="1131">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>43</Maxima>
@@ -88390,7 +88390,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1133" msdata:rowOrder="1132">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>43</Maxima>
@@ -88468,7 +88468,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1134" msdata:rowOrder="1133">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50.6</Maxima>
@@ -88546,7 +88546,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1135" msdata:rowOrder="1134">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>50.6</Maxima>
@@ -88624,7 +88624,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1136" msdata:rowOrder="1135">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>83.6</Maxima>
@@ -88702,7 +88702,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1137" msdata:rowOrder="1136">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>83.6</Maxima>
@@ -88780,7 +88780,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1138" msdata:rowOrder="1137">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>37</Maxima>
@@ -88858,7 +88858,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1139" msdata:rowOrder="1138">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>37</Maxima>
@@ -88936,7 +88936,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1140" msdata:rowOrder="1139">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1968-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>54.6</Maxima>
@@ -89014,7 +89014,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1141" msdata:rowOrder="1140">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1968-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>54.6</Maxima>
@@ -89092,7 +89092,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1142" msdata:rowOrder="1141">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>48.8</Maxima>
@@ -89170,7 +89170,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1143" msdata:rowOrder="1142">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>48.8</Maxima>
@@ -89248,7 +89248,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1144" msdata:rowOrder="1143">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>51.8</Maxima>
@@ -89326,7 +89326,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1145" msdata:rowOrder="1144">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>51.8</Maxima>
@@ -89404,7 +89404,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1146" msdata:rowOrder="1145">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>38.8</Maxima>
@@ -89482,7 +89482,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1147" msdata:rowOrder="1146">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>38.8</Maxima>
@@ -89560,7 +89560,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1148" msdata:rowOrder="1147">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.6</Maxima>
@@ -89638,7 +89638,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1149" msdata:rowOrder="1148">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.6</Maxima>
@@ -89716,7 +89716,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1150" msdata:rowOrder="1149">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>0.2</Maxima>
@@ -89794,7 +89794,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1151" msdata:rowOrder="1150">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>0.2</Maxima>
@@ -89872,7 +89872,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1152" msdata:rowOrder="1151">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>17.4</Maxima>
@@ -89950,7 +89950,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1153" msdata:rowOrder="1152">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>17.4</Maxima>
@@ -90028,7 +90028,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1154" msdata:rowOrder="1153">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>20.2</Maxima>
@@ -90106,7 +90106,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1155" msdata:rowOrder="1154">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>20.2</Maxima>
@@ -90184,7 +90184,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1156" msdata:rowOrder="1155">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.8</Maxima>
@@ -90262,7 +90262,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1157" msdata:rowOrder="1156">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>13.8</Maxima>
@@ -90340,7 +90340,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1158" msdata:rowOrder="1157">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>15.4</Maxima>
@@ -90418,7 +90418,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1159" msdata:rowOrder="1158">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-04-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>15.4</Maxima>
@@ -90496,7 +90496,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1160" msdata:rowOrder="1159">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.6</Maxima>
@@ -90574,7 +90574,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1161" msdata:rowOrder="1160">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-03-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>24.6</Maxima>
@@ -90652,7 +90652,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1162" msdata:rowOrder="1161">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.8</Maxima>
@@ -90730,7 +90730,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1163" msdata:rowOrder="1162">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>34.8</Maxima>
@@ -90808,7 +90808,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1164" msdata:rowOrder="1163">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1967-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>42.4</Maxima>
@@ -90886,7 +90886,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1165" msdata:rowOrder="1164">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1967-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>42.4</Maxima>
@@ -90964,7 +90964,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1166" msdata:rowOrder="1165">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1966-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>55.4</Maxima>
@@ -91042,7 +91042,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1167" msdata:rowOrder="1166">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1966-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>55.4</Maxima>
@@ -105628,7 +105628,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1354" msdata:rowOrder="1353">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1959-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>19.4</Maxima>
@@ -105706,7 +105706,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1355" msdata:rowOrder="1354">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1959-02-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>19.4</Maxima>
@@ -105784,7 +105784,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1356" msdata:rowOrder="1355">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1959-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>41</Maxima>
@@ -105862,7 +105862,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1357" msdata:rowOrder="1356">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1959-01-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>41</Maxima>
@@ -105940,7 +105940,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1358" msdata:rowOrder="1357">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1958-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>64.6</Maxima>
@@ -106018,7 +106018,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1359" msdata:rowOrder="1358">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1958-12-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>64.6</Maxima>
@@ -106096,7 +106096,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1360" msdata:rowOrder="1359">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1958-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>68.4</Maxima>
@@ -106174,7 +106174,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1361" msdata:rowOrder="1360">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1958-11-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>68.4</Maxima>
@@ -106252,7 +106252,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1362" msdata:rowOrder="1361">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1958-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>40.4</Maxima>
@@ -106330,7 +106330,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1363" msdata:rowOrder="1362">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1958-10-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>40.4</Maxima>
@@ -106408,7 +106408,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1364" msdata:rowOrder="1363">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1958-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>20.8</Maxima>
@@ -106486,7 +106486,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1365" msdata:rowOrder="1364">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1958-09-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>20.8</Maxima>
@@ -106564,7 +106564,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1366" msdata:rowOrder="1365">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1958-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>5.9</Maxima>
@@ -106642,7 +106642,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1367" msdata:rowOrder="1366">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1958-08-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>5.9</Maxima>
@@ -106720,7 +106720,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1368" msdata:rowOrder="1367">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1958-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>57</Maxima>
@@ -106798,7 +106798,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1369" msdata:rowOrder="1368">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1958-07-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>57</Maxima>
@@ -106876,7 +106876,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1370" msdata:rowOrder="1369">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1958-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>52.4</Maxima>
@@ -106954,7 +106954,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1371" msdata:rowOrder="1370">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1958-06-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>52.4</Maxima>
@@ -107032,7 +107032,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1372" msdata:rowOrder="1371">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>1</NivelConsistencia>
+        <NivelConsistencia>2</NivelConsistencia>
         <DataHora>1958-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>28</Maxima>
@@ -107110,7 +107110,7 @@
       </SerieHistorica>
       <SerieHistorica diffgr:id="SerieHistorica1373" msdata:rowOrder="1372">
         <EstacaoCodigo>2346095</EstacaoCodigo>
-        <NivelConsistencia>2</NivelConsistencia>
+        <NivelConsistencia>1</NivelConsistencia>
         <DataHora>1958-05-01 00:00:00</DataHora>
         <TipoMedicaoChuvas>1</TipoMedicaoChuvas>
         <Maxima>28</Maxima>

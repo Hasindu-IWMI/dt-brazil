@@ -1,7 +1,7 @@
 {
  "source": "SP Águas SIBH (public API)",
  "radius_km": 20.0,
- "retrieved": "2026-11-16",
+ "retrieved": "2026-11-23",
  "candidates": [
   {
    "id": "1132",
@@ -37,12 +37,12 @@
     "atibainha_dam": 3.2
    },
    "excluded": "",
-   "days_kept": 306,
-   "hours": 7390,
-   "days_incomplete": 3,
+   "days_kept": 313,
+   "hours": 7569,
+   "days_incomplete": 4,
    "days_invalid_hour": 0,
    "first_day": "2026-01-14",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": false,
    "not_used": "co-located with 13, which leads the site; this gauge fills its gaps"
   },
@@ -65,7 +65,7 @@
    "first_day": "2014-12-18",
    "last_day": "2026-01-13",
    "used": true,
-   "site_days": 978,
+   "site_days": 985,
    "site_filled_from": [
     "372"
    ]
@@ -82,14 +82,14 @@
     "atibainha_dam": 25.9
    },
    "excluded": "",
-   "days_kept": 2082,
-   "hours": 74045,
-   "days_incomplete": 1618,
+   "days_kept": 2085,
+   "hours": 74197,
+   "days_incomplete": 1623,
    "days_invalid_hour": 0,
    "first_day": "2015-03-01",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 2082,
+   "site_days": 2085,
    "site_filled_from": []
   },
   {
@@ -162,14 +162,14 @@
     "atibainha_dam": 5.4
    },
    "excluded": "",
-   "days_kept": 1593,
-   "hours": 38795,
-   "days_incomplete": 30,
+   "days_kept": 1600,
+   "hours": 38975,
+   "days_incomplete": 31,
    "days_invalid_hour": 1,
    "first_day": "2018-03-22",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 1593,
+   "site_days": 1600,
    "site_filled_from": []
   },
   {
@@ -233,14 +233,14 @@
     "atibainha_dam": 15.4
    },
    "excluded": "",
-   "days_kept": 3947,
-   "hours": 95696,
-   "days_incomplete": 53,
+   "days_kept": 3954,
+   "hours": 95876,
+   "days_incomplete": 54,
    "days_invalid_hour": 0,
    "first_day": "2015-06-14",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 3947,
+   "site_days": 3954,
    "site_filled_from": []
   },
   {
@@ -361,14 +361,14 @@
     "atibainha_dam": 10.3
    },
    "excluded": "",
-   "days_kept": 6113,
-   "hours": 147612,
-   "days_incomplete": 45,
+   "days_kept": 6120,
+   "hours": 147782,
+   "days_incomplete": 46,
    "days_invalid_hour": 1,
    "first_day": "2010-01-02",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 6130,
+   "site_days": 6137,
    "site_filled_from": [
     "33277"
    ]
@@ -409,27 +409,6 @@
    "used": false
   },
   {
-   "id": "33277",
-   "prefix": "E3-110",
-   "owner": "SP ÁGUAS",
-   "name": "Piracaia (Captação)",
-   "lat": -23.0475,
-   "lon": -46.32639,
-   "km_to_centroid": {
-    "cachoeira_dam": 17.5,
-    "atibainha_dam": 10.9
-   },
-   "excluded": "",
-   "days_kept": 1593,
-   "hours": 39243,
-   "days_incomplete": 55,
-   "days_invalid_hour": 0,
-   "first_day": "2010-01-02",
-   "last_day": "2026-11-15",
-   "used": false,
-   "not_used": "co-located with 11, which leads the site; this gauge fills its gaps"
-  },
-  {
    "id": "14981",
    "prefix": "2346450",
    "owner": "ANA",
@@ -442,6 +421,27 @@
    },
    "excluded": "owned by ANA; taken from ANA's service",
    "used": false
+  },
+  {
+   "id": "33277",
+   "prefix": "E3-110",
+   "owner": "SP ÁGUAS",
+   "name": "Piracaia (Captação)",
+   "lat": -23.0475,
+   "lon": -46.32639,
+   "km_to_centroid": {
+    "cachoeira_dam": 17.5,
+    "atibainha_dam": 10.9
+   },
+   "excluded": "",
+   "days_kept": 1600,
+   "hours": 39422,
+   "days_incomplete": 56,
+   "days_invalid_hour": 0,
+   "first_day": "2010-01-02",
+   "last_day": "2026-11-23",
+   "used": false,
+   "not_used": "co-located with 11, which leads the site; this gauge fills its gaps"
   },
   {
    "id": "35833",
@@ -469,14 +469,14 @@
     "atibainha_dam": 12.4
    },
    "excluded": "",
-   "days_kept": 2088,
-   "hours": 65629,
-   "days_incomplete": 883,
+   "days_kept": 2092,
+   "hours": 65799,
+   "days_incomplete": 887,
    "days_invalid_hour": 0,
    "first_day": "2015-01-02",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-19",
    "used": true,
-   "site_days": 2088,
+   "site_days": 2092,
    "site_filled_from": []
   },
   {
@@ -492,42 +492,6 @@
    },
    "excluded": "radar product, not a gauge",
    "used": false
-  },
-  {
-   "id": "35785",
-   "prefix": "2246197",
-   "owner": "ANA",
-   "name": "Camanducaia (Santa Terezinha)",
-   "lat": -22.86,
-   "lon": -46.16,
-   "km_to_centroid": {
-    "cachoeira_dam": 11.3,
-    "atibainha_dam": 33.5
-   },
-   "excluded": "owned by ANA; taken from ANA's service",
-   "used": false
-  },
-  {
-   "id": "33477",
-   "prefix": "IAC-Piracaia - SP",
-   "owner": "IAC",
-   "name": "Piracaia - SP",
-   "lat": -23.06038,
-   "lon": -46.35736,
-   "km_to_centroid": {
-    "cachoeira_dam": 20.9,
-    "atibainha_dam": 11.3
-   },
-   "excluded": "",
-   "days_kept": 810,
-   "hours": 20343,
-   "days_incomplete": 51,
-   "days_invalid_hour": 0,
-   "first_day": "2024-05-07",
-   "last_day": "2026-11-14",
-   "used": true,
-   "site_days": 810,
-   "site_filled_from": []
   },
   {
    "id": "367",
@@ -551,28 +515,40 @@
    "not_used": "no complete day"
   },
   {
-   "id": "15",
-   "prefix": "1001178",
-   "owner": "SABESP",
-   "name": "Nazaré Paulista (Barragem Atibainha)",
-   "lat": -23.17389,
-   "lon": -46.3927,
+   "id": "33477",
+   "prefix": "IAC-Piracaia - SP",
+   "owner": "IAC",
+   "name": "Piracaia - SP",
+   "lat": -23.06038,
+   "lon": -46.35736,
    "km_to_centroid": {
-    "cachoeira_dam": 31.9,
-    "atibainha_dam": 11.5
+    "cachoeira_dam": 20.9,
+    "atibainha_dam": 11.3
    },
    "excluded": "",
-   "days_kept": 6092,
-   "hours": 147280,
-   "days_incomplete": 55,
-   "days_invalid_hour": 4,
-   "first_day": "2010-01-02",
-   "last_day": "2026-11-15",
+   "days_kept": 814,
+   "hours": 20419,
+   "days_incomplete": 51,
+   "days_invalid_hour": 0,
+   "first_day": "2024-05-07",
+   "last_day": "2026-11-19",
    "used": true,
-   "site_days": 6126,
-   "site_filled_from": [
-    "1436"
-   ]
+   "site_days": 814,
+   "site_filled_from": []
+  },
+  {
+   "id": "35785",
+   "prefix": "2246197",
+   "owner": "ANA",
+   "name": "Camanducaia (Santa Terezinha)",
+   "lat": -22.86,
+   "lon": -46.16,
+   "km_to_centroid": {
+    "cachoeira_dam": 11.3,
+    "atibainha_dam": 33.5
+   },
+   "excluded": "owned by ANA; taken from ANA's service",
+   "used": false
   },
   {
    "id": "21",
@@ -594,6 +570,30 @@
    "last_day": null,
    "used": false,
    "not_used": "no complete day"
+  },
+  {
+   "id": "15",
+   "prefix": "1001178",
+   "owner": "SABESP",
+   "name": "Nazaré Paulista (Barragem Atibainha)",
+   "lat": -23.17389,
+   "lon": -46.3927,
+   "km_to_centroid": {
+    "cachoeira_dam": 31.9,
+    "atibainha_dam": 11.5
+   },
+   "excluded": "",
+   "days_kept": 6099,
+   "hours": 147459,
+   "days_incomplete": 56,
+   "days_invalid_hour": 4,
+   "first_day": "2010-01-02",
+   "last_day": "2026-11-23",
+   "used": true,
+   "site_days": 6133,
+   "site_filled_from": [
+    "1436"
+   ]
   },
   {
    "id": "35576",
@@ -642,12 +642,12 @@
     "atibainha_dam": 12.0
    },
    "excluded": "",
-   "days_kept": 3359,
-   "hours": 88265,
-   "days_incomplete": 389,
+   "days_kept": 3365,
+   "hours": 88443,
+   "days_incomplete": 391,
    "days_invalid_hour": 0,
    "first_day": "2015-03-01",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": false,
    "not_used": "co-located with 15, which leads the site; this gauge fills its gaps"
   },
@@ -663,12 +663,12 @@
     "atibainha_dam": 12.1
    },
    "excluded": "",
-   "days_kept": 840,
-   "hours": 21161,
+   "days_kept": 844,
+   "hours": 21237,
    "days_incomplete": 62,
    "days_invalid_hour": 0,
    "first_day": "2024-05-07",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-19",
    "used": false,
    "not_used": "co-located with 15, which leads the site; this gauge fills its gaps"
   },
@@ -684,14 +684,14 @@
     "atibainha_dam": 12.3
    },
    "excluded": "",
-   "days_kept": 777,
-   "hours": 19012,
-   "days_incomplete": 22,
+   "days_kept": 784,
+   "hours": 19192,
+   "days_incomplete": 23,
    "days_invalid_hour": 0,
    "first_day": "2018-02-08",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 777,
+   "site_days": 784,
    "site_filled_from": []
   },
   {
@@ -734,14 +734,14 @@
     "atibainha_dam": 13.6
    },
    "excluded": "",
-   "days_kept": 1643,
-   "hours": 40163,
-   "days_incomplete": 40,
+   "days_kept": 1650,
+   "hours": 40343,
+   "days_incomplete": 41,
    "days_invalid_hour": 4,
    "first_day": "2010-01-02",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 1643,
+   "site_days": 1650,
    "site_filled_from": []
   },
   {
@@ -756,12 +756,12 @@
     "atibainha_dam": 18.9
    },
    "excluded": "",
-   "days_kept": 961,
-   "hours": 23256,
-   "days_incomplete": 12,
+   "days_kept": 968,
+   "hours": 23436,
+   "days_incomplete": 13,
    "days_invalid_hour": 0,
    "first_day": "2020-11-07",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": false,
    "not_used": "co-located with 5, which leads the site; this gauge fills its gaps"
   },
@@ -805,7 +805,7 @@
    "first_day": "2010-01-02",
    "last_day": "2026-06-15",
    "used": true,
-   "site_days": 1719,
+   "site_days": 1726,
    "site_filled_from": [
     "7"
    ]
@@ -879,14 +879,14 @@
     "atibainha_dam": 15.8
    },
    "excluded": "",
-   "days_kept": 943,
-   "hours": 22885,
-   "days_incomplete": 15,
+   "days_kept": 950,
+   "hours": 23065,
+   "days_incomplete": 16,
    "days_invalid_hour": 0,
    "first_day": "2019-01-24",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 943,
+   "site_days": 950,
    "site_filled_from": []
   },
   {
@@ -901,14 +901,14 @@
     "atibainha_dam": 15.9
    },
    "excluded": "",
-   "days_kept": 501,
-   "hours": 12287,
-   "days_incomplete": 16,
+   "days_kept": 508,
+   "hours": 12467,
+   "days_incomplete": 17,
    "days_invalid_hour": 0,
    "first_day": "2025-06-17",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 501,
+   "site_days": 508,
    "site_filled_from": []
   },
   {
@@ -958,14 +958,14 @@
     "atibainha_dam": 16.5
    },
    "excluded": "",
-   "days_kept": 3200,
-   "hours": 81053,
-   "days_incomplete": 281,
+   "days_kept": 3205,
+   "hours": 81215,
+   "days_incomplete": 284,
    "days_invalid_hour": 0,
    "first_day": "2015-01-02",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-23",
    "used": true,
-   "site_days": 3200,
+   "site_days": 3205,
    "site_filled_from": []
   },
   {
@@ -980,14 +980,14 @@
     "atibainha_dam": 16.7
    },
    "excluded": "",
-   "days_kept": 872,
-   "hours": 21442,
+   "days_kept": 876,
+   "hours": 21518,
    "days_incomplete": 30,
    "days_invalid_hour": 0,
    "first_day": "2024-05-07",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-19",
    "used": true,
-   "site_days": 872,
+   "site_days": 876,
    "site_filled_from": []
   },
   {
@@ -1002,14 +1002,14 @@
     "atibainha_dam": 17.9
    },
    "excluded": "",
-   "days_kept": 380,
-   "hours": 9221,
-   "days_incomplete": 6,
+   "days_kept": 386,
+   "hours": 9377,
+   "days_incomplete": 7,
    "days_invalid_hour": 0,
    "first_day": "2025-10-22",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-22",
    "used": true,
-   "site_days": 380,
+   "site_days": 386,
    "site_filled_from": []
   },
   {
@@ -1025,8 +1025,8 @@
    },
    "excluded": "",
    "days_kept": 2875,
-   "hours": 74011,
-   "days_incomplete": 320,
+   "hours": 74091,
+   "days_incomplete": 328,
    "days_invalid_hour": 0,
    "first_day": "2015-10-23",
    "last_day": "2026-11-10",
@@ -1060,14 +1060,14 @@
     "atibainha_dam": 32.3
    },
    "excluded": "",
-   "days_kept": 752,
-   "hours": 18997,
+   "days_kept": 756,
+   "hours": 19072,
    "days_incomplete": 54,
    "days_invalid_hour": 0,
    "first_day": "2024-06-26",
-   "last_day": "2026-11-15",
+   "last_day": "2026-11-19",
    "used": true,
-   "site_days": 752,
+   "site_days": 756,
    "site_filled_from": []
   },
   {

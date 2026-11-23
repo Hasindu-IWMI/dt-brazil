@@ -1,15 +1,15 @@
 # Data quality report: upper Atibaia pilot
 
-Generated 2026-11-16 11:10 UTC by `pipeline/process.py`. Every figure is computed from the files in `data/raw`.
+Generated 2026-11-23 23:08 UTC by `pipeline/process.py`. Every figure is computed from the files in `data/raw`.
 
 ## 1. Reservoir records (ANA SAR, Cantareira module)
 
 | Reservoir | First day | Last day | Days present | Days missing in span | Missing inflow | Missing release | Volume % vs hm3 mismatch |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Jaguari-Jacareí | 1984-01-01 | 2026-11-13 | 15658 | 0 | 0 | 0 | 6084 of 15658 days differ by more than 0.5 points |
-| Cachoeira | 1984-01-01 | 2026-11-13 | 15658 | 0 | 0 | 0 | 6007 of 15658 days differ by more than 0.5 points |
-| Atibainha | 1984-01-01 | 2026-11-13 | 15658 | 0 | 0 | 0 | 9587 of 15658 days differ by more than 0.5 points |
-| Paiva Castro | 1984-01-01 | 2026-11-13 | 14196 | 1462 | 0 | 0 | 5843 of 14196 days differ by more than 0.5 points |
+| Jaguari-Jacareí | 1984-01-01 | 2026-11-23 | 15668 | 0 | 0 | 0 | 6084 of 15668 days differ by more than 0.5 points |
+| Cachoeira | 1984-01-01 | 2026-11-23 | 15668 | 0 | 0 | 0 | 6007 of 15668 days differ by more than 0.5 points |
+| Atibainha | 1984-01-01 | 2026-11-23 | 15668 | 0 | 0 | 0 | 9587 of 15668 days differ by more than 0.5 points |
+| Paiva Castro | 1984-01-01 | 2026-11-23 | 14206 | 1462 | 0 | 0 | 5843 of 14206 days differ by more than 0.5 points |
 
 Gaps longer than 30 days: Paiva Castro, 1461 days after 1999-12-31.
 
@@ -43,7 +43,7 @@ The mismatches counted in section 1 come from these capacity changes, not from b
 
 ## 2. System storage and the implied net export
 
-- Days with all four reservoirs reported: 14196 (1984-01-01 to 2026-11-13).
+- Days with all four reservoirs reported: 14206 (1984-01-01 to 2026-11-23).
 - Lowest system storage in the downloaded record: -23.3% of useful volume on 2015-02-02 (-228.7 hm3).
 - Highest: 100.5% on 2010-04-08.
 
@@ -89,7 +89,7 @@ Implied net export, 30-day running mean, against the withdrawal limit of the ban
 | 2023 | 365 | 25.0 | 20.6 to 27.7 | 0 of 365 | 33.0 |
 | 2024 | 366 | 21.9 | 19.1 to 30.5 | 0 of 366 | 33.0 |
 | 2025 | 365 | 24.7 | 18.6 to 29.4 | 11 of 365 | 31.0 |
-| 2026 | 317 | 17.8 | 15.6 to 21.7 | 5 of 317 | 27.0 |
+| 2026 | 327 | 17.8 | 15.6 to 21.7 | 5 of 327 | 27.0 |
 
 Reading this table: the implied export is a residual. It should sit near the real withdrawal to Sao Paulo only if SAR's inflow is the natural inflow and evaporation is small. A persistent value far above the band limit, or negative, signals that one of those assumptions fails or that a transfer is unaccounted for (the Paraiba do Sul link feeds Atibainha since 2018).
 

@@ -1,6 +1,6 @@
 # River gauges above the reservoirs, on their DEM catchments
 
-Generated 2026-11-16 11:10 UTC by `pipeline/upstream_catchments.py`. Observed records only; no model output is used and nothing is fitted.
+Generated 2026-11-23 23:09 UTC by `pipeline/upstream_catchments.py`. Observed records only; no model output is used and nothing is fitted.
 
 The two gauges measure the river above each lake, independently of the reservoir balance from which the operator computes daily inflow. Neither SIBH nor ANA's inventory gives a drainage area, so `pipeline/delineate.py` derives them from the Copernicus DEM (3 arc-seconds), snapping each gauge to the nearest stream draining at least 20 km2. The other snap rule (largest flow accumulation within 540 m) is shown as the area's sensitivity.
 
@@ -22,7 +22,7 @@ Rain on the gauge catchment from 10 gauges within 20 km of its centroid (audited
 | 2022 | 363 | 2323 | 501 | 0.22 | 363 | 1912 | 408 | 0.21 |
 | 2023 | 365 | 2217 | 650 | 0.29 | 365 | 1907 | 396 | 0.21 |
 | 2025 | 360 | 1125 | 359 | 0.32 | 360 | 1116 | 178 | 0.16 |
-| 2026 | 319 | 1747 | 569 | 0.33 | 317 | 1713 | 430 | 0.25 |
+| 2026 | 326 | 1837 | 589 | 0.32 | 326 | 1788 | 449 | 0.25 |
 
 ## 3E-121 Rio Atibainha above Atibainha: runoff against rain, by year
 
@@ -37,7 +37,7 @@ Rain on the gauge catchment from 24 gauges within 20 km of its centroid (audited
 | 2023 | 364 | 1698 | 687 | 0.40 | 364 | 1632 | 470 | 0.29 |
 | 2024 | 366 | 1357 | 626 | 0.46 | 366 | 1308 | 315 | 0.24 |
 | 2025 | 364 | 1137 | 554 | 0.49 | 364 | 1168 | 278 | 0.24 |
-| 2026 | 318 | 1668 | 700 | 0.42 | 316 | 1666 | 466 | 0.28 |
+| 2026 | 325 | 1710 | 716 | 0.42 | 325 | 1707 | 489 | 0.29 |
 
 ## Limits
 
