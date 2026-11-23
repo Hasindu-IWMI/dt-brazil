@@ -54,9 +54,18 @@ The card at the top left switches between two styles:
 The card also sets the vertical scale (true scale to ×4), haze and layers,
 including ESA WorldCover land cover and 3D buildings. Buildings appear when you
 zoom in to a town (closer than about 9 km); "Go to" flies to one. Hover a
-building to see where its footprint and height come from. URL options: `?style=analytical`,
+building to see where its footprint and height come from. Trees stand on the
+vegetated land-cover classes when you are within about 2–3 km of them (the
+"Trees" layer; on by default on the `high` GPU class only, since it adds about
+3 MB to load and 1–5 million triangles to draw). No crown reaches over a mapped
+OpenStreetMap river, at the river's mapped width (11 m for the Atibaia, 12 m
+nominal for the rest): the land cover classes 65–93 % of the length of the
+Atibaia, Atibainha, Cachoeira and Jaguari in the window as tree cover. The
+"Lake flow (schematic)" layer fills the three reservoirs with particles drifting
+from where water enters to the dams and tunnel intakes; it is a stated display
+rule, not a model (see the table below). URL options: `?style=analytical`,
 `?relief=2`, `?hour=16.5`, `?haze=hazy`, `?quality=high|medium|low` (mesh
-density; chosen from the GPU by default).
+density; chosen from the GPU by default), `?trees=1|0`, `?lakeflow=1|0`.
 
 ### Realistic display: what is data and what is display
 
@@ -66,14 +75,16 @@ data first, display second, and every display assumption labelled.
 | Element | Data (unchanged) | Display only |
 | --- | --- | --- |
 | Terrain | Copernicus GLO-30 heights at 30 m (a surface model: forest canopy included), EGM2008 | Vertical exaggeration; mesh drawn every 60 m (90 m on integrated GPUs) with 30 m relief shading |
-| Ground colour | Sentinel-2 L2A, median of four cloud-free dates in August 2024 (`web/public/data/imagery.json` lists the scenes) | Display stretch; colour fades to the mean image colour at the window edge |
+| Ground colour | Sentinel-2 L2A, median of four cloud-free dates in August 2024 (`web/public/data/imagery.json` lists the scenes). Near the camera, around the towns and along the mapped rivers: CBERS-4A WPM 2 m colour imagery of 25 July and 30 August 2024 (`web/tools/build_imagery_hi.mjs`; its index `imagery_hi.json` records each scene's shift and tile count) | Display stretch; colour fades to the mean image colour at the window edge. The 2 m tiles are shifted to line up with Sentinel-2, colour-matched to the base and faded into it at their edges; they are streamed around the view and fade out with distance. Close up, the ground carries a fine procedural texture (noise, strongest on vegetation, none on water): it is decoration, not imagery |
 | Land cover layer | ESA WorldCover 2021 classes | Legend colours; water pixels drawn smoother (they catch the sun) |
+| Trees | Where they stand: the WorldCover 2021 class under each 8 m cell (dense on tree cover, bushes on shrubland and wetland, a few lone trees on grassland and cropland, none on built-up land, bare ground or water; `PLANTING` in `web/src/scene/trees.js`) | Everything else: species, height (11–26 m trees, 1.4–3.4 m bushes), the spot within the cell and the form are drawn from a fixed hash, so the same trees return each time. They are [ez-tree](https://github.com/dgreenheck/ez-tree) presets (temperate oak, ash, aspen and bushes, with fuller crowns) standing in for Atlantic Forest trees. The DEM is a surface model, so on tree cover trees are sunk to half their height and only crowns show; lone trees on open land stand on the drawn ground. They do not match the individual trees on the 2 m imagery, are 2021's, and are never exaggerated vertically |
 | Lakes | OpenStreetMap outlines | Drawn at the DEM's own lake surface with sky reflection and ripples. **Not** the observed level or extent on the replay date: no bathymetry is public, and the reservoir level datum is not tied to the DEM's |
+| Lake flow | Where water enters and leaves each reservoir, from the map: where a mapped river crosses the outline (in at its first entry, out where it leaves for good), and the tunnel and transfer ends within 2 km of it (the Paraíba do Sul transfer from 2018, when the link started) | **Schematic: not modelled, not measured.** Particles drift along a steady flow computed by a stated rule (`web/src/scene/lakefield.js`, potential flow on a 30 m grid over the outline, no flow through the shore): an equal share of water at each mapped inlet, as much again spread evenly over the lake (for the streams and slopes around it that the map data lacks, so every arm drains toward the main body), all leaving by the dams and tunnel intakes held at one level, so the outlets share it by how easily it reaches them, **not by their recorded flows**. Wind and temperature layering, which move most real lake water, are absent. The drift is a display rate, about a quarter of the river particles' and slower and fainter in the arms; real through-flow is millimetres a second |
 | Sun | Solar position for the window centre, replayed date, chosen hour (UTC−3; the daylight-saving hour before 2019 is ignored) | Twilight lighting when the sun is below the horizon |
 | Sky and haze | none | Preetham sky scaled to the scene's exposure; haze colour from the same sky model; "Clear" and "Hazy" are looks, not observations |
 | Storage | Observed % stored (ANA SAR), shown in labels, colours and columns | Column height scale |
 | Buildings | Footprints: OpenStreetMap, else Microsoft ML footprints where no OSM building overlaps. Height: OSM `height`, else `building:levels` × 3 m, else Google Open Buildings 2.5D 2023 (a model estimate: median of the 2 m pixels in the footprint), else a 4 m placeholder. Counts per source: `web/public/data/buildings.json` | Roof form (hipped, gabled, shallow shed or flat with a parapet; the ridge is never above the data height), windows, doors, paint, roof material (ceramic tile, metal, fibre-cement, concrete) and weathering are procedural. Bases sit on the drawn terrain, which is a 30 m surface model. Shadows are baked on the ground from the current sun. The Analytical style colours buildings by height source instead. Buildings are today's, not the replayed date's |
-| Rain, rivers, tunnels | Audited daily rain at each gauge; daily discharge at the SIBH river gauges and tunnel outlets; the DEM catchments of the two gauges above the lakes (teal); the direction of each mapped river (OpenStreetMap draws waterways downstream) | Flat symbols of a fixed size on screen: dot area ∝ rain (capped at 80 mm), ring area ∝ discharge (capped at 55 m³/s); flow particles drift downstream across each river's width (Rio Atibaia 11 m from its OSM width tag, a nominal 12 m elsewhere, never under 7 px on screen), faster mid-channel, at a display rate that is **not a velocity**; the mapped river lines are a separate layer, off by default; **tunnel routes are schematic arcs** between the known ends (a station, or else the nearest shore of the connected reservoir) |
+| Rain, rivers, tunnels | Audited daily rain at each gauge; daily discharge at the SIBH river gauges and tunnel outlets; the DEM catchments of the two gauges above the lakes (teal); the direction of each mapped river (OpenStreetMap draws waterways downstream) | Flat symbols of a fixed size on screen: dot area ∝ rain (capped at 80 mm), ring area ∝ discharge (capped at 55 m³/s); flow particles drift downstream across each river's width (Rio Atibaia 11 m from its OSM width tag, a nominal 12 m elsewhere, never under 7 px on screen), faster mid-channel, at a display rate that is **not a velocity**, and stop at the reservoir shores (OpenStreetMap keeps a river's line along its drowned channel; the lake flow below takes over there); the mapped river lines are a separate layer, off by default; **tunnel routes are schematic arcs** between the known ends (a station, or else the nearest shore of the connected reservoir) |
 | Floods, Atibaia town | The highest hourly river level each day at SP Águas' gauge 3E-063, on its own zero, and SP Águas' official alarm levels there (attention 2.40 m, alert 2.61 m, emergency 2.80 m, overflow 3.01 m); the level 4 km downstream (ANA 62671200); the Geological Survey of Brazil's risk sectors of 2012 | A flat diamond at the gauge in the colour of the alarm level reached, pulsing from the attention level up; its label carries a level bar marked with the alarm levels. ANA's gauge 62670000, 77 m away, is the white dot. The diamond has a fixed size and is **not a flood extent**. Risk sectors are painted on the terrain by type (river flood blue, flash flood teal, landslide brown; stronger for very high risk). No modelled water |
 
 The imagery and land cover show one season and do not change with the replay
@@ -199,7 +210,9 @@ same way. Its scripts are not part of `run_all.py`.
 | Air temperature (daily, for evapotranspiration) | NASA POWER (MERRA-2) | Reanalysis | Free with attribution |
 | Terrain | Copernicus DEM GLO-30 (ESA): 3 arc-seconds for delineation, 1 arc-second (30 m) for display | Satellite surface model, EGM2008 | Free with attribution |
 | Ground imagery | Sentinel-2 L2A (ESA Copernicus) via Element 84 Earth Search; August 2024 cloud-free median | Satellite, display basemap | Free and open; "Contains modified Copernicus Sentinel data 2024" |
+| Ground imagery, 2 m | CBERS-4A WPM, multispectral fused with the 2 m panchromatic band (INPE STAC collection `CB4A-WPM-PCA-FUSED-1`, data.inpe.br); scenes of 25 July 2024 (path 203) and 30 August 2024 (path 202), both cloud-free on their previews | Satellite, display detail around the towns and rivers | Creative Commons Attribution 4.0; "CBERS-4A WPM imagery: INPE" |
 | Land cover | ESA WorldCover 10 m 2021 v200 | Satellite-derived classes | CC BY 4.0 |
+| Tree models (viewer) | ez-tree 1.1.0 by Daniel Greenheck (npm `@dgreenheck/ez-tree`), its presets, bark and leaf textures | Procedural 3D models, display only | MIT (the library). Its bark textures are credited in the package to Poly Haven (oak) and TextureCan (birch); its leaf textures carry no stated source; their own terms were not checked |
 | Lake outlines, rivers | OpenStreetMap via Overpass | Mapped | ODbL 1.0 |
 | Building footprints | OpenStreetMap via Overpass; Microsoft Global ML Building Footprints where OSM has none | Mapped; machine-detected from imagery | ODbL 1.0 |
 | Building heights | OSM `height` and `building:levels` tags; Google Open Buildings 2.5D Temporal v1, 2023 | Mapped; model estimate from Sentinel-2 | ODbL 1.0; CC BY 4.0 |
@@ -284,8 +297,11 @@ published file only if it says `accepted: true`. Untested output can be
 written with `--test` to `web/dev-data/` (git-ignored, never built) and seen
 only in the development server with `?floodtest=1`, under a red TEST RENDER
 banner. The display was checked that way on flood run 1's steady 15 m³/s
-LISFLOOD-FP test run (in-bank, not a flood: 1.02 km² wet, mostly still water
-in hollows, the over-flooding run 2 must fix). That run saved no velocities,
+LISFLOOD-FP test run, made before calibration with channel n = 0.035: at that
+n the river overtops its bank, so 1.02 km² is wet, mostly still water in
+hollows. With the calibrated n = 0.020 the same flow stays in the channel
+(`docs/model_design_flood_run2.md`). It is a display check only, not a flood
+and not the calibrated model. That run saved no velocities,
 so the check used a velocity derived from the modelled water-surface slope
 (Manning's equation); **flood run 2 must save the model's own velocities**
 (LISFLOOD-FP writes them when asked) for the particles to show modelled flow.

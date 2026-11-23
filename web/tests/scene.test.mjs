@@ -202,3 +202,160 @@ test('terrain: meshAt follows the drawn triangles (vertices exact, linear inside
   assert.ok(Math.abs(at(1.5, 1.5) - (e + (d - e) * 0.25 + (b - e) * 0.25)) < 1e-9);
   assert.equal(t.meshAt(-1, 2), null);
 });
+
+test('terrain: classAt reads the nearest land-cover pixel, rows north to south, 0 outside', async () => {
+  const { Terrain } = await import('../src/scene/terrain.js');
+  const t = Object.create(Terrain.prototype);
+  // 4 x 2 pixels over lon 0..4, lat 0..2; the top row (north) is 10 10 30 30, the bottom row 80 80 50 50
+  Object.assign(t, { bbox: { west: 0, east: 4, south: 0, north: 2 }, lcClass: { cls: Uint8Array.from([10, 10, 30, 30, 80, 80, 50, 50]), w: 4, h: 2 } });
+  assert.equal(t.classAt(0.5, 1.5), 10);
+  assert.equal(t.classAt(2.5, 1.5), 30);
+  assert.equal(t.classAt(1.5, 0.5), 80);
+  assert.equal(t.classAt(3.9, 0.1), 50);
+  assert.equal(t.classAt(-0.1, 1), 0);
+  assert.equal(t.classAt(1, 2.1), 0);
+  assert.equal(Object.assign(Object.create(Terrain.prototype), { bbox: t.bbox }).classAt(1, 1), 0); // not loaded yet
+});
+
+test('trees: planting follows the land-cover class, stays in its tile and repeats exactly', async () => {
+  const { plantTile, PLANTING, KINDS, TILE, CELL } = await import('../src/scene/trees.js');
+  const cells = (TILE / CELL) ** 2;
+  const forest = plantTile(3, -2, () => 10);
+  const again = plantTile(3, -2, () => 10);
+  assert.equal(forest.n, again.n);
+  assert.deepEqual(forest.x.slice(0, forest.n), again.x.slice(0, again.n)); // the same trees every time
+  assert.notDeepEqual(plantTile(4, -2, () => 10).x.slice(0, 10), forest.x.slice(0, 10));
+  assert.ok(Math.abs(forest.n / cells - PLANTING[10].p) < 0.06, `forest share ${forest.n / cells}`);
+  const treeKinds = new Set(Object.keys(PLANTING[10].mix));
+  for (let k = 0; k < forest.n; k++) {
+    assert.ok(forest.x[k] >= 3 * TILE && forest.x[k] < 4 * TILE && forest.z[k] >= -2 * TILE && forest.z[k] < -TILE);
+    const kd = KINDS[forest.kind[k]];
+    assert.ok(treeKinds.has(kd.key), kd.key);
+    assert.ok(forest.h[k] >= kd.height[0] && forest.h[k] <= kd.height[1]);
+    assert.equal(forest.sink[k], PLANTING[10].sink); // sunk into the canopy of the surface model
+  }
+  // no plants on water or built-up land; few and unsunk on grassland
+  assert.equal(plantTile(0, 0, () => 80).n, 0);
+  assert.equal(plantTile(0, 0, () => 50).n, 0);
+  assert.equal(plantTile(0, 0, () => 0).n, 0);
+  const grass = plantTile(0, 0, () => 30);
+  assert.ok(grass.n > 0 && grass.n < cells * 0.1, `grass ${grass.n}`);
+  assert.ok([...grass.sink.slice(0, grass.n)].every((s) => s === 0));
+  // density scales the chances
+  assert.ok(plantTile(3, -2, () => 10, { density: 0.5 }).n < forest.n * 0.6);
+});
+
+test('river mask: distance to the mapped water edge matches brute force, negative inside, Infinity beyond reach', async () => {
+  const { RiverMask } = await import('../src/scene/rivermask.js');
+  // a meandering river 11 m wide and a straight one 30 m wide, long segments crossing many grid cells
+  const meander = Array.from({ length: 40 }, (_, k) => [k * 37 - 400, Math.sin(k * 0.7) * 90 + 50]);
+  const lines = [{ pts: meander, width: 11 }, { pts: [[-500, -700], [900, 400]], width: 30 }];
+  const reach = 30;
+  const mask = new RiverMask(lines, { reach, bucket: 120 });
+  const brute = (x, z) => {
+    let best = Infinity;
+    for (const { pts, width } of lines) {
+      for (let k = 1; k < pts.length; k++) {
+        const [ax, az] = pts[k - 1], [bx, bz] = pts[k], dx = bx - ax, dz = bz - az;
+        const t = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / (dx * dx + dz * dz)));
+        best = Math.min(best, Math.hypot(x - ax - t * dx, z - az - t * dz) - width / 2);
+      }
+    }
+    return best;
+  };
+  let near = 0, inside = 0;
+  for (let k = 0; k < 20000; k++) {
+    const x = ((k * 7919) % 1600) - 600 + (k % 13) * 0.37, z = ((k * 104729) % 1400) - 800 + (k % 7) * 0.53;
+    const want = brute(x, z), got = mask.edgeDistance(x, z);
+    if (want <= reach) { near++; assert.ok(Math.abs(got - want) < 1e-9, `${x},${z}: ${got} vs ${want}`); } else assert.equal(got, Infinity);
+    if (want < 0) { inside++; assert.ok(got < 0); }
+  }
+  assert.ok(near > 500 && inside > 100, `${near} near, ${inside} inside`);
+  assert.ok(Math.abs(mask.edgeDistance(-400, 50) + 5.5) < 1e-9); // on the centreline: half the width inside
+  assert.equal(new RiverMask([]).edgeDistance(0, 0), Infinity);
+});
+
+test('trees: no crown reaches over a mapped river, and the other plants stay as they were', async () => {
+  const { plantTile, KINDS, TILE } = await import('../src/scene/trees.js');
+  const { RiverMask } = await import('../src/scene/rivermask.js');
+  // a 12 m river across tile (3, -2), corner to corner
+  const mask = new RiverMask([{ pts: [[3 * TILE, -2 * TILE], [4 * TILE, -TILE]], width: 12 }]);
+  const keepOut = (x, z) => mask.edgeDistance(x, z);
+  const crown = KINDS.map((_, k) => 0.3 + k * 0.05);
+  const all = plantTile(3, -2, () => 10);
+  const kept = plantTile(3, -2, () => 10, { keepOut, crown });
+  const clear = [];
+  for (let k = 0; k < all.n; k++) if (!(keepOut(all.x[k], all.z[k]) < crown[all.kind[k]] * all.h[k])) clear.push(k);
+  assert.ok(kept.n < all.n && kept.n === clear.length, `${kept.n} kept of ${all.n}, ${clear.length} clear`);
+  clear.forEach((k, m) => {
+    for (const f of ['x', 'z', 'h', 'rot', 'tone', 'kind']) assert.equal(kept[f][m], all[f][k], f);
+    assert.ok(keepOut(kept.x[m], kept.z[m]) >= crown[kept.kind[m]] * kept.h[m]);
+  });
+});
+
+test('lake flow: inlets and outlets from the mapped rivers and tunnel ends; meanders and far tunnels ignored', async () => {
+  const { rasterize, findEnds } = await import('../src/scene/lakefield.js');
+  const lake = [[[0, 0], [3000, 0], [3000, 600], [0, 600]]]; // 3 km by 600 m, x east, z south
+  const g = rasterize([lake]);
+  const river = { name: 'R', pts: [[-500, 300], [100, 300], [1500, 300], [2900, 300], [3500, 300]] }; // through, downstream to the east
+  const meander = { name: 'M', pts: [[1000, -300], [1000, 50], [1000, -20], [1000, 100], [1000, 300]] }; // enters, leaves, comes back and ends inside
+  const tunnels = [
+    { name: 'T near', a: { x: 1500, z: 1400 }, b: { x: -9000, z: 0 } }, // intake 800 m south of the shore; outlet far away
+    { name: 'T far', a: { x: 1500, z: 3200 }, b: null }, // 2.6 km off: not this lake's
+  ];
+  const ends = findEnds(g, [river, meander], tunnels);
+  const got = ends.map((e) => `${e.kind} ${e.name}`).sort();
+  assert.deepEqual(got, ['in M', 'in R', 'out R', 'out T near']);
+  const outR = ends.find((e) => e.kind === 'out' && e.name === 'R');
+  assert.ok(outR.x > 2800, `the river's outlet is at the east shore: ${outR.x}`);
+  const t = ends.find((e) => e.name === 'T near');
+  const tz = g.z0 + (Math.floor(t.cell / g.W) + 0.5) * g.cell;
+  assert.ok(tz > 500 && tz < 600, `the intake is snapped to the nearest shore cell: z ${tz}`);
+});
+
+test('lake flow: through a channel the water moves to the outlet, builds up downstream, drains the arms, and a cut-off pond is still', async () => {
+  const { rasterize, solveField, flowAt, cellAt } = await import('../src/scene/lakefield.js');
+  const main = [[[0, 0], [3000, 0], [3000, 300], [0, 300]]]; // channel, west to east
+  const arm = [[[1500, 300], [1650, 300], [1650, 1200], [1500, 1200]]]; // arm to the south, touching the channel
+  const pond = [[[0, 2000], [600, 2000], [600, 2600], [0, 2600]]]; // joined to nothing
+  const g = rasterize([main, arm, pond]);
+  const at = (x, z) => ({ kind: '', cell: cellAt(g, x, z), x, z });
+  const ends = [{ ...at(60, 150), kind: 'in' }, { ...at(2940, 150), kind: 'out' }];
+  const f = solveField(g, ends);
+  assert.ok(f.residual < 1e-5, `solver converged: ${f.residual}`);
+  const v = [0, 0];
+  for (const x of [600, 1200, 2000, 2600]) {
+    flowAt(g, f, x, 150, v);
+    assert.ok(v[0] > 0 && Math.abs(v[1]) < 0.2 * v[0], `east along the channel at x=${x}: ${v}`);
+  }
+  const speed = (x) => Math.hypot(...flowAt(g, f, x, 150, [0, 0]));
+  assert.ok(speed(2600) > speed(600), 'the flow builds up downstream (the lake adds water as it goes)');
+  flowAt(g, f, 1575, 800, v);
+  assert.ok(v[1] < 0 && Math.abs(v[0]) < Math.abs(v[1]), `the arm drains north into the channel: ${v}`);
+  flowAt(g, f, 1575, 1170, v);
+  const tip = Math.hypot(...v);
+  flowAt(g, f, 1575, 450, v);
+  assert.ok(Math.hypot(...v) > tip * 3, 'the arm is slowest at its head');
+  flowAt(g, f, 300, 2300, v);
+  assert.deepEqual([...v], [0, 0], 'a pond joined to no outlet is still');
+  assert.equal(f.stillParts, 1);
+});
+
+test('lake flow: a neck narrower than a cell stays joined; an end with a start date is used from then on', async () => {
+  const { rasterize, solveField, lakeField, variantOn, cellAt, flowAt } = await import('../src/scene/lakefield.js');
+  // two basins joined by a 10 m wide channel (a third of a cell)
+  const lake = [[[0, 0], [600, 0], [600, 290], [1400, 290], [1400, 0], [2000, 0], [2000, 600], [1400, 600], [1400, 300], [600, 300], [600, 600], [0, 600]]];
+  const g = rasterize([lake]);
+  const ends = [{ kind: 'in', cell: cellAt(g, 100, 300) }, { kind: 'out', cell: cellAt(g, 1900, 300) }];
+  const f = solveField(g, ends);
+  assert.equal(f.stillParts, 0, 'one connected lake');
+  assert.ok(Math.hypot(...flowAt(g, f, 300, 300, [0, 0])) > 0, 'the far basin drains through the neck');
+  // a transfer outlet that starts in 2018 makes a second field
+  const rivers = [{ name: 'R', pts: [[-300, 150], [300, 150]] }, { name: 'D', pts: [[1700, 150], [2300, 150]] }];
+  const tunnels = [{ name: 'Link', a: null, b: { x: 1000, z: 900 }, since: '2018' }];
+  const L = lakeField([lake], rivers, tunnels);
+  assert.deepEqual(L.variants.map((v) => v.since), [null, '2018']);
+  assert.equal(variantOn(L.variants, '2017-12-31').since, null);
+  assert.equal(variantOn(L.variants, '2018-03-01').since, '2018');
+  assert.deepEqual(L.variants[1].ends.map((e) => e.name).sort(), ['D', 'Link', 'R']);
+});

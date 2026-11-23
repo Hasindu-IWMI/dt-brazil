@@ -38,6 +38,17 @@ export const LANDCOVER = {
   90: ['Herbaceous wetland', '#0096a0'], 95: ['Mangroves', '#00cf75'], 100: ['Moss and lichen', '#fae6a0'],
 };
 
+// value noise for the fine ground texture (hash without sine, so it holds at scene coordinates of 1e5 m)
+const GNOISE = /* glsl */ `
+float gHash(vec2 p) { vec3 p3 = fract(vec3(p.xyx) * 0.1031); p3 += dot(p3, p3.yzx + 33.33); return fract((p3.x + p3.y) * p3.z); }
+float gNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(gHash(i), gHash(i + vec2(1.0, 0.0)), u.x), mix(gHash(i + vec2(0.0, 1.0)), gHash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+`;
+
 export class Terrain {
   constructor({ elev, meta, frame, stride, imagery, anisotropy }) {
     const { width: W, height: H, bbox } = meta;
@@ -156,9 +167,49 @@ export class Terrain {
     this.detail = { value: blank };
     this.detailBox = { value: new THREE.Vector4(0, 0, 1, 1) };
     this.detailOn = { value: 0 };
+    // sharper imagery near the camera (scene/imageryhi.js): an atlas of slots x slots tiles of `tile` m,
+    // tile (i, j) in slot (i mod slots, j mod slots); idx holds, per slot, the tile it holds (i + 128,
+    // j + 128) and whether it is loaded. uHiMap turns the window's uv into scene x, z.
+    const xW = frame.X(bbox.west), xE = frame.X(bbox.east), zS = frame.Z(bbox.south), zN = frame.Z(bbox.north);
+    this.hi = { atlas: { value: blank }, idx: { value: blank }, map: { value: new THREE.Vector4(xW, xE - xW, zS, zS - zN) },
+      tile: { value: 1024 }, slots: { value: 8 }, on: { value: 0 } };
+    this.hasHi = false;
+    // fine ground texture close to the camera (realistic style; display only): value noise at a few
+    // metres, strongest on vegetation, weaker on built-up land, none on mapped water
+    this.texOn = { value: 0 };
     const EDGE = /* glsl */ `
       #ifdef USE_MAP
       {
+        vec2 gXZ = vec2(uHiMap.x + vMapUv.x * uHiMap.y, uHiMap.z - vMapUv.y * uHiMap.w);
+        float gHi = 0.0;
+        vec2 hiTc = gXZ / uHiTile;
+        vec2 hiFw = fwidth(hiTc) * 512.0; // 2 m pixels per screen pixel: above ~2 the atlas (no mipmaps) would shimmer
+        float hiFade = (1.0 - smoothstep(1.6, 3.2, max(hiFw.x, hiFw.y))) * uHiOn;
+        if (hiFade > 0.0) {
+          vec2 ti = floor(hiTc);
+          vec2 slot = mod(ti, uHiSlots);
+          vec4 id = texelFetch(tHiIdx, ivec2(slot), 0);
+          if (id.b > 0.5 && abs(id.r * 255.0 - (ti.x + 128.0)) < 0.5 && abs(id.g * 255.0 - (ti.y + 128.0)) < 0.5) {
+            vec2 f = clamp(fract(hiTc), 0.5 / 512.0, 1.0 - 0.5 / 512.0);
+            vec3 c = texture2D(tHiAtlas, (slot + f) / uHiSlots).rgb;
+            c = mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(0.04045, c)); // sRGB bytes to linear
+            diffuseColor.rgb = mix(diffuseColor.rgb, c, hiFade);
+            gHi = hiFade;
+          }
+        }
+        if (uTexOn > 0.5) {
+          float near = 1.0 - smoothstep(350.0, 2600.0, length(vViewPosition));
+          if (near > 0.0) {
+            float n = gNoise(gXZ * 0.55) * 0.45 + gNoise(gXZ * 0.17) * 0.35 + gNoise(gXZ * 1.9) * 0.2;
+            float amp = 0.3;
+            #ifdef USE_ROUGHNESSMAP
+              float rg = texture2D(roughnessMap, vRoughnessMapUv).g; // land-cover roughness: water low, built-up mid
+              amp *= smoothstep(0.2, 0.5, rg) * mix(0.45, 1.0, smoothstep(0.8, 0.95, rg));
+            #endif
+            amp *= mix(1.0, 0.35, gHi); // the 2 m imagery carries its own detail
+            diffuseColor.rgb *= 1.0 + amp * near * (n - 0.5);
+          }
+        }
         vec2 e = min(vMapUv, 1.0 - vMapUv);
         float k = (1.0 - smoothstep(0.0, 0.045, min(e.x, e.y * 0.8))) * uEdgeOn;
         diffuseColor.rgb = mix(diffuseColor.rgb, uEdgeCol, k);
@@ -184,8 +235,17 @@ export class Terrain {
       shader.uniforms.tDetail = this.detail;
       shader.uniforms.uDetailBox = this.detailBox;
       shader.uniforms.uDetailOn = this.detailOn;
+      shader.uniforms.tHiAtlas = this.hi.atlas;
+      shader.uniforms.tHiIdx = this.hi.idx;
+      shader.uniforms.uHiMap = this.hi.map;
+      shader.uniforms.uHiTile = this.hi.tile;
+      shader.uniforms.uHiSlots = this.hi.slots;
+      shader.uniforms.uHiOn = this.hi.on;
+      shader.uniforms.uTexOn = this.texOn;
       shader.fragmentShader = 'uniform vec3 uEdgeCol;\nuniform float uEdgeOn;\nuniform sampler2D tOverlay;\nuniform float uOverlayOn;\n'
         + 'uniform sampler2D tDetail;\nuniform vec4 uDetailBox;\nuniform float uDetailOn;\n'
+        + 'uniform sampler2D tHiAtlas;\nuniform sampler2D tHiIdx;\nuniform vec4 uHiMap;\nuniform float uHiTile;\nuniform float uHiSlots;\nuniform float uHiOn;\nuniform float uTexOn;\n'
+        + GNOISE
         + shader.fragmentShader.replace('#include <map_fragment>', '#include <map_fragment>\n' + EDGE);
     };
     this.skirtMat = withAtmosphere(new THREE.MeshStandardMaterial({ color: 0x4a4a35, roughness: 1, side: THREE.DoubleSide }), { key: 'skirt' });
@@ -241,8 +301,26 @@ export class Terrain {
     return tex;
   }
 
-  /** Land-cover classes as colours, and a roughness map that lets mapped water catch the sun. */
-  async loadLandcover(url) {
+  /**
+   * Land-cover classes as colours, a roughness map that lets mapped water catch the sun, and the class
+   * grid itself (classAt). Loaded once; later calls get the same promise.
+   */
+  loadLandcover(url) {
+    this.landcoverLoad ??= this.readLandcover(url);
+    return this.landcoverLoad;
+  }
+
+  /** WorldCover class code at a geographic point (nearest 20 m pixel); 0 outside the window or before loading. */
+  classAt(lon, lat) {
+    const lc = this.lcClass;
+    if (!lc) return 0;
+    const { bbox } = this;
+    const q = Math.floor(((lon - bbox.west) / (bbox.east - bbox.west)) * lc.w);
+    const r = Math.floor(((bbox.north - lat) / (bbox.north - bbox.south)) * lc.h);
+    return q >= 0 && r >= 0 && q < lc.w && r < lc.h ? lc.cls[r * lc.w + q] : 0;
+  }
+
+  async readLandcover(url) {
     const img = await new Promise((resolve, reject) => {
       const i = new Image();
       i.onload = () => resolve(i);
@@ -263,9 +341,11 @@ export class Terrain {
     const col = new Uint8Array(w * h * 4);
     const rw = w >> 1, rh = h >> 1;
     const rough = new Uint8Array(rw * rh * 4);
+    const grid = new Uint8Array(w * h); // rows north to south, as in the PNG
     for (let r = 0; r < h; r++) {
       for (let q = 0; q < w; q++) {
         const cls = src[(r * w + q) * 4];
+        grid[r * w + q] = cls;
         const p = pal[cls];
         const o = ((h - 1 - r) * w + q) * 4;
         if (p) { col[o] = p.r * 255; col[o + 1] = p.g * 255; col[o + 2] = p.b * 255; }
@@ -288,6 +368,7 @@ export class Terrain {
     };
     this.landcoverTex = mk(col, w, h, true);
     this.roughTex = mk(rough, rw, rh, false);
+    this.lcClass = { cls: grid, w, h };
     this.apply();
   }
 
@@ -308,6 +389,16 @@ export class Terrain {
     this.detailOn.value = tex ? 1 : 0;
   }
 
+  /** The streamed 2 m imagery (scene/imageryhi.js): its atlas, slot index, slots per side and tile size (m). */
+  setHiImagery({ atlas, idx, slots, tile }) {
+    this.hi.atlas.value = atlas;
+    this.hi.idx.value = idx;
+    this.hi.slots.value = slots;
+    this.hi.tile.value = tile;
+    this.hasHi = true;
+    this.apply();
+  }
+
   setStyle(style) { this.style = style; this.apply(); }
   setLandcover(on) { this.showLandcover = on; this.apply(); }
 
@@ -320,6 +411,8 @@ export class Terrain {
     m.needsUpdate = true;
     this.base.visible = this.style === 'realistic';
     this.edgeOn.value = real && !this.showLandcover ? 1 : 0; // never tint the class colours
+    this.hi.on.value = real && !this.showLandcover && this.hasHi ? 1 : 0;
+    this.texOn.value = real && !this.showLandcover ? 1 : 0;
     if (real) this.skirtMat.color.copy(this.edgeCol.value); else this.skirtMat.color.set(0x22231f);
   }
 

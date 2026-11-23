@@ -62,7 +62,8 @@ export function withAtmosphere(material, extra = {}) {
   material.onBeforeCompile = (shader, renderer) => {
     Object.assign(shader.uniforms, atmo);
     shader.vertexShader = 'varying vec3 vAtmoWP;\n' + shader.vertexShader.replace('#include <project_vertex>',
-      '#include <project_vertex>\n  vAtmoWP = (modelMatrix * vec4(transformed, 1.0)).xyz;');
+      '#include <project_vertex>\n  #ifdef USE_INSTANCING\n  vAtmoWP = (modelMatrix * instanceMatrix * vec4(transformed, 1.0)).xyz;\n'
+      + '  #else\n  vAtmoWP = (modelMatrix * vec4(transformed, 1.0)).xyz;\n  #endif');
     shader.fragmentShader = ATMO_PARS + (extra.fragmentPars ?? '') + shader.fragmentShader
       .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + (extra.normal ?? ''))
       .replace('#include <tonemapping_fragment>', 'gl_FragColor.rgb = atmoFog(gl_FragColor.rgb, vAtmoWP);\n#include <tonemapping_fragment>');

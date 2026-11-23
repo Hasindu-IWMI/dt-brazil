@@ -35,6 +35,18 @@ jobs:
         run: npm --prefix web run buildings
         continue-on-error: true
         timeout-minutes: 75
+      # 2 m CBERS-4A imagery around the towns (from the building counts) and along the rivers (INPE STAC,
+      # CC BY 4.0; about 1.6 GB of range reads the first time). The downloaded image blocks are cached, so
+      # a redeploy does not read them from INPE again. The viewer runs on the Sentinel-2 base without the
+      # 2 m tiles, so a failure here does not stop the deploy.
+      - uses: actions/cache@v4
+        with:
+          path: web/.cache/cbers
+          key: cbers-2024-scenes-v1
+      - name: Build the 2 m imagery
+        run: npm --prefix web run imagery-hi
+        continue-on-error: true
+        timeout-minutes: 90
       - run: npm --prefix web run build
       - uses: actions/upload-pages-artifact@v3
         with:

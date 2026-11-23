@@ -1,0 +1,28 @@
+tiles: 1006 (518 by building density, the rest along the rivers)
+scenes CBERS4A_WPM_PCA_RGB321_20240725_203_142 (2024-07-25) 56346x57884 @2 m, overview @16.00056793979838 m; CBERS4A_WPM_PCA_RGB321_20240830_202_142 (2024-08-30) 56547x58059 @2 m, overview @16.000848896434636 m
+overview pass done; read so far 44 MB
+CBERS4A_WPM_PCA_RGB321_20240725_203_142: shift east 5.2 m, north -3.8 m (median of 15 squares, spread 3.6 m)
+CBERS4A_WPM_PCA_RGB321_20240830_202_142: shift east 2.3 m, north -4.2 m (median of 16 squares, spread 1.9 m)
+alignment done; read so far 177 MB
+50/1006 tiles, read 219 MB
+100/1006 tiles, read 258 MB
+150/1006 tiles, read 288 MB
+200/1006 tiles, read 323 MB
+250/1006 tiles, read 352 MB
+300/1006 tiles, read 384 MB
+350/1006 tiles, read 414 MB
+400/1006 tiles, read 444 MB
+450/1006 tiles, read 484 MB
+500/1006 tiles, read 516 MB
+retry 1 CBERS4A_WPM_PCA_RGB321_20240830_202_142 23,63 Request failed
+550/1006 tiles, read 563 MB
+600/1006 tiles, read 593 MB
+650/1006 tiles, read 625 MB
+700/1006 tiles, read 664 MB
+750/1006 tiles, read 701 MB
+800/1006 tiles, read 744 MB
+850/1006 tiles, read 786 MB
+900/1006 tiles, read 829 MB
+950/1006 tiles, read 870 MB
+done: 992 tiles, 94.5 MB written, 917 MB read
+exit 0

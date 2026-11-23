@@ -26,7 +26,8 @@ const hash = (x) => { const s = Math.sin(x * 12.9898 + 78.233) * 43758.5453; ret
 
 export class RiverFlow {
   constructor() {
-    this.material = new LineMaterial({ color: 0x7fb4ee, linewidth: 2.2 });
+    // drawn on the ground (a lifted line drifts off the river at an angle), pulled forward in depth instead
+    this.material = new LineMaterial({ color: 0x7fb4ee, linewidth: 2.2, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -8 });
     this.paths = [];
     this.travel = 0;
     this.t = 0;
@@ -101,7 +102,7 @@ export class RiverFlow {
           p.z += tan.x * lateral;
           if (j === 0 && skip && skip(p.x, p.z)) { kept = false; break; }
           pos[(base + j) * 3] = p.x;
-          pos[(base + j) * 3 + 1] = p.y + 3;
+          pos[(base + j) * 3 + 1] = p.y + 1;
           pos[(base + j) * 3 + 2] = p.z;
           a[base + j] = TRAIL_ALPHA[j];
         }

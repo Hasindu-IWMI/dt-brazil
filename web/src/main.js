@@ -16,8 +16,12 @@ import { realisticWaterMaterial, analyticalWaterMaterial } from './scene/water.j
 import { RecordLayers } from './scene/layers.js';
 import { FloodLayer, LEVELS, RISK_STYLE, statusOf } from './scene/floods.js';
 import { BuildingLayer } from './scene/buildings.js';
+import { TreeLayer } from './scene/trees.js';
 import { Symbols, SYMBOL_UNIFORMS, pinLabel } from './scene/symbols.js';
-import { RiverFlow } from './scene/riverflow.js';
+import { RiverFlow, RIVER_WIDTH_M, NOMINAL_WIDTH_M } from './scene/riverflow.js';
+import { RiverMask } from './scene/rivermask.js';
+import { LakeFlow } from './scene/lakeflow.js';
+import { ImageryHi } from './scene/imageryhi.js';
 import { FloodWater, SPEED_STOPS } from './scene/floodwater.js';
 import { SOURCE_COLOURS } from './scene/buildingMaterial.js';
 
@@ -50,10 +54,11 @@ const DATA = `${import.meta.env.BASE_URL}data/`;
 // a missing optional file (the basemap is not in git) gives null; some dev servers answer
 // a missing path with index.html, so a body that is not JSON also gives null
 const json = (f) => fetch(DATA + f).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-const [hiMeta, vectors, ts, catchments, imagery, layerData] = await Promise.all([
+const [hiMeta, vectors, ts, catchments, imagery, layerData, hiImageryIndex] = await Promise.all([
   json('terrain_hi.json'), json('vectors.json'), json('timeseries.json'), json('catchments.json'),
   new THREE.TextureLoader().loadAsync(DATA + 'imagery.jpg').catch(() => null),
   json('layers.json'), // rain, river and tunnel records (pipeline/viewer_layers.py); optional
+  json('imagery_hi.json'), // 2 m CBERS-4A tiles around towns and rivers (tools/build_imagery_hi.mjs); optional
 ]);
 let meta = hiMeta;
 let elev;
@@ -112,6 +117,9 @@ scene.add(markers);
 
 const terrain = new Terrain({ elev, meta, frame, stride, imagery, anisotropy: renderer.capabilities.getMaxAnisotropy() });
 world.add(terrain.group);
+// sharper ground imagery streamed around the view (realistic style; display only)
+const hiImagery = imagery && hiImageryIndex?.tiles?.length
+  ? new ImageryHi({ renderer, terrain, index: hiImageryIndex, base: DATA, slots: quality === 'high' ? 8 : 6 }) : null;
 const atmosphere = new Atmosphere(scene, renderer, lat0, lon0);
 // terrain shadows (hills shading valleys at low sun): one extra depth pass, on by default on 'high'
 renderer.shadowMap.enabled = true;
@@ -139,7 +147,7 @@ for (const r of vectors.rivers) {
   const flush = () => { if (pts.length > 1) rivers.add(riverFlow.line(pts, r.name)); pts = []; };
   for (const [lon, lat] of r.line) {
     if (!inBox(lon, lat)) { flush(); continue; }
-    pts.push(new THREE.Vector3(X(lon), surfaceAt(lon, lat) + 12, Z(lat)));
+    pts.push(new THREE.Vector3(X(lon), surfaceAt(lon, lat) + 2, Z(lat))); // on the ground: a lifted line drifts off the river at an angle
   }
   flush();
 }
@@ -167,6 +175,7 @@ const seqHi = new THREE.Color(0x154a8f);
 const noData = new THREE.Color(0x6b6a64);
 const waterMat = realisticWaterMaterial();
 const reservoirs = {};
+const lakeShapes = {}; // the same outlines, for the schematic lake flow (below)
 for (const w of vectors.waters) {
   const key = OUTLINES[w.id];
   if (!key) continue;
@@ -182,6 +191,9 @@ for (const w of vectors.waters) {
     mesh.position.y = surface + 1.5;
     world.add(mesh);
     r.meshes.push(mesh);
+    const shape = (lakeShapes[key] ??= { key, polys: [], heights: [] }); // each ring drawn as its own shape, as above
+    shape.polys.push([inside.map(([lon, lat]) => [X(lon), Z(lat)])]);
+    shape.heights.push(mesh.position.y);
     for (const [lon, lat] of inside) { r.sx += X(lon); r.sz += Z(lat); r.n++; }
     r.top = Math.max(r.top, surface);
   }
@@ -200,6 +212,26 @@ for (const [key, r] of Object.entries(reservoirs)) {
   markers.add(r.frame, r.fill, r.label);
   r.key = key;
 }
+
+// ---- schematic lake flow (scene/lakeflow.js, lakefield.js): particles across each reservoir from where
+// water enters (mapped river mouths, tunnel and transfer outlets, and evenly over the lake) to where it
+// leaves (dams, tunnel intakes), by a stated rule; not a model of lake currents. The river particles
+// stop at the shore. Computed in workers after load (about a second); ?lakeflow=0|1.
+const TUNNEL_SINCE = { 'Paraíba do Sul transfer': '2018' }; // the link started in 2018 (see the README)
+const riverPaths = [];
+for (const r of vectors.rivers) {
+  let pts = [];
+  const flush = () => { if (pts.length > 1) riverPaths.push({ name: r.name, pts }); pts = []; };
+  for (const [lon, lat] of r.line) { if (inBox(lon, lat)) pts.push([X(lon), Z(lat)]); else flush(); }
+  flush();
+}
+const tunnelEnds = (layerData?.tunnels ?? []).map((t) => ({
+  name: t.name, since: TUNNEL_SINCE[t.name] ?? null,
+  a: t.a?.lon != null ? { x: X(t.a.lon), z: Z(t.a.lat) } : null,
+  b: t.b?.lon != null ? { x: X(t.b.lon), z: Z(t.b.lat) } : null,
+}));
+const lakeFlow = new LakeFlow({ lakes: Object.values(lakeShapes), rivers: riverPaths, tunnels: tunnelEnds });
+world.add(lakeFlow.points);
 
 // ---- ANA river gauges: a white dot each (grey on a day without a record)
 const GAUGE_PX = 11;
@@ -266,6 +298,22 @@ $('bld-legend').innerHTML = '<div class="muted">Building height from</div>'
 for (const p of buildings.places) $('goto').add(new Option(p.name, `${p.lon},${p.lat}`));
 $('goto-row').hidden = !buildings.places.length;
 
+// ---- trees on the vegetated land cover (scene/trees.js, ez-tree): illustrative, streamed around the camera.
+// ez-tree (~4 MB) loads on first use; on by default only on the 'high' GPU class (?trees=1|0 overrides).
+// Every mapped river in the window (not only the five drawn) is kept clear of crowns, at its mapped width.
+const riverLines = [];
+for (const r of vectors.rivers) {
+  let pts = [];
+  const flush = () => { if (pts.length > 1) riverLines.push({ pts, width: RIVER_WIDTH_M[r.name] ?? NOMINAL_WIDTH_M }); pts = []; };
+  for (const [lon, lat] of r.line) {
+    if (inBox(lon, lat)) pts.push([X(lon), Z(lat)]); else flush();
+  }
+  flush();
+}
+const trees = new TreeLayer({ terrain, quality, landcoverUrl: DATA + 'landcover.png', rivers: new RiverMask(riverLines) });
+scene.add(trees.group);
+$('lyr-trees').checked = params.has('trees') ? params.get('trees') !== '0' : quality === 'high';
+
 let showColumns = style === 'analytical';
 let storageT = {}; // reservoir -> fraction stored (or null) for the current date
 function placeMarkers() {
@@ -299,6 +347,7 @@ function applyStyle() {
   atmosphere.setEnabled(real);
   terrain.setStyle(style);
   riverFlow.setLook(real ? 0x8fc4ec : 0x7fb4ee);
+  if (hiImagery) hiImagery.enabled = real;
   water?.setStyle(real);
   catchMat.opacity = real ? 0.6 : 0.75;
   for (const r of Object.values(reservoirs)) for (const m of r.meshes) {
@@ -322,6 +371,7 @@ function applyRelief() {
   shownExag = exag;
   world.scale.y = exag;
   buildings.setExaggeration(exag);
+  trees.setExaggeration(exag);
   placeMarkers();
   records?.place(exag);
   floods?.place(exag);
@@ -364,6 +414,9 @@ $('lyr-particles').addEventListener('change', (e) => {
   riverParticles.visible = e.target.checked;
   if (water) water.points.visible = e.target.checked;
 });
+$('lyr-lakeflow').checked = params.has('lakeflow') ? params.get('lakeflow') !== '0' : true;
+lakeFlow.points.visible = $('lyr-lakeflow').checked;
+$('lyr-lakeflow').addEventListener('change', (e) => { lakeFlow.points.visible = e.target.checked; });
 $('lyr-flood').addEventListener('change', (e) => {
   if (!floods) return;
   floods.group.visible = e.target.checked;
@@ -381,6 +434,7 @@ $('lyr-bld').addEventListener('change', (e) => {
   buildings.setEnabled(e.target.checked);
   $('bld-legend').hidden = style === 'realistic' || !e.target.checked;
 });
+$('lyr-trees').addEventListener('change', (e) => trees.setEnabled(e.target.checked));
 $('goto').addEventListener('change', (e) => {
   if (!e.target.value) return;
   const [lon, lat] = e.target.value.split(',').map(Number);
@@ -564,8 +618,10 @@ $('model-note').textContent = verdicts.length
   : 'No model results yet.';
 $('stamp').textContent = `Records to ${ts.dates.at(-1)}. Data file built ${ts.generated_utc.slice(0, 10)}. Sources: ANA SAR; ANA HidroSerieHistorica; `
   + 'SP Águas SIBH telemetry; Serviço Geológico do Brasil (CPRM) risk sectors, Atibaia, 2012; '
+  + (hiImagery ? 'CBERS-4A WPM imagery: INPE (CC BY 4.0); ' : '')
   + 'Copernicus DEM GLO-30; contains modified Copernicus Sentinel data 2024; ESA WorldCover 2021 (CC BY 4.0); © OpenStreetMap contributors; '
-  + 'Microsoft Global ML Building Footprints (ODbL); Google Open Buildings 2.5D Temporal (CC BY 4.0).';
+  + 'Microsoft Global ML Building Footprints (ODbL); Google Open Buildings 2.5D Temporal (CC BY 4.0); '
+  + 'trees drawn with ez-tree by Daniel Greenheck (MIT).';
 
 const cell = (td, v, d = 1) => {
   const s = fmt(v, d);
@@ -862,6 +918,7 @@ function show(i) {
   index = Math.max(0, Math.min(N - 1, i));
   slider.value = String(index);
   $('date').textContent = ts.dates[index];
+  lakeFlow.setDate(ts.dates[index]);
   $('hover-tip').hidden = true; // its values were for the previous date
   if (ts.dates[index] !== lastSunDay) { // the sun follows the replayed date (display only)
     lastSunDay = ts.dates[index];
@@ -982,7 +1039,8 @@ resize();
 applyRelief();
 applyStyle();
 homeView();
-if (import.meta.env.DEV) window.__viewer = { camera, controls, atmosphere, terrain, scene, renderer, buildings, flyTo, riverFlow, water }; // debugging only
+trees.setEnabled($('lyr-trees').checked);
+if (import.meta.env.DEV) window.__viewer = { camera, controls, atmosphere, terrain, scene, renderer, buildings, trees, flyTo, riverFlow, lakeFlow, water }; // debugging only
 // the land-cover roughness cue (mapped water catches the sun) loads after the first frame
 if (imagery) terrain.loadLandcover(DATA + 'landcover.png').catch(() => {});
 
@@ -1013,14 +1071,19 @@ renderer.setAnimationLoop((t) => {
   SYMBOL_UNIFORMS.uTime.value = t / 1000;
   const camDist = camera.position.distanceTo(controls.target);
   const mPerPx = (camDist * 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2))) / Math.max(1, host.clientHeight);
-  riverFlow.tick(dt, controls.target, camDist, mPerPx, water?.group.visible ? (x, z) => water.wetAtXZ(x, z) : null);
+  const wetShown = water?.group.visible; // river particles stop at the lake shore and where modelled flood water draws its own
+  riverFlow.tick(dt, controls.target, camDist, mPerPx, (x, z) => lakeFlow.covers(x, z) || (wetShown && water.wetAtXZ(x, z)));
+  lakeFlow.tick(dt, controls.target, camDist, mPerPx);
   water?.tick(dt, camDist);
+  if (hiImagery && frameNo % 4 === 0) hiImagery.update(controls.target, camDist);
   if (water && frameNo % 30 === 0) waterLegend();
   records?.tick(t / 1000);
   if (frameNo % 6 === 0) for (const sy of symbolSets) sy.occlude(hiddenByTerrain);
   buildings.update(camera, controls.target, atmosphere.sunPos.elevation);
+  camera.updateMatrixWorld();
+  trees.update(camera, t / 1000);
   renderer.render(scene, camera);
-  if (++bldFrame % 30 === 0) buildingNote();
+  if (++bldFrame % 30 === 0) { buildingNote(); treeNote(); lakeNote(); }
   labels.render(scene, camera);
   if (++frameNo % 3 === 0) declutter();
 });
@@ -1030,6 +1093,15 @@ function buildingNote() {
   if (!hasBuildings) return;
   const s = buildings.stats();
   $('bld-note').textContent = !$('lyr-bld').checked ? '' : s.shown ? (s.buildings ? `${s.buildings.toLocaleString()} drawn` : 'loading…') : 'zoom in to a town';
+}
+function lakeNote() {
+  const s = lakeFlow.stats();
+  $('lake-note').textContent = !$('lyr-lakeflow').checked ? '' : s.state === 'computing' ? 'computing…' : s.state === 'error' ? 'could not compute' : '';
+}
+function treeNote() {
+  const s = trees.stats();
+  $('tree-note').textContent = !s.enabled ? '' : s.state === 'loading' ? 'loading…' : s.state === 'error' ? 'could not load'
+    : !s.inRange ? 'zoom in to see them' : `${s.drawn.toLocaleString()} drawn`;
 }
 
 // Labels: where two overlap on screen, the lower-priority one is hidden (hover still describes it).
