@@ -1,0 +1,3 @@
+# The flood run 2 verdict is written once and checked by its SHA-256 (tests/test_pipeline.py).
+# Keep its bytes exactly as written (CRLF line ends, written on Windows): no line-ending conversion.
+data/processed/flood_run2_verdict.json -text
