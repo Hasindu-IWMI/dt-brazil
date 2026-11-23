@@ -534,6 +534,25 @@ class FloodWater(unittest.TestCase):
                 with open(os.path.join(ROOT, verdict), encoding="utf-8") as fh:
                     self.assertIs(json.load(fh).get("passed"), True, verdict)
 
+    def test_run2_verdict_has_the_designed_fields_and_was_never_edited(self):
+        path = os.path.join(ROOT, "data", "processed", "flood_run2_verdict.json")
+        if not os.path.exists(path):
+            self.skipTest("flood run 2 has no verdict yet")
+        import hashlib
+        with open(path, "rb") as f:
+            raw = f.read()
+        v = json.loads(raw.decode("utf-8"))
+        for k in ("run", "design", "passed", "gate", "test_a", "test_b", "tested_stage_cm", "decided_utc"):
+            self.assertIn(k, v)
+        self.assertIsInstance(v["passed"], bool)
+        # accepted only if the gate, test A and test B all passed (design, "Acceptance")
+        if v["passed"]:
+            self.assertTrue(v["gate"]["passed"] and v["test_a"]["passed"] and v["test_b"]["passed"])
+            self.assertEqual(len(v["tested_stage_cm"]), 2)
+        # written once: its hash is the one the scoring script recorded
+        with open(os.path.join(ROOT, "data", "processed", "flood_run2_test_b.json"), encoding="utf-8") as f:
+            self.assertEqual(json.load(f)["verdict_sha256"], hashlib.sha256(raw).hexdigest())
+
     def test_viewer_loads_untested_water_only_in_development(self):
         with open(os.path.join(ROOT, "web", "src", "main.js"), encoding="utf-8") as f:
             main = f.read()

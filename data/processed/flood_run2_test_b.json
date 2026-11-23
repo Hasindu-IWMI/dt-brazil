@@ -1,0 +1,263 @@
+{
+ "design": "docs/model_design_flood_run2.md",
+ "test": "test B (known answer), reported as information",
+ "built": "2026-11-18",
+ "rule": {
+  "deep_m": 0.5,
+  "wet_m": 0.1,
+  "median_deep_km2_max": 0.1,
+  "big_km2": 0.2,
+  "big_passes_max": 2,
+  "depth": ".wdfp at the output hour nearest the pass, nearest neighbour onto the scoring grid"
+ },
+ "scoring_mask_cells": 15893,
+ "test_b": {
+  "passed": false,
+  "passes": 13,
+  "median_deep_km2": 0.2032,
+  "median_deep_km2_max": 0.1,
+  "passes_over_0.20_km2": 7,
+  "passes_over_0.20_km2_max": 2,
+  "median_wet_over_10cm_km2": 0.5288,
+  "median_csi_vs_run1_observed": 0.0122,
+  "role": "information: the data gate failed, so test B cannot make run 2 accepted"
+ },
+ "passes": [
+  {
+   "pass": "2016-01-20T08:30",
+   "output_hour_utc": "2016-01-20T09:00Z",
+   "stage_cm_at_pass_hour": 327.3333333333333,
+   "event_days": 5.0,
+   "deep_km2_on_mask": 0.28,
+   "wet_km2_on_mask": 0.5543,
+   "max_depth_m_on_mask": 3.28,
+   "observed_run1_km2_on_mask": 0.0195,
+   "csi_wet_vs_run1_observed": 0.0122,
+   "csi_counts": {
+    "both": 69,
+    "model_only": 5474,
+    "observed_only": 126
+   },
+   "gauge_scale_m_modelled": 2.846,
+   "gauge_scale_m_observed": 3.273
+  },
+  {
+   "pass": "2016-02-25T08:30",
+   "output_hour_utc": "2016-02-25T09:00Z",
+   "stage_cm_at_pass_hour": 339.18333333333334,
+   "event_days": 4.2,
+   "deep_km2_on_mask": 0.2037,
+   "wet_km2_on_mask": 0.5288,
+   "max_depth_m_on_mask": 2.98,
+   "observed_run1_km2_on_mask": 0.0111,
+   "csi_wet_vs_run1_observed": 0.0067,
+   "csi_counts": {
+    "both": 36,
+    "model_only": 5252,
+    "observed_only": 75
+   },
+   "gauge_scale_m_modelled": 3.004,
+   "gauge_scale_m_observed": 3.392
+  },
+  {
+   "pass": "2017-01-14T08:30",
+   "output_hour_utc": "2017-01-14T09:00Z",
+   "stage_cm_at_pass_hour": 324.3333333333333,
+   "event_days": 3.2,
+   "deep_km2_on_mask": 0.0722,
+   "wet_km2_on_mask": 0.3047,
+   "max_depth_m_on_mask": 2.8,
+   "observed_run1_km2_on_mask": 0.0187,
+   "csi_wet_vs_run1_observed": 0.0157,
+   "csi_counts": {
+    "both": 50,
+    "model_only": 2997,
+    "observed_only": 137
+   },
+   "gauge_scale_m_modelled": 2.796,
+   "gauge_scale_m_observed": 3.243
+  },
+  {
+   "pass": "2017-01-26T08:30",
+   "output_hour_utc": "2017-01-26T09:00Z",
+   "stage_cm_at_pass_hour": 346.0,
+   "event_days": 9.7,
+   "deep_km2_on_mask": 0.2224,
+   "wet_km2_on_mask": 0.6642,
+   "max_depth_m_on_mask": 3.11,
+   "observed_run1_km2_on_mask": 0.0126,
+   "csi_wet_vs_run1_observed": 0.0139,
+   "csi_counts": {
+    "both": 93,
+    "model_only": 6549,
+    "observed_only": 33
+   },
+   "gauge_scale_m_modelled": 3.092,
+   "gauge_scale_m_observed": 3.46
+  },
+  {
+   "pass": "2018-02-02T08:30",
+   "output_hour_utc": "2018-02-02T09:00Z",
+   "stage_cm_at_pass_hour": 336.45,
+   "event_days": 3.0,
+   "deep_km2_on_mask": 0.1809,
+   "wet_km2_on_mask": 0.5106,
+   "max_depth_m_on_mask": 2.88,
+   "observed_run1_km2_on_mask": 0.0232,
+   "csi_wet_vs_run1_observed": 0.0218,
+   "csi_counts": {
+    "both": 114,
+    "model_only": 4992,
+    "observed_only": 118
+   },
+   "gauge_scale_m_modelled": 3.023,
+   "gauge_scale_m_observed": 3.365
+  },
+  {
+   "pass": "2018-03-04T08:30",
+   "output_hour_utc": "2018-03-04T09:00Z",
+   "stage_cm_at_pass_hour": 333.23333333333335,
+   "event_days": 1.3,
+   "deep_km2_on_mask": 0.0924,
+   "wet_km2_on_mask": 0.3997,
+   "max_depth_m_on_mask": 2.75,
+   "observed_run1_km2_on_mask": 0.0198,
+   "csi_wet_vs_run1_observed": 0.0121,
+   "csi_counts": {
+    "both": 50,
+    "model_only": 3947,
+    "observed_only": 148
+   },
+   "gauge_scale_m_modelled": 2.997,
+   "gauge_scale_m_observed": 3.332
+  },
+  {
+   "pass": "2019-03-05T08:31",
+   "output_hour_utc": "2019-03-05T09:00Z",
+   "stage_cm_at_pass_hour": 345.06666666666666,
+   "event_days": 3.6,
+   "deep_km2_on_mask": 0.2032,
+   "wet_km2_on_mask": 0.6512,
+   "max_depth_m_on_mask": 2.99,
+   "observed_run1_km2_on_mask": 0.0199,
+   "csi_wet_vs_run1_observed": 0.0193,
+   "csi_counts": {
+    "both": 127,
+    "model_only": 6385,
+    "observed_only": 72
+   },
+   "gauge_scale_m_modelled": 3.08,
+   "gauge_scale_m_observed": 3.451
+  },
+  {
+   "pass": "2020-02-28T08:31",
+   "output_hour_utc": "2020-02-28T09:00Z",
+   "stage_cm_at_pass_hour": 358.5833333333333,
+   "event_days": 3.7,
+   "deep_km2_on_mask": 0.3572,
+   "wet_km2_on_mask": 0.7449,
+   "max_depth_m_on_mask": 3.28,
+   "observed_run1_km2_on_mask": 0.0113,
+   "csi_wet_vs_run1_observed": 0.0077,
+   "csi_counts": {
+    "both": 58,
+    "model_only": 7391,
+    "observed_only": 55
+   },
+   "gauge_scale_m_modelled": 3.237,
+   "gauge_scale_m_observed": 3.586
+  },
+  {
+   "pass": "2021-01-17T08:31",
+   "output_hour_utc": "2021-01-17T09:00Z",
+   "stage_cm_at_pass_hour": 340.23333333333335,
+   "event_days": 4.4,
+   "deep_km2_on_mask": 0.2034,
+   "wet_km2_on_mask": 0.6336,
+   "max_depth_m_on_mask": 3.0,
+   "observed_run1_km2_on_mask": 0.009,
+   "csi_wet_vs_run1_observed": 0.0078,
+   "csi_counts": {
+    "both": 50,
+    "model_only": 6286,
+    "observed_only": 40
+   },
+   "gauge_scale_m_modelled": 3.023,
+   "gauge_scale_m_observed": 3.402
+  },
+  {
+   "pass": "2024-12-27T08:31",
+   "output_hour_utc": "2024-12-27T09:00Z",
+   "stage_cm_at_pass_hour": 326.1166666666666,
+   "event_days": 0.5,
+   "deep_km2_on_mask": 0.1331,
+   "wet_km2_on_mask": 0.2852,
+   "max_depth_m_on_mask": 3.15,
+   "observed_run1_km2_on_mask": 0.0176,
+   "csi_wet_vs_run1_observed": 0.0445,
+   "csi_counts": {
+    "both": 129,
+    "model_only": 2723,
+    "observed_only": 47
+   },
+   "gauge_scale_m_modelled": 2.749,
+   "gauge_scale_m_observed": 3.261
+  },
+  {
+   "pass": "2026-02-02T08:30",
+   "output_hour_utc": "2026-02-02T09:00Z",
+   "stage_cm_at_pass_hour": 324.84999999999997,
+   "event_days": 3.2,
+   "deep_km2_on_mask": 0.0924,
+   "wet_km2_on_mask": 0.3026,
+   "max_depth_m_on_mask": 2.76,
+   "observed_run1_km2_on_mask": 0.0217,
+   "csi_wet_vs_run1_observed": 0.0106,
+   "csi_counts": {
+    "both": 34,
+    "model_only": 2992,
+    "observed_only": 183
+   },
+   "gauge_scale_m_modelled": 2.708,
+   "gauge_scale_m_observed": 3.248
+  },
+  {
+   "pass": "2026-02-14T08:30",
+   "output_hour_utc": "2026-02-14T09:00Z",
+   "stage_cm_at_pass_hour": 349.5,
+   "event_days": 6.4,
+   "deep_km2_on_mask": 0.3609,
+   "wet_km2_on_mask": 0.6877,
+   "max_depth_m_on_mask": 3.43,
+   "observed_run1_km2_on_mask": 0.0262,
+   "csi_wet_vs_run1_observed": 0.0149,
+   "csi_counts": {
+    "both": 105,
+    "model_only": 6772,
+    "observed_only": 157
+   },
+   "gauge_scale_m_modelled": 3.072,
+   "gauge_scale_m_observed": 3.495
+  },
+  {
+   "pass": "2026-02-26T08:30",
+   "output_hour_utc": "2026-02-26T09:00Z",
+   "stage_cm_at_pass_hour": 324.46666666666664,
+   "event_days": 0.4,
+   "deep_km2_on_mask": 0.1432,
+   "wet_km2_on_mask": 0.2341,
+   "max_depth_m_on_mask": 2.8,
+   "observed_run1_km2_on_mask": 0.0114,
+   "csi_wet_vs_run1_observed": 0.0095,
+   "csi_counts": {
+    "both": 23,
+    "model_only": 2318,
+    "observed_only": 91
+   },
+   "gauge_scale_m_modelled": 2.7,
+   "gauge_scale_m_observed": 3.245
+  }
+ ],
+ "verdict_file": "data/processed/flood_run2_verdict.json",
+ "verdict_sha256": "e2f13a03ffbf775ddff21db43235c3a747105eb1e23e87cbbefb48bd2de6756d"
+}

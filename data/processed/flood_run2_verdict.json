@@ -1,0 +1,32 @@
+{
+ "run": "flood run 2",
+ "design": "docs/model_design_flood_run2.md",
+ "passed": false,
+ "gate": {
+  "G1_passes_at_or_over_1000_pixels": 0,
+  "G1_needed": 4,
+  "G1_passed": false,
+  "G2_spearman_stage_vs_flooded": 0.08,
+  "G2_needed": 0.5,
+  "G2_passed": false,
+  "passed": false
+ },
+ "test_a": null,
+ "test_b": {
+  "passed": false,
+  "passes": 13,
+  "median_deep_km2": 0.2032,
+  "median_deep_km2_max": 0.1,
+  "passes_over_0.20_km2": 7,
+  "passes_over_0.20_km2_max": 2,
+  "median_wet_over_10cm_km2": 0.5288,
+  "median_csi_vs_run1_observed": 0.0122
+ },
+ "tested_stage_cm": null,
+ "notes": [
+  "test_a is null: the data gate failed, so there is no extent test (design, 'Data gate').",
+  "tested_stage_cm is null: no extent was tested, so no stage range is tested.",
+  "Accepted only if the gate passes, test A passes and test B passes (design, 'Acceptance')."
+ ],
+ "decided_utc": "2026-11-18T12:04:33Z"
+}

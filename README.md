@@ -824,16 +824,57 @@ reach stayed in its channel throughout its record.
    is needed: the zone file is tiled and served with byte-range support, and
    `pipeline/fetch_anadem_window.py` reads just a window (4 MB for the flood
    reach).
-7. Floods: what would make a second flood run worth designing.
-   - **Ground heights for Atibaia town:** lidar or survey from the
-     municipality, the state cartographic institute, or CPFL's licensing
-     surveys for the Salto Grande plant. This matters more than any model
-     setting.
-   - **River cross-sections and rating histories** at 3E-063 (letter 2 in
-     `docs/data_requests.md`), and CPFL's pond levels.
-   - **A different observation.** Water levels along the reach, flooded
-     vegetation, or the evening Stripmap passes, which would need their own
-     processing.
-
-   A new run must be designed knowing that the radar showed little open
-   water at these stages, so it cannot be blind to that.
+7. Floods: **flood run 2 stopped at its data gate and is closed** (18 November
+   2026; `docs/model_design_flood_run2.md`, design and pre-run addendum;
+   `docs/flood_run2_test_b.md`, test B and the verdict; a short illustrated
+   account of runs 1 and 2 in `docs/flood_modelling_summary.pdf`).
+   - **What it was:** run 1's model with three fixes to its over-flooding
+     (an in-bank start, the floodplain floor raised to the river's ordinary
+     level, shallow hollows filled), tested blind on the evening Stripmap
+     radar passes. The model would write its own velocities, and only a
+     passed run would reach the viewer.
+   - **The pre-run checks:**
+     - **The fixes work:** the model stays in its banks at 5–15 m³/s, and
+       the stage errors are unchanged.
+     - **LISFLOOD-FP outputs:** it writes floodplain velocities only in
+       hazard mode, and its subgrid channel velocity grid is empty. Channel
+       velocity would come from the channel discharge.
+     - **The radar chain:** a new one (sarsen, `envs/flood-sar.yml`)
+       geolocates the evening scenes within 3 m of the mapped buildings.
+   - **The gate result:** at all 21 evening passes (322–377 cm), at most
+     25 pixels (0.0025 km²) of open ground read as water, against the
+     1,000 pixels needed. The flooded area does not rise with the river
+     (Spearman 0.08). By the design, run 2 is not accepted and nothing
+     modelled is shown.
+   - **The finding:** at these stages the radar, morning or evening, sees no
+     broad open water on the open valley floor. The flooding the town
+     records is either in grass, trees or streets, which C-band radar at
+     this resolution does not show as open water, or narrow and short-lived.
+   - **Test B failed** (run as information; `pipeline/flood_run2_build.py`,
+     `pipeline/flood_run2_score.py`). With the corrected model, the 13
+     morning floods put water at least 0.5 m deep on a median 0.20 km² of the
+     open ground where the radar saw almost none (at most 0.10 km² allowed),
+     and 7 floods went over 0.20 km² (at most 2 allowed). The model's level
+     at the town gauge was 0.33–0.55 m *below* the record at every pass. Most
+     of the deep water (57%) sits in closed hollows left in ANADEM's valley
+     floor, so the ground, not the model's river, is what floods it.
+   - **The verdict file** `data/processed/flood_run2_verdict.json` says
+     `"passed": false` (written once; no extent test, so no stage range is
+     tested). The viewer shows no modelled water.
+   - **Run 1's morning radar stack is offset.** Check 4 found the
+     `sentinel-1-rtc` reference used by run 1 about 43 m west of the mapped
+     buildings. Run 1's morning flood maps sit that far from its scoring
+     mask and model grid. That is unlikely to change run 1's outcome: its
+     morning passes flagged 102–360 pixels against the 1,000 needed, and a
+     43 m shift moves pixels across the mask's edges, not into being.
+   - **What would make another flood run worth doing:**
+     - **Ground heights for Atibaia town:** lidar or survey from the
+       municipality, the state cartographic institute, or CPFL's licensing
+       surveys for the Salto Grande plant. This matters more than any model
+       setting.
+     - **River cross-sections and rating histories** at 3E-063 (letter 2 in
+       `docs/data_requests.md`), and CPFL's pond levels.
+     - **A different observation of flooding:** water levels along the
+       reach, flood marks, photographs, Defesa Civil records of flooded
+       streets, or L-band radar, which sees water under vegetation. Neither
+       C-band pass (morning or evening) can test a model here.
