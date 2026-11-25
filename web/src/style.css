@@ -161,8 +161,6 @@ body.analytical .real-only { opacity: .45; pointer-events: none; }
 .water-legend { margin: 8px 0 4px; font-size: 12px; color: var(--text-secondary); }
 .water-legend .ramp { height: 8px; border-radius: 4px; margin: 3px 0 1px; }
 .water-legend .ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); }
-.test-banner { position: absolute; z-index: 4; left: 50%; bottom: 12px; transform: translateX(-50%); max-width: min(92%, 640px);
-  padding: 6px 12px; border-radius: 8px; background: #6b1d1df0; border: 1px solid #ff8a8a; color: #fff; font-size: 12px;
-  line-height: 1.35; text-align: center; pointer-events: none; }
-.test-banner b { letter-spacing: .04em; }
+.test-banner { position: absolute; z-index: 4; right: 10px; bottom: 10px; padding: 2px 7px; border-radius: 4px;
+  background: #b3261ee0; color: #fff; font-size: 11px; font-weight: 600; letter-spacing: .04em; cursor: help; }
 .test-tag { background: #b3261e; color: #fff; border-radius: 3px; padding: 0 4px; font-size: 10px; font-style: normal; }

@@ -277,10 +277,11 @@ const water = waterData?.grid && (waterData.accepted === true || floodTest) ? ne
 if (water) world.add(water.group);
 if (floodTest) {
   const b = document.createElement('div');
-  b.className = 'test-banner';
-  b.innerHTML = water
-    ? `<b>TEST RENDER</b> · ${waterData.run}${waterData.frames[0]?.label ? ' (' + waterData.frames[0].label + ')' : ''}: untested, for checking the display only; never published.<br>Velocity ${waterData.velocity.split(':')[0]}.`
-    : '<b>TEST RENDER</b> · no test file: run pipeline/flood_water_viewer.py --test first';
+  b.className = 'test-banner'; // a small corner tag; the full wording is its tooltip
+  b.textContent = water ? 'TEST RENDER · untested' : 'TEST RENDER · no test file';
+  b.title = water
+    ? `${waterData.run}${waterData.frames[0]?.label ? ' (' + waterData.frames[0].label + ')' : ''}: untested, for checking the display only; never published. Velocity ${waterData.velocity.split(':')[0]}.`
+    : 'No test file: run pipeline/flood_water_viewer.py --test first';
   host.appendChild(b);
 }
 
@@ -429,6 +430,7 @@ if (!water) {
   $('lyr-water').checked = false;
   $('lyr-water').disabled = true;
   $('lyr-water').parentElement.title = 'No flood run has passed its test yet, so no modelled water is shown';
+  $('water-note').textContent = 'no tested run yet';
 }
 $('lyr-bld').addEventListener('change', (e) => {
   buildings.setEnabled(e.target.checked);
